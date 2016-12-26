@@ -4,6 +4,8 @@ This GPS Simulator can be used for several use cases:
 * Virtual Prototype Framework to exercise fault-injection experiments.
 * Test Harness for mutation tests.
 
+![gps](https://butlerautogroup.files.wordpress.com/2014/01/gps.jpg)
+
 # TODO: Translate and rewrite the old text ... #
 
 ### Virtueller Prototyp
