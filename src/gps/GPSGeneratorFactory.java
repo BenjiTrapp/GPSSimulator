@@ -1,0 +1,144 @@
+package gps;
+
+import java.net.Socket;
+
+import gps.generator.DataGenTask;
+import gps.generator.GPSGenerator;
+
+/**
+ * This Class is used to simplify the construction of a gps.data.GPSGenerator and
+ * all its single classes that are depending on it
+ * @author Benjamin Trapp
+ *
+ */
+public class GPSGeneratorFactory
+{
+	private DataGenTask dataTask = null ;
+	private static GPSGenerator gen = null;
+	private int period = 500;
+	
+	/**
+	 * Builds a gps.data.GPSGenerator with default values
+	 * (Localhost, Port 4711) and two TimerTasks 
+	 * to generate proper RMC and GGA Sentences
+	 * @return returns true on success
+	 */
+	public boolean build()
+	{
+		createDataGenTask();
+		createGPSGenerator();
+		
+		gen.generateRMCData();
+		gen.generateGGAData();
+		
+		return true;
+	}
+	
+	/**
+	 * Builds a gps.data.GPSGenerator with a specific DataGenTask to
+	 * generate other Data despite of the "basic" Task. The
+	 * period is used to specify the generation interval of
+	 * the generated data. This generates uses Localhost and Port 4711
+	 * for communication and also creates two TimerTasks to
+	 *  generate proper RMC and GGA Sentences
+	 * @param dataTask External task that generates the Basic gps.data.GPSData
+	 * @param period interval in which the data shall be generated
+	 * @return returns true on success
+	 */
+	public boolean build(DataGenTask dataTask, int period)
+	{
+		if(dataTask == null)
+			throw new NullPointerException("Passed argument was null");
+		createGPSGenerator(dataTask,period);
+		
+		gen.generateRMCData();
+		gen.generateGGAData();
+		
+		return true;
+	}
+
+	/**
+	 * Builds a gps.data.GPSGenerator with a specific DataGenTask to
+	 * generate other Data despite of the "basic" Task. The
+	 * period is used to specify the generation interval of
+	 * the generated data. This generates uses the IP and Port
+	 * for communication that are passed through the Socket Instance, 
+	 * and this class also creates two TimerTasks to generate proper RMC 
+	 * and GGA Sentences
+	 * @param dataTask External task that generates the Basic gps.data.GPSData
+	 * @param period interval in which the data shall be generated
+	 * @param socket The socket that shall be used for communication
+	 * @return returns true on success
+	 */
+	public boolean build(DataGenTask dataTask, int period, Socket socket)
+	{
+		if(dataTask == null || socket == null)
+			throw new NullPointerException("Passed argument was null");
+		
+		createGPSGenerator(dataTask,period, socket);
+		
+		gen.generateRMCData();
+		gen.generateGGAData();
+		
+		return true;
+	}
+	
+	/**
+	 * Creates a basic DataGenTask/gets its instance if one
+	 * is already existing 
+	 * @return Instance of the DataGenTask
+	 */
+	private DataGenTask createDataGenTask()
+	{
+		if(dataTask == null)
+			dataTask = DataGenTask.getInstance();
+		
+		return dataTask;
+	}
+	
+	/**
+	 * Creates a gps.data.GPSGenerator with default components
+	 * @return instance of the gps.data.GPSGenerator
+	 */
+	private GPSGenerator createGPSGenerator()
+	{
+		if(gen == null)
+			gen = new GPSGenerator(dataTask, period);
+
+		return gen;
+	}
+	
+	/**
+	 * Creates a gps.data.GPSGenerator with the passed DataGenTask and period in
+	 * which the DataGenTask generates its output data. The created 
+	 * gps.data.GPSGenerator will use the local host and Port 4711 for communication
+	 * @param dataTask Instance of a DataGenTask to generate Data 
+	 * @param period the period in which the DataGenTask generates its Data
+	 * @return instance of the created gps.data.GPSGenerator
+	 */
+	private GPSGenerator createGPSGenerator(DataGenTask dataTask, int period)
+	{
+		if(gen == null)
+			gen = new GPSGenerator(dataTask, period);
+		
+		return gen;
+	}
+	
+	/**
+	 * Creates a gps.data.GPSGenerator with the passed DataGenTask and period in
+	 * which the DataGenTask generates its output data. The created 
+	 * gps.data.GPSGenerator will use the the passed socket (that contains IP and Port)
+	 * for the communication
+	 * @param dataTask Instance of a DataGenTask to generate Data 
+	 * @param socket The Socket that shall be used for communication
+	 * @param period the period in which the DataGenTask generates its Data
+	 * @return instance of the created gps.data.GPSGenerator
+	 */
+	private GPSGenerator createGPSGenerator(DataGenTask dataTask, int period, Socket socket)
+	{
+		if(gen == null)
+			gen = new GPSGenerator(dataTask, period, socket);
+		
+		return gen;
+	}
+}
