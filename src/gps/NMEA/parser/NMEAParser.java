@@ -22,9 +22,10 @@ import gps.NMEA.utils.ChecksumUtilities;
 public class NMEAParser
 {
 	private static final Map<String, INMEASentenceParser> sentenceParsers = new HashMap<String, INMEASentenceParser>();
+	private static final String LOG4J_PROPERTIES = "log4j.properties";
 	private static AtomicBoolean dashed = new AtomicBoolean();
 	private final static Logger logger = LoggerFactory.getLogger(NMEAParser.class);
-	private List<GPSPosition> gpsPos = new ArrayList<>();
+	private final List<GPSPosition> gpsPos = new ArrayList<>();
 	private GPSPosition lastPosition = null;
 	private GPSPosition secondLastPosition = null;
 	private GPSPosition thirdLastPosition = null;
@@ -35,7 +36,7 @@ public class NMEAParser
 	 */
 	public NMEAParser()
 	{
-		PropertyConfigurator.configure("log4j.properties");
+		PropertyConfigurator.configure(LOG4J_PROPERTIES);
 		sentenceParsers.put("GPGGA", new GPGGAParser());
 		sentenceParsers.put("GPRMC", new GPRMCParser());
 		dashed.set(false);
@@ -47,7 +48,7 @@ public class NMEAParser
 	 */
 	public NMEAParser(GPSPosition pos)
 	{
-		PropertyConfigurator.configure("log4j.properties");
+		PropertyConfigurator.configure(LOG4J_PROPERTIES);
 		sentenceParsers.put("GPGGA", new GPGGAParser(pos));
 		sentenceParsers.put("GPRMC", new GPRMCParser(pos));
 		dashed.set(false);
@@ -84,7 +85,7 @@ public class NMEAParser
 
 		newPosition = sentenceParsers.get(type).parse(tokens);
 
-		if (hasDashed(newPosition) || dashed.get() == true)
+		if (hasDashed(newPosition) || dashed.get())
 			logger.error("### Dash has been detected ###");
 
 		if (isStuck(newPosition))
