@@ -6,8 +6,6 @@ This GPS Simulator can be used for several use cases:
 
 ![gps](https://butlerautogroup.files.wordpress.com/2014/01/gps.jpg)
 
-# TODO: Translate and rewrite the old text ... #
-
 ### Virtual Prototype / vHIL
 This virtual prototype is assumed to be a software model, that emulates real hardware. This fact
 shall make it easier to move the testprocess a little bit more into the front of the already established hard- 
