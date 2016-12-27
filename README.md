@@ -22,12 +22,12 @@ hardware with mutation testing and fault-injection.
 
 How do I start the vHIL experiment?
 ----------------------------------- 
-In the Package "starter" there are three classes:
-* GPSParserStarter - Make sure to start this class first. In this class you can see later the generated NMEA sentences
+In the Package "starter" are three classes:
+* GPSParserStarter - Make sure to start this class first. In this class you can see later the generated NMEA sentences.
 * GPSGeneratorStarter - Start this class as second class. This class will shedule the data generation tasks for the 
-NMEA Sentences. Currently only RMC and GGA Sentences are supported
+NMEA Sentences. Currently only RMC and GGA Sentences are supported!
 * FIGPSGeneratorStarter - This class is used to convert the virtual Prototype into a fault-injection environment. Currently
-a dynamic switching and triggering between the pertubation modes is not supported but my be added later 
+a dynamic switching and triggering between the pertubation modes is not supported but my be added later. 
 
 
 Is there a graphical presentation of my virtual flight available?  
