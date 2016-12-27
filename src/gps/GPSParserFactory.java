@@ -18,23 +18,25 @@ import gps.NMEA.parser.TelemetrieDummy;
  * @author Benjamin Trapp
  *
  */
-public class ParserFactory
+public class GPSParserFactory
 {
+	private static final String LOG4J_PROPERTIES = "log4j.properties";
+	private final static Logger logger = LoggerFactory.getLogger(GPSParserFactory.class);
 	private NMEAParser nmeaParser;
 	private StringReader comm;
-	private final static Logger logger = LoggerFactory.getLogger(ParserFactory.class);
 	private ParserThread parserThread = null;
 	private TelemetrieDummy teleDummy;
+	private Thread runningInstance;
 	
 	/**
 	 * Default Constructor that creates a new TelemetrieDummy 
 	 * instance and configures log4j 
 	 */
-	public ParserFactory()
+	public GPSParserFactory()
 	{
-		System.out.println("Parser is up and running");
 		this.teleDummy = new TelemetrieDummy();
-		PropertyConfigurator.configure("log4j.properties");
+		PropertyConfigurator.configure(LOG4J_PROPERTIES);
+        logger.info("Parser is up and running");
 	}
 	
 	/**
@@ -43,28 +45,25 @@ public class ParserFactory
 	 * @param teleDummy Instance of the TelemetrieDummy that 
 	 * shall be used in this factory
 	 */
-	public ParserFactory(TelemetrieDummy teleDummy)
+	public GPSParserFactory(TelemetrieDummy teleDummy)
 	{
-		if(teleDummy == null)
-			throw new NullPointerException("Passed argument was null");
-		
+		assert teleDummy != null;
 		this.teleDummy = teleDummy;
-		PropertyConfigurator.configure("log4j.properties");
+		PropertyConfigurator.configure(LOG4J_PROPERTIES);
 	}
 	
 	/**
 	 * Builds a parser based on the default values
 	 * (Localhost, Port 4711) 
-	 * @return
 	 */
-	public boolean build()
+	public void build()
 	{
-		createCommunication();
-		createParser();
-		createParserThread().run();
-
-		return true;
-	} 
+        new Thread(() -> {
+            createCommunication();
+            createParser();
+            createParserThread().run();
+        }).start();
+	}
 	
 	/**
 	 * Destroys the Parser and closes all Connections
@@ -80,7 +79,7 @@ public class ParserFactory
 	 * Creates a parser 
 	 * @return Instance of the created parser
 	 */
-	public NMEAParser createParser()
+	private NMEAParser createParser()
 	{
 		if (nmeaParser == null)
 			nmeaParser = new NMEAParser();
@@ -108,7 +107,7 @@ public class ParserFactory
 	 * calling the run method! 
 	 * @return Instance of the StringReader
 	 */
-	public StringReader createCommunication()
+	private StringReader createCommunication()
 	{
 		 comm = StringReader.getInstance();
 		 return comm;
@@ -147,7 +146,7 @@ public class ParserFactory
 		/**
 		 * Stops the parser Thread in a more gracefully way than interrupting it
 		 */
-		public void stop()
+		void stop()
 		{
 			this.isRunning = false;
 		}

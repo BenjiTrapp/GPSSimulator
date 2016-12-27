@@ -15,7 +15,7 @@ import gps.NMEA.utils.ChecksumUtilities;
 
 /**
  * This Class is the main class of the gps.NMEA Parser to combine the
- * sub-parsers. Also this class is used by the ParserFactory
+ * sub-parsers. Also this class is used by the GPSParserFactory
  * 
  * @author Benjamin Trapp
  */

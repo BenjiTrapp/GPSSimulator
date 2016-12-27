@@ -1,6 +1,11 @@
 package gps.data;
 
+import java.util.Objects;
+
 import static gps.data.GPSDataEnumHolder.*;
+import static gps.data.GPSDataEnumHolder.CardinalDirections.*;
+import static gps.data.GPSDataEnumHolder.GPSFixTypes.*;
+import static gps.data.GPSDataEnumHolder.Modes.*;
 
 /**
  * This class is final because there is only one gps.data.GPSData available for the GPS Generator
@@ -15,6 +20,7 @@ import static gps.data.GPSDataEnumHolder.*;
  */
 public final class GPSData
 {
+	private static final int MAX_AVAILABLE_SATELLITES = 12;
 	private static Status status;
 	private static String latitude;
 	private static String longitude;
@@ -69,7 +75,7 @@ public final class GPSData
 	 */
 	public synchronized static void setLatitude(String latitude)
 	{
-		if (GPSData.latitude != latitude)
+		if (!Objects.equals(GPSData.latitude, latitude))
 			GPSData.latitude = latitude;
 	}
 
@@ -87,7 +93,7 @@ public final class GPSData
 	 */
 	public synchronized static void setLongitude(String longitude)
 	{
-		if (GPSData.longitude != longitude)
+		if (!Objects.equals(GPSData.longitude, longitude))
 			GPSData.longitude = longitude;
 	}
 	
@@ -105,7 +111,7 @@ public final class GPSData
 	 */
 	public static void setEW(CardinalDirections ew)
 	{
-		if (ew == CardinalDirections.NORTH || ew == CardinalDirections.SOUTH)
+		if (ew == NORTH || ew == SOUTH)
 			throw new IllegalArgumentException();
 		
 		if (GPSData.ew != ew)
@@ -126,7 +132,7 @@ public final class GPSData
 	 */
 	public static void setNS(CardinalDirections ns)
 	{
-		if (ns == CardinalDirections.EAST || ns == CardinalDirections.WEST)
+		if (ns == EAST || ns == WEST)
 			throw new IllegalArgumentException();
 		
 		if (GPSData.ns != ns)
@@ -148,7 +154,7 @@ public final class GPSData
 	 */
 	public synchronized static void setVelocity(String velocity)
 	{
-		if (GPSData.velocity != velocity)
+		if (!GPSData.velocity.equals(velocity))
 			GPSData.velocity = velocity;
 	}
 	
@@ -166,7 +172,7 @@ public final class GPSData
 	 */
 	public synchronized static void setAltitude(String altitude)
 	{
-		if (GPSData.altitude != altitude)
+		if (!GPSData.altitude.equals(altitude))
 			GPSData.altitude = altitude;
 	}
 	
@@ -204,7 +210,7 @@ public final class GPSData
 	{
 		int tmp = Integer.parseInt(satellites);
 				
-		if(tmp > 12 || tmp < 0)
+		if(tmp > MAX_AVAILABLE_SATELLITES || tmp < 0)
 			throw new IllegalArgumentException();
 		
 		if (!GPSData.satellites.equals(satellites))
@@ -244,7 +250,7 @@ public final class GPSData
 	 */
 	public synchronized static void setPDOP(String pdop)
 	{
-		if (GPSData.pdop != pdop)
+		if (!GPSData.pdop.equals(pdop))
 			GPSData.pdop = pdop;
 	}
 	
@@ -263,7 +269,7 @@ public final class GPSData
 	 */
 	public synchronized static void setHDOP(String hdop)
 	{
-		if (GPSData.hdop != hdop)
+		if (!GPSData.hdop.equals(hdop))
 			GPSData.hdop = hdop;
 	}
 	
@@ -281,7 +287,7 @@ public final class GPSData
 	 */
 	public synchronized static void setVDOP(String vdop)
 	{
-		if (GPSData.vdop != vdop)
+		if (!GPSData.vdop.equals(vdop))
 			GPSData.vdop = vdop;
 	}
 	
@@ -326,20 +332,20 @@ public final class GPSData
 	 */
 	public static void reinitialize()
 	{
-		status = Status.A;
-		latitude = "53.557085";
-		longitude = "10.023167";
-		ns = CardinalDirections.SOUTH;
-		ew = CardinalDirections.EAST;
-		velocity = "003.0";
-		altitude = "15";
-		course = 314;
-		satellites = "4";
-		quality = 8;
-		hdop = "2.0";
-		vdop = "2.4";
-		pdop = "2.8";
-		mode = Modes.SIMULATION;
-		fixType = GPSFixTypes.GPS_FIX_3D;
+		setStatus(Status.A);
+		setLatitude("53.557085");
+		setLongitude("10.023167");
+		setNS(SOUTH);
+		setEW(EAST);
+		setVelocity("003.0");
+		setAltitude("15");
+		setCourse(314);
+		setSatellites("4");
+		setQuality(8);
+		setHDOP("2.0");
+		setVDOP("2.4");
+		setPDOP("2.8");
+		setMode(SIMULATION);
+		setFixType(GPS_FIX_3D);
 	}
 }

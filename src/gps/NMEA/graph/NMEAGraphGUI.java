@@ -2,14 +2,10 @@ package gps.NMEA.graph;
 
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,16 +15,17 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.EtchedBorder;
+import javax.swing.*;
+
+import static java.awt.BorderLayout.*;
+import static java.awt.Color.*;
+import static java.awt.Image.*;
+import static java.lang.Double.*;
+import static javax.imageio.ImageIO.*;
+import static javax.swing.BorderFactory.*;
+import static javax.swing.Box.createRigidArea;
+import static javax.swing.WindowConstants.*;
+import static javax.swing.border.EtchedBorder.*;
 
 /**
  * Use this Tool to read GPGGA (gps.NMEA) Sentences from a file and draws all
@@ -37,8 +34,16 @@ import javax.swing.border.EtchedBorder;
  */
 public class NMEAGraphGUI extends JPanel
 {
-	private static final long serialVersionUID = -7633211958882583804L;
-	private JLabel statusBar;
+    private static final long serialVersionUID = -7633211958882583804L;
+	private static final String GPGGA_SENTENCE = "$GPGGA";
+	private static final String PATHNAME_NMEA_GRAPH_IMAGE = "log/NMEAGraph.png";
+    private static final String TITLE = "NMEA-GGA Sentences Graph Imaging Tool";
+    private static final String REFRESH_BUTTON_NAME = "Refresh Image";
+    private static final String OPEN_BUTTON_NAME = "Open";
+    private static final String LOG_BASE_DIR = ".\\log";
+    private static final String DELIMITER_COMMA = ",";
+    private static final String PNG_FORMAT_NAME = "png";
+    private JLabel statusBar;
 	private BufferedImage image = null;
 	private List<Double> latitudeList;
 	private List<Double> longitudeList;
@@ -52,10 +57,10 @@ public class NMEAGraphGUI extends JPanel
 	 */
 	public NMEAGraphGUI()
 	{
-		latitudeList = new ArrayList<Double>();
-		longitudeList = new ArrayList<Double>();
+		latitudeList = new ArrayList<>();
+		longitudeList = new ArrayList<>();
 		statusBar = new JLabel("Status: ");
-		statusBar.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
+		statusBar.setBorder(createEtchedBorder(RAISED));
 	}
 	
 	/**
@@ -69,8 +74,8 @@ public class NMEAGraphGUI extends JPanel
 		latitudeList.clear();
 		longitudeList.clear();
 		BufferedReader in = null;
-		String line = "";
-		double tmp = -1.0;
+		String line;
+		double tmp;
 		
 		try
 		{
@@ -80,9 +85,9 @@ public class NMEAGraphGUI extends JPanel
 			{
 				line = in.readLine();
 				
-				if (line.contains("$GPGGA"))
+				if (line.contains(GPGGA_SENTENCE))
 				{
-					String[] s = line.split(",");
+					String[] s = line.split(DELIMITER_COMMA);
 					
 					//Normalize latitude
 					tmp = parse(s[2], 2);
@@ -108,6 +113,7 @@ public class NMEAGraphGUI extends JPanel
 		{
 			try
 			{
+				assert in != null;
 				in.close();
 			} catch (IOException e)
 			{
@@ -123,9 +129,7 @@ public class NMEAGraphGUI extends JPanel
 	private void drawImage()
 	{
 		BasicStroke bs = new BasicStroke(2);
-		int x = -1;
-		int y = -1;
-		
+		int x,y;
 		int latitudeLength = latitudeList.size();
 		Graphics2D g = (Graphics2D) image.getGraphics();
 		double cosLat = Math.cos((latitudeMax + latitudeMin) * Math.PI / 360);
@@ -142,18 +146,18 @@ public class NMEAGraphGUI extends JPanel
 		g.rotate(-Math.PI / 2 + a);
 		g.translate(-image.getWidth() / 3, -image.getHeight() >> 1);
 		
-		//Draw the Points received from the GGA Sentece
+		//Draw the Points received from the GGA Sentence
 		for (int i = 0; i < latitudeLength; i++)
 		{
-			g.setColor(Color.BLUE);
+			g.setColor(BLUE);
 			
 			//Mark the Start Point green
 			if (i == 0)
-				g.setColor(Color.GREEN);
+				g.setColor(GREEN);
 			
 			//Mark the End Point red
 			if (i == latitudeLength - 1)
-				g.setColor(Color.RED);
+				g.setColor(RED);
 			
 			x = (int) ((latitudeList.get(i) - latitudeMin) * cosLat / kX) + 1;
 			y = (int) ((longitudeList.get(i) - longitudeMin) / kY) + 1;
@@ -179,13 +183,11 @@ public class NMEAGraphGUI extends JPanel
 		image = new BufferedImage(500, 500, BufferedImage.TYPE_INT_ARGB);
 		drawImage();
 		
-		File file = new File("log/gps.NMEA.NMEAGraph.png");
+		File file = new File(PATHNAME_NMEA_GRAPH_IMAGE);
 		try
 		{
-			ImageIO.write(image, "png", file);
-		} catch (IOException e)
-		{
-		}
+			write(image, PNG_FORMAT_NAME, file);
+		} catch (IOException ignored) {}
 	}
 	
 	/**
@@ -200,9 +202,9 @@ public class NMEAGraphGUI extends JPanel
 		
 		Insets insets = getInsets();
 		
-		g.drawImage(image.getScaledInstance(getWidth() - insets.right
-				- insets.left, getHeight() - insets.top - insets.bottom,
-				Image.SCALE_SMOOTH), insets.right, insets.top, null);
+		g.drawImage(image.getScaledInstance(getWidth() - insets.right - insets.left,
+										    getHeight() - insets.top - insets.bottom, SCALE_SMOOTH),
+				                            insets.right, insets.top, null);
 	}
 
 	/**
@@ -213,62 +215,52 @@ public class NMEAGraphGUI extends JPanel
 	 */
 	private double parse(String s, int length)
 	{
-		double d = Double.parseDouble(s.substring(0, length));
-		d += Double.parseDouble(s.substring(length, s.length())) / 60;
+		double d = parseDouble(s.substring(0, length));
+		d += parseDouble(s.substring(length, s.length())) / 60;
 		return d;
 	}
 	
 	/**
 	 * The main 
-	 * @param args
+	 * @param args Ignored
 	 */
 	public static void main(String[] args)
 	{
 		final NMEAGraphGUI gui = new NMEAGraphGUI();
-		gui.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		gui.setBorder(createEmptyBorder(10, 10, 10, 10));
 
-		JButton open = new JButton("�ffnen");
-		open.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				JFileChooser chooser = new JFileChooser();
-				chooser.setCurrentDirectory(new File(new File(".\\log").getAbsolutePath()));
-				
-				if (chooser.showOpenDialog(gui) == JFileChooser.APPROVE_OPTION)
-					gui.prepareImage(chooser.getSelectedFile().getAbsolutePath());
-			}
-		});
+		JButton open = new JButton(OPEN_BUTTON_NAME);
+		open.addActionListener(e -> {
+            JFileChooser chooser = new JFileChooser();
+            chooser.setCurrentDirectory(new File(new File(LOG_BASE_DIR).getAbsolutePath()));
 
-		JButton draw = new JButton("Aktualisieren");
-		draw.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				gui.repaint();
-			}
-		});
+            if (chooser.showOpenDialog(gui) == JFileChooser.APPROVE_OPTION)
+                gui.prepareImage(chooser.getSelectedFile().getAbsolutePath());
+
+            gui.repaint();
+        });
+
+		JButton draw = new JButton(REFRESH_BUTTON_NAME);
+		draw.addActionListener(e -> gui.repaint());
 		
 		//Prepare and draw the panel
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-		panel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
-		panel.add(Box.createRigidArea(new Dimension(5, 0)));
+		panel.setBorder(createEtchedBorder(RAISED));
+		panel.add(createRigidArea(new Dimension(5, 0)));
 		panel.add(open);
-		panel.add(Box.createRigidArea(new Dimension(5, 0)));
+		panel.add(createRigidArea(new Dimension(5, 0)));
 		panel.add(draw);
 		
 		//Prepare and draw the frame
 		JFrame frame = new JFrame();
-		frame.setTitle("gps.NMEA-GPGGA Graph");
+		frame.setTitle(TITLE);
 		frame.setLayout(new BorderLayout());
-		frame.add(gui, BorderLayout.CENTER);
-		frame.add(panel, BorderLayout.NORTH);
-		frame.add(gui.statusBar, BorderLayout.SOUTH);
+		frame.add(gui, CENTER);
+		frame.add(panel, NORTH);
+		frame.add(gui.statusBar, SOUTH);
 		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setSize(500, 500);
 		frame.setVisible(true);
 	}

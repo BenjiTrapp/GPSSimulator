@@ -5,7 +5,7 @@ package test;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import gps.ParserFactory;
+import gps.GPSParserFactory;
 import junit.framework.TestCase;
 
 import org.apache.log4j.PropertyConfigurator;
@@ -69,10 +69,10 @@ public class TestFactories extends TestCase
 	@Test
 	public void testParserFactory()
 	{
-		ParserFactory pf = new ParserFactory();
+		GPSParserFactory pf = new GPSParserFactory();
 		assertNotNull(pf);
 		
-		ParserFactory pf_spy = new ParserFactory(spyTeleDummy);
+		GPSParserFactory pf_spy = new GPSParserFactory(spyTeleDummy);
 		assertNotNull(pf_spy);
 		assertNotNull(pf_spy.createParserThread());
 		isSuccessful = true;
@@ -92,7 +92,7 @@ public class TestFactories extends TestCase
 		try
 		{
 			@SuppressWarnings("unused")
-			ParserFactory pfNullDummy = new ParserFactory(null);
+            GPSParserFactory pfNullDummy = new GPSParserFactory(null);
 			fail("Exception wasn't triggered");
 		} catch (NullPointerException e)
 		{

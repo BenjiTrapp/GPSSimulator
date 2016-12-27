@@ -13,7 +13,7 @@ import faultInjection.pertubation.EPertubationModes;
  * this class will end in an Exception because the ServerSocket
  * is missing! 
  */
-public class FIGPSGeneratorStarter
+public class FaultInjectionEnvironmentStarter
 {
 	/**
 	 * The Main to run a Fault-Injection experiment, specify
