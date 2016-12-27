@@ -25,8 +25,7 @@ public class FIRMCTask extends TimerTask
 	 */
 	public FIRMCTask()
 	{
-		throw new UnsupportedOperationException(
-				"This class needs an instance of a StringWriter");
+		throw new UnsupportedOperationException("This class needs an instance of a StringWriter");
 	}
 
 	/**
@@ -36,9 +35,10 @@ public class FIRMCTask extends TimerTask
 	 * @param fiWriter
 	 *            Instance of the StringWriter that shall be used
 	 */
-	public FIRMCTask(FIStringWriter fiWriterc)
+	public FIRMCTask(FIStringWriter fiWriter)
 	{
-		this.fiWriter = fiWriterc;
+		assert fiWriter != null;
+		this.fiWriter = fiWriter;
 	}
 
 	@Override

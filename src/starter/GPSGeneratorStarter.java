@@ -1,4 +1,4 @@
-package Starter;
+package starter;
 
 
 import gps.GPSGeneratorFactory;

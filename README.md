@@ -1,94 +1,45 @@
 # GPS Simulator
 This GPS Simulator can be used for several use cases:
 * Mock actual Hardware GPS Modules as virtual prototype to create even more complex hardware modules like a  FCU (Flight Control Unit) for drones.
-* Virtual Prototype Framework to exercise fault-injection experiments.
-* Test Harness for mutation tests.
+* Virtual Prototype to make some experience with vHIL (virtual Hardware In the Loop)
+* Test Harness for mutation and fault-injection experiments
 
 ![gps](https://butlerautogroup.files.wordpress.com/2014/01/gps.jpg)
 
 # TODO: Translate and rewrite the old text ... #
 
-### Virtueller Prototyp
-Nachfolgend wird zun�chst die Package Struktur erl�utert und anschlie�end 
-die Benutzung des virtuellen Prototyps sowie die Verwendung des Prototyps 
-als Fault-Injection Environment beschrieben. Ferner wird auch beschrieben 
-wie der virtuelle Flug graphisch dargestellt werden kann.
+### Virtual Prototype / vHIL
+This virtual prototype is assumed to be a software model, that emulates real hardware. This fact
+shall make it easier to move the testprocess a little bit more into the front of the already established hard- 
+and software development processes.
 
-### Package Struktur 
-Die Packages Communication, gps.data.GPSData, gps.data.GPSGenerator, gps.NMEA, gps.NMEA.NMEAParser geh�ren
-zum virtuellen Prototyp. Diese Packages Bilden die Funktionalit�ten der 
-einzelnen Komponenten getrennt voneinander ab.
+Also this virtual Prototype is meant to simulate a GPS module as a complete electromechanical system,
+known as a virtual Hardware-in-the-Loop environment (vHIL), including mechanical components, microcontroller hardware 
+and embedded software. The intention behind this is to accelerate software- and hardware development and integration
+and test for electromechanical systems and is behavior under extreme conditions or malicious defects in the soft- or 
+hardware with mutation testing and fault-injection. 
 
-F�r die Fault-Injection Environment wurde das Package test.FaultInjection
-hinzugef�gt. An dieser Stelle werden alle relevanten Klassen gekapselt.
 
-Das Package Starter enth�lt die Main-Methoden f�r die Ausf�hrung von sowohl 
-dem virtuellen Prototypen als auch der Fault-Injection Environment.
+# Q & A
 
-Im Package Factories befinden sich die Factories f�r die Erstellung des 
-virtuellen Prototyps und der Fault-Injection Environment. Hierbei k�nnen 
-die Kollaboratur Klassen und deren Konfiguration beliebig vorgenommen 
-werden. F�r einen einfachen Einstieg reicht jedoch eine Implementierung wie 
-sie beispielsweise in den Starter Klassen vorhanden ist.
- 
-Alle f�r den Mutationstest ben�tigten Tests, befinden sich im Package test. 
-Die f�r die Evaluation vorgenommenen �nderungen sind hier jedoch nicht 
-beigef�gt worden. Um alle Tests hintereinander auszuf�hren kann die Klasse 
-RunTestCampaign verwendet werden.
-
-Das Package gps.NMEA.NMEAGraph enth�lt eine GUI f�r die Visualisierung des
-virtuellen Flugs.
-
-Verwendung des virtuellen Prototyps 
+How do I start the vHIL experiment?
 ----------------------------------- 
-
-Wichtig f�r die Verwendung ist, dass der Parser VOR dem starten des 
-Generators ausgef�hrt wird. Dies ist notwendig, da sonst keine 
-Kommunikation via ByteStream m�glich ist. Im aktuellen Starter des 
-Generators wird die Art und Weise der Randomisierung vorinitialisiert 
-verwendet. Um die Konfiguration der Randomisierung beliebig anzupassen, 
-muss ein Objekt der Klasse DataGenTask der Factory �bergeben werden. In 
-dieser Klasse k�nnen alle gew�nschten Konfigurationen zur Ausf�hrung nach 
-den eigenen W�nschen enstprechend vorgenommen werden. 
+In the Package "starter" there are three classes:
+* GPSParserStarter - Make sure to start this class first. In this class you can see later the generated NMEA sentences
+* GPSGeneratorStarter - Start this class as second class. This class will shedule the data generation tasks for the 
+NMEA Sentences. Currently only RMC and GGA Sentences are supported
+* FIGPSGeneratorStarter - This class is used to convert the virtual Prototype into a fault-injection environment. Currently
+a dynamic switching and triggering between the pertubation modes is not supported but my be added later 
 
 
-
-
-Verwendung des virtuellen Prototyps als Fault-Injection Environment 
--------------------------------------------------------------------
-
-Auch hier muss beachtet werden, dass der Parser VOR dem Generator gestartet 
-wurde. Innerhalb der Factory resp. des Starters, kann aus den drei 
-Fehlertypen durch die Verwendung des entsprechenden Enums ausgew�hlt 
-werden. Je nach Enum �ndert sich das betrachtete Fehlerszenario, wobei hier 
-zu beachten ist, dass eine Vermischung der drei Enums untereinander nicht 
-gew�nscht ist und daher beim Wechseln des Szenarios, das durchzuf�hrende 
-Experiment von neuem ausgef�hrt werden muss. Ein dynamischer Wechsel 
-zwischen den Szenarien ist gegenw�rtig nicht implementiert worden. Im Zuge 
-einer Automatisierung des Fault-Injection Experiments bietet es sich an 
-eine GUI zur Planung des Experiments bereit zu stellen.
-
-
-
-
-Graphische Darstellung des virtuellen Flugs 
+Is there a graphical presentation of my virtual flight available?  
 ------------------------------------------- 
+Sure, just take a look at this class: https://github.com/BenjiTrapp/GPSSimulator/blob/master/src/gps/NMEA/graph/NMEAGraphGUI.java
 
-Die bereitgestellte GUI verf�gt �ber einen FileChooser mit dessen Hilfe die 
-zu visualisierende Log-Datei ausgew�hlt werden kann. Beim �ffnen wird 
-automatisch das Verzeichnis "log" referenziert, in dem auch die automatisch 
-generierten Dateien gespeichert werden. 
+This class is a SWING GUI that can interpret the generated NMEA Sentences that were generated. This GUI helps to proof that
+a dash in the coordinates occurred f.e. 
 
-Als Grundlage f�r die Visualisierung dient der GGA-Datensatz. Jedoch wurde 
-aufgrund der bereits bestehenden Komplexit�t auf eine Visualisierung der 
-H�he derzeitig verzichtet, da hierbei lediglich die Nachvollziehbarkeit des 
-Flugs aus einer Sicht von oben erm�glicht werden sollte. 
+For general graphical presentation of the log files Apache Chainsaw me be coming handy for you. With this tool is a graphical
+log viewer, so it's quite easy to analyze the log files.
 
-F�r eine m�gliche Weiterentwicklung, k�nnte das Tool auch zu einem "Live-
-Ticker" umfunktioniert werden. Dar�ber hinaus k�nnten die einzelnen 
-Positionspunkte farbig f�r die Repr�sentation eines bestimmten 
-H�henbereichs dargestellt werden. 
-
-
-Kleiner Fun-Fact: als Startpunkt f�r den virtuellen Flug dient der Raum 
-7.01 des E&I HAW-Geb�udes am Berliner Tor 7. 
+Link: https://logging.apache.org/chainsaw/

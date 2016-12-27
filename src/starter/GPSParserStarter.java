@@ -1,4 +1,4 @@
-package Starter;
+package starter;
 
 
 import gps.ParserFactory;
@@ -20,7 +20,6 @@ public class GPSParserStarter
 	 */
 	public static void main(String[] args)
 	{
-		ParserFactory parser = new ParserFactory();
-		parser.build();
+		new ParserFactory().build();
 	}
 }

@@ -16,6 +16,7 @@ import java.io.IOException;
 public class TelemetrieDummy
 {
 
+	private static final String TELEMETRIE_FILE_NAME = "log/Telemetrie.log";
 	private FileWriter fw;
 	private NMEAParser nmeaParser;
 	
@@ -26,7 +27,7 @@ public class TelemetrieDummy
 	{
 		try
 		{
-			this.fw = new FileWriter("log/Telemetrie.log");
+			this.fw = new FileWriter(TELEMETRIE_FILE_NAME);
 			this.nmeaParser = new NMEAParser();
 		} catch (IOException e)
 		{

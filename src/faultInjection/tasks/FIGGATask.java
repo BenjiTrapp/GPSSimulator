@@ -40,9 +40,8 @@ public class FIGGATask extends TimerTask
 	 */
 	public FIGGATask(FIStringWriter fiWriter)
 	{
-		if(fiWriter == null)
-			throw new NullPointerException("strWrtier instance is null");
-		
+		assert fiWriter != null;
+
 		this.fiWriter = fiWriter;
 	}
 
