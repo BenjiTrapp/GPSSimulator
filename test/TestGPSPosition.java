@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import gps.NMEA.parser.GPSPosition;
+import gps.NMEA.gps_position.GPSPosition;
 
 public class TestGPSPosition extends TestCase
 {

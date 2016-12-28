@@ -35,11 +35,9 @@ public class GGATask extends TimerTask
 	 *  StringWriter that shall be used
 	 * 
 	 */
-	public GGATask(StringWriter strWriter)
+	GGATask(StringWriter strWriter)
 	{
-		if(strWriter == null)
-			throw new NullPointerException("The passed StringWriter instance is null");
-		
+		assert strWriter != null;
 		this.strWriter = strWriter;
 	}
 

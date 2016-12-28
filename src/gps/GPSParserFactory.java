@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import communication.StringReader;
 import gps.NMEA.parser.NMEAParser;
-import gps.NMEA.parser.TelemetrieDummy;
+import gps.NMEA.TelemetrieDummy.TelemetrieDummy;
 
 /**
  * This Class is used to simplify the construction of a parser and 
@@ -154,35 +154,33 @@ public class GPSParserFactory
 		@Override
 		public void run()
 		{
-			while(this.isRunning)
-			{
-				try
-				{
-					String str = comm.receive();
-				
-					//Fixes the miskate when two sentences are printed in the same line
-					if(str.contains("$GPGGA") && str.contains("$GPRMC"))
-					{
-						int index = str.indexOf("*") + 3;
-						String tmp1 = str.substring(0, index);
-						String tmp2 = str.substring(index, str.length());
-						teleDummy.write2File(tmp1);
+			while(this.isRunning) {
+                try {
+                    String str = comm.receive();
+                    //Fixes the miskate when two sentences are printed in the same line
+                    if (str.contains("$GPGGA") && str.contains("$GPRMC")) {
+                        int index = str.indexOf("*") + 2;
+                        String tmp1 = str.substring(0, index);
+                        String tmp2 = str.substring(index, str.length());
+                        System.err.println(tmp1 + " ### " + tmp2);
+                        teleDummy.write2File(tmp1);
 						teleDummy.write2File(tmp2);
 						logger.info(tmp1);
 						logger.info(tmp2);
-					}else
-					{
-						teleDummy.write2File(str);
-						logger.info(str);
-					}
-				}catch(Exception e)
-				{
-					System.err.println("Something went wrong, catched Exception cause: " 
-							+ e.getCause());
-					this.isRunning = false;
-					comm.closeAllCom();
-				}
-			}
+                    } else if (str.contains("$GPGGA") || str.contains("GPRMC")) {
+                        teleDummy.write2File(str);
+                        logger.info(str);
+                    } else {
+                        throw new RuntimeException("NMEA Sentence couldn't be recognized");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    System.err.println("Something went wrong, catched Exception cause: "
+                            + e.getCause());
+                    this.isRunning = false;
+                    comm.closeAllCom();
+                }
+            }
 		}
 	}
 }

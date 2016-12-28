@@ -71,63 +71,14 @@ public abstract class AComModule
     {
         try
 		{
-			inStream.close();
+			this.inStream.close();
+			this.outStream.close();
 			outStream.close();
 		} catch (Exception e)
 		{
 			System.exit(0);
 		}
     } 
-    
-    /**
-     * Function to close (input stream) the StringReader
-     */
-    public void closeInStream()
-    {
-    	try
-		{
-			inStream.close();
-		} catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-    }
-    
-    /**
-     * Function to close (output stream) the StringWriter
-     */
-    public void closeOutStream()
-    {
-    	try
-		{
-			outStream.close();
-		} catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-    }
-    
-    /**
-     * Sets the input stream for the StringReader
-     * @param inStream Reference to the BufferedReader that shall be used
-     * as input stream
-     */
-    public void setInStream(InputStream inputStream)
-    {
-    	this.inStream = new BufferedReader(new InputStreamReader(inputStream));
-    	System.out.println("InputStream injected");
-    }
-    
-    /**
-     * Sets the output stream for the StringWriter
-     * @param outStream Reference to the outStream that shall be used
-     * as output stream
-     */
-    public void setOutStream(OutputStream outStream)
-    {
-    	this.outStream = outStream;
-    	System.out.println("OutputStream injected");
-    }
     
     /**
      * Sends a message

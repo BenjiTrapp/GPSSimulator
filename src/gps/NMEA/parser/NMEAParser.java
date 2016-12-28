@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import gps.NMEA.gps_position.GPSPosition;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,7 @@ import gps.NMEA.utils.ChecksumUtilities;
  */
 public class NMEAParser
 {
-	private static final Map<String, INMEASentenceParser> sentenceParsers = new HashMap<String, INMEASentenceParser>();
+	private static final Map<String, NMEASentenceParser> sentenceParsers = new HashMap<String, NMEASentenceParser>();
 	private static final String LOG4J_PROPERTIES = "log4j.properties";
 	private static AtomicBoolean dashed = new AtomicBoolean();
 	private final static Logger logger = LoggerFactory.getLogger(NMEAParser.class);
@@ -37,8 +38,8 @@ public class NMEAParser
 	public NMEAParser()
 	{
 		PropertyConfigurator.configure(LOG4J_PROPERTIES);
-		sentenceParsers.put("GPGGA", new GPGGAParser());
-		sentenceParsers.put("GPRMC", new GPRMCParser());
+		sentenceParsers.put("GPGGA", GPGGAParser.getInstance());
+		sentenceParsers.put("GPRMC", GPRMCParser.getInstance());
 		dashed.set(false);
 	}
 	
@@ -49,8 +50,8 @@ public class NMEAParser
 	public NMEAParser(GPSPosition pos)
 	{
 		PropertyConfigurator.configure(LOG4J_PROPERTIES);
-		sentenceParsers.put("GPGGA", new GPGGAParser(pos));
-		sentenceParsers.put("GPRMC", new GPRMCParser(pos));
+		sentenceParsers.put("GPGGA", GPGGAParser.getInstance());
+		sentenceParsers.put("GPRMC", GPRMCParser.getInstance());
 		dashed.set(false);
 	}
 	
@@ -75,7 +76,7 @@ public class NMEAParser
 
 		String nmea = line.substring(1);
 		String[] tokens = nmea.split(",");
-		String type = tokens[0];
+        String type = tokens[0];
 		
 		if (!sentenceParsers.containsKey(type))
 		{
@@ -85,8 +86,8 @@ public class NMEAParser
 
 		newPosition = sentenceParsers.get(type).parse(tokens);
 
-		if (hasDashed(newPosition) || dashed.get())
-			logger.error("### Dash has been detected ###");
+//		if (hasDashed(newPosition) || dashed.get())
+//			logger.error("### Dash has been detected ###");
 
 		if (isStuck(newPosition))
 			logger.error("### Stuck-At Bug Detected ###");

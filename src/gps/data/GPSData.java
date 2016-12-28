@@ -21,26 +21,21 @@ import static gps.data.GPSDataEnumHolder.Modes.*;
 public final class GPSData
 {
 	private static final int MAX_AVAILABLE_SATELLITES = 12;
-	private static Status status;
-	private static String latitude;
-	private static String longitude;
-	private static CardinalDirections ns;
-	private static CardinalDirections ew;
-	private static String velocity;
-	private static String altitude;
-	private static int course;
-	private static String satellites;
-	private static int quality;
-	private static GPSFixTypes fixType;
-	private static String pdop;
-	private static String hdop;
-	private static String vdop;
-	private static Modes mode;
-	
-	static
-	{
-		reinitialize();
-	}
+	private static Status status = Status.A;
+	private static String latitude = "53.557085";
+	private static String longitude = "10.023167";
+	private static CardinalDirections ns = SOUTH;
+	private static CardinalDirections ew = EAST;
+	private static String velocity = "003.0";
+	private static String altitude = "150";
+	private static int course = 314;
+	private static String satellites = "4";
+	private static int quality = 8;
+	private static GPSFixTypes fixType= GPS_FIX_3D;
+	private static String pdop = "2.8";
+	private static String hdop = "2.0";
+	private static String vdop = "2.4";
+	private static Modes mode = SIMULATION;
 	
 	/**
 	 * Set`s the Status (A=Active, V=Void)
@@ -330,7 +325,7 @@ public final class GPSData
 	/**
 	 * Function to reinitialize the GPS data  
 	 */
-	public static void reinitialize()
+	public static synchronized void reinitialize()
 	{
 		setStatus(Status.A);
 		setLatitude("53.557085");
@@ -347,5 +342,23 @@ public final class GPSData
 		setPDOP("2.8");
 		setMode(SIMULATION);
 		setFixType(GPS_FIX_3D);
+	}
+
+	public static synchronized String printCurrentData(){
+		return new StringBuilder()
+				.append("Altitude: " + getAltitude()).append("\n")
+				.append("Course: " +getCourse()).append("\n")
+				.append("EW: " + getEW()).append("\n")
+				.append("FixType: " + getFixType()).append("\n")
+				.append("Latitude: " + getLatitude()).append("\n")
+				.append("Longitude: " + getLongitude()).append("\n")
+				.append("HDOP: " + getHDOP()).append("\n")
+				.append("VDOP: " + getVDOP()).append("\n")
+				.append("PDOP: " + getPDOP()).append("\n")
+				.append("Mode: " + getMode()).append("\n")
+				.append("Satellites: " + getSatellites()).append("\n")
+				.append("Status: " + getStatus()).append("\n")
+				.append("Velocity: " + getVelocity())
+				.toString();
 	}
 }

@@ -91,8 +91,8 @@ public class StringReader extends AComModule
 		try
 		{
 			// Poll to assert that everything was delivered
-			while (!super.inStream.ready())
-				Thread.sleep(100);
+//			while (!super.inStream.ready())
+//				Thread.sleep(500);
 			
 			while ((line = inStream.readLine()) != null)
 			{

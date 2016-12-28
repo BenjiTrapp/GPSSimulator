@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
 
 import gps.GPSGeneratorFactory;
 import faultInjection.pertubation.PertubationFactory;
-import gps.NMEA.parser.TelemetrieDummy;
+import gps.NMEA.TelemetrieDummy.TelemetrieDummy;
 
 /**
  * JUnit-Test to prove the correctness of the calculation of the gps.NMEA Checksum.
@@ -83,29 +83,6 @@ public class TestFactories extends TestCase
 	{
 		GPSGeneratorFactory gf = new GPSGeneratorFactory();
 		assertNotNull(gf);
-		isSuccessful = true;
-	}
-	
-	@Test 
-	public void testParserFacException()
-	{
-		try
-		{
-			@SuppressWarnings("unused")
-            GPSParserFactory pfNullDummy = new GPSParserFactory(null);
-			fail("Exception wasn't triggered");
-		} catch (NullPointerException e)
-		{
-			assertNotNull(e);
-			assertSame(NullPointerException.class, e.getClass());
-			LOG.info("Catched the expected Exception of type:  " + e.getClass());
-		}catch(Exception e)
-		{
-			fail("Catched the wrong exception");
-			LOG.error("Catched the wrong exception of the type: " 
-					+ e.getClass());
-		}
-		
 		isSuccessful = true;
 	}
 	

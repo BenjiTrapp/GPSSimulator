@@ -1,8 +1,3 @@
-/**
- * 
- */
-package test;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 import junit.framework.TestCase;
@@ -25,7 +20,7 @@ public class TestGPSData extends TestCase
 {
 	private static AtomicInteger tid = new AtomicInteger(1);
 	private static boolean isSuccessful= false;
-	private final static Logger LOG = LoggerFactory.getLogger(TestCheckSum.class);
+	private final static Logger LOG = LoggerFactory.getLogger(TestGPSData.class);
 	
 	static
 	{
@@ -65,7 +60,7 @@ public class TestGPSData extends TestCase
 		assertEquals(CardinalDirections.SOUTH, GPSData.getNS());
 		assertEquals(CardinalDirections.EAST, GPSData.getEW());
 		assertEquals("003.0", GPSData.getVelocity());
-		assertEquals("15", GPSData.getAltitude());
+		assertEquals("150", GPSData.getAltitude());
 		assertEquals(314, GPSData.getCourse());
 		assertEquals("4", GPSData.getSatellites());
 		assertEquals(8, GPSData.getQuality());

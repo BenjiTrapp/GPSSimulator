@@ -269,7 +269,7 @@ public class DataGenTask extends TimerTask
 	private void generateRandomSatellites()
 	{
 		int tmp = rnd.nextInt(12);
-		StringBuffer s = new StringBuffer(); 
+		StringBuilder s = new StringBuilder();
 		
 		if(tmp < 10)
 			s.append("0" + tmp);

@@ -1,4 +1,4 @@
-package gps.NMEA.parser;
+package gps.NMEA.gps_position;
 
 /**
  * This Class is used to store the parsed
@@ -30,7 +30,8 @@ public class GPSPosition
 	 */
 	public void setTime(Double time)
 	{
-		this.time = time;
+		assert time != null;
+	    this.time = time;
 	}
 
 	/**
@@ -46,7 +47,8 @@ public class GPSPosition
 	 */
 	public void setLatitude(Double latitude)
 	{
-		this.latitude = latitude;
+		assert latitude != null;
+	    this.latitude = latitude;
 	}
 
 	/**
@@ -62,7 +64,8 @@ public class GPSPosition
 	 */
 	public void setLongitude(Double longitude)
 	{
-		this.longitude = longitude;
+		assert longitude != null;
+	    this.longitude = longitude;
 	}
 
 	/**
@@ -94,7 +97,8 @@ public class GPSPosition
 	 */
 	public void setQuality(Double quality)
 	{
-		this.quality = quality;
+		assert  quality != null;
+	    this.quality = quality;
 	}
 
 	/**
@@ -110,7 +114,8 @@ public class GPSPosition
 	 */
 	public void setDirection(Double direction)
 	{
-		this.direction = direction;
+		assert direction != null;
+	    this.direction = direction;
 	}
 
 	/**
@@ -126,7 +131,8 @@ public class GPSPosition
 	 */
 	public void setAltitude(Double altitude)
 	{
-		this.altitude = altitude;
+		assert altitude != null;
+	    this.altitude = altitude;
 	}
 
 	/**

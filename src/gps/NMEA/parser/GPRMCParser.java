@@ -1,49 +1,32 @@
 package gps.NMEA.parser;
 
+import gps.NMEA.gps_position.GPSPosition;
+import gps.NMEA.gps_position.GPSPositionBuilder;
+
 /**
  * This Class is used to parse RMC-Sentences for further
  * usage in the telemetrie simulation
  * @author Benjamin Trapp
  *
  */
-class GPRMCParser implements INMEASentenceParser
+class GPRMCParser implements NMEASentenceParser
 {
-	private GPSPosition pos;
-	
-	/**
-	 * Default Constructor 
-	 */
-	public GPRMCParser()
-	{
-		this.pos = new GPSPosition();
-	}
-	
-	/**
-	 * Default Constructor that uses a predefined
-	 * GPSPosition class
-	 * @param pos GPSPosition class to fill it with
-	 * the parsed info
-	 */
-	public GPRMCParser(GPSPosition pos)
-	{
-		if(pos == null)
-			throw new NullPointerException();
-		
-		this.pos = pos;
+	private static GPRMCParser instance = null;
+
+	public static GPRMCParser getInstance(){
+		return (instance != null) ? instance : new GPRMCParser();
 	}
 	
 	@Override
-	public GPSPosition parse(String[] tokens)
-	{
-		 if (tokens == null)
-	            throw new NumberFormatException("null");
+	public synchronized GPSPosition parse(String[] tokens) {
+		assert tokens != null;
 
-		pos.setTime(Double.parseDouble(tokens[1]));
-		pos.setLatitude(Double.parseDouble(tokens[3]));
-		pos.setLongitude(Double.parseDouble(tokens[5]));
-		pos.setVelocity(Double.parseDouble(tokens[7]));
-		pos.setDirection(Double.parseDouble(tokens[8]));
-		
-		return pos;
+		return new GPSPositionBuilder()
+				.addTime(Double.valueOf(tokens[1]))
+				.addLatitude(Double.valueOf(tokens[3]))
+				.addLongitude(Double.valueOf(tokens[5]))
+				.addQuality(Double.valueOf(tokens[7]))
+				.addAltitude(Double.valueOf(tokens[8]))
+				.build();
 	}
 }

@@ -25,14 +25,11 @@ public final class ChecksumUtilities
 			fh.setFormatter(formatter);
 			LOG.setUseParentHandlers(false);
 			LOG.setLevel(Level.FINE);
-		} catch (SecurityException e)
-		{
-			e.printStackTrace();
-		} catch (IOException e)
+		} catch (SecurityException | IOException e)
 		{
 			e.printStackTrace();
 		}
-	}
+    }
 	
 	/**
 	 * Calculates the checksum from a gps.NMEA Sentence and compares it
@@ -47,7 +44,6 @@ public final class ChecksumUtilities
 	 */
 	public static synchronized boolean isChecksumValid(String nmeaSentence)
 	{
-
 		boolean isValid = true;
 		int msglen = nmeaSentence.length();
 		if(nmeaSentence.isEmpty())
@@ -93,7 +89,7 @@ public final class ChecksumUtilities
 			throw new InvalidParameterException();
 		
 		int chk = 0;
-		String chk_s = "";
+		String chk_s;
 
 		for (int i = 1; i < nmeaSentence.length(); i++)
 			chk ^= nmeaSentence.charAt(i);

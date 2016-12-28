@@ -87,20 +87,4 @@ public class GPSGenerator
 		
 		strWriter = StringWriter.getInstance();
 	}
-	
-	/**
-	 * closes the Communication (StreamWriter)
-	 */
-	public void closeCommunication()
-	{
-		strWriter.closeOutStream();
-	}
-	
-	/**
-	 * Function to stop the timer task
-	 */
-	public void stopTimerTask()
-	{
-		timer.cancel();
-	}
 }
