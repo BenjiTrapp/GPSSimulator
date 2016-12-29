@@ -1,6 +1,6 @@
 # GPS Simulator
 This GPS Simulator can be used for several use cases:
-* Mock actual Hardware GPS Modules as virtual prototype to create even more complex hardware modules like a  FCU (Flight Control Unit) for drones.
+* Mock actual Hardware GPS Modules as virtual prototype to create even more complex hardware modules like a FCU (Flight Control Unit) for drones.
 * Virtual Prototype to make some experience with vHIL (virtual Hardware In the Loop)
 * Test Harness for mutation and fault-injection experiments
 
@@ -22,17 +22,13 @@ hardware with mutation testing and fault-injection.
 
 How do I start the vHIL experiment?
 ----------------------------------- 
-In the Package "starter" are three classes:
-* GPSParserStarter - Make sure to start this class first. In this class you can see later the generated NMEA sentences.
-* GPSGeneratorStarter - Start this class as second class. This class will shedule the data generation tasks for the 
-NMEA Sentences. Currently only RMC and GGA Sentences are supported!
-* FIGPSGeneratorStarter - This class is used to convert the virtual Prototype into a fault-injection environment. Currently
-a dynamic switching and triggering between the pertubation modes is not supported but my be added later. 
-
+In the sources root directory are two classes with different purposes:
+* The Class GPSSimulatorStarter is used to start the GPS Simulation. In short, that means, GPS Positions will be randomly generated and get parsed by a fictive Telemetry Dummy for further processing as data objects.
+* To spread the Chaos in form of a Fault-Injection Experiment, you can set up your favourite Perturbation Functions and compromise the generated data of the GPS Simulator.
 
 Is there a graphical presentation of my virtual flight available?  
 ------------------------------------------- 
-Sure, just take a look at this class: https://github.com/BenjiTrapp/GPSSimulator/blob/master/src/gps/NMEA/graph/NMEAGraphGUI.java
+Sure, just take a look at this class: https://github.com/BenjiTrapp/GPSSimulator/blob/master/src/gps/NMEA/graph/NMEAGraphGI.java
 
 This class is a SWING GUI that can interpret the generated NMEA Sentences that were generated. This GUI helps to proof that
 a dash in the coordinates occurred f.e. 

@@ -1,5 +1,3 @@
-package starter;
-
 import gps.GPSGeneratorFactory;
 import gps.GPSParserFactory;
 

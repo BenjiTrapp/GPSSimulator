@@ -1,6 +1,3 @@
-package starter;
-
-
 import faultInjection.pertubation.PertubationBuilder;
 import faultInjection.pertubation.EPertubationModes;
 /**
