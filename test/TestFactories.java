@@ -6,6 +6,7 @@ package test;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import gps.GPSParserFactory;
+import gps.NMEA.telemetry.TelemetryDummy;
 import junit.framework.TestCase;
 
 import org.apache.log4j.PropertyConfigurator;
@@ -21,7 +22,6 @@ import org.slf4j.LoggerFactory;
 
 import gps.GPSGeneratorFactory;
 import faultInjection.pertubation.PertubationFactory;
-import gps.NMEA.TelemetrieDummy.TelemetrieDummy;
 
 /**
  * JUnit-Test to prove the correctness of the calculation of the gps.NMEA Checksum.
@@ -39,7 +39,7 @@ public class TestFactories extends TestCase
 	private static boolean isSuccessful = false;
 
 	//Mocks
-	@Spy private TelemetrieDummy spyTeleDummy = Mockito.spy(new TelemetrieDummy());
+	@Spy private TelemetryDummy spyTeleDummy = Mockito.spy(new TelemetryDummy());
 	
 	static
 	{

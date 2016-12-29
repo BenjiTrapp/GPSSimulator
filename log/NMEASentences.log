@@ -3653,3 +3653,31 @@
 9039 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,004137,5335.05,S,1002.93,E,8.0,00,2.0,150.5,M,0,M,,*58
 9986 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,004138,A,5335.15,S,1003.07,E,010.1,113.0,291216,,S*60
 10037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,004138,5335.26,S,1003.2,E,8.0,11,2.1,150.4,M,0,M,,*6F
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+84   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012053,5333.47,N,1001.41,E,8.0,09,2.0,150.1,M,0,M,,*40
+1046 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,012054,A,5333.65,N,1001.54,E,010.1,82.0,291216,,S*4D
+1054 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012054,5333.65,N,1001.54,E,8.0,05,1.9,150.1,M,0,M,,*45
+2048 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012055,5333.74,S,1001.57,E,8.0,04,1.9,150.2,M,0,M,,*58
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+76   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012120,5333.54,N,1001.46,E,8.0,00,2.0,149.8,M,0,M,,*48
+1040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,012121,A,5333.71,N,1001.52,E,010.1,70.0,291216,,S*40
+1044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012121,5333.71,N,1001.52,E,8.0,02,1.9,149.7,M,0,M,,*4C
+2040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012122,5333.87,N,1001.61,E,8.0,01,1.8,149.9,M,0,M,,*4A
+2470 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,012122,A,5333.87,N,1001.61,E,010.0,74.0,291216,,S*4F
+3043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012123,5333.92,N,1001.67,E,8.0,08,1.7,150.1,M,0,M,,*4F
+3902 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,012123,A,5333.95,N,1001.72,W,010.1,394.0,291216,,S*61
+4042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012124,5334.03,N,1001.87,W,8.0,08,1.5,150.3,M,0,M,,*5B
+5045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012125,5334.1,S,1001.97,E,8.0,03,1.4,150.3,M,0,M,,*6C
+5329 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,012125,A,5334.1,S,1001.97,E,010.1,134.0,291216,,S*51
+6042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012126,5334.12,N,1002.08,E,8.0,00,1.4,150.6,M,0,M,,*43
+6762 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,012126,A,5334.25,N,1002.12,E,010.0,3.0,291216,,S*73
+7041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012127,5334.39,S,1002.18,E,8.0,02,1.4,150.5,M,0,M,,*56
+8042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012128,5334.54,S,1002.38,E,8.0,09,1.3,150.5,M,0,M,,*5C
+8191 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,012128,A,5334.54,S,1002.38,E,009.9,190.0,291216,,S*64
+9041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012129,5334.67,N,1002.51,E,8.0,08,1.4,150.8,M,0,M,,*44
+9621 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,012129,A,5334.79,N,1002.63,E,010.1,25.0,291216,,S*46
+10042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012130,5334.86,S,1002.71,E,8.0,04,1.5,151.2,M,0,M,,*5A
+11041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012131,5335.02,S,1002.9,E,8.0,10,1.7,151.5,M,0,M,,*69
+11051 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,012131,A,5335.02,S,1002.9,E,010.1,151.0,291216,,S*51
+12041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,012132,5335.17,S,1002.95,E,8.0,10,1.8,151.2,M,0,M,,*53
+12483 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,012132,A,5335.17,S,1002.95,E,010.0,150.0,291216,,S*63

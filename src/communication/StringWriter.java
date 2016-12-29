@@ -80,8 +80,7 @@ public class StringWriter extends AComModule
 		@Override
 		public synchronized void send(String msg)
 		{
-			if (msg == null)
-				throw new NullPointerException("passed String is null");
+			assert msg != null;
 
 			msg += "\n"; 
 			

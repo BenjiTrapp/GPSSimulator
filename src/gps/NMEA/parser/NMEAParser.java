@@ -1,13 +1,11 @@
 package gps.NMEA.parser;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import gps.NMEA.gps_position.GPSPosition;
+import gps.NMEA.sentences.NMEASentenceTypes;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,19 +13,20 @@ import org.slf4j.LoggerFactory;
 import gps.NMEA.utils.ChecksumUtilities;
 
 /**
- * This Class is the main class of the gps.NMEA Parser to combine the
+ * This Class is the main class of the NMEA Parser to combine the
  * sub-parsers. Also this class is used by the GPSParserFactory
  * 
  * @author Benjamin Trapp
  */
 public class NMEAParser
 {
-	private static final Map<String, NMEASentenceParser> sentenceParsers = new HashMap<String, NMEASentenceParser>();
+	private static final Map<NMEASentenceTypes, NMEASentenceParser> sentenceParsers = new HashMap<>();
 	private static final String LOG4J_PROPERTIES = "log4j.properties";
-	private static AtomicBoolean dashed = new AtomicBoolean();
-	private final static Logger logger = LoggerFactory.getLogger(NMEAParser.class);
-	private final List<GPSPosition> gpsPos = new ArrayList<>();
-	private GPSPosition lastPosition = null;
+	private GPSPosition lastPosition;
+    private static final String SPLIT_DELIMITER = ",";
+    private static AtomicBoolean dashed = new AtomicBoolean();
+    private final static Logger logger = LoggerFactory.getLogger(NMEAParser.class);
+    private final List<GPSPosition> gpsPositions;
 	private GPSPosition secondLastPosition = null;
 	private GPSPosition thirdLastPosition = null;
 	private AtomicInteger cnt = new AtomicInteger();
@@ -37,23 +36,12 @@ public class NMEAParser
 	 */
 	public NMEAParser()
 	{
+		gpsPositions = Collections.synchronizedList(new ArrayList<>());
 		PropertyConfigurator.configure(LOG4J_PROPERTIES);
-		sentenceParsers.put("GPGGA", GPGGAParser.getInstance());
-		sentenceParsers.put("GPRMC", GPRMCParser.getInstance());
+		sentenceParsers.put(NMEASentenceTypes.GPGGA, GPGGAParser.getInstance());
+		sentenceParsers.put(NMEASentenceTypes.GPRMC, GPRMCParser.getInstance());
 		dashed.set(false);
-	}
-	
-	/**
-	 * Used for IoC and testing. Use a mock object to gain
-	 * further details of the parser
-	 */
-	public NMEAParser(GPSPosition pos)
-	{
-		PropertyConfigurator.configure(LOG4J_PROPERTIES);
-		sentenceParsers.put("GPGGA", GPGGAParser.getInstance());
-		sentenceParsers.put("GPRMC", GPRMCParser.getInstance());
-		dashed.set(false);
-	}
+    }
 	
 	/**
 	 * Parses a passed gps.NMEA-Sentence
@@ -75,16 +63,16 @@ public class NMEAParser
 		}
 
 		String nmea = line.substring(1);
-		String[] tokens = nmea.split(",");
+		String[] tokens = nmea.split(SPLIT_DELIMITER);
         String type = tokens[0];
 		
-		if (!sentenceParsers.containsKey(type))
+		if (!NMEASentenceTypes.equals(type))
 		{
-			logger.error("Type of the gps.NMEA-Sentence is unknown or malformed");
+			logger.error("Type of the NMEA-Sentence is unknown or malformed");
 			throw new RuntimeException();
 		}
 
-		newPosition = sentenceParsers.get(type).parse(tokens);
+		newPosition = sentenceParsers.get(NMEASentenceTypes.getType(type)).parse(tokens);
 
 //		if (hasDashed(newPosition) || dashed.get())
 //			logger.error("### Dash has been detected ###");
@@ -92,18 +80,15 @@ public class NMEAParser
 		if (isStuck(newPosition))
 			logger.error("### Stuck-At Bug Detected ###");
 
-		synchronized (gpsPos)
-		{
-			gpsPos.add(newPosition);
-		}
+			gpsPositions.add(newPosition);
 
-		size = gpsPos.size();
+		size = gpsPositions.size();
 
 		if (size > 3)
 		{
-			lastPosition = gpsPos.get(size - 1);
-			secondLastPosition = gpsPos.get(size - 2);
-			thirdLastPosition = gpsPos.get(size - 3);
+			lastPosition = gpsPositions.get(size - 1);
+			secondLastPosition = gpsPositions.get(size - 2);
+			thirdLastPosition = gpsPositions.get(size - 3);
 		}
 		
 		cnt.set(0);
@@ -117,7 +102,7 @@ public class NMEAParser
 	 */
 	private synchronized boolean hasDashed(GPSPosition newPosition)
 	{
-		synchronized (gpsPos)
+		synchronized (gpsPositions)
 		{
 			if (newPosition != null && lastPosition != null)
 			{
@@ -140,7 +125,7 @@ public class NMEAParser
 	 */
 	private synchronized boolean isStuck(GPSPosition newPosition )
 	{
-		synchronized (gpsPos)
+		synchronized (gpsPositions)
 		{
 			if (newPosition != null && lastPosition != null
 					&& secondLastPosition != null && thirdLastPosition != null

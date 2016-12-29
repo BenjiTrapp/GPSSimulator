@@ -85,28 +85,24 @@ public class StringReader extends AComModule
 	@Override
 	public synchronized String receive()
 	{
-		StringBuilder resu = new StringBuilder();
+		StringBuilder result = new StringBuilder();
 		String line;
 
 		try
 		{
-			// Poll to assert that everything was delivered
-//			while (!super.inStream.ready())
-//				Thread.sleep(500);
-			
 			while ((line = inStream.readLine()) != null)
 			{
-				resu.append(line);
+				result.append(line);
+
 				if (!super.inStream.ready())
 					break;
 			}
-
 		} catch (Exception e)
 		{
 			System.err.println("ERROR @ read input stream (receive)");
 			instance.closeAllCom();
 		}
 
-		return resu.toString();
+		return result.toString();
 	}
 }

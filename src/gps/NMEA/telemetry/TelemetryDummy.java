@@ -1,7 +1,7 @@
 /**
  * 
  */
-package gps.NMEA.TelemetrieDummy;
+package gps.NMEA.telemetry;
 
 import gps.NMEA.parser.InvalidChecksumException;
 import gps.NMEA.parser.NMEAParser;
@@ -16,7 +16,7 @@ import java.io.IOException;
  * @author Benjamin Trapp
  *
  */
-public class TelemetrieDummy
+public class TelemetryDummy
 {
 
 	private static final String TELEMETRIE_FILE_NAME = "log/Telemetrie.log";
@@ -26,7 +26,7 @@ public class TelemetrieDummy
 	/**
 	 * Default Constructor of the Telemetrie Dummy
 	 */
-	public TelemetrieDummy()
+	public TelemetryDummy()
 	{
 		try
 		{

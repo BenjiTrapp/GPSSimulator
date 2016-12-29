@@ -40,7 +40,7 @@ public abstract class AComModule
 			outStream = socket.getOutputStream();
 		} catch (IOException e) 
 		  {
-			System.err.println("ERROR @ in- /output Stream, IOException");
+			System.err.println("ERROR @ getOutputStream due to an IOException");
 			closeAllCom();
 		  }
 	}

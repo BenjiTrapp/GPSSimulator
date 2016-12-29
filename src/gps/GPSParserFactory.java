@@ -4,13 +4,13 @@ import java.net.ServerSocket;
 
 import javax.activity.InvalidActivityException;
 
+import gps.NMEA.telemetry.TelemetryDummy;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import communication.StringReader;
 import gps.NMEA.parser.NMEAParser;
-import gps.NMEA.TelemetrieDummy.TelemetrieDummy;
 
 /**
  * This Class is used to simplify the construction of a parser and 
@@ -25,27 +25,27 @@ public class GPSParserFactory
 	private NMEAParser nmeaParser;
 	private StringReader comm;
 	private ParserThread parserThread = null;
-	private TelemetrieDummy teleDummy;
+	private TelemetryDummy teleDummy;
 	private Thread runningInstance;
 	
 	/**
-	 * Default Constructor that creates a new TelemetrieDummy 
+	 * Default Constructor that creates a new TelemetryDummy
 	 * instance and configures log4j 
 	 */
 	public GPSParserFactory()
 	{
-		this.teleDummy = new TelemetrieDummy();
+		this.teleDummy = new TelemetryDummy();
 		PropertyConfigurator.configure(LOG4J_PROPERTIES);
         logger.info("Parser is up and running");
 	}
 	
 	/**
-	 * Constructor to use an external TelemetrieDummy class
+	 * Constructor to use an external TelemetryDummy class
 	 * in this parser factory and configures log4j 
-	 * @param teleDummy Instance of the TelemetrieDummy that 
+	 * @param teleDummy Instance of the TelemetryDummy that
 	 * shall be used in this factory
 	 */
-	public GPSParserFactory(TelemetrieDummy teleDummy)
+	public GPSParserFactory(TelemetryDummy teleDummy)
 	{
 		assert teleDummy != null;
 		this.teleDummy = teleDummy;
