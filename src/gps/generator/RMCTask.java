@@ -4,7 +4,6 @@ import java.util.TimerTask;
 
 import communication.StringWriter;
 import gps.NMEA.sentences.RMCSentence;
-import gps.NMEA.sentences.RMCSentenceNEW;
 
 /**
  * This Class is determined for the use in Combination with a Timer. This class
@@ -16,6 +15,7 @@ import gps.NMEA.sentences.RMCSentenceNEW;
 public class RMCTask extends TimerTask
 {
 	private RMCSentence rmc = new RMCSentence();
+	private RMCSentence rmcNEW = new RMCSentence();
 	private StringWriter strWriter;
 
 	/**
@@ -35,14 +35,11 @@ public class RMCTask extends TimerTask
 	 * @param strWriter
 	 *            Instance of the StringWriter that shall be used
 	 */
-	public RMCTask(StringWriter strWriterc)
+    RMCTask(StringWriter strWriterc)
 	{
 		this.strWriter = strWriterc;
 	}
 
 	@Override
-	public void run()
-	{
-		strWriter.send(rmc.getSentence());
-	}
+	public void run() {strWriter.send(rmc.getSentence());}
 }

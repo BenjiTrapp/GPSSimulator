@@ -1,7 +1,11 @@
 package gps.NMEA.sentences;
 
+import gps.NMEA.utils.ChecksumUtilities;
 import gps.data.GPSData;
 import gps.data.GPSDataEnumHolder.Status;
+
+import static gps.data.GPSData.*;
+
 /**
  * Uses the Data that is deposited in the gps.data.GPSData Class to generate a
  * gps.NMEA GPSRMC Sentence. Look below for further info and the data types.
@@ -27,55 +31,45 @@ import gps.data.GPSDataEnumHolder.Status;
        |      | |           |            Speed over Ground
        |      | |           |            
        |      | |           Longitude with direction (E=East, W=West)
-       |      | |           007� 39.3538' East
+       |      | |           007" 39.3538' East
        |      | |                        
        |      | Latitude with Direction (N=North, S=South)
-       |      | 46� 35.5634' North
+       |      | 46" 35.5634' North
        |      |
        |      Status of determination: A=Active | V=void
        |
        Time of the determination: 19:14:10 (UTC-Time)
- * @author O_o
- *
+ * @author Benjamin Trapp
  */
-public class RMCSentence extends ANMEASentence
-{
+public class RMCSentence implements NMEASentence {
+
+    private static final String DELIMITER = ",";
 
 	@Override
-	public String getName()
-	{
-		return NMEASentenceTypes.GPRMC.name();
+	public synchronized String getSentence() {
+        String result;
+
+		if (getStatus() == Status.A) {
+		    result = new NMEASentenceBuilder(NMEASentenceTypes.GPRMC)
+					.append(getTimestamp())
+					.append(GPSData.getStatus().name())
+					.append(Double.toString(getNMEALatitude()))
+					.append(GPSData.getNS().name().substring(0, 1))
+                    .append(Double.toString(getNMEALongitude()))
+					.append(GPSData.getEW().name().substring(0, 1))
+					.append(getVelocity())
+					.append(Double.toString(getCourse()))
+                    .append(getDatetime())
+					.appendNotDelimited(",")
+                    .append(getMode().name().substring(0, 1))
+                    .appendChecksum()
+					.build();
+        } else {
+			result = String.valueOf(NMEASentenceTypes.GPRMC)
+                                    + DELIMITER + getTimestamp()
+                                    + ",V,,,,,,,,,,N*31";
+		}
+
+        return result;
 	}
-
-	@Override
-	public String getSentence()
-	{
-		String sentence;
-		
-		if (GPSData.getStatus() == Status.A)
-		{
-			String ns = GPSData.getNS().name().substring(0, 1);
-			String ew = GPSData.getEW().name().substring(0, 1);
-			String mode = GPSData.getMode().name().substring(0, 1);
-			
-			StringBuffer buf = new StringBuffer("$"+ getName());
-			append(buf, getTimestamp());			
-			append(buf, GPSData.getStatus().name());
-			append(buf, ANMEASentence.getNMEALatitude());
-			append(buf, ns);
-			append(buf, ANMEASentence.getNMEALongitude());
-			append(buf, ew);
-			append(buf, GPSData.getVelocity());
-			append(buf, GPSData.getCourse());
-			append(buf, getDatestamp());
-			append(buf, "");
-			append(buf, "");
-			appendCheckSum(buf, mode);
-			sentence = buf.toString();
-		} else
-			sentence = ("GPRMC," + getTimestamp() + ",V,,,,,,,,,,N*31");
-
-		return sentence;
-	}
-
 }
