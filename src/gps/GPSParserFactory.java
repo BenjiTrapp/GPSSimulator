@@ -4,6 +4,7 @@ import java.net.ServerSocket;
 
 import javax.activity.InvalidActivityException;
 
+import gps.NMEA.sentences.NMEASentenceTypes;
 import gps.NMEA.telemetry.TelemetryDummy;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
@@ -157,17 +158,7 @@ public class GPSParserFactory
 			while(this.isRunning) {
                 try {
                     String str = comm.receive();
-                    //Fixes the miskate when two sentences are printed in the same line
-                    if (str.contains("$GPGGA") && str.contains("$GPRMC")) {
-                        int index = str.indexOf("*") + 2;
-                        String tmp1 = str.substring(0, index);
-                        String tmp2 = str.substring(index, str.length());
-                        System.err.println(tmp1 + " ### " + tmp2);
-                        teleDummy.write2File(tmp1);
-						teleDummy.write2File(tmp2);
-						logger.info(tmp1);
-						logger.info(tmp2);
-                    } else if (str.contains("$GPGGA") || str.contains("GPRMC")) {
+             if (NMEASentenceTypes.containsValidType(str)) {
                         teleDummy.write2File(str);
                         logger.info(str);
                     } else {

@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import gps.GPSGeneratorFactory;
-import faultInjection.pertubation.PertubationFactory;
+import faultInjection.pertubation.PerturbationFactory;
 
 /**
  * JUnit-Test to prove the correctness of the calculation of the gps.NMEA Checksum.
@@ -129,7 +129,7 @@ public class TestFactories extends TestCase
 	@Test 
 	public void testPerturbationFacException()
 	{
-		PertubationFactory pf = new PertubationFactory();
+		PerturbationFactory pf = new PerturbationFactory();
 		
 		try
 		{

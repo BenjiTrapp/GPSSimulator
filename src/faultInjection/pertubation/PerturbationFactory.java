@@ -2,8 +2,8 @@ package faultInjection.pertubation;
 
 import java.net.Socket;
 
+import faultInjection.PerturbedGPSGenerator;
 import gps.generator.DataGenTask;
-import faultInjection.FIGPSGenerator;
 
 /**
  * This class is used to create a Fault-Injection experiment
@@ -11,10 +11,9 @@ import faultInjection.FIGPSGenerator;
  * 
  * @author Benjamin Trapp
  */
-public class PertubationFactory
-{
+public class PerturbationFactory {
 	private DataGenTask dataTask = null ;
-	private static FIGPSGenerator gen = null;
+	private static PerturbedGPSGenerator gen = null;
 	private final static int PERIOD_OF_DATA_GENERATION = 500;
 	
 	/**
@@ -104,10 +103,10 @@ public class PertubationFactory
 	 * Creates a gps.data.GPSGenerator with default components
 	 * @return instance of the gps.data.GPSGenerator
 	 */
-	private FIGPSGenerator createFIGPSGenerator(EPertubationModes mode)
+	private PerturbedGPSGenerator createFIGPSGenerator(EPertubationModes mode)
 	{
 		if(gen == null)
-			gen = new FIGPSGenerator(dataTask, PERIOD_OF_DATA_GENERATION, mode);
+			gen = new PerturbedGPSGenerator(dataTask, PERIOD_OF_DATA_GENERATION, mode);
 
 		return gen;
 	}
@@ -120,10 +119,10 @@ public class PertubationFactory
 	 * @param period the PERIOD_OF_DATA_GENERATION in which the DataGenTask generates its Data
 	 * @return instance of the created gps.data.GPSGenerator
 	 */
-	private FIGPSGenerator createFIGPSGenerator(DataGenTask dataTask, int period, EPertubationModes mode)
+	private PerturbedGPSGenerator createFIGPSGenerator(DataGenTask dataTask, int period, EPertubationModes mode)
 	{
 		if(gen == null)
-			gen = new FIGPSGenerator(dataTask, period, mode);
+			gen = new PerturbedGPSGenerator(dataTask, period, mode);
 		
 		return gen;
 	}
@@ -138,10 +137,10 @@ public class PertubationFactory
 	 * @param period the PERIOD_OF_DATA_GENERATION in which the DataGenTask generates its Data
 	 * @return instance of the created gps.data.GPSGenerator
 	 */
-	private FIGPSGenerator createFIGPSGenerator(DataGenTask dataTask, int period, Socket socket, EPertubationModes mode)
+	private PerturbedGPSGenerator createFIGPSGenerator(DataGenTask dataTask, int period, Socket socket, EPertubationModes mode)
 	{
 		if(gen == null)
-			gen = new FIGPSGenerator(dataTask, period, socket, mode);
+			gen = new PerturbedGPSGenerator(dataTask, period, socket, mode);
 		
 		return gen;
 	}

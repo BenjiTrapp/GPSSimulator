@@ -2,7 +2,7 @@ package faultInjection.tasks;
 
 import java.util.TimerTask;
 import gps.NMEA.sentences.GGASentence;
-import faultInjection.communication.FIStringWriter;
+import faultInjection.communication_jammer.ComJammer;
 
 /**
  * This Class is determined for the use in Combination with 
@@ -17,7 +17,7 @@ import faultInjection.communication.FIStringWriter;
 public class FIGGATask extends TimerTask
 {
 	private GGASentence gga = new GGASentence();
-	private FIStringWriter fiWriter;
+	private ComJammer fiWriter;
 	
 	/**
 	 * CAUTION: Don't use this Constructor!
@@ -38,7 +38,7 @@ public class FIGGATask extends TimerTask
 	 *  StringWriter that shall be used
 	 * 
 	 */
-	public FIGGATask(FIStringWriter fiWriter)
+	public FIGGATask(ComJammer fiWriter)
 	{
 		assert fiWriter != null;
 

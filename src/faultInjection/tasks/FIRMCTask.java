@@ -1,8 +1,9 @@
 package faultInjection.tasks;
 
 import java.util.TimerTask;
+
+import faultInjection.communication_jammer.ComJammer;
 import gps.NMEA.sentences.RMCSentence;
-import faultInjection.communication.FIStringWriter;
 
 /**
  * This Class is determined for the use in Combination with a Timer and contains a
@@ -17,7 +18,7 @@ import faultInjection.communication.FIStringWriter;
 public class FIRMCTask extends TimerTask
 {
 	private RMCSentence rmc = new RMCSentence();
-	private FIStringWriter fiWriter;
+	private ComJammer fiWriter;
 
 	/**
 	 * CAUTION: Don't use this Constructor! This Class needs an instance of a
@@ -35,7 +36,7 @@ public class FIRMCTask extends TimerTask
 	 * @param fiWriter
 	 *            Instance of the StringWriter that shall be used
 	 */
-	public FIRMCTask(FIStringWriter fiWriter)
+	public FIRMCTask(ComJammer fiWriter)
 	{
 		assert fiWriter != null;
 		this.fiWriter = fiWriter;

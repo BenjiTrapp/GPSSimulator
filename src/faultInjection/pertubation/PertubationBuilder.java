@@ -5,10 +5,10 @@ import java.util.TreeSet;
 
 public final class PertubationBuilder {
     private final Set<EPertubationModes> pertubationModes = new TreeSet<>();
-    private final PertubationFactory pertubationFactory = new PertubationFactory();
+    private final PerturbationFactory perturbationFactory = new PerturbationFactory();
 
     public void build(){
-        pertubationModes.forEach(pertubationFactory::build);
+        pertubationModes.forEach(perturbationFactory::build);
     }
 
     public PertubationBuilder addPertubationMode(EPertubationModes pertubationMode){

@@ -11,9 +11,17 @@ public enum NMEASentenceTypes {
         return this.name();
     }
 
-    public static boolean equals(String type) {
+    public static boolean isValidType(String type) {
         for (NMEASentenceTypes enumType : NMEASentenceTypes.values()) {
             if (type.equals(enumType.toString()))
+                return true;
+        }
+        return false;
+    }
+
+    public static boolean containsValidType(String type) {
+        for (NMEASentenceTypes enumType : NMEASentenceTypes.values()) {
+            if (type.contains(enumType.toString()))
                 return true;
         }
         return false;

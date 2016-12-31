@@ -39,10 +39,7 @@ import gps.data.GPSDataEnumHolder.Status;
 public class GGASentence extends ANMEASentence
 {
 	@Override
-	public String getName()
-	{
-		return "GPGGA";
-	}
+	public String getName()	{return NMEASentenceTypes.GPGGA.name();}
 	
 	@Override
 	public String getSentence()

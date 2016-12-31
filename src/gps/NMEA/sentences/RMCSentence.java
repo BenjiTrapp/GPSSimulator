@@ -44,7 +44,7 @@ public class RMCSentence extends ANMEASentence
 	@Override
 	public String getName()
 	{
-		return "GPRMC";
+		return NMEASentenceTypes.GPRMC.name();
 	}
 
 	@Override

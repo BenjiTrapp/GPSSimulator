@@ -1,6 +1,7 @@
-package faultInjection.pertubation;
+package faultInjection.communication_jammer;
 
-import faultInjection.communication.FIStringWriter;
+import faultInjection.communication_jammer.ComJammer;
+import faultInjection.pertubation.PertubationFunctions;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -66,7 +67,7 @@ public class CountDown
 	
 				if (count == 0)
 				{
-					FIStringWriter.stuckAt();
+					ComJammer.stuckAt();
 					timer.cancel();
 				}
 			}

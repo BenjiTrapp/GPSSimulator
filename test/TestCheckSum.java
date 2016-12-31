@@ -51,14 +51,15 @@ public class TestCheckSum extends TestCase
 	@Before
 	public void setUp() throws Exception
 	{
+		super.setUp();
 		isSuccessful = false;
 		System.out.println("\n===========================================");
 		System.out.println("Test-ID: " + tid.getAndIncrement() + " for Class: " + this.getClass().getName());
 	}
 	
 	@After
-	public void tearDown()
-	{
+	public void tearDown() throws Exception {
+		super.tearDown();
 		if(isSuccessful)
 			System.out.println("\nTests for Test-ID(" + tid.get() + ") successful!\n");
 		else 

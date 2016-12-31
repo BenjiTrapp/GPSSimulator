@@ -1,7 +1,7 @@
 import faultInjection.pertubation.PertubationBuilder;
 import faultInjection.pertubation.EPertubationModes;
 /**
- * This class is used to create and run a FIGPSGenerator that
+ * This class is used to create and run a PerturbedGPSGenerator that
  * creates RMC and GGA Sentences Based on gps.NMEA 0183. Also this class
  * is used in combination with the perturbation factory to start a 
  * fault-injection experiment

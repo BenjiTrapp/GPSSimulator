@@ -55,7 +55,7 @@ public class NMEAGraphGUI extends JPanel
 	/**
 	 * Creates a gps.NMEA GUI-Graph
 	 */
-	public NMEAGraphGUI()
+	private NMEAGraphGUI()
 	{
 		latitudeList = new ArrayList<>();
 		longitudeList = new ArrayList<>();
@@ -66,7 +66,7 @@ public class NMEAGraphGUI extends JPanel
 	/**
 	 * Reads all the info from the file specified in the path. During this 
 	 * process, the values for the longitude and latitude are normalized.
-	 * @param path
+	 * @param path Path of the file that shall be read
 	 */
 	private void readFromFile(String path)
 	{

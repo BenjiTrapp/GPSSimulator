@@ -8,7 +8,7 @@ import gps.data.GPSData;
 
 /**
  * This Class is used to define some Perturbation Functions. Use
- * this functions in combination with the Fault-Injector (FIStringWriter)
+ * this functions in combination with the Fault-Injector (ComJammer)
  * 
  * @author Benjamin Trapp
  *
