@@ -1,8 +1,9 @@
 package faultInjection.tasks;
 
 import java.util.TimerTask;
-import gps.NMEA.sentences.GGASentence;
+
 import faultInjection.communication_jammer.ComJammer;
+import gps.NMEA.sentences.GGASentence;
 
 /**
  * This Class is determined for the use in Combination with 

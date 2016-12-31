@@ -21,31 +21,29 @@ public class NMEASentenceBuilder {
         return this;
     }
 
-    public NMEASentenceBuilder appendNotDelimited(String line){
+    NMEASentenceBuilder appendNotDelimited(String line){
         this.builder.append(line);
         return this;
     }
 
-    public NMEASentenceBuilder appendChecksum(){
+    NMEASentenceBuilder appendChecksum(){
 
-        this.builder.deleteCharAt(builder.length() - 1)
-                    .append("*");
+        this.builder.deleteCharAt(builder.length() - 1);
 
         final String tmp = this.build();
 
-        this.builder.append(ChecksumUtilities.getCRC(tmp));
+        this.builder.append("*").append(ChecksumUtilities.getCRC(tmp));
         return this;
     }
 
-    public NMEASentenceBuilder appendChecksum(String mode){
+    NMEASentenceBuilder appendChecksum(String mode){
 
         this.builder.deleteCharAt(builder.length() - 1)
-                    .append(mode)
-                    .append("*");
+                    .append(mode);
 
         String tmp = this.build();
 
-        this.builder.append(ChecksumUtilities.getCRC(tmp));
+        this.builder.append("*").append(ChecksumUtilities.getCRC(tmp));
         return this;
     }
 }

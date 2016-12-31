@@ -384,7 +384,7 @@ public class DataGenTask extends TimerTask
 			case ASCENDING: var += tmp;
 							break;
 			
-			case DECENDING: var -= tmp;
+			case DESCENDING: var -= tmp;
 							break;
 			
 			case RANDOM: 	if(((int)(Math.random() * 10)) % 2 == 0)

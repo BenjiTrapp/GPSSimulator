@@ -1,7 +1,11 @@
 package gps.NMEA.sentences;
 
+import gps.NMEA.utils.ChecksumUtilities;
 import gps.data.GPSData;
 import gps.data.GPSDataEnumHolder.Status;
+
+import static gps.data.GPSData.*;
+
 /**
  * Uses the Data that is deposited in the gps.data.GPSData Class to generate a
  * gps.NMEA GPSGGA Sentence. Look below for further info and the data types.
@@ -36,40 +40,40 @@ import gps.data.GPSDataEnumHolder.Status;
  * @author Benjamin Trapp
  *
  */
-public class GGASentence extends ANMEASentence
+public class GGASentence implements NMEASentence
 {
+    private static final String DELIMITER = ",";
+
 	@Override
-	public String getName()	{return NMEASentenceTypes.GPGGA.name();}
-	
-	@Override
-	public String getSentence()
+	public synchronized String getSentence()
 	{
-		String sentence;
-		String ns = GPSData.getNS().name().substring(0, 1);
-		String ew = GPSData.getEW().name().substring(0, 1);
 
-		if (GPSData.getStatus() == Status.A)
+	    String result;
+
+		if (getStatus() == Status.A)
 		{
-			StringBuffer buf = new StringBuffer("$" + getName());
-			append(buf, getTimestamp()); 			
-			append(buf, ANMEASentence.getNMEALatitude());		
-			append(buf, ns);						
-			append(buf, ANMEASentence.getNMEALongitude());	
-			append(buf, ew);						
-			append(buf, GPSData.getQuality());	 	
-			append(buf, GPSData.getSatellites());	
-			append(buf, GPSData.getHDOP());			
-			append(buf, GPSData.getAltitude());		
-			append(buf, "M");						
-			append(buf, "0");						
-			append(buf, "M");						
-			append(buf, "");					
-			append(buf, "");				
-			appendCheckSum(buf);
-			sentence = buf.toString();
-		} else
-			sentence = "GPGGA," + getTimestamp() + ",,,,,,,,,,,,,*7A";
-
-		return sentence;
+		    return new NMEASentenceBuilder(NMEASentenceTypes.GPGGA)
+                            .append(getTimestamp())
+                            .append(Double.toString(getNMEALatitude()))
+                            .append(getNS().name().substring(0, 1))
+                            .append(Double.toString(getNMEALongitude()))
+                            .append(getEW().name().substring(0, 1))
+                            .append(Double.toString(getQuality()))
+                            .append(getSatellites())
+                            .append(getHDOP())
+                            .append(getAltitude())
+                            .append("M")
+                            .append("0")
+                            .append("M")
+                            .append(",")
+							.appendChecksum()
+                            .build();
+		} else{
+			result = NMEASentenceTypes.GPGGA.name()
+                    + DELIMITER
+                    + getTimestamp()
+                    + ",,,,,,,,,,,,,*7A";
+        }
+        return result;
 	}
 }

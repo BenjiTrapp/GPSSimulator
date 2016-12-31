@@ -13,6 +13,7 @@ import gps.NMEA.sentences.GGASentence;
  */
 public class GGATask extends TimerTask
 {
+	private GGASentence ggaNEW = new GGASentence();
 	private GGASentence gga = new GGASentence();
 	private StringWriter strWriter;
 	
@@ -42,8 +43,5 @@ public class GGATask extends TimerTask
 	}
 
 	@Override
-	public void run()
-	{
-		strWriter.send(gga.getSentence());
-	}
+	public void run() {strWriter.send(gga.getSentence());}
 }

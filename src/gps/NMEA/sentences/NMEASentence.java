@@ -23,8 +23,8 @@ public interface NMEASentence
 	 */
 	default StringBuilder appendCheckSum(StringBuilder stringBuilder)
 	{
-		final String passedSentence = stringBuilder.toString();
-		return stringBuilder.append("*").append(ChecksumUtilities.getCRC(passedSentence));
+		final String passedSentence = stringBuilder.append("*").toString();
+		return stringBuilder.append(ChecksumUtilities.getCRC(passedSentence));
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public interface NMEASentence
 	 * Get's a date stamp back in the format ddMMYY
 	 * @return time stamp as String 
 	 */
-	default String getDatestamp()
+	default String getDatetime()
 	{
 		SimpleDateFormat dateStamp = new SimpleDateFormat("ddMMYY");
 

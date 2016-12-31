@@ -4,6 +4,7 @@ import java.util.TimerTask;
 
 import communication.StringWriter;
 import gps.NMEA.sentences.RMCSentence;
+import gps.NMEA.sentences.RMCSentenceNEW;
 
 /**
  * This Class is determined for the use in Combination with a Timer. This class

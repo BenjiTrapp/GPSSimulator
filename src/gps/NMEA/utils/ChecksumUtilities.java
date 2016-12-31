@@ -85,10 +85,10 @@ public final class ChecksumUtilities
 	 */
 	public static synchronized String getCRC(String nmeaSentence)
 	{
-		if(nmeaSentence == null || nmeaSentence.equals(""))
-			throw new InvalidParameterException();
-		
-		int chk = 0;
+		assert nmeaSentence != null;
+		assert !nmeaSentence.isEmpty();
+
+        int chk = 0;
 		String chk_s;
 
 		for (int i = 1; i < nmeaSentence.length(); i++)

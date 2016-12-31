@@ -4337,3 +4337,486 @@
 11303 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,025124,A,5335.18,N,1002.92,E,010.1,18.0,311216,,S*40
 12043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,025125,5335.35,S,1002.99,W,8.0,08,1.8,149.9,M,0,M,,*44
 12236 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,025125,A,5335.35,S,1002.99,W,010.0,223.0,311216,,S*71
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+77   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,030844,5333.5,S,1001.47,E,8.0,00,1.9,150.0,M,0,M,,*61
+1042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,030845,A,5333.65,S,1001.61,E,010.1,174.0,311216,,S*6F
+1050 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,030845,5333.65,S,1001.61,E,8.0,06,2.0,149.8,M,0,M,,*5E
+2045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,030846,5333.78,S,1001.83,E,8.0,04,2.1,149.7,M,0,M,,*51
+3041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,030847,5333.91,S,1002.03,E,8.0,04,2.2,149.5,M,0,M,,*5D
+3283 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,030847,A,5333.91,S,1002.03,E,010.1,180.0,311216,,S*6A
+4040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,030848,5334.06,S,1002.23,W,8.0,06,2.0,149.2,M,0,M,,*4C
+5037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,030849,5334.21,S,1002.29,W,8.0,10,2.0,149.2,M,0,M,,*45
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+163  [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,164838,5333.49,N,1001.39,E,8,05,2.1,150.1,M,0,M,,*7D)
+163  [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,164838,5333.49,N,1001.39,E,8,05,2.1,150.1,M,0,M,,*7D
+1149 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,164839,A,5333.7,N,1001.51,W,010.0,369.0,311216,,S*53
+1149 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,164839,5333.7,N,1001.51,W,8,03,2.1,150.0,M,0,M,,*5D)
+1149 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,164839,5333.7,N,1001.51,W,8,03,2.1,150.0,M,0,M,,*5D
+2104 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,164840,5333.78,S,1001.66,W,8,04,2.0,149.7,M,0,M,,*7B)
+2104 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,164840,5333.78,S,1001.66,W,8,04,2.0,149.7,M,0,M,,*7B
+3004 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,164841,A,5333.85,S,1001.7,W,009.9,231.0,311216,,S*45
+3104 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,164841,5333.9,S,1001.71,E,8,11,2.0,149.9,M,0,M,,*52)
+3104 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,164841,5333.9,S,1001.71,E,8,11,2.0,149.9,M,0,M,,*52
+4105 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,164842,5334.13,S,1001.92,E,8,05,2.1,149.9,M,0,M,,*64)
+4105 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,164842,5334.13,S,1001.92,E,8,05,2.1,149.9,M,0,M,,*64
+4907 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,164843,A,5334.19,S,1001.92,E,010.0,177.0,311216,,S*6B
+5107 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,164843,5334.24,S,1002.03,E,8,08,2.1,149.8,M,0,M,,*66)
+5107 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,164843,5334.24,S,1002.03,E,8,08,2.1,149.8,M,0,M,,*66
+6109 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,164844,5334.5,N,1002.17,E,8,09,2.0,149.6,M,0,M,,*44)
+6109 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,164844,5334.5,N,1002.17,E,8,09,2.0,149.6,M,0,M,,*44
+6857 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,164845,A,5334.57,N,1002.32,E,010.0,16.0,311216,,S*45
+7110 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,164845,5334.72,N,1002.38,E,8,03,2.2,149.5,M,0,M,,*73)
+7110 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,164845,5334.72,N,1002.38,E,8,03,2.2,149.5,M,0,M,,*73
+8112 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,164846,5335.0,N,1002.44,W,8,04,2.1,149.6,M,0,M,,*5A)
+8112 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,164846,5335.0,N,1002.44,W,8,04,2.1,149.6,M,0,M,,*5A
+8713 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,164847,A,5335.13,N,1002.45,E,010.1,90.0,311216,,S*49
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+69   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165222,5333.46,N,1001.45,E,8.0,10,2.1,150.0,M,0,M,,*48
+1040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165223,A,5333.64,N,1001.58,W,009.9,381.0,311216,,S*68
+1055 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165223,5333.64,N,1001.58,W,8.0,06,2.3,150.0,M,0,M,,*52
+2041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165224,5333.81,N,1001.84,E,8.0,07,2.4,150.3,M,0,M,,*48
+2804 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165225,A,5333.83,N,1001.97,W,010.0,343.0,311216,,S*6B
+3041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165225,5333.83,N,1001.97,W,8.0,08,2.4,150.4,M,0,M,,*53
+4043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165226,5333.98,S,1002.22,W,8.0,02,2.4,150.2,M,0,M,,*46
+4560 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165227,A,5334.08,S,1002.33,E,010.0,132.0,311216,,S*6B
+5045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165227,5334.11,S,1002.47,W,8.0,00,2.4,150.0,M,0,M,,*42
+6054 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165228,5334.33,S,1002.56,E,8.0,10,2.3,149.6,M,0,M,,*57
+6330 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165228,A,5334.33,S,1002.56,E,010.1,194.0,311216,,S*62
+7050 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165229,5334.46,N,1002.72,E,8.0,09,2.4,149.8,M,0,M,,*4E
+8052 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165230,5334.66,S,1002.79,E,8.0,03,2.6,149.7,M,0,M,,*55
+8083 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165230,A,5334.66,S,1002.79,E,010.0,154.0,311216,,S*6B
+9054 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165231,5334.76,S,1002.89,W,8.0,02,2.6,149.8,M,0,M,,*46
+9856 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165232,A,5334.78,S,1002.9,E,010.1,154.0,311216,,S*50
+10057 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165232,5334.87,S,1002.9,E,8.0,03,2.5,149.7,M,0,M,,*6C
+11058 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165233,5334.99,S,1002.98,E,8.0,04,2.5,149.4,M,0,M,,*5E
+11622 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165234,A,5335.08,S,1003.07,E,010.0,104.0,311216,,S*6B
+12042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165234,5335.21,S,1003.13,E,8.0,09,2.5,149.4,M,0,M,,*54
+13044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165235,5335.35,N,1003.29,W,8.0,02,2.5,149.5,M,0,M,,*5C
+13378 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165235,A,5335.35,N,1003.29,W,010.1,341.0,311216,,S*65
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+70   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165310,5333.44,S,1001.49,E,8.0,02,2.1,150.2,M,0,M,,*5A
+1033 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165311,A,5333.48,S,1001.61,W,010.1,234.0,311216,,S*7E
+1050 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165311,5333.48,S,1001.61,W,8.0,06,2.1,150.3,M,0,M,,*4A
+1886 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165312,A,5333.53,N,1001.73,W,010.0,300.0,311216,,S*6E
+2033 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165312,5333.53,N,1001.73,W,8.0,03,2.1,150.5,M,0,M,,*5E
+2756 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165312,A,5333.8,N,1001.85,W,010.0,372.0,311216,,S*5C
+3036 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165313,5333.87,N,1001.93,W,8.0,01,2.3,150.9,M,0,M,,*54
+3606 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165313,A,5333.88,N,1001.94,W,010.0,346.0,311216,,S*62
+4038 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165314,5334.0,N,1001.96,W,8.0,05,2.5,150.9,M,0,M,,*6C
+4477 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165314,A,5334.0,N,1001.96,W,010.0,331.0,311216,,S*50
+5047 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165315,5334.27,N,1002.16,E,8.0,11,2.5,151.1,M,0,M,,*4D
+5348 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165315,A,5334.27,N,1002.16,E,010.0,64.0,311216,,S*4E
+6049 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165316,5334.34,S,1002.26,E,8.0,10,2.6,151.0,M,0,M,,*51
+6202 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165316,A,5334.34,S,1002.26,E,010.0,139.0,311216,,S*68
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+66   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165515,5333.5,S,1001.45,E,8.0,10,1.9,150.2,M,0,M,,*68
+1036 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165516,A,5333.56,S,1001.63,W,010.0,276.0,311216,,S*75
+1051 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165516,5333.56,S,1001.63,W,8.0,11,2.0,150.3,M,0,M,,*41
+1667 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165517,A,5333.7,S,1001.73,E,010.0,127.0,311216,,S*54
+2037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165517,5333.7,S,1001.73,E,8.0,05,2.1,150.2,M,0,M,,*62
+2306 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165518,A,5333.81,S,1001.75,W,010.1,258.0,311216,,S*7B
+2923 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165518,A,5333.87,S,1001.87,E,010.1,173.0,311216,,S*68
+3038 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165518,5333.89,S,1001.99,W,8.0,01,2.1,150.3,M,0,M,,*48
+3555 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165519,A,5334.0,S,1002.05,E,010.1,170.0,311216,,S*5B
+4039 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165519,5334.02,S,1002.05,W,8.0,08,2.1,150.7,M,0,M,,*46
+4186 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165519,A,5334.02,S,1002.05,W,010.0,252.0,311216,,S*79
+4824 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165520,A,5334.05,S,1002.18,W,010.1,205.0,311216,,S*7B
+5040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165520,5334.05,S,1002.18,W,8.0,10,2.0,150.7,M,0,M,,*4F
+5457 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165521,A,5334.09,S,1002.2,W,010.0,279.0,311216,,S*47
+6042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165521,5334.28,S,1002.41,W,8.0,11,2.0,150.8,M,0,M,,*43
+6088 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165521,A,5334.28,S,1002.41,W,010.1,215.0,311216,,S*78
+6726 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165522,A,5334.39,S,1002.42,W,010.1,277.0,311216,,S*7C
+7043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165522,5334.39,S,1002.42,W,8.0,03,1.9,151.0,M,0,M,,*43
+7359 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165523,A,5334.44,S,1002.42,E,010.1,156.0,311216,,S*65
+7991 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165523,A,5334.48,S,1002.55,E,010.1,140.0,311216,,S*68
+8044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165523,5334.56,N,1002.69,E,8.0,11,2.0,150.5,M,0,M,,*40
+8629 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165524,A,5334.57,N,1002.76,E,010.0,66.0,311216,,S*49
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+85   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165756,5333.49,S,1001.45,E,8.0,01,2.0,149.9,M,0,M,,*5C
+1040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165756,A,5333.65,S,1001.47,W,010.0,211.0,311216,,S*74
+1040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165756,5333.65,S,1001.47,W,8.0,03,2.1,149.9,M,0,M,,*41
+2042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165757,5333.75,N,1001.67,W,8.0,06,2.1,149.9,M,0,M,,*5B
+3044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165758,5333.91,N,1001.84,E,8.0,07,2.2,149.9,M,0,M,,*43
+3307 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165759,A,5333.91,N,1001.84,E,010.1,75.0,311216,,S*41
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+85   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165902,5333.47,S,1001.51,W,8.0,00,1.9,150.0,M,0,M,,*40
+1044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165903,A,5333.68,S,1001.7,E,010.0,196.0,311216,,S*5D
+1060 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165903,5333.68,S,1001.7,E,8.0,08,1.8,149.8,M,0,M,,*64
+2047 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165904,5333.77,N,1001.72,W,8.0,08,1.7,149.6,M,0,M,,*51
+2932 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165905,A,5333.87,N,1001.74,E,010.0,27.0,311216,,S*48
+3048 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165905,5333.87,N,1001.74,E,8.0,05,1.6,149.4,M,0,M,,*45
+4050 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165906,5334.16,N,1002.06,E,8.0,05,1.7,148.9,M,0,M,,*42
+4819 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,165907,A,5334.18,N,1002.11,E,010.0,25.0,311216,,S*49
+5052 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,165907,5334.22,N,1002.23,E,8.0,09,1.8,149.0,M,0,M,,*48
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+68   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,170828,5333.51,S,1001.43,W,8.0,11,1.9,149.8,M,0,M,,*49
+1041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,170829,A,5333.65,N,1001.58,W,010.0,355.0,311216,,S*65
+1049 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,170829,5333.65,N,1001.58,W,8.0,05,1.8,149.8,M,0,M,,*5C
+2043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,170830,5333.82,S,1001.73,W,8.0,06,1.9,150.1,M,0,M,,*4A
+2244 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,170831,A,5333.82,S,1001.73,W,010.1,261.0,311216,,S*76
+3047 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,170831,5333.88,S,1002.01,W,8.0,08,2.1,150.1,M,0,M,,*42
+3444 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,170832,A,5333.88,S,1002.01,W,010.1,210.0,311216,,S*7F
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+76   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171117,5333.57,S,1001.47,E,8.0,09,2.1,150.2,M,0,M,,*5D
+1045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171118,A,5333.67,S,1001.61,W,010.1,281.0,311216,,S*73
+1057 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171118,5333.67,S,1001.61,W,8.0,02,2.1,150.2,M,0,M,,*4C
+2044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171119,5333.81,N,1001.71,W,8.0,11,2.1,150.1,M,0,M,,*58
+3047 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171120,5334.01,S,1001.82,W,8.0,00,2.1,150.2,M,0,M,,*4F
+3484 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171120,A,5334.01,S,1001.82,W,010.0,289.0,311216,,S*7B
+4047 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171121,5334.15,S,1001.98,W,8.0,09,2.1,150.2,M,0,M,,*49
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+72   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171233,5333.52,N,1001.49,E,8.0,05,2.1,149.9,M,0,M,,*41
+1041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171234,A,5333.62,N,1001.75,E,010.0,83.0,311216,,S*40
+1049 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171234,5333.62,N,1001.75,E,8.0,11,1.9,149.7,M,0,M,,*4A
+2042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171235,5333.82,N,1001.94,E,8.0,05,1.9,149.7,M,0,M,,*4F
+2178 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171235,A,5333.82,N,1001.94,E,010.0,44.0,311216,,S*4B
+3042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171236,5333.92,S,1002.11,E,8.0,10,1.8,149.8,M,0,M,,*54
+3326 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171236,A,5333.92,S,1002.11,E,009.9,127.0,311216,,S*6F
+4043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171237,5334.12,S,1002.23,W,8.0,04,1.8,149.9,M,0,M,,*4D
+4472 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171237,A,5334.12,S,1002.23,W,010.1,254.0,311216,,S*75
+5044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171238,5334.37,S,1002.33,W,8.0,00,2.0,149.8,M,0,M,,*4A
+5617 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171238,A,5334.4,S,1002.39,E,010.0,111.0,311216,,S*57
+6042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171239,5334.54,N,1002.49,E,8.0,00,1.8,149.8,M,0,M,,*47
+6763 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171240,A,5334.61,N,1002.61,E,010.0,18.0,311216,,S*43
+7036 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171240,5334.63,N,1002.66,W,8.0,09,2.0,149.6,M,0,M,,*5E
+7910 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171241,A,5334.69,S,1002.71,W,010.0,256.0,311216,,S*7C
+8042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171241,5334.7,S,1002.72,W,8.0,00,1.8,149.3,M,0,M,,*72
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+69   [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,171500,5333.48,S,1001.49,E,8.0,09,2.0,150.0,M,0,M,,*OLD31)
+73   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171500,5333.48,S,1001.49,E,8.0,09,2.0,150.0,M,0,M,,*OLD31
+1042 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,171501,A,5333.73,N,1001.62,E,010.0,48.0,311216,,S*OLD2D)
+1042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171501,A,5333.73,N,1001.62,E,010.0,48.0,311216,,S*OLD2D
+1042 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,171501,5333.73,N,1001.62,E,8.0,09,1.9,150.0,M,0,M,,*OLD26)
+1046 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171501,5333.73,N,1001.62,E,8.0,09,1.9,150.0,M,0,M,,*OLD26
+2040 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,171502,5333.91,N,1001.71,E,8.0,04,1.8,150.2,M,0,M,,*OLD25)
+2044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171502,5333.91,N,1001.71,E,8.0,04,1.8,150.2,M,0,M,,*OLD25
+3039 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,171503,5333.96,S,1001.79,E,8.0,03,1.8,150.1,M,0,M,,*OLD32)
+3043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171503,5333.96,S,1001.79,E,8.0,03,1.8,150.1,M,0,M,,*OLD32
+3518 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,171503,A,5333.96,S,1001.79,E,009.9,113.0,311216,,S*OLD0D)
+3518 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171503,A,5333.96,S,1001.79,E,009.9,113.0,311216,,S*OLD0D
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+72   [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,171556,5333.47,S,1001.48,E,8.0,07,2.0,149.9,M,0,M,,*74)
+76   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171556,5333.47,S,1001.48,E,8.0,07,2.0,149.9,M,0,M,,*74
+1048 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,171557,A,5333.65,S,1001.66,W,010.0,238.0,311216,,S*50)
+1048 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171557,A,5333.65,S,1001.66,W,010.0,238.0,311216,,S*50
+1056 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,171557,5333.65,S,1001.66,W,8.0,04,2.1,150.2,M,0,M,,*6A)
+1056 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171557,5333.65,S,1001.66,W,8.0,04,2.1,150.2,M,0,M,,*6A
+2047 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,171558,5333.89,N,1001.77,W,8.0,00,2.0,149.9,M,0,M,,*7C)
+2047 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171558,5333.89,N,1001.77,W,8.0,00,2.0,149.9,M,0,M,,*7C
+2877 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,171559,A,5333.9,N,1001.83,E,010.0,27.0,311216,,S*5C)
+2877 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171559,A,5333.9,N,1001.83,E,010.0,27.0,311216,,S*5C
+3046 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,171559,5334.01,N,1001.93,W,8.0,02,2.1,149.7,M,0,M,,*7D)
+3046 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171559,5334.01,N,1001.93,W,8.0,02,2.1,149.7,M,0,M,,*7D
+4048 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,171600,5334.12,N,1002.19,E,8.0,00,2.2,149.6,M,0,M,,*63)
+4048 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171600,5334.12,N,1002.19,E,8.0,00,2.2,149.6,M,0,M,,*63
+4704 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,171601,A,5334.16,N,1002.23,E,010.0,21.0,311216,,S*64)
+4713 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,171601,A,5334.16,N,1002.23,E,010.0,21.0,311216,,S*64
+5049 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,171601,5334.24,N,1002.35,E,8.0,01,2.3,149.3,M,0,M,,*6C)
+5049 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171601,5334.24,N,1002.35,E,8.0,01,2.3,149.3,M,0,M,,*6C
+6042 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,171602,5334.28,N,1002.51,W,8.0,07,2.2,149.6,M,0,M,,*71)
+6042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,171602,5334.28,N,1002.51,W,8.0,07,2.2,149.6,M,0,M,,*71
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+388  [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181554,5333.55,S,1001.51,E,8.0,10,2.0,150.1,M,0,M,,*74)
+392  [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181554,5333.55,S,1001.51,E,8.0,10,2.0,150.1,M,0,M,,*74
+1271 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181554,A,5333.69,N,1001.72,E,010.0,87.0,311216,,S*6C)
+1272 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181554,A,5333.69,N,1001.72,E,010.0,87.0,311216,,S*6C
+1318 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181555,5333.69,N,1001.72,E,8.0,07,2.2,149.7,M,0,M,,*6C)
+1318 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181555,5333.69,N,1001.72,E,8.0,07,2.2,149.7,M,0,M,,*6C
+2318 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181556,5333.82,N,1001.82,E,8.0,09,2.1,149.7,M,0,M,,*68)
+2318 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181556,5333.82,N,1001.82,E,8.0,09,2.1,149.7,M,0,M,,*68
+3225 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181556,A,5334.0,N,1001.96,W,010.1,300.0,311216,,S*73)
+3225 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181556,A,5334.0,N,1001.96,W,010.1,300.0,311216,,S*73
+3317 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181557,5334.0,N,1001.96,W,8.0,10,2.2,149.7,M,0,M,,*48)
+3317 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181557,5334.0,N,1001.96,W,8.0,10,2.2,149.7,M,0,M,,*48
+4316 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181558,5334.1,N,1002.11,E,8.0,01,2.1,149.6,M,0,M,,*5A)
+4316 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181558,5334.1,N,1002.11,E,8.0,01,2.1,149.6,M,0,M,,*5A
+5183 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181558,A,5334.18,S,1002.25,E,010.1,132.0,311216,,S*43)
+5184 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181558,A,5334.18,S,1002.25,E,010.1,132.0,311216,,S*43
+5317 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181559,5334.31,S,1002.38,E,8.0,10,1.9,149.4,M,0,M,,*77)
+5317 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181559,5334.31,S,1002.38,E,8.0,10,1.9,149.4,M,0,M,,*77
+6320 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181600,5334.41,S,1002.56,E,8.0,04,1.8,149.4,M,0,M,,*73)
+6320 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181600,5334.41,S,1002.56,E,8.0,04,1.8,149.4,M,0,M,,*73
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+72   [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181820,5333.53,S,1001.4,W,8.0,03,2.0,150.1,M,0,M,,*5C)
+76   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181820,5333.53,S,1001.4,W,8.0,03,2.0,150.1,M,0,M,,*5C
+1041 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181821,A,5333.7,N,1001.6,W,010.0,331.0,311216,,S*44)
+1045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181821,A,5333.7,N,1001.6,W,010.0,331.0,311216,,S*44
+1049 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181821,5333.7,N,1001.6,W,8.0,05,2.1,150.0,M,0,M,,*75)
+1049 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181821,5333.7,N,1001.6,W,8.0,05,2.1,150.0,M,0,M,,*75
+2043 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181822,5333.79,N,1001.75,W,8.0,10,2.1,150.0,M,0,M,,*7F)
+2043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181822,5333.79,N,1001.75,W,8.0,10,2.1,150.0,M,0,M,,*7F
+2612 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181823,A,5333.87,N,1001.82,E,010.0,94.0,311216,,S*6C)
+2612 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181823,A,5333.87,N,1001.82,E,010.0,94.0,311216,,S*6C
+3040 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181823,5333.87,N,1001.82,E,8.0,08,2.1,150.1,M,0,M,,*6D)
+3040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181823,5333.87,N,1001.82,E,8.0,08,2.1,150.1,M,0,M,,*6D
+4043 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181824,5334.16,N,1001.9,E,8.0,04,2.1,150.0,M,0,M,,*5B)
+4043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181824,5334.16,N,1001.9,E,8.0,04,2.1,150.0,M,0,M,,*5B
+4184 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181824,A,5334.16,N,1001.9,E,010.1,1.0,311216,,S*6A)
+4188 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181824,A,5334.16,N,1001.9,E,010.1,1.0,311216,,S*6A
+5041 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181825,5334.32,N,1002.08,E,8.0,00,2.1,150.0,M,0,M,,*6A)
+5041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181825,5334.32,N,1002.08,E,8.0,00,2.1,150.0,M,0,M,,*6A
+5750 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181826,A,5334.33,N,1002.12,E,010.0,31.0,311216,,S*64)
+5754 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181826,A,5334.33,N,1002.12,E,010.0,31.0,311216,,S*64
+6039 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181826,5334.33,N,1002.12,E,8.0,10,2.1,150.2,M,0,M,,*60)
+6039 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181826,5334.33,N,1002.12,E,8.0,10,2.1,150.2,M,0,M,,*60
+7044 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181827,5334.63,S,1002.46,E,8.0,06,1.9,150.0,M,0,M,,*76)
+7044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181827,5334.63,S,1002.46,E,8.0,06,1.9,150.0,M,0,M,,*76
+7324 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181828,A,5334.63,S,1002.46,E,010.1,183.0,311216,,S*4A)
+7324 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181828,A,5334.63,S,1002.46,E,010.1,183.0,311216,,S*4A
+8041 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181828,5334.75,N,1002.63,E,8.0,03,1.8,150.2,M,0,M,,*62)
+8041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181828,5334.75,N,1002.63,E,8.0,03,1.8,150.2,M,0,M,,*62
+8897 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181829,A,5334.81,N,1002.74,E,010.0,3.0,311216,,S*53)
+8901 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181829,A,5334.81,N,1002.74,E,010.0,3.0,311216,,S*53
+9037 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181829,5334.81,N,1002.74,E,8.0,07,1.8,150.4,M,0,M,,*6C)
+9037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181829,5334.81,N,1002.74,E,8.0,07,1.8,150.4,M,0,M,,*6C
+10037 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181830,5335.03,S,1002.99,E,8.0,01,1.8,150.6,M,0,M,,*75)
+10041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181830,5335.03,S,1002.99,E,8.0,01,1.8,150.6,M,0,M,,*75
+10467 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181831,A,5335.03,S,1002.99,E,010.1,178.0,311216,,S*43)
+10467 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181831,A,5335.03,S,1002.99,E,010.1,178.0,311216,,S*43
+11037 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181831,5335.23,N,1003.23,E,8.0,00,2.0,151.0,M,0,M,,*66)
+11041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181831,5335.23,N,1003.23,E,8.0,00,2.0,151.0,M,0,M,,*66
+12042 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181832,5335.31,N,1003.37,W,8.0,01,1.9,150.8,M,0,M,,*73)
+12042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181832,5335.31,N,1003.37,W,8.0,01,1.9,150.8,M,0,M,,*73
+12046 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181832,A,5335.31,N,1003.37,W,010.0,352.0,311216,,S*40)
+12046 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181832,A,5335.31,N,1003.37,W,010.0,352.0,311216,,S*40
+13036 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181833,5335.41,N,1003.59,W,8.0,10,1.9,150.6,M,0,M,,*73)
+13036 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181833,5335.41,N,1003.59,W,8.0,10,1.9,150.6,M,0,M,,*73
+13617 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181834,A,5335.43,N,1003.59,W,010.1,328.0,311216,,S*47)
+13617 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181834,A,5335.43,N,1003.59,W,010.1,328.0,311216,,S*47
+14037 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181834,5335.45,N,1003.61,W,8.0,00,1.8,150.6,M,0,M,,*7B)
+14037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181834,5335.45,N,1003.61,W,8.0,00,1.8,150.6,M,0,M,,*7B
+15040 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181835,5335.62,S,1003.71,E,8.0,00,1.6,150.8,M,0,M,,*71)
+15041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181835,5335.62,S,1003.71,E,8.0,00,1.6,150.8,M,0,M,,*71
+15186 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181835,A,5335.62,S,1003.71,E,010.0,158.0,311216,,S*44)
+15186 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181835,A,5335.62,S,1003.71,E,010.0,158.0,311216,,S*44
+16037 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181836,5335.68,N,1003.94,E,8.0,06,1.6,150.6,M,0,M,,*66)
+16037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181836,5335.68,N,1003.94,E,8.0,06,1.6,150.6,M,0,M,,*66
+16759 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181837,A,5335.8,N,1003.95,W,010.0,373.0,311216,,S*74)
+16759 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181837,A,5335.8,N,1003.95,W,010.0,373.0,311216,,S*74
+17038 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181837,5335.8,N,1003.95,W,8.0,03,1.6,150.6,M,0,M,,*47)
+17038 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181837,5335.8,N,1003.95,W,8.0,03,1.6,150.6,M,0,M,,*47
+18037 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181838,5335.95,N,1004.28,E,8.0,07,1.5,150.7,M,0,M,,*69)
+18037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181838,5335.95,N,1004.28,E,8.0,07,1.5,150.7,M,0,M,,*69
+18329 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181839,A,5335.95,N,1004.28,E,010.1,40.0,311216,,S*6F)
+18329 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181839,A,5335.95,N,1004.28,E,010.1,40.0,311216,,S*6F
+19039 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181839,5336.04,N,1004.37,E,8.0,07,1.4,150.4,M,0,M,,*6F)
+19039 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181839,5336.04,N,1004.37,E,8.0,07,1.4,150.4,M,0,M,,*6F
+19900 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181840,A,5336.16,S,1004.42,E,010.1,169.0,311216,,S*42)
+19900 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181840,A,5336.16,S,1004.42,E,010.1,169.0,311216,,S*42
+20040 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181840,5336.16,S,1004.42,E,8.0,10,1.4,150.3,M,0,M,,*7C)
+20040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181840,5336.16,S,1004.42,E,8.0,10,1.4,150.3,M,0,M,,*7C
+21055 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181841,5336.41,N,1004.53,W,8.0,11,1.6,150.7,M,0,M,,*77)
+21055 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181841,5336.41,N,1004.53,W,8.0,11,1.6,150.7,M,0,M,,*77
+21474 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181842,A,5336.41,N,1004.53,W,010.2,301.0,311216,,S*42)
+21474 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181842,A,5336.41,N,1004.53,W,010.2,301.0,311216,,S*42
+22039 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181842,5336.55,N,1004.66,E,8.0,03,1.5,150.8,M,0,M,,*6A)
+22039 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181842,5336.55,N,1004.66,E,8.0,03,1.5,150.8,M,0,M,,*6A
+23037 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181843,5336.67,N,1004.75,W,8.0,09,1.5,150.5,M,0,M,,*7D)
+23037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181843,5336.67,N,1004.75,W,8.0,09,1.5,150.5,M,0,M,,*7D
+23044 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181843,A,5336.67,N,1004.75,W,010.0,390.0,311216,,S*49)
+23044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181843,A,5336.67,N,1004.75,W,010.0,390.0,311216,,S*49
+24039 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181844,5336.84,S,1004.9,W,8.0,05,1.5,150.6,M,0,M,,*5E)
+24039 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181844,5336.84,S,1004.9,W,8.0,05,1.5,150.6,M,0,M,,*5E
+24616 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181845,A,5336.89,S,1004.94,W,010.0,224.0,311216,,S*53)
+24616 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181845,A,5336.89,S,1004.94,W,010.0,224.0,311216,,S*53
+25037 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181845,5336.93,S,1005.01,E,8.0,01,1.6,150.6,M,0,M,,*75)
+25037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181845,5336.93,S,1005.01,E,8.0,01,1.6,150.6,M,0,M,,*75
+26039 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181846,5337.13,S,1005.08,W,8.0,07,1.5,150.7,M,0,M,,*60)
+26039 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181846,5337.13,S,1005.08,W,8.0,07,1.5,150.7,M,0,M,,*60
+26187 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181846,A,5337.13,S,1005.08,W,010.2,271.0,311216,,S*54)
+26187 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181846,A,5337.13,S,1005.08,W,010.2,271.0,311216,,S*54
+27038 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181847,5337.39,S,1005.11,W,8.0,03,1.4,150.6,M,0,M,,*65)
+27038 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181847,5337.39,S,1005.11,W,8.0,03,1.4,150.6,M,0,M,,*65
+27758 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181848,A,5337.52,S,1005.17,W,010.0,243.0,311216,,S*52)
+27758 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181848,A,5337.52,S,1005.17,W,010.0,243.0,311216,,S*52
+28038 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181848,5337.52,S,1005.17,W,8.0,02,1.3,150.6,M,0,M,,*67)
+28038 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181848,5337.52,S,1005.17,W,8.0,02,1.3,150.6,M,0,M,,*67
+29036 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181849,5337.88,N,1005.55,W,8.0,04,1.2,150.4,M,0,M,,*7F)
+29036 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181849,5337.88,N,1005.55,W,8.0,04,1.2,150.4,M,0,M,,*7F
+29329 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181850,A,5337.88,N,1005.55,W,010.2,388.0,311216,,S*43)
+29329 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181850,A,5337.88,N,1005.55,W,010.2,388.0,311216,,S*43
+30037 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181850,5338.09,N,1005.69,E,8.0,05,1.1,150.5,M,0,M,,*6F)
+30037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181850,5338.09,N,1005.69,E,8.0,05,1.1,150.5,M,0,M,,*6F
+30900 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181851,A,5338.16,S,1005.76,E,010.2,164.0,311216,,S*44)
+30900 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181851,A,5338.16,S,1005.76,E,010.2,164.0,311216,,S*44
+31040 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181851,5338.16,S,1005.76,E,8.0,00,1.0,150.5,M,0,M,,*77)
+31040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181851,5338.16,S,1005.76,E,8.0,00,1.0,150.5,M,0,M,,*77
+32042 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181852,5338.29,S,1005.99,E,8.0,01,1.0,150.6,M,0,M,,*7B)
+32042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181852,5338.29,S,1005.99,E,8.0,01,1.0,150.6,M,0,M,,*7B
+32471 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181853,A,5338.29,S,1005.99,E,010.0,122.0,311216,,S*4B)
+32471 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181853,A,5338.29,S,1005.99,E,010.0,122.0,311216,,S*4B
+33036 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181853,5338.41,S,1006.28,E,8.0,03,1.1,150.6,M,0,M,,*7E)
+33036 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181853,5338.41,S,1006.28,E,8.0,03,1.1,150.6,M,0,M,,*7E
+34037 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181854,5338.48,N,1006.43,E,8.0,00,1.1,150.7,M,0,M,,*62)
+34037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181854,5338.48,N,1006.43,E,8.0,00,1.1,150.7,M,0,M,,*62
+34041 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181854,A,5338.48,N,1006.43,E,010.1,4.0,311216,,S*56)
+34041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181854,A,5338.48,N,1006.43,E,010.1,4.0,311216,,S*56
+35040 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181855,5338.52,N,1006.61,E,8.0,11,1.1,150.7,M,0,M,,*68)
+35040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181855,5338.52,N,1006.61,E,8.0,11,1.1,150.7,M,0,M,,*68
+35613 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181856,A,5338.66,S,1006.69,E,010.1,173.0,311216,,S*4C)
+35613 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181856,A,5338.66,S,1006.69,E,010.1,173.0,311216,,S*4C
+36036 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181856,5338.66,S,1006.8,W,8.0,11,1.1,151.1,M,0,M,,*5B)
+36036 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181856,5338.66,S,1006.8,W,8.0,11,1.1,151.1,M,0,M,,*5B
+37038 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181857,5338.76,N,1006.92,E,8.0,03,1.1,150.9,M,0,M,,*6D)
+37038 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181857,5338.76,N,1006.92,E,8.0,03,1.1,150.9,M,0,M,,*6D
+37186 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181857,A,5338.76,N,1006.92,E,010.0,68.0,311216,,S*6F)
+37186 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181857,A,5338.76,N,1006.92,E,010.0,68.0,311216,,S*6F
+38039 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181858,5338.92,N,1007.09,E,8.0,01,1.3,150.9,M,0,M,,*6B)
+38039 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181858,5338.92,N,1007.09,E,8.0,01,1.3,150.9,M,0,M,,*6B
+38759 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,181859,A,5339.02,N,1007.13,W,010.0,303.0,311216,,S*47)
+38759 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181859,A,5339.02,N,1007.13,W,010.0,303.0,311216,,S*47
+39039 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPGGA,181859,5339.02,N,1007.13,W,8.0,07,1.4,150.9,M,0,M,,*7A)
+39039 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181859,5339.02,N,1007.13,W,8.0,07,1.4,150.9,M,0,M,,*7A
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+132  [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181902,5333.54,N,1001.49,E,8.0,02,2.0,149.9,M,0,M,,*47
+1042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181903,A,5333.73,S,1001.64,E,010.1,172.0,311216,,S*63
+1050 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181903,5333.73,S,1001.64,E,8.0,00,1.9,150.2,M,0,M,,*5A
+1666 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181903,A,5333.82,N,1001.7,E,010.0,4.0,311216,,S*44
+2043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181904,5333.89,N,1001.83,E,8.0,05,1.7,150.0,M,0,M,,*45
+2203 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181904,A,5333.89,N,1001.83,E,010.1,77.0,311216,,S*41
+2783 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181904,A,5334.03,N,1001.91,E,010.0,3.0,311216,,S*75
+3044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181905,5334.06,N,1002.06,E,8.0,04,1.5,149.8,M,0,M,,*49
+3362 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181905,A,5334.06,N,1002.06,E,010.0,42.0,311216,,S*49
+3938 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181906,A,5334.11,N,1002.15,W,010.1,373.0,311216,,S*6C
+4038 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,181906,5334.24,N,1002.26,E,8.0,05,1.3,149.6,M,0,M,,*41
+4523 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,181906,A,5334.24,N,1002.26,E,010.1,42.0,311216,,S*49
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+80   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182644,5333.46,S,1001.39,W,8.0,10,2.0,150.0,M,0,M,,*40
+1049 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,182645,A,5333.51,N,1001.52,W,010.0,307.0,311216,,S*66
+1057 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182645,5333.51,N,1001.52,W,8.0,00,2.1,150.2,M,0,M,,*55
+2048 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182646,5333.7,N,1001.64,W,8.0,02,2.1,150.1,M,0,M,,*61
+3045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182647,5333.91,S,1001.75,W,8.0,06,1.9,149.9,M,0,M,,*4D
+3350 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,182647,A,5333.91,S,1001.75,W,010.1,289.0,311216,,S*76
+4048 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182648,5334.03,S,1001.82,E,8.0,06,1.9,150.1,M,0,M,,*54
+5046 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182649,5334.13,S,1001.94,E,8.0,11,1.8,150.1,M,0,M,,*54
+5656 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,182649,A,5334.22,N,1002.02,E,010.1,88.0,311216,,S*48
+6045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182650,5334.31,S,1002.14,E,8.0,00,2.0,149.8,M,0,M,,*5D
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+76   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182828,5333.46,S,1001.45,E,8.0,02,1.9,150.1,M,0,M,,*55
+1046 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,182829,A,5333.57,S,1001.61,E,010.0,178.0,311216,,S*61
+1058 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182829,5333.57,S,1001.61,E,8.0,08,1.9,150.2,M,0,M,,*5B
+2048 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182830,5333.64,S,1001.69,E,8.0,05,1.9,150.2,M,0,M,,*56
+2072 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,182830,A,5333.64,S,1001.69,E,010.1,197.0,311216,,S*61
+3046 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182831,5333.8,S,1001.82,E,8.0,11,1.7,149.8,M,0,M,,*61
+3094 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,182831,A,5333.8,S,1001.82,E,010.1,142.0,311216,,S*57
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+70   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182847,5333.52,S,1001.52,E,8.0,05,2.1,150.2,M,0,M,,*50
+1041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,182848,A,5333.62,S,1001.63,E,010.0,183.0,311216,,S*66
+1049 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182848,5333.62,S,1001.63,E,8.0,11,2.0,150.0,M,0,M,,*58
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+77   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182941,5333.45,S,1001.52,E,8.0,11,1.9,150.0,M,0,M,,*5D
+1050 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,182942,A,5333.59,N,1001.64,E,010.1,18.0,311216,,S*4D
+1058 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182942,5333.59,N,1001.64,E,8.0,07,1.9,150.2,M,0,M,,*4E
+2047 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182943,5333.82,N,1001.77,W,8.0,07,1.7,150.2,M,0,M,,*57
+3044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,182944,5333.98,N,1001.82,W,8.0,08,1.7,149.9,M,0,M,,*5D
+3336 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,182944,A,5333.98,N,1001.82,W,010.1,301.0,311216,,S*67
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+72   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183105,5333.54,S,1001.52,E,8.0,03,2.0,150.1,M,0,M,,*5C
+1042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183106,A,5333.56,S,1001.73,E,009.9,188.0,311216,,S*68
+1050 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183106,5333.56,S,1001.73,E,8.0,03,2.1,150.3,M,0,M,,*5D
+2042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183107,5333.64,S,1001.85,E,8.0,01,2.3,150.4,M,0,M,,*53
+3040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183108,5333.77,N,1001.99,E,8.0,09,2.2,150.6,M,0,M,,*45
+3369 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183109,A,5333.77,N,1001.99,E,010.0,83.0,311216,,S*46
+4040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183109,5333.8,S,1002.17,W,8.0,11,2.2,150.8,M,0,M,,*71
+5042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183110,5333.94,S,1002.25,W,8.0,06,2.2,150.6,M,0,M,,*45
+5696 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183111,A,5334.05,S,1002.33,W,010.1,209.0,311216,,S*70
+6040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183111,5334.09,S,1002.38,W,8.0,03,2.4,150.6,M,0,M,,*48
+7040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183112,5334.33,N,1002.53,W,8.0,02,2.5,150.8,M,0,M,,*5C
+8018 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183113,A,5334.42,N,1002.57,W,010.0,306.0,311216,,S*61
+8038 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183113,5334.43,N,1002.71,E,8.0,11,2.7,151.2,M,0,M,,*43
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+76   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183150,5333.43,S,1001.4,E,8.0,06,2.1,149.8,M,0,M,,*6C
+1046 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183151,A,5333.55,S,1001.53,E,010.0,196.0,311216,,S*65
+1054 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183151,5333.55,S,1001.53,E,8.0,08,2.2,149.7,M,0,M,,*5A
+2041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183152,5333.74,N,1001.61,E,8.0,00,2.2,149.5,M,0,M,,*4C
+2718 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183152,A,5333.84,N,1001.72,E,010.0,39.0,311216,,S*40
+3040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183153,5333.84,N,1001.72,E,8.0,09,2.2,149.4,M,0,M,,*48
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+80   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183309,5333.44,S,1001.54,E,8.0,09,1.9,150.1,M,0,M,,*55
+1052 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183310,A,5333.5,N,1001.63,E,009.9,86.0,311216,,S*78
+1060 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183310,5333.5,N,1001.63,E,8.0,07,1.9,150.1,M,0,M,,*7F
+2054 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183311,5333.58,S,1001.79,E,8.0,10,1.9,150.1,M,0,M,,*56
+2811 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183311,A,5333.64,S,1001.9,W,010.0,231.0,311216,,S*42
+3056 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183312,5333.77,S,1001.94,W,8.0,06,2.0,149.7,M,0,M,,*4A
+4049 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183313,5333.84,S,1002.0,E,8.0,10,2.0,149.8,M,0,M,,*63
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+76   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183434,5333.46,S,1001.44,E,8.0,00,2.0,150.1,M,0,M,,*5C
+1045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183435,A,5333.57,S,1001.63,E,010.0,110.0,311216,,S*6D
+1053 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183435,5333.57,S,1001.63,E,8.0,10,1.8,149.9,M,0,M,,*52
+2044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183436,5333.71,S,1001.82,E,8.0,02,2.0,149.9,M,0,M,,*52
+3042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183437,5333.83,S,1001.96,E,8.0,08,2.1,149.7,M,0,M,,*5E
+3170 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183438,A,5333.83,S,1001.96,E,010.0,151.0,311216,,S*66
+4048 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183438,5333.89,N,1002.18,W,8.0,01,2.1,149.4,M,0,M,,*5B
+5042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183439,5334.1,N,1002.41,W,8.0,01,2.3,149.2,M,0,M,,*65
+5298 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183440,A,5334.1,N,1002.41,W,010.1,316.0,311216,,S*52
+6041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183440,5334.22,N,1002.51,W,8.0,04,2.2,149.1,M,0,M,,*5C
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+77   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183520,5333.54,N,1001.39,E,8.0,00,2.1,150.2,M,0,M,,*4E
+1043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183521,A,5333.76,N,1001.63,E,009.9,47.0,311216,,S*45
+1051 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183521,5333.76,N,1001.63,E,8.0,02,2.0,150.4,M,0,M,,*45
+2041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183522,5333.91,N,1001.76,W,8.0,00,2.0,150.7,M,0,M,,*58
+2772 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183522,A,5333.93,N,1001.79,W,010.1,374.0,311216,,S*67
+3040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183523,5334.05,N,1001.91,W,8.0,01,1.9,150.7,M,0,M,,*51
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+72   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183740,5333.52,S,1001.51,W,8.0,07,2.0,150.1,M,0,M,,*48
+1037 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183741,A,5333.6,N,1001.73,E,010.1,47.0,311216,,S*77
+1045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183741,5333.6,N,1001.73,E,8.0,04,2.0,150.2,M,0,M,,*77
+2043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183742,5333.79,N,1001.87,W,8.0,11,2.2,150.0,M,0,M,,*51
+3036 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183743,5333.91,N,1002.11,W,8.0,06,2.4,150.2,M,0,M,,*58
+3484 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,183743,A,5333.91,N,1002.11,W,010.1,348.0,311216,,S*62
+4042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183744,5334.04,N,1002.32,E,8.0,08,2.3,150.5,M,0,M,,*49
+5042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,183745,5334.27,N,1002.47,E,8.0,05,2.2,150.4,M,0,M,,*46
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+78   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184053,5333.49,N,1001.42,E,8.0,11,2.0,150.2,M,0,M,,*49
+1042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,184054,A,5333.56,N,1001.61,W,010.0,364.0,311216,,S*64
+1054 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184054,5333.56,N,1001.61,W,8.0,06,1.8,150.0,M,0,M,,*5C
+2047 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184055,5333.65,S,1001.77,E,8.0,04,1.8,150.1,M,0,M,,*56
+2413 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,184056,A,5333.65,S,1001.77,E,009.9,171.0,311216,,S*69
+3042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184056,5333.72,N,1001.93,E,8.0,00,1.7,149.8,M,0,M,,*4E
+3783 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,184057,A,5333.84,N,1002.05,E,010.0,52.0,311216,,S*4D
+4043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184057,5333.91,N,1002.16,E,8.0,03,1.5,149.7,M,0,M,,*42
+5045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184058,5333.99,N,1002.29,E,8.0,02,1.5,149.6,M,0,M,,*49
+5154 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,184059,A,5333.99,N,1002.29,E,010.0,19.0,311216,,S*4E
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+76   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184249,5333.55,N,1001.5,E,8.0,10,1.9,150.1,M,0,M,,*76
+1045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,184250,A,5333.75,N,1001.63,E,010.0,65.0,311216,,S*41
+1053 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184250,5333.75,N,1001.63,E,8.0,09,1.8,150.1,M,0,M,,*45
+2043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184251,5333.87,S,1001.74,E,8.0,06,1.9,150.2,M,0,M,,*5F
+3042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184252,5333.94,N,1001.88,E,8.0,04,1.9,150.1,M,0,M,,*41
+3219 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,184252,A,5333.94,N,1001.88,E,010.1,30.0,311216,,S*48
+4041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184253,5334.09,N,1002.04,E,8.0,05,2.1,150.0,M,0,M,,*4F
+5043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184254,5334.27,N,1002.14,E,8.0,04,2.2,149.9,M,0,M,,*46
+5395 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,184254,A,5334.27,N,1002.14,E,010.1,60.0,311216,,S*42
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+79   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184653,5333.46,S,1001.48,E,8.0,03,2.1,150.1,M,0,M,,*56
+1048 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,010.0,399,311216,,,S*022A)
+1052 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,010.0,399,311216,,,S*022A
+1056 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184654,5333.52,N,1001.7,W,8.0,00,2.0,150.2,M,0,M,,*61
+1588 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,010.1,205,311216,,,S*072A)
+1592 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,010.1,205,311216,,,S*072A
+2045 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184655,5333.55,S,1001.79,W,8.0,07,1.9,150.1,M,0,M,,*4D
+2129 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,010.1,215,311216,,,S*062A)
+2129 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,010.1,215,311216,,,S*062A
+2674 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,010.1,277,311216,,,S*022A)
+2674 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,010.1,277,311216,,,S*022A
+3044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184656,5333.8,N,1001.99,W,8.0,00,1.6,150.1,M,0,M,,*6D
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+76   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184731,5333.47,S,1001.49,E,8.0,07,2.0,150.2,M,0,M,,*55
+1041 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,010.0,47,311216,,S*1E40)
+1049 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,010.0,47,311216,,S*1E40
+1049 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184732,5333.62,N,1001.68,E,8.0,05,2.0,150.4,M,0,M,,*4B
+2044 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184733,5333.89,S,1001.85,E,8.0,07,2.1,150.0,M,0,M,,*56
+3043 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184734,5334.0,N,1002.04,E,8.0,03,2.3,150.2,M,0,M,,*74
+3232 [Thread-1] ERROR NMEAParser  - NMEA-Sentence malformed ($GPRMC,010.1,72,311216,,S*193B)
+3232 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,010.1,72,311216,,S*193B
+4040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184735,5334.15,N,1002.25,W,8.0,06,2.2,150.1,M,0,M,,*57
+0    [main] INFO  GPSParserFactory  - Parser is up and running
+72   [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184757,5333.51,N,1001.46,E,8.0,05,2.0,150.0,M,0,M,,*40
+1041 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,184758,A,5333.79,N,1001.59,W,010.1,301.0,311216,,S*6B
+1053 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184758,5333.79,N,1001.59,W,8.0,00,2.0,150.0,M,0,M,,*5C
+2048 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184759,5333.83,N,1001.81,E,8.0,01,2.2,150.3,M,0,M,,*4F
+2916 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,184800,A,5333.96,S,1001.88,E,010.1,191.0,311216,,S*60
+3040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184800,5334.06,N,1001.95,E,8.0,07,2.2,150.3,M,0,M,,*45
+4042 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184801,5334.22,N,1002.15,E,8.0,03,2.3,150.5,M,0,M,,*4A
+4792 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPRMC,184802,A,5334.24,N,1002.17,E,010.1,32.0,311216,,S*4C
+5040 [Thread-1] INFO  GPSParserFactory$ParserThread  - $GPGGA,184802,5334.34,N,1002.28,E,8.0,10,2.3,150.6,M,0,M,,*41

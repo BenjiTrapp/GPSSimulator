@@ -59,9 +59,8 @@ public abstract class ANMEASentence
 	 */
 	protected void appendCheckSum(StringBuffer buf)
 	{
-		if(buf == null)
-			throw new IllegalArgumentException("the passed StringBuffer is null");
-		
+        assert  buf != null;
+		assert !(buf.length() == 0);
 		buf.append("*" + ChecksumUtilities.getCRC(buf.toString()));
 	}
 	
