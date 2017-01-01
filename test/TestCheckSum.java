@@ -115,28 +115,10 @@ public class TestCheckSum extends TestCase
 		
 		for(int i = 0; i < RANGE; i++)
 		{
-			s.append(rnd.nextInt(10000) + ",");
-			s.append("*" + ChecksumUtilities.getCRC(s.toString()));
+			s.append(rnd.nextInt(10000)).append(",");
+			s.append("*").append(ChecksumUtilities.getCRC(s.toString()));
 			assertTrue(ChecksumUtilities.isChecksumValid(s.toString()));
 		}
-		isSuccessful = true;
-	}
-	
-	@Test
-	public void testInvalidCnt()
-	{
-		final int RANGE = 10;
-		ChecksumUtilities.resetInvalidCRCAmount(); //Assert a clean start
-		
-		LOG.info("Checking invalid Count");
-		for(int i = 0; i < RANGE; i++)
-			ChecksumUtilities.isChecksumValid("INVALID");
-		
-		assertEquals(RANGE, ChecksumUtilities.getInvalidCRCAmount());
-		
-		LOG.info("Checking invalid counter reset");
-		ChecksumUtilities.resetInvalidCRCAmount();
-		assertEquals(0, ChecksumUtilities.getInvalidCRCAmount());
 		isSuccessful = true;
 	}
 }

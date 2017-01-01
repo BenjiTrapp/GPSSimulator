@@ -96,7 +96,7 @@ public final class GPSData
 	 * Get`s the Cardinal Direction for east or west back
 	 * @return Enum with the cardinal direction east or west
 	 */
-	public static CardinalDirections getEW()
+	public synchronized static CardinalDirections getEW()
 	{
 		return ew;
 	}
@@ -104,7 +104,7 @@ public final class GPSData
 	/**
 	 * Set`s the Cardinal Direction for east or west 
 	 */
-	public static void setEW(CardinalDirections ew)
+	public synchronized static void setEW(CardinalDirections ew)
 	{
 		if (ew == NORTH || ew == SOUTH)
 			throw new IllegalArgumentException();
@@ -117,7 +117,7 @@ public final class GPSData
 	 * Get`s the Cardinal Direction for north or south back
 	 * @return Enum with the cardinal direction north or south 
 	 */
-	public static CardinalDirections getNS()
+	public synchronized static CardinalDirections getNS()
 	{
 		return ns;
 	}
@@ -125,7 +125,7 @@ public final class GPSData
 	/**
 	 * Set`s the Cardinal Direction for north or south 
 	 */
-	public static void setNS(CardinalDirections ns)
+	public synchronized static void setNS(CardinalDirections ns)
 	{
 		if (ns == EAST || ns == WEST)
 			throw new IllegalArgumentException();
@@ -175,7 +175,7 @@ public final class GPSData
 	 * Get`s the Course back
 	 * @return the Course in degree (gon or radial)
 	 */
-	public static int getCourse()
+	public synchronized static int getCourse()
 	{
 		return course;
 	}
@@ -183,7 +183,7 @@ public final class GPSData
 	/**
 	 * Set`s the Course in degree (gon or radial)
 	 */
-	public static void setCourse(int course)
+	public synchronized static void setCourse(int course)
 	{
 		if (GPSData.course != course)
 			GPSData.course = course;
@@ -193,7 +193,7 @@ public final class GPSData
 	 * Get`s the amount of satellites back
 	 * @return amount of satellites as string
 	 */
-	public static String getSatellites()
+	public synchronized static String getSatellites()
 	{
 		return satellites;
 	}
@@ -201,7 +201,7 @@ public final class GPSData
 	/**
 	 * Set`s the amount of satellites
 	 */
-	public static void setSatellites(String  satellites)
+	public synchronized static void setSatellites(String  satellites)
 	{
 		int tmp = Integer.parseInt(satellites);
 				
@@ -216,7 +216,7 @@ public final class GPSData
 	 * Get`s the Quality back
 	 * @return quality as String
 	 */
-	public static int getQuality()
+	public synchronized static int getQuality()
 	{
 		return quality;
 	}
@@ -225,7 +225,7 @@ public final class GPSData
 	 * Set`s the quality
 	 * @param quality quality as integer
 	 */
-	public static void setQuality(int quality)
+	public synchronized static void setQuality(int quality)
 	{
 		if (GPSData.quality != quality)
 			GPSData.quality = quality;
@@ -345,20 +345,18 @@ public final class GPSData
 	}
 
 	public static synchronized String printCurrentData(){
-		return new StringBuilder()
-				.append("Altitude: " + getAltitude()).append("\n")
-				.append("Course: " +getCourse()).append("\n")
-				.append("EW: " + getEW()).append("\n")
-				.append("FixType: " + getFixType()).append("\n")
-				.append("Latitude: " + getLatitude()).append("\n")
-				.append("Longitude: " + getLongitude()).append("\n")
-				.append("HDOP: " + getHDOP()).append("\n")
-				.append("VDOP: " + getVDOP()).append("\n")
-				.append("PDOP: " + getPDOP()).append("\n")
-				.append("Mode: " + getMode()).append("\n")
-				.append("Satellites: " + getSatellites()).append("\n")
-				.append("Status: " + getStatus()).append("\n")
-				.append("Velocity: " + getVelocity())
-				.toString();
+		return ("Altitude: " + getAltitude()) + "\n" +
+				"Course: " + getCourse() + "\n" +
+				"EW: " + getEW() + "\n" +
+				"FixType: " + getFixType() + "\n" +
+				"Latitude: " + getLatitude() + "\n" +
+				"Longitude: " + getLongitude() + "\n" +
+				"HDOP: " + getHDOP() + "\n" +
+				"VDOP: " + getVDOP() + "\n" +
+				"PDOP: " + getPDOP() + "\n" +
+				"Mode: " + getMode() + "\n" +
+				"Satellites: " + getSatellites() + "\n" +
+				"Status: " + getStatus() + "\n" +
+				"Velocity: " + getVelocity();
 	}
 }

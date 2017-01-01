@@ -1,7 +1,8 @@
 package gps.NMEA.sentences;
 
 public enum NMEASentenceTypes {
-    GPGGA, GPRMC;
+    GPGGA,
+    GPRMC;
 
     public String getSentenceType() {
         return "$" + this.name();
@@ -19,9 +20,9 @@ public enum NMEASentenceTypes {
         return false;
     }
 
-    public static boolean containsValidType(String type) {
+    public static boolean containsValidType(String stringWithPossibleType) {
         for (NMEASentenceTypes enumType : NMEASentenceTypes.values()) {
-            if (type.contains(enumType.toString()))
+            if (stringWithPossibleType.contains(enumType.toString()))
                 return true;
         }
         return false;
@@ -35,7 +36,7 @@ public enum NMEASentenceTypes {
                 return enumType;
         }
 
-        throw  new TypeNotPresentException(type, new Throwable("Passed type not recognized"));
+        throw  new TypeNotPresentException(type, new Throwable("Passed type was not recognized"));
     }
 }
 

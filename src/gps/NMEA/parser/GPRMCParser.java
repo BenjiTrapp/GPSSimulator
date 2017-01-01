@@ -12,7 +12,6 @@ import gps.NMEA.gps_position.GPSPositionBuilder;
 class GPRMCParser implements NMEASentenceParser
 {
 	private static GPRMCParser instance = null;
-
 	public static GPRMCParser getInstance(){
 		return (instance != null) ? instance : new GPRMCParser();
 	}
@@ -20,6 +19,7 @@ class GPRMCParser implements NMEASentenceParser
 	@Override
 	public synchronized GPSPosition parse(String[] tokens) {
 		assert tokens != null;
+		assert  tokens.length >= 9;
 
 		return new GPSPositionBuilder()
 				.addTime(Double.valueOf(tokens[1]))

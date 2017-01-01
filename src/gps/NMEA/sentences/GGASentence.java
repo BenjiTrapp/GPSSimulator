@@ -4,6 +4,7 @@ import gps.NMEA.utils.ChecksumUtilities;
 import gps.data.GPSData;
 import gps.data.GPSDataEnumHolder.Status;
 
+import static gps.NMEA.sentences.NMEASentenceTypes.*;
 import static gps.data.GPSData.*;
 
 /**
@@ -30,8 +31,8 @@ import static gps.data.GPSData.*;
        |      |           |            (0 = invalid)
        |      |           |            (1 = GPS)
        |      |           |            (2 = DGPS)
-       |      |           |            (6 = estimated only @gps.NMEA-0183 2.3)
-       |      |           | 
+       |      |           |            (6 = estimated only @NMEA-0183 2.3)
+       |      |           |
        |      |           Longitude
        |      |
        |      Latitude 
@@ -52,13 +53,13 @@ public class GGASentence implements NMEASentence
 
 		if (getStatus() == Status.A)
 		{
-		    return new NMEASentenceBuilder(NMEASentenceTypes.GPGGA)
+		    return new NMEASentenceBuilder(GPGGA)
                             .append(getTimestamp())
-                            .append(Double.toString(getNMEALatitude()))
+                            .append(getNMEALatitude())
                             .append(getNS().name().substring(0, 1))
-                            .append(Double.toString(getNMEALongitude()))
+                            .append(getNMEALongitude())
                             .append(getEW().name().substring(0, 1))
-                            .append(Double.toString(getQuality()))
+                            .append(getQuality())
                             .append(getSatellites())
                             .append(getHDOP())
                             .append(getAltitude())
@@ -69,7 +70,7 @@ public class GGASentence implements NMEASentence
 							.appendChecksum()
                             .build();
 		} else{
-			result = NMEASentenceTypes.GPGGA.name()
+			result = GPGGA.name()
                     + DELIMITER
                     + getTimestamp()
                     + ",,,,,,,,,,,,,*7A";

@@ -21,6 +21,12 @@ public class NMEASentenceBuilder {
         return this;
     }
 
+    public NMEASentenceBuilder append(double line){
+        this.builder.append(Double.toString(line))
+                .append(DELIMITER);
+        return this;
+    }
+
     NMEASentenceBuilder appendNotDelimited(String line){
         this.builder.append(line);
         return this;

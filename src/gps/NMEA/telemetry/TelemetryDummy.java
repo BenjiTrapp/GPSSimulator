@@ -56,7 +56,7 @@ public class TelemetryDummy
 			try {
 				fw.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.err.println("IOException @ closing FileWriter");
 			}
 		}
 	}

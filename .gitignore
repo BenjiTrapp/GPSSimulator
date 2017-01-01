@@ -4,3 +4,6 @@ out/
 .idea/
 *.iml
 log/
+*.log
+*.log.*
+*.png

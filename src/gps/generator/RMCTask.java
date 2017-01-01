@@ -15,7 +15,6 @@ import gps.NMEA.sentences.RMCSentence;
 public class RMCTask extends TimerTask
 {
 	private RMCSentence rmc = new RMCSentence();
-	private RMCSentence rmcNEW = new RMCSentence();
 	private StringWriter strWriter;
 
 	/**
@@ -35,9 +34,9 @@ public class RMCTask extends TimerTask
 	 * @param strWriter
 	 *            Instance of the StringWriter that shall be used
 	 */
-    RMCTask(StringWriter strWriterc)
+    RMCTask(StringWriter strWriter)
 	{
-		this.strWriter = strWriterc;
+		this.strWriter = strWriter;
 	}
 
 	@Override

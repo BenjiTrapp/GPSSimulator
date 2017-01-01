@@ -4,6 +4,7 @@ import gps.NMEA.utils.ChecksumUtilities;
 import gps.data.GPSData;
 import gps.data.GPSDataEnumHolder.Status;
 
+import static gps.NMEA.sentences.NMEASentenceTypes.*;
 import static gps.data.GPSData.*;
 
 /**
@@ -50,22 +51,22 @@ public class RMCSentence implements NMEASentence {
         String result;
 
 		if (getStatus() == Status.A) {
-		    result = new NMEASentenceBuilder(NMEASentenceTypes.GPRMC)
+		    result = new NMEASentenceBuilder(GPRMC)
 					.append(getTimestamp())
-					.append(GPSData.getStatus().name())
-					.append(Double.toString(getNMEALatitude()))
-					.append(GPSData.getNS().name().substring(0, 1))
-                    .append(Double.toString(getNMEALongitude()))
-					.append(GPSData.getEW().name().substring(0, 1))
+					.append(getStatus().name())
+					.append(getNMEALatitude())
+					.append(getNS().name().substring(0, 1))
+                    .append(getNMEALongitude())
+					.append(getEW().name().substring(0, 1))
 					.append(getVelocity())
-					.append(Double.toString(getCourse()))
+					.append(getCourse())
                     .append(getDatetime())
 					.appendNotDelimited(",")
                     .append(getMode().name().substring(0, 1))
                     .appendChecksum()
 					.build();
         } else {
-			result = String.valueOf(NMEASentenceTypes.GPRMC)
+			result = String.valueOf(GPRMC)
                                     + DELIMITER + getTimestamp()
                                     + ",V,,,,,,,,,,N*31";
 		}
