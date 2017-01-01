@@ -1,8 +1,8 @@
 package gps.NMEA.utils;
 
+import org.jetbrains.annotations.Contract;
+
 import java.io.IOException;
-import java.security.InvalidParameterException;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,16 +12,21 @@ public final class ChecksumUtilities {
     private static final int ASTERISK_POSITION_FROM_CHECKSUM = 3;
     private static final Logger LOG = Logger.getLogger("ChecksumLogger");
     private static final String LOGGING_PATH = "log/Checksum.log";
+    private static final int CHECKSUM_HEX_LENGTH = 2;
+    private static final int IGNORE_FIRST_TOKEN = 1;
+    private static final int CHECKSUM_COMPLETE_LENGTH = 3;
+    private static final char CHECKSUM_ASTERISK_DELIMITER = '*';
+    private static final String NMEA_SENTENCE_INITIALIZER = "$";
 
     static {
         try {
             FileHandler fh = new FileHandler(LOGGING_PATH);
-            LOG.addHandler(fh);
             fh.setFormatter(new SimpleFormatter());
+            LOG.addHandler(fh);
             LOG.setUseParentHandlers(false);
             LOG.setLevel(Level.FINE);
         } catch (SecurityException | IOException e) {
-            e.printStackTrace();
+            System.err.println("Error during instantiation of the Checksum logger");
         }
     }
 
@@ -36,34 +41,44 @@ public final class ChecksumUtilities {
      * @param nmeaSentence The gps.NMEA Sentence that shall be checked
      * @return true if the checksum is valid, otherwise false
      */
+    @Contract("null -> fail")
     public static synchronized boolean isChecksumValid(String nmeaSentence) {
-        boolean isValid = true;
-        int msglen = nmeaSentence.length();
-        if (nmeaSentence.isEmpty())
-            throw new InvalidParameterException();
+        assert nmeaSentence != null;
+        assert !nmeaSentence.isEmpty();
+        assert nmeaSentence.contains(Character.toString(CHECKSUM_ASTERISK_DELIMITER));
 
-        if (!nmeaSentence.startsWith("$")) {
+        int msglen = nmeaSentence.length();
+
+        if (!nmeaSentence.startsWith(NMEA_SENTENCE_INITIALIZER)) {
             appendError("NMEA Sentence - Missing leading '$' (" + nmeaSentence + ") is INVALID");
-            isValid = false;
+            return false;
         }
 
-        if (msglen > 4 && isValid) {
-            if (nmeaSentence.charAt(msglen - ASTERISK_POSITION_FROM_CHECKSUM) == '*') {
-                String chk_s = getCRC(nmeaSentence.substring(0, msglen - 3));
+        if (msglen != CHECKSUM_COMPLETE_LENGTH) {
+            if (getChecksumDelimiterFromSentence(nmeaSentence) == CHECKSUM_ASTERISK_DELIMITER) {
+                String chk_s;
 
-                isValid = nmeaSentence.substring(msglen - 2, msglen).equals(chk_s);
-                LOG.info("Sentence: " + nmeaSentence + " is VALID");
-                return (isValid);
+                chk_s = getCRC(nmeaSentence.substring(0, msglen - CHECKSUM_COMPLETE_LENGTH));
+
+                if(nmeaSentence.substring(msglen - CHECKSUM_HEX_LENGTH, msglen).equals(chk_s)){
+                    LOG.info("Sentence: " + nmeaSentence + " is VALID");
+                    return true;
+                }else{
+                    appendError("Validation failed -> the Checksum is INVALID");
+                    return false;
+                }
             } else {
                 appendError("Sentence has no valid checksum: Leading asterisk is missing  (" + nmeaSentence + " ) + is INVALID");
                 return false;
             }
+        }else{
+            appendError("Sentence has no valid checksum: Checksum length != 3  (" + nmeaSentence + " ) + is INVALID");
+            return false;
         }
+    }
 
-        if (isValid)
-            appendError("message length > 4 characters for Sentence (" + nmeaSentence + ") is INVALID");
-
-        return false;
+    private static char getChecksumDelimiterFromSentence(String nmeaSentence) {
+        return nmeaSentence.charAt(nmeaSentence.length() - ASTERISK_POSITION_FROM_CHECKSUM);
     }
 
     /**
@@ -72,21 +87,22 @@ public final class ChecksumUtilities {
      * @param nmeaSentence String containing the full gps.NMEA message without checksum
      * @return String String that contains the calculated checksum
      */
+    @Contract("null -> fail")
     public static synchronized String getCRC(String nmeaSentence) {
         assert nmeaSentence != null;
         assert !nmeaSentence.isEmpty();
-        assert nmeaSentence.startsWith("$");
-        assert !nmeaSentence.contains("*");
+        assert nmeaSentence.startsWith(NMEA_SENTENCE_INITIALIZER);
+        assert !nmeaSentence.contains(Character.toString(CHECKSUM_ASTERISK_DELIMITER));
 
         int checksum = 0;
         String checksumResult;
 
-        for (int i = 1; i < nmeaSentence.length(); i++)
+        for (int i = IGNORE_FIRST_TOKEN; i < nmeaSentence.length(); i++)
             checksum ^= nmeaSentence.charAt(i);
 
         checksumResult = Integer.toHexString(checksum).toUpperCase();
 
-        if (checksumResult.length() < 2)
+        if (checksumResult.length() < CHECKSUM_HEX_LENGTH)
             checksumResult = "0" + checksumResult;
 
         LOG.info("Created CRC (" + checksumResult + ")  for Sentence: " + nmeaSentence);
