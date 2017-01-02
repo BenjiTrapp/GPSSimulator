@@ -1,60 +1,42 @@
-Jan 02, 2017 10:29:29 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (42)  for Sentence: $GPGGA,102929,5333.49,N,1001.52,E,8.0,00,2.0,150.2,M,0,M,,
-Jan 02, 2017 10:29:29 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (42)  for Sentence: $GPGGA,102929,5333.49,N,1001.52,E,8.0,00,2.0,150.2,M,0,M,,
-Jan 02, 2017 10:29:29 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
-INFORMATION: Sentence: $GPGGA,102929,5333.49,N,1001.52,E,8.0,00,2.0,150.2,M,0,M,,*42 is VALID
-Jan 02, 2017 10:29:30 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (56)  for Sentence: $GPRMC,102930,A,5333.54,S,1001.66,E,010.1,97.0,020117,,S
-Jan 02, 2017 10:29:30 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (56)  for Sentence: $GPRMC,102930,A,5333.54,S,1001.66,E,010.1,97.0,020117,,S
-Jan 02, 2017 10:29:30 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
-INFORMATION: Sentence: $GPRMC,102930,A,5333.54,S,1001.66,E,010.1,97.0,020117,,S*56 is VALID
-Jan 02, 2017 10:29:30 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (54)  for Sentence: $GPGGA,102930,5333.54,S,1001.66,E,8.0,09,2.0,150.3,M,0,M,,
-Jan 02, 2017 10:29:30 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (54)  for Sentence: $GPGGA,102930,5333.54,S,1001.66,E,8.0,09,2.0,150.3,M,0,M,,
-Jan 02, 2017 10:29:30 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
-INFORMATION: Sentence: $GPGGA,102930,5333.54,S,1001.66,E,8.0,09,2.0,150.3,M,0,M,,*54 is VALID
-Jan 02, 2017 10:29:31 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (5B)  for Sentence: $GPGGA,102931,5333.77,N,1001.87,W,8.0,05,2.1,150.1,M,0,M,,
-Jan 02, 2017 10:29:31 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (5B)  for Sentence: $GPGGA,102931,5333.77,N,1001.87,W,8.0,05,2.1,150.1,M,0,M,,
-Jan 02, 2017 10:29:31 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
-INFORMATION: Sentence: $GPGGA,102931,5333.77,N,1001.87,W,8.0,05,2.1,150.1,M,0,M,,*5B is VALID
-Jan 02, 2017 10:29:32 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (56)  for Sentence: $GPRMC,102932,A,5333.77,N,1001.87,W,010.1,58.0,020117,,S
-Jan 02, 2017 10:29:32 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (56)  for Sentence: $GPRMC,102932,A,5333.77,N,1001.87,W,010.1,58.0,020117,,S
-Jan 02, 2017 10:29:32 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
-INFORMATION: Sentence: $GPRMC,102932,A,5333.77,N,1001.87,W,010.1,58.0,020117,,S*56 is VALID
-Jan 02, 2017 10:29:32 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (5F)  for Sentence: $GPGGA,102932,5333.96,N,1002.15,W,8.0,07,2.1,150.3,M,0,M,,
-Jan 02, 2017 10:29:32 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (5F)  for Sentence: $GPGGA,102932,5333.96,N,1002.15,W,8.0,07,2.1,150.3,M,0,M,,
-Jan 02, 2017 10:29:32 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
-INFORMATION: Sentence: $GPGGA,102932,5333.96,N,1002.15,W,8.0,07,2.1,150.3,M,0,M,,*5F is VALID
-Jan 02, 2017 10:29:33 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (4B)  for Sentence: $GPRMC,102933,A,5334.1,S,1002.21,W,009.9,360.0,020117,,S
-Jan 02, 2017 10:29:33 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (4B)  for Sentence: $GPRMC,102933,A,5334.1,S,1002.21,W,009.9,360.0,020117,,S
-Jan 02, 2017 10:29:33 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
-INFORMATION: Sentence: $GPRMC,102933,A,5334.1,S,1002.21,W,009.9,360.0,020117,,S*4B is VALID
-Jan 02, 2017 10:29:33 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (55)  for Sentence: $GPGGA,102933,5334.22,N,1002.33,W,8.0,00,2.0,150.2,M,0,M,,
-Jan 02, 2017 10:29:33 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (55)  for Sentence: $GPGGA,102933,5334.22,N,1002.33,W,8.0,00,2.0,150.2,M,0,M,,
-Jan 02, 2017 10:29:33 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
-INFORMATION: Sentence: $GPGGA,102933,5334.22,N,1002.33,W,8.0,00,2.0,150.2,M,0,M,,*55 is VALID
-Jan 02, 2017 10:29:34 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (5A)  for Sentence: $GPGGA,102934,5334.37,S,1002.47,E,8.0,01,2.0,150.3,M,0,M,,
-Jan 02, 2017 10:29:34 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (5A)  for Sentence: $GPGGA,102934,5334.37,S,1002.47,E,8.0,01,2.0,150.3,M,0,M,,
-Jan 02, 2017 10:29:34 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
-INFORMATION: Sentence: $GPGGA,102934,5334.37,S,1002.47,E,8.0,01,2.0,150.3,M,0,M,,*5A is VALID
-Jan 02, 2017 10:29:35 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (6B)  for Sentence: $GPRMC,102935,A,5334.37,S,1002.47,E,010.1,242.0,020117,,S
-Jan 02, 2017 10:29:35 AM gps.NMEA.utils.ChecksumUtilities getCRC
-INFORMATION: Created CRC (6B)  for Sentence: $GPRMC,102935,A,5334.37,S,1002.47,E,010.1,242.0,020117,,S
-Jan 02, 2017 10:29:35 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
-INFORMATION: Sentence: $GPRMC,102935,A,5334.37,S,1002.47,E,010.1,242.0,020117,,S*6B is VALID
+Jan 02, 2017 10:40:32 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (5B)  for Sentence: $GPGGA,104032,5333.53,S,1001.48,E,8.0,03,2.0,149.8,M,0,M,,
+Jan 02, 2017 10:40:32 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (5B)  for Sentence: $GPGGA,104032,5333.53,S,1001.48,E,8.0,03,2.0,149.8,M,0,M,,
+Jan 02, 2017 10:40:32 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
+INFORMATION: Sentence: $GPGGA,104032,5333.53,S,1001.48,E,8.0,03,2.0,149.8,M,0,M,,*5B is VALID
+Jan 02, 2017 10:40:33 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (44)  for Sentence: $GPRMC,104033,A,5333.58,N,1001.61,E,010.0,52.0,020117,,S
+Jan 02, 2017 10:40:33 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (44)  for Sentence: $GPRMC,104033,A,5333.58,N,1001.61,E,010.0,52.0,020117,,S
+Jan 02, 2017 10:40:33 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
+INFORMATION: Sentence: $GPRMC,104033,A,5333.58,N,1001.61,E,010.0,52.0,020117,,S*44 is VALID
+Jan 02, 2017 10:40:33 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (44)  for Sentence: $GPGGA,104033,5333.58,N,1001.61,E,8.0,10,2.0,149.9,M,0,M,,
+Jan 02, 2017 10:40:33 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (44)  for Sentence: $GPGGA,104033,5333.58,N,1001.61,E,8.0,10,2.0,149.9,M,0,M,,
+Jan 02, 2017 10:40:33 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
+INFORMATION: Sentence: $GPGGA,104033,5333.58,N,1001.61,E,8.0,10,2.0,149.9,M,0,M,,*44 is VALID
+Jan 02, 2017 10:40:34 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (7A)  for Sentence: $GPRMC,104034,A,5333.59,N,1001.69,E,010.0,7.0,020117,,S
+Jan 02, 2017 10:40:34 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (7A)  for Sentence: $GPRMC,104034,A,5333.59,N,1001.69,E,010.0,7.0,020117,,S
+Jan 02, 2017 10:40:34 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
+INFORMATION: Sentence: $GPRMC,104034,A,5333.59,N,1001.69,E,010.0,7.0,020117,,S*7A is VALID
+Jan 02, 2017 10:40:34 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (5C)  for Sentence: $GPGGA,104034,5333.64,N,1001.74,W,8.0,04,2.2,149.8,M,0,M,,
+Jan 02, 2017 10:40:34 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (5C)  for Sentence: $GPGGA,104034,5333.64,N,1001.74,W,8.0,04,2.2,149.8,M,0,M,,
+Jan 02, 2017 10:40:34 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
+INFORMATION: Sentence: $GPGGA,104034,5333.64,N,1001.74,W,8.0,04,2.2,149.8,M,0,M,,*5C is VALID
+Jan 02, 2017 10:40:35 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (75)  for Sentence: $GPRMC,104035,A,5333.78,N,1001.88,E,009.9,361.0,020117,,S
+Jan 02, 2017 10:40:35 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (75)  for Sentence: $GPRMC,104035,A,5333.78,N,1001.88,E,009.9,361.0,020117,,S
+Jan 02, 2017 10:40:35 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
+INFORMATION: Sentence: $GPRMC,104035,A,5333.78,N,1001.88,E,009.9,361.0,020117,,S*75 is VALID
+Jan 02, 2017 10:40:35 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (53)  for Sentence: $GPGGA,104035,5333.91,S,1001.96,E,8.0,02,2.2,149.9,M,0,M,,
+Jan 02, 2017 10:40:35 AM gps.NMEA.utils.ChecksumUtilities getCRC
+INFORMATION: Created CRC (53)  for Sentence: $GPGGA,104035,5333.91,S,1001.96,E,8.0,02,2.2,149.9,M,0,M,,
+Jan 02, 2017 10:40:35 AM gps.NMEA.utils.ChecksumUtilities isChecksumValid
+INFORMATION: Sentence: $GPGGA,104035,5333.91,S,1001.96,E,8.0,02,2.2,149.9,M,0,M,,*53 is VALID

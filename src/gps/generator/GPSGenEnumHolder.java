@@ -6,7 +6,7 @@ package gps.generator;
  *
  * @author Benjamin Trapp
  */
-class GPSGenEnumHolder {
+public class GPSGenEnumHolder {
     /**
      * Enumeration for the possible angle units
      *

@@ -5,6 +5,9 @@ import java.util.Random;
 import java.util.Timer;
 
 import communication.StringWriter;
+import gps.generator.datagen_tasks.DataGenTask;
+import gps.generator.sentence_tasks.GGATask;
+import gps.generator.sentence_tasks.RMCTask;
 
 /**
  * This Class is used to combine the internal Components of the GPS-Generator

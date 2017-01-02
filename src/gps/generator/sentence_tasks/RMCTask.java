@@ -1,4 +1,4 @@
-package gps.generator;
+package gps.generator.sentence_tasks;
 
 import java.util.TimerTask;
 
@@ -34,7 +34,7 @@ public class RMCTask extends TimerTask
 	 * @param strWriter
 	 *            Instance of the StringWriter that shall be used
 	 */
-    RMCTask(StringWriter strWriter)
+	public RMCTask(StringWriter strWriter)
 	{
 		this.strWriter = strWriter;
 	}

@@ -2,8 +2,13 @@ package gps;
 
 import java.net.Socket;
 
-import gps.generator.DataGenTask;
+import gps.generator.datagen_tasks.DataGenTask;
+import gps.generator.datagen_tasks.DataGenTaskObjectHolderBuilder;
 import gps.generator.GPSGenerator;
+
+import static gps.generator.GPSGenEnumHolder.*;
+import static gps.generator.GPSGenEnumHolder.Modes.*;
+import static gps.generator.GPSGenEnumHolder.Patterns.*;
 
 /**
  * This Class is used to simplify the construction of a gps.data.GPSGenerator and
@@ -89,9 +94,16 @@ public class GPSGeneratorFactory
 	 */
 	private DataGenTask createDataGenTask()
 	{
-		if(dataTask == null)
-			dataTask = DataGenTask.getInstance();
-		
+		if(dataTask == null) {
+            dataTask = DataGenTask.getInstance(new DataGenTaskObjectHolderBuilder().addMode(LATITUDE, ASCENDING)
+                                                                                   .addMode(LONGITUDE, ASCENDING)
+                                                                                   .addMode(ALTITUDE, RANDOM)
+                                                                                   .addMode(VELOCITY, RANDOM)
+                                                                                   .addMode(DOP, RANDOM)
+                                                                                   .addAngleUnit(AngleUnits.GON)
+                                                                                   .build());
+        }
+
 		return dataTask;
 	}
 	

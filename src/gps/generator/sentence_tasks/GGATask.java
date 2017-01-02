@@ -1,4 +1,4 @@
-package gps.generator;
+package gps.generator.sentence_tasks;
 
 import java.util.TimerTask;
 
@@ -13,7 +13,6 @@ import gps.NMEA.sentences.GGASentence;
  */
 public class GGATask extends TimerTask
 {
-	private GGASentence ggaNEW = new GGASentence();
 	private GGASentence gga = new GGASentence();
 	private StringWriter strWriter;
 	
@@ -36,7 +35,7 @@ public class GGATask extends TimerTask
 	 *  StringWriter that shall be used
 	 * 
 	 */
-	GGATask(StringWriter strWriter)
+	public GGATask(StringWriter strWriter)
 	{
 		assert strWriter != null;
 		this.strWriter = strWriter;

@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Timer;
 
 import faultInjection.communication_jammer.ComJammer;
-import gps.generator.DataGenTask;
+import gps.generator.datagen_tasks.DataGenTask;
 import faultInjection.pertubation.EPertubationModes;
 import faultInjection.tasks.FIGGATask;
 import faultInjection.tasks.FIRMCTask;

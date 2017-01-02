@@ -3,7 +3,14 @@ package faultInjection.pertubation;
 import java.net.Socket;
 
 import faultInjection.PerturbedGPSGenerator;
-import gps.generator.DataGenTask;
+import gps.generator.datagen_tasks.DataGenTask;
+import gps.generator.datagen_tasks.DataGenTaskObjectHolderBuilder;
+import gps.generator.GPSGenEnumHolder;
+
+import static gps.generator.GPSGenEnumHolder.Modes.ASCENDING;
+import static gps.generator.GPSGenEnumHolder.Modes.RANDOM;
+import static gps.generator.GPSGenEnumHolder.Patterns.*;
+import static gps.generator.GPSGenEnumHolder.Patterns.DOP;
 
 /**
  * This class is used to create a Fault-Injection experiment
@@ -93,9 +100,17 @@ public class PerturbationFactory {
 	 */
 	private DataGenTask createDataGenTask()
 	{
-		if(dataTask == null)
-			dataTask = DataGenTask.getInstance();
-		
+		if(dataTask == null){
+
+		    dataTask = DataGenTask.getInstance(new DataGenTaskObjectHolderBuilder().addMode(LATITUDE, ASCENDING)
+                                                                                   .addMode(LONGITUDE, ASCENDING)
+                                                                                   .addMode(ALTITUDE, RANDOM)
+                                                                                   .addMode(VELOCITY, RANDOM)
+                                                                                   .addMode(DOP, RANDOM)
+                                                                                   .addAngleUnit(GPSGenEnumHolder.AngleUnits.GON)
+                                                                                   .build());
+		}
+
 		return dataTask;
 	}
 	
