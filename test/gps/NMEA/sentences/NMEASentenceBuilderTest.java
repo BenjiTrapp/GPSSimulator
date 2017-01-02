@@ -23,7 +23,7 @@ class NMEASentenceBuilderTest {
         String result = builder.build();
 
         // then
-        assertEquals("$GPGGA,Test,string,1234,4711,,*58", result);
+        assertEquals("$GPGGA,Test,string,1234,4711,,*72", result);
     }
 
     @Test
@@ -42,7 +42,7 @@ class NMEASentenceBuilderTest {
         String result = builder.build();
 
         // then
-        assertEquals("$GPGGA,Test,string,1234,4711,,SuperDuperMode*6C", result);
+        assertEquals("$GPGGA,Test,string,1234,4711,,SuperDuperMode*46", result);
     }
 
     @Test

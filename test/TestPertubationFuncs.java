@@ -25,38 +25,8 @@ import gps.data.GPSData;
  */
 public class TestPertubationFuncs extends TestCase
 {
-	private static AtomicInteger tid = new AtomicInteger(1);
-	private final static Logger LOG = LoggerFactory.getLogger(TestCheckSum.class);
 	private Random rnd = new Random();
 	private int percentage = 10;
-	private static boolean isSuccessful = false;
-	
-	static
-	{
-		PropertyConfigurator.configure("test.properties");
-	}
-	
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception
-	{
-		isSuccessful = false;
-		System.out.println("\n===========================================");
-		System.out.println("Test-ID: " + tid.getAndIncrement() + " for Class: " + this.getClass().getName());		
-	}
-	
-	@After
-	public void tearDown()
-	{
-		GPSData.reinitialize();
-		
-		if(isSuccessful)
-			System.out.println("\nTests for Test-ID(" + tid.get() + ") successful!\n");
-		else 
-			System.out.println("\nTests for Test-ID(" + tid.get() + ") failed and is unsuccessful!\n");
-	}
 
 	@Test
 	public void testRandomTriggerWithPercentage() throws InterruptedException
@@ -74,8 +44,6 @@ public class TestPertubationFuncs extends TestCase
 			
 			Thread.sleep(1000);
 		}
-		
-		isSuccessful = true;
 	}
 
 	@Test
@@ -103,8 +71,6 @@ public class TestPertubationFuncs extends TestCase
 		StringBuffer sb = new StringBuffer();
 		for(int i = 0; i < 100; i++)
 			System.out.println(PertubationFunctions.randomASCIIChar(sb.append(i).toString()));
-		
-		isSuccessful = true;
 	}
 	
 	@Test
@@ -122,24 +88,17 @@ public class TestPertubationFuncs extends TestCase
 		assertNotSame(gga, perturbedGGA);
 		assertNotSame(rmc, perturbedRMC);
 		System.out.println(perturbedGGA + "\n" + perturbedRMC );
-		
-		isSuccessful = true;
 	}
 	
 	@Test
 	public void testRandomDash()
 	{
-		LOG.info("Checking if reinit was successful...");
 		assertEquals("53.557085", GPSData.getLatitude());
 		assertEquals("10.023167", GPSData.getLongitude());
 	
-		LOG.info("Dashing GPS-Position coordinates");
 		PertubationFunctions.randomDashCoordinates();
 		
-		LOG.info("Checking if the dash was injected correctly");
 		assertEquals("63.557085", GPSData.getLatitude());
 		assertEquals("20.023167", GPSData.getLongitude());
-		
-		isSuccessful = true;
 	}
 }
