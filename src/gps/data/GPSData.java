@@ -20,8 +20,9 @@ import static gps.data.GPSDataEnumHolder.Modes.*;
  */
 public final class GPSData
 {
-	private static final int MAX_AVAILABLE_SATELLITES = 12;
-	private static Status status = Status.A;
+    private static final int MAX_AVAILABLE_SATELLITES = 12;
+    public static final String NEW_LINE = "\n";
+    private static Status status = Status.A;
 	private static String latitude = "53.557085";
 	private static String longitude = "10.023167";
 	private static CardinalDirections ns = SOUTH;
@@ -345,18 +346,18 @@ public final class GPSData
 	}
 
 	public static synchronized String printCurrentData(){
-		return ("Altitude: " + getAltitude()) + "\n" +
-				"Course: " + getCourse() + "\n" +
-				"EW: " + getEW() + "\n" +
-				"FixType: " + getFixType() + "\n" +
-				"Latitude: " + getLatitude() + "\n" +
-				"Longitude: " + getLongitude() + "\n" +
-				"HDOP: " + getHDOP() + "\n" +
-				"VDOP: " + getVDOP() + "\n" +
-				"PDOP: " + getPDOP() + "\n" +
-				"Mode: " + getMode() + "\n" +
-				"Satellites: " + getSatellites() + "\n" +
-				"Status: " + getStatus() + "\n" +
+		return ("Altitude: " + getAltitude()) + NEW_LINE +
+				"Course: " + getCourse() + NEW_LINE +
+				"EW: " + getEW() + NEW_LINE +
+				"FixType: " + getFixType() + NEW_LINE +
+				"Latitude: " + getLatitude() + NEW_LINE +
+				"Longitude: " + getLongitude() + NEW_LINE +
+				"HDOP: " + getHDOP() + NEW_LINE +
+				"VDOP: " + getVDOP() + NEW_LINE +
+				"PDOP: " + getPDOP() + NEW_LINE +
+				"Mode: " + getMode() + NEW_LINE +
+				"Satellites: " + getSatellites() + NEW_LINE +
+				"Status: " + getStatus() + NEW_LINE +
 				"Velocity: " + getVelocity();
 	}
 }

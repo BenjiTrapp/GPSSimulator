@@ -23,9 +23,9 @@ public class FaultInjectionEnvironmentStarter
 	        Ready to spread the chaos ?
 	     */
 		new PertubationBuilder()
-                .addPertubationMode(EPertubationModes.RANDOM_ASCII)
-                .addPertubationMode(EPertubationModes.DASH)
-                .addPertubationMode(EPertubationModes.STUCK_AT)
+                .addPerturbationMode(EPertubationModes.RANDOM_ASCII)
+                .addPerturbationMode(EPertubationModes.DASH)
+                .addPerturbationMode(EPertubationModes.STUCK_AT)
                 .build();
 	}
 }

@@ -6,10 +6,7 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Created by Sturm on 27.12.2016.
- */
-class GPSPositionBuilderTest {
+public class GPSPositionBuilderTest {
 
     @Test
     public void bla(){
