@@ -16,8 +16,7 @@ class NMEASentenceBuilderTest {
                 .append("4711")
                 .append("")
                 .append("")
-                .appendChecksum();;
-
+                .appendChecksum();
 
         // when
         String result = builder.build();
@@ -55,7 +54,6 @@ class NMEASentenceBuilderTest {
                 .append("")
                 .append("SuperDuperMode")
                 .appendChecksum();
-
 
         // when
         String result = builder.build();
