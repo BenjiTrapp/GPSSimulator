@@ -1,4 +1,4 @@
-# (vHIL) GPS Simulator and Environment for Fault-Injection
+# (vHIL) GPS Simulator and Environment for Fault-Injection experiments
 This GPS Simulator can be used for several use cases:
 * Mock actual Hardware GPS Modules as virtual prototype to create even more complex hardware modules like a FCU (Flight Control Unit) for drones.
 * Virtual Prototype to make some experience with vHIL (virtual Hardware In the Loop)
