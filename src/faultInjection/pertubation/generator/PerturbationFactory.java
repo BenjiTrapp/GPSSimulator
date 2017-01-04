@@ -1,8 +1,8 @@
-package faultInjection.pertubation;
+package faultInjection.pertubation.generator;
 
 import java.net.Socket;
 
-import faultInjection.PerturbedGPSGenerator;
+import faultInjection.pertubation.perturbation_functions.modes.PerturbationModes;
 import gps.generator.datagen_tasks.DataGenTask;
 import gps.generator.datagen_tasks.DataGenTaskObjectHolderBuilder;
 import gps.generator.GPSGenEnumHolder;
@@ -27,21 +27,23 @@ public class PerturbationFactory {
 	 * Builds a gps.data.GPSGenerator with default values
 	 * (Localhost, Port 4711) and two TimerTasks 
 	 * to generate proper RMC and GGA Sentences
-	 * @return returns true on success
-	 */
-	public boolean build(EPertubationModes mode)
-	{
-		if(mode == null)
-			throw new NullPointerException("Passed argument was null");
-		
-		createDataGenTask();
-		createFIGPSGenerator(mode);
-		
-		gen.generateFIRMCData();
-		gen.generateFIGGAData();
-		
-		return true;
-	}
+//	 * @return returns true on success
+//	 */
+//	public boolean build(PerturbationModes mode)
+//	{
+//		if(mode == null)
+//			throw new NullPointerException("Passed argument was null");
+//
+//		createDataGenTask();
+//		createFIGPSGenerator(mode);
+//
+//		gen.generateFIRMCData();
+//		gen.generateFIGGAData();
+//
+//        System.out.println("Created: " + mode);
+//
+//        return true;
+//	}
 	
 	/**
 	 * Builds a gps.data.GPSGenerator with a specific DataGenTask to
@@ -54,18 +56,18 @@ public class PerturbationFactory {
 	 * @param period interval in which the data shall be generated
 	 * @return returns true on success
 	 */
-	public boolean build(DataGenTask dataTask, int period, EPertubationModes mode)
-	{
-		if(dataTask == null || mode == null)
-			throw new NullPointerException("Passed argument was null");
-		
-		createFIGPSGenerator(dataTask,period, mode);
-		
-		gen.generateFIRMCData();
-		gen.generateFIGGAData();
-		
-		return true;
-	}
+//	public boolean build(DataGenTask dataTask, int period, PerturbationModes mode)
+//	{
+//		if(dataTask == null || mode == null)
+//			throw new NullPointerException("Passed argument was null");
+//
+//		createFIGPSGenerator(dataTask,period, mode);
+//
+//		gen.generateFIRMCData();
+//		gen.generateFIGGAData();
+//
+//		return true;
+//	}
 
 	/**
 	 * Builds a gps.data.GPSGenerator with a specific DataGenTask to
@@ -80,12 +82,12 @@ public class PerturbationFactory {
 	 * @param socket The socket that shall be used for communication
 	 * @return returns true on success
 	 */
-	public boolean build(DataGenTask dataTask, int period, Socket socket, EPertubationModes mode)
+	public boolean build(DataGenTask dataTask, int period, Socket socket, PerturbationModes mode)
 	{
 		if(dataTask == null || mode == null || socket == null)
 			throw new NullPointerException("Passed argument was null");
 		
-		createFIGPSGenerator(dataTask,period, socket, mode);
+		createFIGPSGenerator(dataTask,period, socket);
 		
 		gen.generateFIRMCData();
 		gen.generateFIGGAData();
@@ -118,13 +120,13 @@ public class PerturbationFactory {
 	 * Creates a gps.data.GPSGenerator with default components
 	 * @return instance of the gps.data.GPSGenerator
 	 */
-	private PerturbedGPSGenerator createFIGPSGenerator(EPertubationModes mode)
+/*	private PerturbedGPSGenerator createFIGPSGenerator(PerturbationModes mode)
 	{
 		if(gen == null)
-			gen = new PerturbedGPSGenerator(dataTask, PERIOD_OF_DATA_GENERATION, mode);
+			gen = new PerturbedGPSGenerator(dataTask, PERIOD_OF_DATA_GENERATION, mode); //FIXME
 
 		return gen;
-	}
+	}*/
 	
 	/**
 	 * Creates a gps.data.GPSGenerator with the passed DataGenTask and PERIOD_OF_DATA_GENERATION in
@@ -134,13 +136,12 @@ public class PerturbationFactory {
 	 * @param period the PERIOD_OF_DATA_GENERATION in which the DataGenTask generates its Data
 	 * @return instance of the created gps.data.GPSGenerator
 	 */
-	private PerturbedGPSGenerator createFIGPSGenerator(DataGenTask dataTask, int period, EPertubationModes mode)
-	{
-		if(gen == null)
-			gen = new PerturbedGPSGenerator(dataTask, period, mode);
-		
-		return gen;
-	}
+//	private PerturbedGPSGenerator createFIGPSGenerator(DataGenTask dataTask, int period, PerturbationModes mode)
+//	{
+//		if(gen == null)
+//			gen = new PerturbedGPSGenerator(dataTask, period, mode); //FIXME
+//		return gen;
+//	}
 	
 	/**
 	 * Creates a gps.data.GPSGenerator with the passed DataGenTask and PERIOD_OF_DATA_GENERATION in
@@ -152,10 +153,10 @@ public class PerturbationFactory {
 	 * @param period the PERIOD_OF_DATA_GENERATION in which the DataGenTask generates its Data
 	 * @return instance of the created gps.data.GPSGenerator
 	 */
-	private PerturbedGPSGenerator createFIGPSGenerator(DataGenTask dataTask, int period, Socket socket, EPertubationModes mode)
+	private PerturbedGPSGenerator createFIGPSGenerator(DataGenTask dataTask, int period, Socket socket)
 	{
 		if(gen == null)
-			gen = new PerturbedGPSGenerator(dataTask, period, socket, mode);
+			gen = new PerturbedGPSGenerator(dataTask, period, socket);
 		
 		return gen;
 	}

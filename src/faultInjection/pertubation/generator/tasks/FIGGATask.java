@@ -1,8 +1,9 @@
-package faultInjection.tasks;
+package faultInjection.pertubation.generator.tasks;
 
 import java.util.TimerTask;
 
 import faultInjection.communication_jammer.ComJammer;
+import faultInjection.pertubation.perturbation_functions.perturbation_strategies.PerturbationStrategy;
 import gps.NMEA.sentences.GGASentence;
 
 /**
@@ -18,8 +19,9 @@ import gps.NMEA.sentences.GGASentence;
 public class FIGGATask extends TimerTask
 {
 	private GGASentence gga = new GGASentence();
-	private ComJammer fiWriter;
-	
+	private ComJammer comJammer;
+	private PerturbationStrategy strategy;
+
 	/**
 	 * CAUTION: Don't use this Constructor!
 	 * This Class needs an instance of
@@ -35,20 +37,17 @@ public class FIGGATask extends TimerTask
 	 * Generates a new TimerTask that sends 
 	 * the generated GPGGA Sentence to the
 	 * passed StringWriter Instance
-	 * @param fiWriter Instance of the
+	 * @param comJammer Instance of the
 	 *  StringWriter that shall be used
 	 * 
 	 */
-	public FIGGATask(ComJammer fiWriter)
-	{
-		assert fiWriter != null;
+	public FIGGATask(ComJammer comJammer) {
+		assert comJammer != null;
+		assert strategy != null;
 
-		this.fiWriter = fiWriter;
+		this.comJammer = comJammer;
 	}
 
 	@Override
-	public void run()
-	{
-		fiWriter.send(gga.getSentence());
-	}
+	public void run() {comJammer.send(gga.getSentence());}
 }

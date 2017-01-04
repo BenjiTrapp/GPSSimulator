@@ -1,5 +1,11 @@
-import faultInjection.pertubation.PertubationBuilder;
-import faultInjection.pertubation.EPertubationModes;
+import faultInjection.pertubation.perturbation_functions.PerturbationBuilder;
+import faultInjection.pertubation.perturbation_functions.modes.PerturbationModes;
+import faultInjection.pertubation.perturbation_functions.perturbation_strategies.DashedStrategy;
+import faultInjection.pertubation.perturbation_functions.perturbation_strategies.StuckAtStrategy;
+
+import java.io.IOException;
+import java.net.Socket;
+
 /**
  * This class is used to create and run a PerturbedGPSGenerator that
  * creates RMC and GGA Sentences Based on gps.NMEA 0183. Also this class
@@ -19,13 +25,14 @@ public class FaultInjectionEnvironmentStarter
 	 */
 	public static void main(String[] args)
 	{
+	    StuckAtStrategy stuckAtStrategy = new StuckAtStrategy();
+	    stuckAtStrategy.setStuckedTime(1500);
 	    /*
 	        Ready to spread the chaos ?
 	     */
-		new PertubationBuilder()
-                .addPerturbationMode(EPertubationModes.RANDOM_ASCII)
-                .addPerturbationMode(EPertubationModes.DASH)
-                .addPerturbationMode(EPertubationModes.STUCK_AT)
-                .build();
+		new PerturbationBuilder().addStrategy(new DashedStrategy())
+                                 .addStrategy(stuckAtStrategy)
+                                 .useRandomnessForConfiguration()
+                                 .build();
 	}
 }

@@ -18,10 +18,10 @@ import static gps.data.GPSDataEnumHolder.Modes.*;
  * 
  * @author Benjamin Trapp
  */
-public final class GPSData
+public class GPSData
 {
     private static final int MAX_AVAILABLE_SATELLITES = 12;
-    public static final String NEW_LINE = "\n";
+    private static final String NEW_LINE = "\n";
     private static Status status = Status.A;
 	private static String latitude = "53.557085";
 	private static String longitude = "10.023167";
@@ -56,6 +56,11 @@ public final class GPSData
 		if (GPSData.status != status)
 			GPSData.status = status;
 	}
+
+	public synchronized static GPSData getCurrentGPSData(){
+		return GPSData.getCurrentGPSData();
+	}
+
 
 	/**
 	 * Get`s the geometric latitude back
