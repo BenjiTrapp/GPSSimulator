@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class StuckAtStrategy extends AbstractPerturbationStrategy {
 
-    private static volatile AtomicBoolean isRunning = new AtomicBoolean(false);
+    private static volatile boolean isRunning = false;
 
     public StuckAtStrategy() {super(PerturbationModes.STUCK_AT);}
 
@@ -21,15 +21,14 @@ public class StuckAtStrategy extends AbstractPerturbationStrategy {
         }finally {this.turnOff();}
     }
 
-    private void turnOff(){
-        isRunning.set(false);}
+    private synchronized void turnOff(){isRunning = true;}
 
     @Override
     public void perturb(String line2perturb) {
-        if (!isRunning.get()) {
-            isRunning.set(true);
             System.err.println("Start jamming the GPS Position");
-            do{GPSData.reinitialize();} while (!isRunning.get());
-        }
+            new Thread(() -> {
+                while (isRunning){GPSData.stuckAt();
+                try {Thread.sleep(50);} catch (InterruptedException ignored) {}
+            }}).start();
     }
 }

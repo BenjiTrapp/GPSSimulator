@@ -18,7 +18,7 @@ import static gps.data.GPSDataEnumHolder.Modes.*;
  * 
  * @author Benjamin Trapp
  */
-public class GPSData
+public final class GPSData
 {
     private static final int MAX_AVAILABLE_SATELLITES = 12;
     private static final String NEW_LINE = "\n";
@@ -57,7 +57,7 @@ public class GPSData
 			GPSData.status = status;
 	}
 
-	public synchronized static GPSData getCurrentGPSData(){
+	public static GPSData getCurrentGPSData(){
 		return GPSData.getCurrentGPSData();
 	}
 
@@ -66,7 +66,7 @@ public class GPSData
 	 * Get`s the geometric latitude back
 	 * @return geometric latitude as String
 	 */
-	public synchronized static String getLatitude()
+	public static String getLatitude()
 	{
 		return latitude;
 	}
@@ -74,7 +74,7 @@ public class GPSData
 	/**
 	 * Set`s the geometric latitude back
 	 */
-	public synchronized static void setLatitude(String latitude)
+	public static void setLatitude(String latitude)
 	{
 		if (!Objects.equals(GPSData.latitude, latitude))
 			GPSData.latitude = latitude;
@@ -84,7 +84,7 @@ public class GPSData
 	 * Get`s the geometric longitude back
 	 * @return geometric longitude as String
 	 */
-	public synchronized static String getLongitude()
+	public static String getLongitude()
 	{
 		return longitude;
 	}
@@ -92,17 +92,18 @@ public class GPSData
 	/**
 	 * Set`s the geometric longitude back
 	 */
-	public synchronized static void setLongitude(String longitude)
+	public static void setLongitude(String longitude)
 	{
+
 		if (!Objects.equals(GPSData.longitude, longitude))
 			GPSData.longitude = longitude;
-	}
+    }
 	
 	/**
 	 * Get`s the Cardinal Direction for east or west back
 	 * @return Enum with the cardinal direction east or west
 	 */
-	public synchronized static CardinalDirections getEW()
+	public static CardinalDirections getEW()
 	{
 		return ew;
 	}
@@ -110,7 +111,7 @@ public class GPSData
 	/**
 	 * Set`s the Cardinal Direction for east or west 
 	 */
-	public synchronized static void setEW(CardinalDirections ew)
+	public static void setEW(CardinalDirections ew)
 	{
 		if (ew == NORTH || ew == SOUTH)
 			throw new IllegalArgumentException();
@@ -123,7 +124,7 @@ public class GPSData
 	 * Get`s the Cardinal Direction for north or south back
 	 * @return Enum with the cardinal direction north or south 
 	 */
-	public synchronized static CardinalDirections getNS()
+	public static CardinalDirections getNS()
 	{
 		return ns;
 	}
@@ -131,7 +132,7 @@ public class GPSData
 	/**
 	 * Set`s the Cardinal Direction for north or south 
 	 */
-	public synchronized static void setNS(CardinalDirections ns)
+	public static void setNS(CardinalDirections ns)
 	{
 		if (ns == EAST || ns == WEST)
 			throw new IllegalArgumentException();
@@ -144,7 +145,7 @@ public class GPSData
 	 * Get`s the velocity back 
 	 * @return velocity as string 
 	 */
-	public synchronized static String getVelocity()
+	public static String getVelocity()
 	{
 		return velocity;
 	}
@@ -153,7 +154,7 @@ public class GPSData
 	 * Set`s the velocity
 	 * @param velocity
 	 */
-	public synchronized static void setVelocity(String velocity)
+	public static void setVelocity(String velocity)
 	{
 		if (!GPSData.velocity.equals(velocity))
 			GPSData.velocity = velocity;
@@ -163,7 +164,7 @@ public class GPSData
 	 * Get's the altitude back
 	 * @return altitude as String
 	 */
-	public synchronized static String getAltitude()
+	public static String getAltitude()
 	{
 		return altitude;
 	}
@@ -171,7 +172,7 @@ public class GPSData
 	/**
 	 * Set`s the altitude
 	 */
-	public synchronized static void setAltitude(String altitude)
+	public static void setAltitude(String altitude)
 	{
 		if (!GPSData.altitude.equals(altitude))
 			GPSData.altitude = altitude;
@@ -181,7 +182,7 @@ public class GPSData
 	 * Get`s the Course back
 	 * @return the Course in degree (gon or radial)
 	 */
-	public synchronized static int getCourse()
+	public static int getCourse()
 	{
 		return course;
 	}
@@ -189,7 +190,7 @@ public class GPSData
 	/**
 	 * Set`s the Course in degree (gon or radial)
 	 */
-	public synchronized static void setCourse(int course)
+	public static void setCourse(int course)
 	{
 		if (GPSData.course != course)
 			GPSData.course = course;
@@ -199,7 +200,7 @@ public class GPSData
 	 * Get`s the amount of satellites back
 	 * @return amount of satellites as string
 	 */
-	public synchronized static String getSatellites()
+	public static String getSatellites()
 	{
 		return satellites;
 	}
@@ -207,7 +208,7 @@ public class GPSData
 	/**
 	 * Set`s the amount of satellites
 	 */
-	public synchronized static void setSatellites(String  satellites)
+	public static void setSatellites(String  satellites)
 	{
 		int tmp = Integer.parseInt(satellites);
 				
@@ -222,7 +223,7 @@ public class GPSData
 	 * Get`s the Quality back
 	 * @return quality as String
 	 */
-	public synchronized static int getQuality()
+	public static int getQuality()
 	{
 		return quality;
 	}
@@ -231,7 +232,7 @@ public class GPSData
 	 * Set`s the quality
 	 * @param quality quality as integer
 	 */
-	public synchronized static void setQuality(int quality)
+	public static void setQuality(int quality)
 	{
 		if (GPSData.quality != quality)
 			GPSData.quality = quality;
@@ -241,7 +242,7 @@ public class GPSData
 	 * Get`s the Positional Dilution of Precision back
 	 * @return Positional Dilution of Precision
 	 */
-	public synchronized static String getPDOP()
+	public static String getPDOP()
 	{
 		return pdop;
 	}
@@ -249,7 +250,7 @@ public class GPSData
 	/**
 	 * Set`s the Positional Dilution of Precision 
 	 */
-	public synchronized static void setPDOP(String pdop)
+	public static void setPDOP(String pdop)
 	{
 		if (!GPSData.pdop.equals(pdop))
 			GPSData.pdop = pdop;
@@ -259,7 +260,7 @@ public class GPSData
 	 * Get`s the Horizontal Dilution of Precision back
 	 * @return Horizontal Dilution of Precision
 	 */
-	public synchronized static String getHDOP()
+	public static String getHDOP()
 	{
 		return hdop;
 	}
@@ -268,7 +269,7 @@ public class GPSData
 	 * Set`s the Horizontal Dilution of Precision 
 	 * @return Horizontal Dilution of Precision
 	 */
-	public synchronized static void setHDOP(String hdop)
+	public static void setHDOP(String hdop)
 	{
 		if (!GPSData.hdop.equals(hdop))
 			GPSData.hdop = hdop;
@@ -278,7 +279,7 @@ public class GPSData
 	 * Get`s the Vertical Dilution of Precision back
 	 * @return Vertical Dilution of Precision
 	 */
-	public synchronized static String getVDOP()
+	public static String getVDOP()
 	{
 		return vdop;
 	}
@@ -286,7 +287,7 @@ public class GPSData
 	/**
 	 * Set`s the Vertical Dilution of Precision 
 	 */
-	public synchronized static void setVDOP(String vdop)
+	public static void setVDOP(String vdop)
 	{
 		if (!GPSData.vdop.equals(vdop))
 			GPSData.vdop = vdop;
@@ -296,7 +297,7 @@ public class GPSData
 	 * Get`s the mode back 
 	 * @return mode as enumeration
 	 */
-	public synchronized static Modes getMode()
+	public static Modes getMode()
 	{
 		return mode;
 	}
@@ -304,7 +305,7 @@ public class GPSData
 	/**
 	 * Set`s the mode depending on the passed enumeration type 
 	 */
-	public synchronized static void setMode(Modes mode)
+	public static void setMode(Modes mode)
 	{
 		if (GPSData.mode != mode)
 			GPSData.mode = mode;
@@ -314,7 +315,7 @@ public class GPSData
 	 * Get`s the fix type back 
 	 * @return mode as enumeration
 	 */
-	public synchronized static GPSFixTypes getFixType()
+	public static GPSFixTypes getFixType()
 	{
 		return fixType;
 	}
@@ -322,7 +323,7 @@ public class GPSData
 	/**
 	 * Set`s the fix type depending on the passed enumeration type 
 	 */
-	public synchronized static void setFixType(GPSFixTypes fixType)
+	public static void setFixType(GPSFixTypes fixType)
 	{
 		if (GPSData.fixType != fixType)
 			GPSData.fixType = fixType;
@@ -331,7 +332,7 @@ public class GPSData
 	/**
 	 * Function to reinitialize the GPS data  
 	 */
-	public static synchronized void reinitialize()
+	public static void reinitialize()
 	{
 		setStatus(Status.A);
 		setLatitude("53.557085");
@@ -349,6 +350,25 @@ public class GPSData
 		setMode(SIMULATION);
 		setFixType(GPS_FIX_3D);
 	}
+
+    public static void stuckAt()
+    {
+        setStatus(Status.A);
+        setLatitude("0042.0");
+        setLongitude("0021.0");
+        setNS(SOUTH);
+        setEW(EAST);
+        setVelocity("000.0");
+        setAltitude("15");
+        setCourse(1337);
+        setSatellites("4");
+        setQuality(8);
+        setHDOP("2.0");
+        setVDOP("2.4");
+        setPDOP("2.8");
+        setMode(SIMULATION);
+        setFixType(GPS_FIX_3D);
+    }
 
 	public static synchronized String printCurrentData(){
 		return ("Altitude: " + getAltitude()) + NEW_LINE +

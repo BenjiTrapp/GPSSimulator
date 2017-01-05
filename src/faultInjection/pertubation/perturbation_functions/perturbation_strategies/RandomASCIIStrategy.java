@@ -23,8 +23,6 @@ public class RandomASCIIStrategy extends AbstractPerturbationStrategy {
         this.comJammer = ComJammer.getInstance();
     }
 
-    //FIXME Einbau ist so noch nicht richtig ...
-
     @Override
     public void perturb(String line2perturb) {
         Random rnd = new Random();

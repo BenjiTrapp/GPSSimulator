@@ -1,14 +1,14 @@
 # (vHIL) GPS Simulator and Environment for Fault-Injection experiments
 This GPS Simulator can be used for several use cases:
-* Mock actual Hardware GPS Modules as virtual prototype to create even more complex hardware modules like a FCU (Flight Control Unit) for drones.
+* Mock actual Hardware-GPS-Modules as a virtual prototype to create and test even more complex hardware modules like a FCU (Flight Control Unit) for drones.
 * Virtual Prototype to make some experience with vHIL (virtual Hardware In the Loop)
-* Test Harness for mutation and fault-injection experiments
+* Test harness for mutation testing and fault-injection experiments
 
 ![gps](https://butlerautogroup.files.wordpress.com/2014/01/gps.jpg)
 
 ### Virtual Prototype / vHIL
 This virtual prototype is assumed to be a software model, that emulates real hardware. This fact
-shall make it easier to move the testprocess a little bit more into the front of the already established hard- 
+shall make it easier to move the test process a little bit more into the front of the already established hard- 
 and software development processes.
 
 Also this virtual Prototype is meant to simulate a GPS module as a complete electromechanical system,
