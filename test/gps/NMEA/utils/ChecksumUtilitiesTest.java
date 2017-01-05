@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Benjamin Trapp
  */
-@RunWith(BMUnitRunner.class)
 public class ChecksumUtilitiesTest {
     private final static String VALID_GGA_SENTENCE = "$GPGGA,1911504,5336.93,N,1005.12,E,8.0,01,1.2,15.4,M,0,M,,*4E";
     private final static String VALID_RMC_SENTENCE = "$GPRMC,1911622,A,5336.93,N,1005.12,E,010.1,10.0,211113,,S";

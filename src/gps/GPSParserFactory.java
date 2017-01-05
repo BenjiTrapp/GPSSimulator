@@ -162,7 +162,8 @@ public class GPSParserFactory
                         teleDummy.write2File(str);
                         logger.info(str);
                     } else {
-                        throw new RuntimeException("NMEA Sentence couldn't be recognized");
+				 		//TODO: To fix the malformed sentence ==> Add a strategy here
+					 	System.err.println("NMEA Sentence ("+ str + ") malformed! Implement a strategy to fix or harden");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

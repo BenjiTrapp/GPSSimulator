@@ -18,9 +18,9 @@ public abstract class AbstractPerturbationStrategy implements PerturbationStrate
     @Override
     public void notifyToPerturb() {
         System.err.println("Injecting strategy for PerturbationMode (" + mode.name() + ") behold ...");
-        this.perturb("");
+        this.perturb();
     }
 
     @Override
-    public abstract void perturb(String line2perturb);
+    public abstract void perturb();
 }

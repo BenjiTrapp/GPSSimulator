@@ -1,6 +1,6 @@
 package gps.data;
 
-import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static gps.data.GPSDataEnumHolder.*;
 import static gps.data.GPSDataEnumHolder.CardinalDirections.*;
@@ -20,6 +20,7 @@ import static gps.data.GPSDataEnumHolder.Modes.*;
  */
 public final class GPSData
 {
+    private static volatile AtomicBoolean isStuck = new AtomicBoolean(false);
     private static final int MAX_AVAILABLE_SATELLITES = 12;
     private static final String NEW_LINE = "\n";
     private static Status status = Status.A;
@@ -66,7 +67,7 @@ public final class GPSData
 	 * Get`s the geometric latitude back
 	 * @return geometric latitude as String
 	 */
-	public static String getLatitude()
+	public static synchronized String getLatitude()
 	{
 		return latitude;
 	}
@@ -74,9 +75,9 @@ public final class GPSData
 	/**
 	 * Set`s the geometric latitude back
 	 */
-	public static void setLatitude(String latitude)
+	public synchronized static void setLatitude(String latitude)
 	{
-		if (!Objects.equals(GPSData.latitude, latitude))
+		if (!GPSData.latitude.equals(latitude)  && !isStuck.get())
 			GPSData.latitude = latitude;
 	}
 
@@ -84,7 +85,7 @@ public final class GPSData
 	 * Get`s the geometric longitude back
 	 * @return geometric longitude as String
 	 */
-	public static String getLongitude()
+	public synchronized static String getLongitude()
 	{
 		return longitude;
 	}
@@ -92,10 +93,10 @@ public final class GPSData
 	/**
 	 * Set`s the geometric longitude back
 	 */
-	public static void setLongitude(String longitude)
+	public synchronized static void setLongitude(String longitude)
 	{
 
-		if (!Objects.equals(GPSData.longitude, longitude))
+		if (!GPSData.longitude.equals(longitude)  && !isStuck.get())
 			GPSData.longitude = longitude;
     }
 	
@@ -156,7 +157,7 @@ public final class GPSData
 	 */
 	public static void setVelocity(String velocity)
 	{
-		if (!GPSData.velocity.equals(velocity))
+		if (!GPSData.velocity.equals(velocity)  && !isStuck.get())
 			GPSData.velocity = velocity;
 	}
 	
@@ -174,7 +175,7 @@ public final class GPSData
 	 */
 	public static void setAltitude(String altitude)
 	{
-		if (!GPSData.altitude.equals(altitude))
+		if (!GPSData.altitude.equals(altitude)  && !isStuck.get())
 			GPSData.altitude = altitude;
 	}
 	
@@ -192,7 +193,7 @@ public final class GPSData
 	 */
 	public static void setCourse(int course)
 	{
-		if (GPSData.course != course)
+		if (GPSData.course != course  && !isStuck.get())
 			GPSData.course = course;
 	}
 	
@@ -351,23 +352,13 @@ public final class GPSData
 		setFixType(GPS_FIX_3D);
 	}
 
-    public static void stuckAt()
+    public static void stuckAtState(boolean state)
     {
-        setStatus(Status.A);
-        setLatitude("0042.0");
-        setLongitude("0021.0");
-        setNS(SOUTH);
-        setEW(EAST);
-        setVelocity("000.0");
-        setAltitude("15");
-        setCourse(1337);
-        setSatellites("4");
-        setQuality(8);
-        setHDOP("2.0");
-        setVDOP("2.4");
-        setPDOP("2.8");
-        setMode(SIMULATION);
-        setFixType(GPS_FIX_3D);
+        isStuck.getAndSet(state);
+    }
+
+    public static boolean isStuck(){
+        return isStuck.get();
     }
 
 	public static synchronized String printCurrentData(){

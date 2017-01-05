@@ -1,30 +1,20 @@
 package faultInjection.pertubation.perturbation_functions.perturbation_strategies;
 
-import faultInjection.communication_jammer.ComJammer;
+import communication.StringReader;
+import communication.StringWriter;
 import faultInjection.pertubation.perturbation_functions.modes.PerturbationModes;
-import gps.data.GPSData;
 
-import java.net.Socket;
 import java.util.Random;
 
 public class RandomASCIIStrategy extends AbstractPerturbationStrategy {
 
-    private static final double DASH_COORDINATES_FACTOR = 42.0;
-    private ComJammer comJammer;
-
     public RandomASCIIStrategy() {
-        super(PerturbationModes.DASH);
-        this.comJammer = ComJammer.getInstance();
-    }
-
-    public RandomASCIIStrategy(Socket socket) {
-        super(PerturbationModes.DASH);
-        ComJammer.initComJammer(socket);
-        this.comJammer = ComJammer.getInstance();
+        super(PerturbationModes.RANDOM_ASCII);
     }
 
     @Override
-    public void perturb(String line2perturb) {
+    public void perturb() {
+        String line2perturb = StringReader.getInstance().receive();
         Random rnd = new Random();
         StringBuilder sb = new StringBuilder(line2perturb);
 
@@ -44,6 +34,6 @@ public class RandomASCIIStrategy extends AbstractPerturbationStrategy {
                 break;
         }
 
-        comJammer.send(sb.toString());
+        StringWriter.getInstance().send(sb.toString());
     }
 }

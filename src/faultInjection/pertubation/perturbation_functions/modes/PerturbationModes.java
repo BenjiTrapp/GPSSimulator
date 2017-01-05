@@ -6,7 +6,7 @@ package faultInjection.pertubation.perturbation_functions.modes;
  * @author Benjamin Trapp
  */
 public enum PerturbationModes {
-	RANDOM_ASCII, STUCK_AT, DASH
+	RANDOM_ASCII, STUCK_ERROR, SPOOFED_POSITION
 
     /*
         Auskommentiert ==> Realisierung mittels BMUnit?!
