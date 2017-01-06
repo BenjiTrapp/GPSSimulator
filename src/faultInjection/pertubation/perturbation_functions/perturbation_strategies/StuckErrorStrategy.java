@@ -9,13 +9,13 @@ public final class StuckErrorStrategy extends AbstractPerturbationStrategy {
 
     public StuckErrorStrategy() {super(PerturbationModes.STUCK_ERROR);}
 
-    public synchronized void setStuckTime(int millis){
-        assert millis <= 0;
+    public void setStuckTime(int millis){
+        assert millis > 0;
 
         this.millis = millis;
     }
 
-    private synchronized void timeToStayStuckAndTurnOff() {
+    private void timeToStayStuckAndTurnOff() {
         new Thread(() -> {
             try {
                 Thread.sleep(millis);
@@ -24,7 +24,7 @@ public final class StuckErrorStrategy extends AbstractPerturbationStrategy {
         }).start();
     }
 
-    private synchronized void turnOff() {GPSData.stuckAtState(false);}
+    private void turnOff() {GPSData.stuckAtState(false);}
 
     @Override
     public synchronized void perturb() {
