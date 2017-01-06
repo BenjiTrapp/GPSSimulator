@@ -3,14 +3,14 @@
  */
 package gps.NMEA.telemetry;
 
-import gps.NMEA.parser.InvalidChecksumException;
+import gps.NMEA.utils.InvalidChecksumException;
 import gps.NMEA.parser.NMEAParser;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * This Class is used to simulate the telemetrie-module. This class uses 
+ * This Class is used to simulate the telemetry-module. This class uses
  * a FileWriter to log the parsed Info
  * 
  * @author Benjamin Trapp
@@ -19,18 +19,18 @@ import java.io.IOException;
 public class TelemetryDummy
 {
 
-	private static final String TELEMETRIE_FILE_NAME = "log/Telemetrie.log";
+	private static final String TELEMETRY_FILE_NAME = "log/Telemetry.log";
 	private FileWriter fw;
 	private NMEAParser nmeaParser;
 	
 	/**
-	 * Default Constructor of the Telemetrie Dummy
+	 * Default Constructor of the Telemetry Dummy
 	 */
 	public TelemetryDummy()
 	{
 		try
 		{
-			this.fw = new FileWriter(TELEMETRIE_FILE_NAME);
+			this.fw = new FileWriter(TELEMETRY_FILE_NAME);
 			this.nmeaParser = new NMEAParser();
 		} catch (IOException e)
 		{
@@ -50,8 +50,7 @@ public class TelemetryDummy
             fw.flush();
 		} catch (InvalidChecksumException e) {
             System.err.println("InvalidChecksumException!");
-        }catch (IOException ignored)
-		{
+        }catch (IOException ignored) {
 		}finally {
 			try {
 				fw.close();

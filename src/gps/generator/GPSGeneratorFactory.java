@@ -1,4 +1,4 @@
-package gps;
+package gps.generator;
 
 import java.net.Socket;
 

@@ -3,7 +3,11 @@ package gps.NMEA.parser;
 import java.util.*;
 import gps.NMEA.gps_position.GPSPosition;
 import gps.NMEA.gps_position.GPSPositionHistory;
+import gps.NMEA.parser.sentences.GPGGAParser;
+import gps.NMEA.parser.sentences.GPRMCParser;
+import gps.NMEA.parser.sentences.NMEASentenceParser;
 import gps.NMEA.sentences.NMEASentenceTypes;
+import gps.NMEA.utils.InvalidChecksumException;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +16,7 @@ import gps.NMEA.utils.ChecksumUtilities;
 
 /**
  * This Class is the main class of the NMEA Parser to combine the
- * sub-parsers. Also this class is used by the GPSParserFactory
+ * sub-parsers. Also this class is used by the NMEAParserFactory
  * 
  * @author Benjamin Trapp
  */
@@ -22,7 +26,7 @@ public class NMEAParser
 	private static final String LOG4J_PROPERTIES = "log4j.properties";
     private static final String SPLIT_DELIMITER = ",";
     private final static Logger logger = LoggerFactory.getLogger(NMEAParser.class);
-    public static final int AMOUNT_HISTORIC_POS = 3;
+    private static final int AMOUNT_HISTORIC_POS = 3;
     private final List<GPSPosition> gpsPositions;
     private GPSPositionHistory historicPosition;
 

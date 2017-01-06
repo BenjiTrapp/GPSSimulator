@@ -1,6 +1,6 @@
 import java.util.concurrent.atomic.AtomicInteger;
 
-import gps.GPSParserFactory;
+import gps.NMEA.parser.NMEAParserFactory;
 import gps.NMEA.telemetry.TelemetryDummy;
 import junit.framework.TestCase;
 
@@ -15,8 +15,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import gps.GPSGeneratorFactory;
-import faultInjection.pertubation.generator.PerturbationFactory;
+import gps.generator.GPSGeneratorFactory;
 
 /**
  * JUnit-Test to prove the correctness of the calculation of the gps.NMEA Checksum.
@@ -64,10 +63,10 @@ public class TestFactories extends TestCase
 	@Test
 	public void testParserFactory()
 	{
-		GPSParserFactory pf = new GPSParserFactory();
+		NMEAParserFactory pf = new NMEAParserFactory();
 		assertNotNull(pf);
 		
-		GPSParserFactory pf_spy = new GPSParserFactory(spyTeleDummy);
+		NMEAParserFactory pf_spy = new NMEAParserFactory(spyTeleDummy);
 		assertNotNull(pf_spy);
 		assertNotNull(pf_spy.createParserThread());
 		isSuccessful = true;
