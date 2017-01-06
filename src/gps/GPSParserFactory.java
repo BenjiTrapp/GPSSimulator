@@ -53,12 +53,14 @@ public class GPSParserFactory {
      * Builds a parser based on the default values
      * (Localhost, Port 4711)
      */
-    public void build() {
+    public GPSParserFactory build() {
         new Thread(() -> {
             createCommunication();
             createParser();
             createParserThread().run();
         }).start();
+
+        return this;
     }
 
     /**

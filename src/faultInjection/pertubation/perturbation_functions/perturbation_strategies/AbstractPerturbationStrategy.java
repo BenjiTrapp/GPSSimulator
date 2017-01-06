@@ -16,11 +16,15 @@ public abstract class AbstractPerturbationStrategy implements PerturbationStrate
     }
 
     @Override
-    public void notifyToPerturb() {
+    public synchronized void notifyToPerturb() {
         System.err.println("Injecting strategy for PerturbationMode (" + mode.name() + ") behold ...");
         this.perturb();
     }
 
     @Override
     public abstract void perturb();
+
+    public String toString(){
+        return "Strategy for mode: " + getMode().name();
+    }
 }

@@ -1,4 +1,4 @@
-package faultInjection.pertubation.perturbation_functions;
+package faultInjection.pertubation;
 
 import faultInjection.pertubation.perturbation_functions.down_counter.CallbackCountDownBuilder;
 import faultInjection.pertubation.perturbation_functions.perturbation_strategies.AbstractPerturbationStrategy;

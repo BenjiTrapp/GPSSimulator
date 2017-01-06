@@ -3,20 +3,19 @@ package faultInjection.pertubation.perturbation_functions.perturbation_strategie
 import faultInjection.pertubation.perturbation_functions.modes.PerturbationModes;
 import gps.data.GPSData;
 
-public class StuckErrorStrategy extends AbstractPerturbationStrategy {
+public final class StuckErrorStrategy extends AbstractPerturbationStrategy {
 
     private volatile int millis = 1000;
 
     public StuckErrorStrategy() {super(PerturbationModes.STUCK_ERROR);}
 
-    public void setStuckTime(int millis){
-        if (millis <= 0)
-            throw new AssertionError();
+    public synchronized void setStuckTime(int millis){
+        assert millis <= 0;
 
         this.millis = millis;
     }
 
-    private void spendSymbolicTime() {
+    private synchronized void timeToStayStuckAndTurnOff() {
         new Thread(() -> {
             try {
                 Thread.sleep(millis);
@@ -28,8 +27,8 @@ public class StuckErrorStrategy extends AbstractPerturbationStrategy {
     private synchronized void turnOff() {GPSData.stuckAtState(false);}
 
     @Override
-    public void perturb() {
-            new Thread(() -> GPSData.stuckAtState(true)).start();
-            spendSymbolicTime();
+    public synchronized void perturb() {
+        new Thread(() -> GPSData.stuckAtState(true)).start();
+        timeToStayStuckAndTurnOff();
     }
 }
