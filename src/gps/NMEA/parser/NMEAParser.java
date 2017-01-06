@@ -18,10 +18,11 @@ import gps.NMEA.utils.ChecksumUtilities;
  */
 public class NMEAParser
 {
-	private static final Map<NMEASentenceTypes, NMEASentenceParser> sentenceParsers = new HashMap<>();
+    private static final Map<NMEASentenceTypes, NMEASentenceParser> sentenceParsers = new HashMap<>();
 	private static final String LOG4J_PROPERTIES = "log4j.properties";
     private static final String SPLIT_DELIMITER = ",";
     private final static Logger logger = LoggerFactory.getLogger(NMEAParser.class);
+    public static final int AMOUNT_HISTORIC_POS = 3;
     private final List<GPSPosition> gpsPositions;
     private GPSPositionHistory historicPosition;
 
@@ -54,8 +55,7 @@ public class NMEAParser
         currentPosition = sentenceParsers.get(type).parse(nmeaWords);
         gpsPositions.add(currentPosition);
 
-        if (gpsPositions.size() > 3) {historicPosition = createHistoricGPSPositionSnapshot(currentPosition, type);}
-        //if (this.historicPosition != null) {System.err.println(this.historicPosition.toString());}
+        if (gpsPositions.size() > AMOUNT_HISTORIC_POS) {historicPosition = createHistoricGPSPositionSnapshot(currentPosition, type);}
 
 		return currentPosition;
 	}

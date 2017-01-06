@@ -1,9 +1,7 @@
 /**
  *
  */
-package faultInjection.communication_jammer;
-
-import faultInjection.pertubation.perturbation_functions.perturbation_strategies.PerturbationStrategy;
+package communication.communication_jammer;
 
 import java.io.IOException;
 import java.io.OutputStream;
