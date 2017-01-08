@@ -1,5 +1,6 @@
 package gps.NMEA.parser;
 
+import gps.NMEA.parser.hardening_functions.HardeningStrategy;
 import gps.NMEA.sentences.NMEASentenceTypes;
 import gps.NMEA.telemetry.TelemetryDummy;
 import org.apache.log4j.PropertyConfigurator;
@@ -7,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import communication.StringReader;
+
+import java.util.Set;
 
 /**
  * This Class is used to simplify the construction of a parser and
@@ -58,6 +61,16 @@ public class NMEAParserFactory {
         return this;
     }
 
+    public NMEAParserFactory build(Set<HardeningStrategy> hardeningStrategies) {
+        new Thread(() -> {
+            createCommunication();
+            createParser(hardeningStrategies);
+            createParserThread().run();
+        }).start();
+
+        return this;
+    }
+
     /**
      * Destroys the Parser and closes all Connections
      */
@@ -74,6 +87,18 @@ public class NMEAParserFactory {
     private NMEAParser createParser() {
         if (nmeaParser == null)
             nmeaParser = new NMEAParser();
+
+        return nmeaParser;
+    }
+
+    /**
+     * Creates a parser
+     * @return Instance of the created parser
+     */
+    private NMEAParser createParser(Set<HardeningStrategy> hardeningStrategySet) {
+        if (nmeaParser == null)
+            nmeaParser = new NMEAParser(hardeningStrategySet);
+        else System.err.println("An instance already exists, the passed Set will be ignored!");
 
         return nmeaParser;
     }

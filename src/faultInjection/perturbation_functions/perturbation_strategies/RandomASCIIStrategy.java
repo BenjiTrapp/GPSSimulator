@@ -1,8 +1,8 @@
-package faultInjection.pertubation.perturbation_functions.perturbation_strategies;
+package faultInjection.perturbation_functions.perturbation_strategies;
 
 import communication.StringReader;
 import communication.StringWriter;
-import faultInjection.pertubation.perturbation_functions.modes.PerturbationModes;
+import faultInjection.perturbation_functions.modes.PerturbationModes;
 
 import java.util.Random;
 

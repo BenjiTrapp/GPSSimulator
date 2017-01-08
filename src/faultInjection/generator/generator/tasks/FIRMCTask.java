@@ -1,9 +1,9 @@
-package faultInjection.pertubation.generator.tasks;
+package faultInjection.generator.generator.tasks;
 
 import java.util.TimerTask;
 
 import communication.communication_jammer.ComJammer;
-import faultInjection.pertubation.perturbation_functions.perturbation_strategies.PerturbationStrategy;
+import faultInjection.perturbation_functions.perturbation_strategies.PerturbationStrategy;
 import gps.NMEA.sentences.RMCSentence;
 
 /**

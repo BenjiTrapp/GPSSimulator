@@ -1,7 +1,7 @@
-package faultInjection.pertubation.perturbation_functions.perturbation_strategies;
+package faultInjection.perturbation_functions.perturbation_strategies;
 
-import faultInjection.pertubation.perturbation_functions.down_counter.CallbackEvent;
-import faultInjection.pertubation.perturbation_functions.modes.PerturbationModes;
+import faultInjection.perturbation_functions.down_counter.CallbackEvent;
+import faultInjection.perturbation_functions.modes.PerturbationModes;
 
 public abstract class AbstractPerturbationStrategy implements PerturbationStrategy, CallbackEvent {
 

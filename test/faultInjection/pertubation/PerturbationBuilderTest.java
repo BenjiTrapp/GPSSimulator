@@ -1,10 +1,143 @@
 package faultInjection.pertubation;
 
+import faultInjection.perturbation_functions.PerturbationBuilder;
+import faultInjection.perturbation_functions.perturbation_strategies.RandomASCIIStrategy;
+import faultInjection.perturbation_functions.perturbation_strategies.StuckAtErrorStrategy;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Created by Sturm on 06.01.2017.
- */
 class PerturbationBuilderTest {
 
+    @Test
+    public void shouldCreatePerturbationBuilder() {
+        // given
+        PerturbationBuilder perturbationBuilder;
+
+        // when
+        perturbationBuilder = new PerturbationBuilder().addStrategy(new StuckAtErrorStrategy())
+                .setTimerPeriod(10)
+                .setTimerDelay(0)
+                .presetCountInSeconds(1)
+                .useRandomnessForConfiguration()
+                .addStrategy(new RandomASCIIStrategy());
+
+        // then
+        assertNotNull(perturbationBuilder);
+    }
+
+    @Test
+    public void shouldBuildCorrectPerturbationStrategies() {
+        // given
+        PerturbationBuilder perturbationBuilder = new PerturbationBuilder().addStrategy(new StuckAtErrorStrategy())
+                .addStrategy(new RandomASCIIStrategy());
+
+        // when
+        try {
+            perturbationBuilder.build();
+
+            // then
+        } catch (Exception e) {
+            fail("Building should not cause an exception");
+            e.printStackTrace();
+        }
+
+        assertNotNull(perturbationBuilder);
+    }
+
+    @Test
+    public void shouldBThrowAssertErrorExceptionDueToNegativeTimerPeriod() {
+        // given
+        PerturbationBuilder perturbationBuilder;
+
+        try {
+            // when
+            perturbationBuilder = new PerturbationBuilder().setTimerPeriod(-100);
+            assertNotNull(perturbationBuilder);
+            // then
+        } catch (AssertionError ok) {
+            // all fine!
+        } catch (Exception failed) {
+            fail("The correct Exception wasn't triggered as assumed");
+        }
+    }
+
+    @Test
+    public void shouldBThrowAssertErrorExceptionDueToNegativeTimerDelay() {
+        // given
+        PerturbationBuilder perturbationBuilder;
+
+        try {
+            // when
+            perturbationBuilder = new PerturbationBuilder().setTimerDelay(-1);
+            assertNotNull(perturbationBuilder);
+            // then
+        } catch (AssertionError ok) {
+            // all fine!
+        } catch (Exception failed) {
+            fail("The correct Exception wasn't triggered as assumed");
+        }
+    }
+
+    @Test
+    public void shouldBThrowAssertErrorExceptionDueToNegativePresetCount() {
+        // given
+        PerturbationBuilder perturbationBuilder;
+
+        try {
+            // when
+            perturbationBuilder = new PerturbationBuilder().presetCountInSeconds(-1);
+            assertNotNull(perturbationBuilder);
+            // then
+        } catch (AssertionError ok) {
+            // all fine!
+        } catch (Exception failed) {
+            fail("The correct Exception wasn't triggered as assumed");
+        }
+    }
+
+    @Test
+    public void shouldNOTThrowAssertErrorExceptionWhenPresetCountIsZero() {
+        // given
+        PerturbationBuilder perturbationBuilder;
+
+        try {
+            // when
+            perturbationBuilder = new PerturbationBuilder().presetCountInSeconds(0);
+            assertNotNull(perturbationBuilder);
+            // then
+        } catch (Exception failed) {
+            fail("The correct Exception wasn't triggered as assumed");
+        }
+    }
+
+    @Test
+    public void shouldNOTThrowAssertErrorExceptionWhenTimerDelayIsZero() {
+        // given
+        PerturbationBuilder perturbationBuilder;
+
+        try {
+            // when
+            perturbationBuilder = new PerturbationBuilder().setTimerDelay(0);
+            assertNotNull(perturbationBuilder);
+            // then
+        } catch (Exception failed) {
+            fail("The correct Exception wasn't triggered as assumed");
+        }
+    }
+
+    @Test
+    public void shouldNOTThrowAssertErrorExceptionWhenTimerPeriodIsZero() {
+        // given
+        PerturbationBuilder perturbationBuilder;
+
+        try {
+            // when
+            perturbationBuilder = new PerturbationBuilder().setTimerPeriod(0);
+            assertNotNull(perturbationBuilder);
+            // then
+        } catch (Exception failed) {
+            fail("The correct Exception wasn't triggered as assumed");
+        }
+    }
 }

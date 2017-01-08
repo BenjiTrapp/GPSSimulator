@@ -1,7 +1,7 @@
-package faultInjection.pertubation;
+package faultInjection.perturbation_functions;
 
-import faultInjection.pertubation.perturbation_functions.down_counter.CallbackCountDownBuilder;
-import faultInjection.pertubation.perturbation_functions.perturbation_strategies.AbstractPerturbationStrategy;
+import faultInjection.perturbation_functions.down_counter.CallbackCountDownBuilder;
+import faultInjection.perturbation_functions.perturbation_strategies.AbstractPerturbationStrategy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -20,16 +20,22 @@ public class PerturbationBuilder {
     }
 
     public PerturbationBuilder presetCountInSeconds(int count){
+        assert  count >= 0;
+
         this.count = count;
         return this;
     }
 
     public PerturbationBuilder setTimerPeriod(int period){
+        assert  count >= 0;
+
         this.period = period;
         return this;
     }
 
     public PerturbationBuilder setTimerDelay(int delay){
+        assert  count >= 0;
+
         this.delay = delay;
         return  this;
     }

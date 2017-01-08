@@ -4,9 +4,10 @@ import gps.NMEA.sentences.NMEASentenceTypes;
 
 public class GPSPositionHistory {
 
+    public static final String NEW_LINE = "\n";
     private GPSPosition currentPosition;
     private GPSPosition lastPosition;
-    private GPSPosition previousLastPosition;
+    private GPSPosition secondLastPosition;
     private GPSPosition thirdLastPosition;
     private NMEASentenceTypes type;
 
@@ -40,35 +41,35 @@ public class GPSPositionHistory {
         return this.lastPosition;
     }
 
-    public void addpreviousLasttPosition(GPSPosition previousLasttPosition){
+    public void addSecondLastPosition(GPSPosition previousLasttPosition){
         assert previousLasttPosition != null;
-        this.previousLastPosition = previousLasttPosition;
+        this.secondLastPosition = previousLasttPosition;
     }
 
-    public void addThirdLasttPosition(GPSPosition previousLasttPosition){
+    public void addThirdLastPosition(GPSPosition previousLasttPosition){
         assert previousLasttPosition != null;
-        this.previousLastPosition = previousLasttPosition;
+        this.secondLastPosition = previousLasttPosition;
     }
 
     public GPSPosition getThirdLastPosition(){
         return this.lastPosition;
     }
 
-    public GPSPosition getPreviousLastPosition(){
-        return this.previousLastPosition;
+    public GPSPosition getSecondLastPosition(){
+        return this.secondLastPosition;
     }
 
     public void addPositions(GPSPosition currentPosition, GPSPosition lastPosition,GPSPosition previousLasttPosition, GPSPosition thirdLastPosition){
         this.addCurrentPosition(currentPosition);
         this.addLastPosition(lastPosition);
-        this.addpreviousLasttPosition(previousLasttPosition);
-        this.addThirdLasttPosition(thirdLastPosition);
+        this.addSecondLastPosition(previousLasttPosition);
+        this.addThirdLastPosition(thirdLastPosition);
     }
 
     public String toString(){
-        return   "Current Position: " + this.getCurrentPosition() + "\n"
-                + "Last Position: " + this.getLastPosition() + "\n"
-                + "Previous Last Position: " + this.getPreviousLastPosition() + "\n"
-                + "Third Last Position: " + this.getThirdLastPosition() + "\n";
+        return   "Current Position: " + this.getCurrentPosition() + NEW_LINE
+                + "Last Position: " + this.getLastPosition() + NEW_LINE
+                + "Previous Last Position: " + this.getSecondLastPosition() + NEW_LINE
+                + "Third Last Position: " + this.getThirdLastPosition() + NEW_LINE;
     }
 }

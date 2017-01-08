@@ -1,4 +1,4 @@
-package faultInjection.pertubation.perturbation_functions.modes;
+package faultInjection.perturbation_functions.modes;
 
 /**
  * Perturbation modes, use them in combination with the Perturbation Factory

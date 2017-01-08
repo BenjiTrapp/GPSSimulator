@@ -1,8 +1,8 @@
-package faultInjection.pertubation.generator;
+package faultInjection.generator.generator;
 
 import java.net.Socket;
 
-import faultInjection.pertubation.perturbation_functions.modes.PerturbationModes;
+import faultInjection.perturbation_functions.modes.PerturbationModes;
 import gps.generator.datagen_tasks.DataGenTask;
 import gps.generator.datagen_tasks.DataGenTaskObjectHolderBuilder;
 import gps.generator.GPSGenEnumHolder;

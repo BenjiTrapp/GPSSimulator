@@ -1,6 +1,6 @@
-package faultInjection.pertubation.perturbation_functions.perturbation_strategies;
+package faultInjection.perturbation_functions.perturbation_strategies;
 
-import faultInjection.pertubation.perturbation_functions.modes.PerturbationModes;
+import faultInjection.perturbation_functions.modes.PerturbationModes;
 import gps.data.GPSData;
 
 import java.util.concurrent.atomic.AtomicInteger;

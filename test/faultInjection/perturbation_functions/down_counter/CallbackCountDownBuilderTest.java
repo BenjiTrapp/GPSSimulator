@@ -1,4 +1,4 @@
-package faultInjection.pertubation.perturbation_functions.down_counter;
+package faultInjection.perturbation_functions.down_counter;
 
 import org.junit.jupiter.api.Test;
 

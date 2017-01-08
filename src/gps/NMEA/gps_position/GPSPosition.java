@@ -1,5 +1,7 @@
 package gps.NMEA.gps_position;
 
+import java.util.Objects;
+
 /**
  * This Class is used to store the parsed
  * information
@@ -169,16 +171,28 @@ public class GPSPosition
 	{
 		if(this.equals(that))
 		{
-			if(this.altitude == that.altitude
-					&& this.latitude == that.latitude
-					&& this.longitude == that.longitude
-					&& this.direction == that.direction
-					&& this.quality == that.quality
-					&& this.time == that.time
-					&& this.velocity == that.velocity
+			if(Objects.equals(this.altitude, that.altitude)
+					&& Objects.equals(this.latitude, that.latitude)
+					&& Objects.equals(this.longitude, that.longitude)
+					&& Objects.equals(this.direction, that.direction)
+					&& Objects.equals(this.quality, that.quality)
+					&& Objects.equals(this.time, that.time)
+					&& Objects.equals(this.velocity, that.velocity)
 					&& this.fixed == that.fixed)
 				return true;
 		}
 		return false;		
+	}
+
+	public boolean isBasicPositionEqual(GPSPosition that)
+	{
+		if(this.equals(that))
+		{
+			if(Objects.equals(this.altitude, that.altitude)
+					&& Objects.equals(this.latitude, that.latitude)
+					&& Objects.equals(this.longitude, that.longitude))
+				return true;
+		}
+		return false;
 	}
 }

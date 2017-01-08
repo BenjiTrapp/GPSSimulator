@@ -1,4 +1,4 @@
-package faultInjection.pertubation.generator;
+package faultInjection.generator.generator;
 
 import java.net.Socket;
 import java.util.Random;

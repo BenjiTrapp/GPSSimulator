@@ -1,4 +1,4 @@
-package faultInjection.pertubation.perturbation_functions.perturbation_strategies;
+package faultInjection.perturbation_functions.perturbation_strategies;
 
 import gps.data.GPSData;
 import org.junit.Before;

@@ -1,9 +1,14 @@
-import faultInjection.pertubation.PerturbationBuilder;
-import faultInjection.pertubation.perturbation_functions.perturbation_strategies.RandomASCIIStrategy;
-import faultInjection.pertubation.perturbation_functions.perturbation_strategies.SpoofedPositionStrategy;
-import faultInjection.pertubation.perturbation_functions.perturbation_strategies.StuckErrorStrategy;
+import faultInjection.perturbation_functions.PerturbationBuilder;
+import faultInjection.perturbation_functions.perturbation_strategies.SpoofedPositionStrategy;
+import faultInjection.perturbation_functions.perturbation_strategies.StuckAtErrorStrategy;
+import gps.NMEA.parser.hardening_functions.StuckAtErrorDetectionStrategy;
+import gps.NMEA.parser.hardening_functions.HardeningStrategy;
+import gps.NMEA.parser.hardening_functions.SpoofingDetectionStrategy;
 import gps.generator.GPSGeneratorFactory;
 import gps.NMEA.parser.NMEAParserFactory;
+
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class GPSSimulatorStarter {
@@ -13,7 +18,12 @@ public class GPSSimulatorStarter {
     private static NMEAParserFactory NMEAParserFactory;
 
     private static void startGPSParser(){
-        NMEAParserFactory = new NMEAParserFactory().build();}
+        Set<HardeningStrategy> hardeningStrategies = new HashSet<>();
+        hardeningStrategies.add(new StuckAtErrorDetectionStrategy());
+        hardeningStrategies.add(new SpoofingDetectionStrategy());
+
+        NMEAParserFactory = new NMEAParserFactory().build(hardeningStrategies);}
+//        NMEAParserFactory = new NMEAParserFactory().build();}
 
     private static void startGPSGenerator(){new GPSGeneratorFactory().build();}
 
@@ -23,14 +33,14 @@ public class GPSSimulatorStarter {
         SpoofedPositionStrategy spoofedPositionStrategy = new SpoofedPositionStrategy();
         spoofedPositionStrategy.setRetryCount(RETRY_COUNT);
 
-        StuckErrorStrategy stuckErrorStrategy = new StuckErrorStrategy();
-        stuckErrorStrategy.setStuckTime(FIFTEEN_SECONDS);
+        StuckAtErrorStrategy stuckAtErrorStrategy = new StuckAtErrorStrategy();
+        stuckAtErrorStrategy.setStuckTime(FIFTEEN_SECONDS);
 
         do {
             new PerturbationBuilder().useRandomnessForConfiguration()
-                                     .addStrategy(spoofedPositionStrategy)
-                                   //  .addStrategy(stuckErrorStrategy)
-                                     .addStrategy(new RandomASCIIStrategy())
+                                  //   .addStrategy(spoofedPositionStrategy)
+                                     .addStrategy(stuckAtErrorStrategy)
+                                   //  .addStrategy(new RandomASCIIStrategy())
                                      .build();
             try {Thread.sleep(SPEND_TIME_WITHOUT_FAULTS);} catch (InterruptedException ignored) {}
         } while (true);

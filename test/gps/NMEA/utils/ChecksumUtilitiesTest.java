@@ -75,16 +75,4 @@ public class ChecksumUtilitiesTest {
         assertFalse(ChecksumUtilities.isChecksumValid(INVALID_CRC_LENGTH_RMC_SENTENCE));
         assertFalse(ChecksumUtilities.isChecksumValid(INVALID_CRC_LENGTH_GGA_SENTENCE));
     }
-
-    @Test
-    @Tag("SadPath")
-    public void invalidRandomCRCChecksShouldFail(){
-        // given
-        Random rnd = new Random();
-
-        // when
-        for (int i = 0; i < 9; i++)
-            // then
-            assertFalse(ChecksumUtilities.isChecksumValid("$T3ST,NM3@,Sentence,4711,%*" + (rnd.nextInt(9)) + i));
-    }
 }
