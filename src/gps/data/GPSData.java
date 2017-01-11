@@ -361,7 +361,7 @@ public final class GPSData
         return isStuck.get();
     }
 
-	public static synchronized String printCurrentData(){
+	public synchronized String toString(){
 		return ("Altitude: " + getAltitude()) + NEW_LINE +
 				"Course: " + getCourse() + NEW_LINE +
 				"EW: " + getEW() + NEW_LINE +

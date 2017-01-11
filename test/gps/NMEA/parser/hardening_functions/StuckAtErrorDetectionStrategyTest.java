@@ -46,7 +46,7 @@ class StuckAtErrorDetectionStrategyTest {
         // when
         boolean result = new StuckAtErrorDetectionStrategy().isPerturbationDetected(gpsPositionHistory);
 
-        //then
+        // then
         assertTrue(result);
     }
 
@@ -61,7 +61,7 @@ class StuckAtErrorDetectionStrategyTest {
         // when
         boolean result = new StuckAtErrorDetectionStrategy().isPerturbationDetected(gpsPositionHistory);
 
-        //then
+        // then
         assertFalse(result);
     }
 }

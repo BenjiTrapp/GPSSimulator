@@ -8,6 +8,7 @@ import gps.NMEA.gps_position.GPSPosition;
  * @author Benjamin Trapp
  *
  */
+@FunctionalInterface
 public interface NMEASentenceParser {
 	/**
 	 * USe this function to parse the passed tokens 

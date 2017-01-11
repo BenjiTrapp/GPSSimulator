@@ -172,9 +172,8 @@ public class NMEAGraphGUI extends JPanel {
         image = new BufferedImage(500, 500, BufferedImage.TYPE_INT_ARGB);
         drawImage();
 
-        File file = new File(PATHNAME_NMEA_GRAPH_IMAGE);
         try {
-            write(image, PNG_FORMAT_NAME, file);
+            write(image, PNG_FORMAT_NAME,  new File(PATHNAME_NMEA_GRAPH_IMAGE));
         } catch (IOException ignored) {
         }
     }
@@ -191,8 +190,8 @@ public class NMEAGraphGUI extends JPanel {
         Insets insets = getInsets();
 
         g.drawImage(image.getScaledInstance(getWidth() - insets.right - insets.left,
-                getHeight() - insets.top - insets.bottom, SCALE_SMOOTH),
-                insets.right, insets.top, null);
+                    getHeight() - insets.top - insets.bottom, SCALE_SMOOTH),
+                    insets.right, insets.top, null);
     }
 
     /**
@@ -204,7 +203,7 @@ public class NMEAGraphGUI extends JPanel {
      */
     private double parse(String s, int length) {
         double d = 0;
-        // TODO? Random ASCII FI-Experiment can cause malformed Sentences => More Transparency needed here?
+
         try {
             d = parseDouble(s.substring(0, length));
             d += parseDouble(s.substring(length, s.length())) / 60;

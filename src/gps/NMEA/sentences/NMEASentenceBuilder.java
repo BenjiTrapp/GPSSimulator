@@ -44,8 +44,7 @@ public class NMEASentenceBuilder {
 
     NMEASentenceBuilder appendChecksum(String mode){
 
-        this.builder.deleteCharAt(builder.length() - 1)
-                    .append(mode);
+        this.builder.deleteCharAt(builder.length() - 1).append(mode);
 
         String tmp = this.build();
 

@@ -4,7 +4,7 @@ import gps.NMEA.sentences.NMEASentenceTypes;
 
 public class GPSPositionHistory {
 
-    public static final String NEW_LINE = "\n";
+    private static final String NEW_LINE = "\n";
     private GPSPosition currentPosition;
     private GPSPosition lastPosition;
     private GPSPosition secondLastPosition;
@@ -46,13 +46,13 @@ public class GPSPositionHistory {
         this.secondLastPosition = previousLasttPosition;
     }
 
-    public void addThirdLastPosition(GPSPosition previousLasttPosition){
-        assert previousLasttPosition != null;
-        this.secondLastPosition = previousLasttPosition;
+    public void addThirdLastPosition(GPSPosition thirdLastPosition){
+        assert thirdLastPosition != null;
+        this.thirdLastPosition = thirdLastPosition;
     }
 
     public GPSPosition getThirdLastPosition(){
-        return this.lastPosition;
+        return this.thirdLastPosition;
     }
 
     public GPSPosition getSecondLastPosition(){

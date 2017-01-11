@@ -10,16 +10,20 @@ import java.io.OutputStream;
 import java.net.PortUnreachableException;
 
 public class TwoWaySerialComm {
+
+    private static final int COMPOT_PORT = 2000;
+    private static final int BAUD_RATE = 57600;
+
     private void connect(String portName) throws Exception {
         CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier(portName);
         if (portIdentifier.isCurrentlyOwned())
             throw new PortInUseException();
 
-        CommPort commPort = portIdentifier.open(this.getClass().getName(), 2000);
+        CommPort commPort = portIdentifier.open(this.getClass().getName(), COMPOT_PORT);
 
         if (commPort instanceof SerialPort) {
             SerialPort serialPort = (SerialPort) commPort;
-            serialPort.setSerialPortParams(57600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
+            serialPort.setSerialPortParams(BAUD_RATE, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
 
             InputStream in = serialPort.getInputStream();
             OutputStream out = serialPort.getOutputStream();
@@ -33,14 +37,12 @@ public class TwoWaySerialComm {
 
     }
 
-    /**
+    /*
      * Class only used for testing purposes ...
-     *
-     * @param args
      */
     public static void main(String[] args) {
         try {
-            (new TwoWaySerialComm()).connect("COM1");
+            new TwoWaySerialComm().connect("COM1");
         } catch (Exception ignored) {}
     }
 }

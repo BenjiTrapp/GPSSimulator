@@ -22,7 +22,14 @@ public class TelemetryDummy
 	private static final String TELEMETRY_FILE_NAME = "log/Telemetry.log";
 	private FileWriter fw;
 	private NMEAParser nmeaParser;
-	
+
+	public TelemetryDummy(FileWriter fileWriter, NMEAParser parser)
+	{
+		this.fw = fileWriter;
+		this.nmeaParser = parser;
+	}
+
+
 	/**
 	 * Default Constructor of the Telemetry Dummy
 	 */

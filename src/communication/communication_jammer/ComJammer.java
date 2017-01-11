@@ -17,8 +17,6 @@ import java.net.Socket;
  * @author Benjamin Trapp
  */
 public final class  ComJammer {
-    private static final String NEW_LINE = "\n";
-
     private static ComJammer instance = null;
     private OutputStream outStream = null;
     private static Socket socket = null;

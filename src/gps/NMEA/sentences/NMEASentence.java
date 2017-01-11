@@ -11,6 +11,7 @@ import gps.data.GPSData;
  *
  * @author Benjamin Trapp
  */
+@FunctionalInterface
 public interface NMEASentence {
     /**
      * Gets the gps.NMEA Sentence of it`s specific back
@@ -51,7 +52,7 @@ public interface NMEASentence {
         double degree = (int) Double.parseDouble(GPSData.getLatitude());
         double minute = (int) (Double.parseDouble(GPSData.getLatitude()) * 60 - degree * 60);
         double second = (Double.parseDouble(GPSData.getLatitude())) * 60
-                - (int) (Double.parseDouble((GPSData.getLatitude())) * 60);
+                        - (int) (Double.parseDouble((GPSData.getLatitude())) * 60);
 
         return (double) Math.round((degree * 100 + minute + second) * 100) / 100;
     }

@@ -86,10 +86,10 @@ public class GPSGeneratorFactory
             gen.generateGGAData();
         }).start();
 	}
-	
+
 	/**
 	 * Creates a basic DataGenTask/gets its instance if one
-	 * is already existing 
+	 * is already existing
 	 * @return Instance of the DataGenTask
 	 */
 	private DataGenTask createDataGenTask()
@@ -106,7 +106,7 @@ public class GPSGeneratorFactory
 
 		return dataTask;
 	}
-	
+
 	/**
 	 * Creates a gps.data.GPSGenerator with default components
 	 * @return instance of the gps.data.GPSGenerator
@@ -118,12 +118,12 @@ public class GPSGeneratorFactory
 
 		return gen;
 	}
-	
+
 	/**
 	 * Creates a gps.data.GPSGenerator with the passed DataGenTask and PERIOD_OF_DATA_GENERATION in
-	 * which the DataGenTask generates its output data. The created 
+	 * which the DataGenTask generates its output data. The created
 	 * gps.data.GPSGenerator will use the local host and Port 4711 for communication
-	 * @param dataTask Instance of a DataGenTask to generate Data 
+	 * @param dataTask Instance of a DataGenTask to generate Data
 	 * @param period the PERIOD_OF_DATA_GENERATION in which the DataGenTask generates its Data
 	 * @return instance of the created gps.data.GPSGenerator
 	 */
@@ -131,16 +131,16 @@ public class GPSGeneratorFactory
 	{
 		if(gen == null)
 			gen = new GPSGenerator(dataTask, period);
-		
+
 		return gen;
 	}
-	
+
 	/**
 	 * Creates a gps.data.GPSGenerator with the passed DataGenTask and PERIOD_OF_DATA_GENERATION in
-	 * which the DataGenTask generates its output data. The created 
+	 * which the DataGenTask generates its output data. The created
 	 * gps.data.GPSGenerator will use the the passed socket (that contains IP and Port)
 	 * for the communication
-	 * @param dataTask Instance of a DataGenTask to generate Data 
+	 * @param dataTask Instance of a DataGenTask to generate Data
 	 * @param socket The Socket that shall be used for communication
 	 * @param period the PERIOD_OF_DATA_GENERATION in which the DataGenTask generates its Data
 	 * @return instance of the created gps.data.GPSGenerator
@@ -149,7 +149,7 @@ public class GPSGeneratorFactory
 	{
 		if(gen == null)
 			gen = new GPSGenerator(dataTask, period, socket);
-		
+
 		return gen;
 	}
 }
