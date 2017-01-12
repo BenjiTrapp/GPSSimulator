@@ -1,6 +1,8 @@
 package faultInjection.perturbation_functions.down_counter;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -9,6 +11,7 @@ class CallbackCountDownBuilderTest {
     private static boolean isNotified;
 
     @Test
+    @Tag("Integration Test")
     public void shouldCallBackAfter100MilliSeconds() throws InterruptedException {
 
         // given
@@ -32,6 +35,7 @@ class CallbackCountDownBuilderTest {
         assertTrue(isNotified);
     }
 
+    @Tag("MockClass")
     private class MockCallbackEventImplClass implements CallbackEvent {
         @Override
         public void notifyToPerturb() {isNotified = true;}

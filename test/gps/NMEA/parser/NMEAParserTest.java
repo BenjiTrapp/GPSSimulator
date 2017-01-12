@@ -1,10 +1,23 @@
 package gps.NMEA.parser;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Created by Sturm on 31.12.2016.
- */
 class NMEAParserTest {
 
+    @Test
+    public void shouldThrowInvalidChecksumException(){
+
+    }
+
+    @Test
+    void name() {
+        // given
+
+        // when
+
+        // then
+
+    }
 }

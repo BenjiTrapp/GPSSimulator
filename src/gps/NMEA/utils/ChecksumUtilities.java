@@ -46,6 +46,7 @@ public final class ChecksumUtilities {
         assert nmeaSentence != null;
         assert !nmeaSentence.isEmpty();
         assert nmeaSentence.contains(Character.toString(CHECKSUM_ASTERISK_DELIMITER));
+        assert nmeaSentence.contains(NMEA_SENTENCE_INITIALIZER);
 
         int msglen = nmeaSentence.length();
 

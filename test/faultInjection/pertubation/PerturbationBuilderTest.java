@@ -3,6 +3,7 @@ package faultInjection.pertubation;
 import faultInjection.perturbation_functions.PerturbationBuilder;
 import faultInjection.perturbation_functions.perturbation_strategies.RandomASCIIStrategy;
 import faultInjection.perturbation_functions.perturbation_strategies.StuckAtErrorStrategy;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PerturbationBuilderTest {
 
     @Test
+    @Tag("HappyPath")
     public void shouldCreatePerturbationBuilder() {
         // given
         PerturbationBuilder perturbationBuilder;
@@ -27,6 +29,7 @@ class PerturbationBuilderTest {
     }
 
     @Test
+    @Tag("HappyPath")
     public void shouldBuildCorrectPerturbationStrategies() {
         // given
         PerturbationBuilder perturbationBuilder = new PerturbationBuilder().addStrategy(new StuckAtErrorStrategy())
@@ -46,6 +49,7 @@ class PerturbationBuilderTest {
     }
 
     @Test
+    @Tag("SadPath")
     public void shouldBThrowAssertErrorExceptionDueToNegativeTimerPeriod() {
         // given
         PerturbationBuilder perturbationBuilder;
@@ -63,6 +67,7 @@ class PerturbationBuilderTest {
     }
 
     @Test
+    @Tag("SadPath")
     public void shouldBThrowAssertErrorExceptionDueToNegativeTimerDelay() {
         // given
         PerturbationBuilder perturbationBuilder;
@@ -80,6 +85,7 @@ class PerturbationBuilderTest {
     }
 
     @Test
+    @Tag("ExceptionalPath")
     public void shouldBThrowAssertErrorExceptionDueToNegativePresetCount() {
         // given
         PerturbationBuilder perturbationBuilder;
@@ -97,6 +103,7 @@ class PerturbationBuilderTest {
     }
 
     @Test
+    @Tag("ExceptionalPath")
     public void shouldNOTThrowAssertErrorExceptionWhenPresetCountIsZero() {
         // given
         PerturbationBuilder perturbationBuilder;
@@ -112,6 +119,7 @@ class PerturbationBuilderTest {
     }
 
     @Test
+    @Tag("ExceptionalPath")
     public void shouldNOTThrowAssertErrorExceptionWhenTimerDelayIsZero() {
         // given
         PerturbationBuilder perturbationBuilder;
@@ -127,6 +135,7 @@ class PerturbationBuilderTest {
     }
 
     @Test
+    @Tag("ExceptionalPath")
     public void shouldNOTThrowAssertErrorExceptionWhenTimerPeriodIsZero() {
         // given
         PerturbationBuilder perturbationBuilder;

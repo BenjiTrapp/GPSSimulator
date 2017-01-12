@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 
 import java.util.Random;
 
+import static gps.NMEA.utils.ChecksumUtilities.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -26,18 +27,20 @@ public class ChecksumUtilitiesTest {
     private final static String INVALID_CRC_LENGTH_RMC_SENTENCE = "$GPRMC,1911622,A,5336.93,N,1005.12,E,010.1,10.0,211113,,S*1234";
 
     @Test
+    @Tag("HappyPath")
     public void testGetCRC() {
         // given
         String tmp = "$GPGGA,1911504,5336.93,N,1005.12,E,8.0,01,1.2,15.4,M,0,M,,";
 
         // when
-        String crcCalced = ChecksumUtilities.getCRC(tmp);
+        String crcCalced = getCRC(tmp);
 
         // then
         assertEquals("4E", crcCalced);
     }
 
     @Test
+    @Tag("HappyPath")
     public void testCRCLen() {
         // given
         StringBuilder s;
@@ -50,29 +53,47 @@ public class ChecksumUtilitiesTest {
             String tmp = s.append(rnd.nextInt(10000)).append(",").toString();
             System.out.println(tmp);
             s.append("*")
-             .append(ChecksumUtilities.getCRC(tmp));
+             .append(getCRC(tmp));
 
             tmp = s.toString();
             System.out.println(tmp);
+
             // then
-            assertTrue(ChecksumUtilities.isChecksumValid(s.toString()));
+            assertTrue(isChecksumValid(s.toString()));
         }
     }
 
     @Test
     @Tag("HappyPath")
     public void testCheckCRC() {
-
-        assertTrue(ChecksumUtilities.isChecksumValid(VALID_GGA_SENTENCE));
-        assertTrue(ChecksumUtilities.isChecksumValid(VALID_RMC_SENTENCE + "*" + ChecksumUtilities.getCRC(VALID_RMC_SENTENCE)));
+        assertTrue(isChecksumValid(VALID_GGA_SENTENCE));
+        assertTrue(isChecksumValid(VALID_RMC_SENTENCE + "*" + getCRC(VALID_RMC_SENTENCE)));
     }
 
     @Test
     @Tag("SadPath")
     public void invalidCRCChecksShouldFail(){
-        assertFalse(ChecksumUtilities.isChecksumValid(INVALID_CRC_RMC_SENTENCE));
-        assertFalse(ChecksumUtilities.isChecksumValid(INVALID_CRC_GGA_SENTENCE));
-        assertFalse(ChecksumUtilities.isChecksumValid(INVALID_CRC_LENGTH_RMC_SENTENCE));
-        assertFalse(ChecksumUtilities.isChecksumValid(INVALID_CRC_LENGTH_GGA_SENTENCE));
+        assertFalse(isChecksumValid(INVALID_CRC_RMC_SENTENCE));
+        assertFalse(isChecksumValid(INVALID_CRC_GGA_SENTENCE));
+        assertFalse(isChecksumValid(INVALID_CRC_LENGTH_RMC_SENTENCE));
+        assertFalse(isChecksumValid(INVALID_CRC_LENGTH_GGA_SENTENCE));
+    }
+
+    @Test
+    @Tag("ExceptionalPath")
+    public void shouldThrowAssertionErrorExceptionAtGetCRCMethod(){
+        assertThrows(AssertionError.class, () -> getCRC(null));
+        assertThrows(AssertionError.class, () -> getCRC(""));
+        assertThrows(AssertionError.class, () -> getCRC( "GPGGA,1911504,5336.93,N,1005.12,E,8.0,01,1.2,15.4,M,0,M,,*4E"));
+        assertThrows(AssertionError.class, () -> getCRC( "GPGGA,1911504,5336.93,N,1005.12,E,8.0,01,1.2,15.4,M,0,M,,4E"));
+    }
+
+    @Test
+    @Tag("ExceptionalPath")
+    public void shouldThrowAssertionErrorExceptionAtIsChecksumValidMethod(){
+        assertThrows(AssertionError.class, () -> isChecksumValid(null));
+        assertThrows(AssertionError.class, () -> isChecksumValid(""));
+        assertThrows(AssertionError.class, () -> isChecksumValid( "$GPGGA**4E"));
+        assertThrows(AssertionError.class, () -> isChecksumValid( "GPGGA,,123,321*4E"));
     }
 }
