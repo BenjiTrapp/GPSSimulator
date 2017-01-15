@@ -1,10 +1,12 @@
 package faultInjection.perturbation_functions.perturbation_strategies;
 
+import Annotations.PerturbationFunction;
 import faultInjection.perturbation_functions.modes.PerturbationModes;
 import gps.data.GPSData;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+@PerturbationFunction(PerturbationModes.SPOOFED_POSITION)
 public final class SpoofedPositionStrategy extends AbstractPerturbationStrategy {
 
     private static final int ONE_HALF_SEC = 500;
@@ -26,7 +28,7 @@ public final class SpoofedPositionStrategy extends AbstractPerturbationStrategy 
     @Override
     public synchronized void perturb() {
         if (GPSData.isStuck()) {
-            // If the coords are stuck, it's senseless to spoof them => poll recursively
+            // If the coords are stuck, it's senseless to spoof them => poll recursively till retry cnt is reached
             if(this.counter.get() <= retryCount){
                 try {Thread.sleep(ONE_HALF_SEC);} catch (InterruptedException ignored) {}
                 this.counter.incrementAndGet();

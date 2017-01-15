@@ -1,8 +1,10 @@
 package faultInjection.perturbation_functions.perturbation_strategies;
 
+import Annotations.PerturbationFunction;
 import faultInjection.perturbation_functions.modes.PerturbationModes;
 import gps.data.GPSData;
 
+@PerturbationFunction(PerturbationModes.STUCK_ERROR)
 public final class StuckAtErrorStrategy extends AbstractPerturbationStrategy {
 
     private volatile int millis = 1000;

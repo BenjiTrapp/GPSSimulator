@@ -1,11 +1,13 @@
 package faultInjection.perturbation_functions.perturbation_strategies;
 
+import Annotations.PerturbationFunction;
 import communication.StringReader;
 import communication.StringWriter;
 import faultInjection.perturbation_functions.modes.PerturbationModes;
 
 import java.util.Random;
 
+@PerturbationFunction(PerturbationModes.RANDOM_ASCII)
 public final class RandomASCIIStrategy extends AbstractPerturbationStrategy {
 
     public static final int MAX_ASCII_TOKENS = 255;
