@@ -71,7 +71,7 @@ public class NMEAParser {
         currentPosition = sentenceParsers.get(type).parse(nmeaWords);
         gpsPositions.add(currentPosition);
 
-        if (gpsPositions.size() > AMOUNT_HISTORIC_POS) {
+        if (gpsPositions.size() >= AMOUNT_HISTORIC_POS) {
             historicPosition = createHistoricGPSPositionSnapshot(currentPosition, type);
         }
 
@@ -116,7 +116,7 @@ public class NMEAParser {
         return nmeaSentence.substring(1).split(SPLIT_DELIMITER);
     }
 
-    private GPSPositionHistory createHistoricGPSPositionSnapshot(GPSPosition currentPosition, NMEASentenceTypes type) {
+    GPSPositionHistory createHistoricGPSPositionSnapshot(GPSPosition currentPosition, NMEASentenceTypes type) {
         int size = gpsPositions.size();
 
         GPSPositionHistory tmp = new GPSPositionHistory(type);
