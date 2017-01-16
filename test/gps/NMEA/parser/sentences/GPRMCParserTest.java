@@ -29,7 +29,7 @@ class GPRMCParserTest {
 
         // then
         assertEquals(new Double(tokens[1]), result.getTime());
-        assertEquals(new Double(tokens[5]), result.getLatitude());
+        assertEquals(new Double(tokens[3]), result.getLatitude());
         assertEquals(new Double(tokens[7]), result.getQuality());
         assertEquals(new Double(tokens[8]), result.getAltitude());
         assertNull(result.getVelocity());

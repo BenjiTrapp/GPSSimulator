@@ -44,11 +44,11 @@ class NMEAParserTest {
         GPSPosition result = parser.parse(VALID_RMC_SENTENCE);
 
         // then
-        assertEquals(new Double(1001.66), result.getLatitude());
+        assertEquals(new Double(5333.89), result.getLatitude());
         assertEquals(new Double(122627), result.getTime());
         assertEquals(new Double(8.0000), result.getQuality());
         assertEquals(new Double(150.0000), result.getAltitude());
-        assertNull(result.getLongitude());
+        assertEquals(new Double(1001.66), result.getLongitude());
         assertNull(result.getDirection());
         assertNull(result.getVelocity());
     }

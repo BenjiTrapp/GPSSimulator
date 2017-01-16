@@ -25,7 +25,7 @@ class GPGGAParserTest {
 
         // then
         assertEquals(new Double(tokens[1]), result.getTime());
-        assertEquals(new Double(tokens[4]), result.getLatitude());
+        assertEquals(new Double(tokens[2]), result.getLatitude());
         assertEquals(new Double(tokens[6]), result.getQuality());
         assertEquals(new Double(tokens[9]), result.getAltitude());
         assertNull(result.getVelocity());

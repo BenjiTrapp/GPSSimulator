@@ -22,7 +22,7 @@ public class GPSPositionBuilder {
 
     public GPSPositionBuilder addLongitude(Double longitude){
         assert longitude!= null;
-        this.position.setLatitude(longitude);
+        this.position.setLongitude(longitude);
         return this;
     }
 
@@ -46,7 +46,7 @@ public class GPSPositionBuilder {
 
     GPSPositionBuilder addVelocity(Double velocity){
         assert velocity != null;
-        this.position.setAltitude(velocity);
+        this.position.setVelocity(velocity);
         return this;
     }
 
