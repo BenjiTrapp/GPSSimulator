@@ -1,5 +1,6 @@
 package gps.NMEA.parser.hardening_functions;
 
+import Annotations.HardeningFunction;
 import gps.NMEA.gps_position.GPSPositionHistory;
 
 public class StuckAtErrorDetectionStrategy implements HardeningStrategy {
@@ -10,6 +11,7 @@ public class StuckAtErrorDetectionStrategy implements HardeningStrategy {
      * @return true if the receiver is stuck otherwise false
      */
     @Override
+    @HardeningFunction
     public boolean isPerturbationDetected(GPSPositionHistory posHistory) {
         return      isHistoricPositionNOTNull(posHistory)
                 && posHistory.getCurrentPosition().isBasicPositionEqual(posHistory.getLastPosition())

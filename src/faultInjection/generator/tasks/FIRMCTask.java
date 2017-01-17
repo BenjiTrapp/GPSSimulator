@@ -1,4 +1,4 @@
-package faultInjection.generator.generator.tasks;
+package faultInjection.generator.tasks;
 
 import java.util.TimerTask;
 

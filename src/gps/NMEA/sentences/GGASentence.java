@@ -41,6 +41,7 @@ import static gps.data.GPSData.*;
  * @author Benjamin Trapp
  *
  */
+@Annotations.NMEASentence(GPGGA)
 public class GGASentence implements NMEASentence
 {
     private static final String DELIMITER = ",";

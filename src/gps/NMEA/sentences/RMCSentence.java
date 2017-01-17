@@ -42,6 +42,7 @@ import static gps.data.GPSData.*;
        Time of the determination: 19:14:10 (UTC-Time)
  * @author Benjamin Trapp
  */
+@Annotations.NMEASentence(GPRMC)
 public class RMCSentence implements NMEASentence {
 
     private static final String DELIMITER = ",";

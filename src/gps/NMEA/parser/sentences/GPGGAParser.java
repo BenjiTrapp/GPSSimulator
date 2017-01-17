@@ -1,7 +1,9 @@
 package gps.NMEA.parser.sentences;
 
+import Annotations.NMEASentence;
 import gps.NMEA.gps_position.GPSPosition;
 import gps.NMEA.gps_position.GPSPositionBuilder;
+import gps.NMEA.sentences.NMEASentenceTypes;
 
 /**
  * This Class is used to parse GGA-Sentences for further
@@ -9,6 +11,7 @@ import gps.NMEA.gps_position.GPSPositionBuilder;
  *
  * @author Benjamin Trapp
  */
+@Annotations.NMEASentenceParser(NMEASentenceTypes.GPGGA)
 public class GPGGAParser implements NMEASentenceParser {
     private static final int MAX_AMOUNT_OF_NEEDED_TOKENS = 10;
     private static GPGGAParser instance = null;

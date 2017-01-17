@@ -1,4 +1,4 @@
-package faultInjection.generator.generator;
+package faultInjection.generator;
 
 import java.net.Socket;
 

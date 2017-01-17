@@ -1,5 +1,6 @@
 package gps.NMEA.parser.hardening_functions;
 
+import Annotations.HardeningFunction;
 import gps.NMEA.gps_position.GPSPositionHistory;
 
 public class SpoofingDetectionStrategy implements HardeningStrategy {
@@ -17,6 +18,7 @@ public class SpoofingDetectionStrategy implements HardeningStrategy {
      * @return true if a dash has been recognized otherwise false
      */
     @Override
+    @HardeningFunction
     public boolean isPerturbationDetected(GPSPositionHistory positionHistory) {
         return     (positionHistory.getCurrentPosition() != null && positionHistory.getLastPosition() != null) &&
                  (positionHistory.getCurrentPosition().getLatitude()  > (positionHistory.getLastPosition().getLatitude() + CONFIDENCE_INTERVAL)

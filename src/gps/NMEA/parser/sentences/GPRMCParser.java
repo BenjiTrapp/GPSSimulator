@@ -2,6 +2,7 @@ package gps.NMEA.parser.sentences;
 
 import gps.NMEA.gps_position.GPSPosition;
 import gps.NMEA.gps_position.GPSPositionBuilder;
+import gps.NMEA.sentences.NMEASentenceTypes;
 
 /**
  * This Class is used to parse RMC-Sentences for further
@@ -9,6 +10,7 @@ import gps.NMEA.gps_position.GPSPositionBuilder;
  *
  * @author Benjamin Trapp
  */
+@Annotations.NMEASentenceParser(NMEASentenceTypes.GPRMC)
 public class GPRMCParser implements NMEASentenceParser {
     private static final int MAX_AMOUNT_OF_NEEDED_TOKENS = 9;
     private static GPRMCParser instance = null;

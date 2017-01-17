@@ -36,4 +36,8 @@ a dash in the coordinates occurred f.e.
 For general graphical presentation of the log files Apache Chainsaw me be coming handy for you. With this tool is a graphical
 log viewer, so it's quite easy to analyze the log files.
 
+Is there some more information available?
+-----------------------------------------
+Sure, this code was implemented during my bachelor thesis: http://edoc.sub.uni-hamburg.de/haw/volltexte/2014/2572/pdf/BA_Trapp.pdf
+
 Link: https://logging.apache.org/chainsaw/
