@@ -17,7 +17,7 @@ class SpoofedPositionStrategyTest {
         SpoofedPositionStrategy spoofedPositionStrategy = new SpoofedPositionStrategy();
         assertEquals("53.557085", GPSData.getLatitude());
         assertEquals("10.023167", GPSData.getLongitude());
-        assertEquals("150", GPSData.getAltitude());
+        assertEquals("15", GPSData.getAltitude());
 
         // when
         spoofedPositionStrategy.notifyToPerturb();
@@ -26,7 +26,7 @@ class SpoofedPositionStrategyTest {
         // then
         assertEquals("9475.557085", GPSData.getLatitude());
         assertEquals("9432.023167", GPSData.getLongitude());
-        assertEquals("9572.0", GPSData.getAltitude());
+        assertEquals("9437.0", GPSData.getAltitude());
     }
 
     @org.junit.Test

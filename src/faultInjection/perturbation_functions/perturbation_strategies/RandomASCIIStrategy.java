@@ -1,6 +1,6 @@
 package faultInjection.perturbation_functions.perturbation_strategies;
 
-import Annotations.PerturbationFunction;
+import annotations.PerturbationFunction;
 import communication.StringReader;
 import communication.StringWriter;
 import faultInjection.perturbation_functions.modes.PerturbationModes;

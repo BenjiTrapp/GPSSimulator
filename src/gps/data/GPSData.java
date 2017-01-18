@@ -29,7 +29,7 @@ public final class GPSData
 	private static CardinalDirections ns = SOUTH;
 	private static CardinalDirections ew = EAST;
 	private static String velocity = "003.0";
-	private static String altitude = "150";
+	private static String altitude = "15";
 	private static int course = 314;
 	private static String satellites = "4";
 	private static int quality = 8;

@@ -1,4 +1,4 @@
-package Annotations;
+package annotations;
 
 import gps.NMEA.sentences.NMEASentenceTypes;
 import org.junit.jupiter.api.Tag;
@@ -13,9 +13,10 @@ import static org.junit.platform.commons.meta.API.Usage.Maintained;
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Tag("NMEASentence")
+@Tag("NMEASentenceParser")
 @Testable
 @API(Maintained)
-public @interface NMEASentence {
+public @interface NMEASentenceParser {
     NMEASentenceTypes value();
 }
+

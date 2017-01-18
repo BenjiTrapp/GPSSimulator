@@ -1,6 +1,6 @@
 package faultInjection.perturbation_functions.down_counter;
 
-import Annotations.MockClass;
+import annotations.MockClass;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 

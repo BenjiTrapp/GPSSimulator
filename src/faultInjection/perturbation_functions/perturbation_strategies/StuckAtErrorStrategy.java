@@ -1,6 +1,6 @@
 package faultInjection.perturbation_functions.perturbation_strategies;
 
-import Annotations.PerturbationFunction;
+import annotations.PerturbationFunction;
 import faultInjection.perturbation_functions.modes.PerturbationModes;
 import gps.data.GPSData;
 

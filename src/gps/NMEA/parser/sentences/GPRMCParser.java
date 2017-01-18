@@ -10,7 +10,7 @@ import gps.NMEA.sentences.NMEASentenceTypes;
  *
  * @author Benjamin Trapp
  */
-@Annotations.NMEASentenceParser(NMEASentenceTypes.GPRMC)
+@annotations.NMEASentenceParser(NMEASentenceTypes.GPRMC)
 public class GPRMCParser implements NMEASentenceParser {
     private static final int MAX_AMOUNT_OF_NEEDED_TOKENS = 9;
     private static GPRMCParser instance = null;

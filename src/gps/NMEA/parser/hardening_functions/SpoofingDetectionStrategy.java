@@ -1,6 +1,6 @@
 package gps.NMEA.parser.hardening_functions;
 
-import Annotations.HardeningFunction;
+import annotations.HardeningFunction;
 import gps.NMEA.gps_position.GPSPositionHistory;
 
 public class SpoofingDetectionStrategy implements HardeningStrategy {

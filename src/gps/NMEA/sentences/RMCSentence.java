@@ -1,7 +1,5 @@
 package gps.NMEA.sentences;
 
-import gps.NMEA.utils.ChecksumUtilities;
-import gps.data.GPSData;
 import gps.data.GPSDataEnumHolder.Status;
 
 import static gps.NMEA.sentences.NMEASentenceTypes.*;
@@ -42,7 +40,7 @@ import static gps.data.GPSData.*;
        Time of the determination: 19:14:10 (UTC-Time)
  * @author Benjamin Trapp
  */
-@Annotations.NMEASentence(GPRMC)
+@annotations.NMEASentence(GPRMC)
 public class RMCSentence implements NMEASentence {
 
     private static final String DELIMITER = ",";

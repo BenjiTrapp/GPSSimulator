@@ -1,7 +1,5 @@
 package gps.NMEA.sentences;
 
-import gps.NMEA.utils.ChecksumUtilities;
-import gps.data.GPSData;
 import gps.data.GPSDataEnumHolder.Status;
 
 import static gps.NMEA.sentences.NMEASentenceTypes.*;
@@ -41,7 +39,7 @@ import static gps.data.GPSData.*;
  * @author Benjamin Trapp
  *
  */
-@Annotations.NMEASentence(GPGGA)
+@annotations.NMEASentence(GPGGA)
 public class GGASentence implements NMEASentence
 {
     private static final String DELIMITER = ",";

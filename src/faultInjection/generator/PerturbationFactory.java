@@ -6,6 +6,7 @@ import faultInjection.perturbation_functions.modes.PerturbationModes;
 import gps.generator.datagen_tasks.DataGenTask;
 import gps.generator.datagen_tasks.DataGenTaskObjectHolderBuilder;
 import gps.generator.GPSGenEnumHolder;
+import org.hamcrest.Factory;
 
 import static gps.generator.GPSGenEnumHolder.Modes.ASCENDING;
 import static gps.generator.GPSGenEnumHolder.Modes.RANDOM;

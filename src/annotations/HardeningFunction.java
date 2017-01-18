@@ -1,6 +1,5 @@
-package Annotations;
+package annotations;
 
-import faultInjection.perturbation_functions.modes.PerturbationModes;
 import org.junit.jupiter.api.Tag;
 import org.junit.platform.commons.annotation.Testable;
 import org.junit.platform.commons.meta.API;
@@ -13,10 +12,9 @@ import static org.junit.platform.commons.meta.API.Usage.Maintained;
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Tag("PerturbationFunction")
+@Tag("HardeningFunction")
 @Testable
 @API(Maintained)
-public @interface PerturbationFunction {
-    PerturbationModes value();
+public @interface HardeningFunction {
 }
 
