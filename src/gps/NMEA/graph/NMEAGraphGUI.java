@@ -43,6 +43,7 @@ public class NMEAGraphGUI extends JPanel {
     private static final String LOG_BASE_DIR = ".\\log";
     private static final String DELIMITER_COMMA = ",";
     private static final String PNG_FORMAT_NAME = "png";
+    public static final String STATUS = "Status: ";
     private JLabel statusBar;
     private BufferedImage image = null;
     private List<Double> latitudeList;
@@ -51,15 +52,61 @@ public class NMEAGraphGUI extends JPanel {
     private double latitudeMax = 0;
     private double longitudeMin = 180;
     private double longitudeMax = 0;
+    private JFrame frame;
 
     /**
      * Creates a gps.NMEA GUI-Graph
      */
-    private NMEAGraphGUI() {
+    public NMEAGraphGUI() {
         latitudeList = new ArrayList<>();
         longitudeList = new ArrayList<>();
-        statusBar = new JLabel("Status: ");
+        statusBar = new JLabel(STATUS);
+        statusBar.setName("STATUSBAR");
         statusBar.setBorder(createEtchedBorder(RAISED));
+
+        this.setBorder(createEmptyBorder(10, 10, 10, 10));
+
+        JButton open = new JButton(OPEN_BUTTON_NAME);
+        open.setName("OPEN");
+        open.addActionListener(e -> {
+            JFileChooser chooser = new JFileChooser();
+            chooser.setName("CHOOSER");
+            chooser.setCurrentDirectory(new File(new File(LOG_BASE_DIR).getAbsolutePath()));
+
+            if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
+                this.prepareImage(chooser.getSelectedFile().getAbsolutePath());
+
+            this.repaint();
+        });
+
+        JButton draw = new JButton(REFRESH_BUTTON_NAME);
+        draw.setName("REPAINT");
+        draw.addActionListener(e -> this.repaint());
+
+        //Prepare and draw the panel
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+        panel.setBorder(createEtchedBorder(RAISED));
+        panel.add(createRigidArea(new Dimension(5, 0)));
+        panel.add(open);
+        panel.add(createRigidArea(new Dimension(5, 0)));
+        panel.add(draw);
+
+        //Prepare and draw the frame
+        frame = new JFrame();
+        frame.setTitle(TITLE);
+        frame.setLayout(new BorderLayout());
+        frame.add(this, CENTER);
+        frame.add(panel, NORTH);
+        frame.add(this.statusBar, SOUTH);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setSize(500, 500);
+        frame.setVisible(true);
+    }
+
+    public JFrame getFrame(){
+        return frame;
     }
 
     /**
@@ -225,41 +272,5 @@ public class NMEAGraphGUI extends JPanel {
      */
     public static void main(String[] args) {
         final NMEAGraphGUI gui = new NMEAGraphGUI();
-        gui.setBorder(createEmptyBorder(10, 10, 10, 10));
-
-        JButton open = new JButton(OPEN_BUTTON_NAME);
-        open.addActionListener(e -> {
-            JFileChooser chooser = new JFileChooser();
-            chooser.setCurrentDirectory(new File(new File(LOG_BASE_DIR).getAbsolutePath()));
-
-            if (chooser.showOpenDialog(gui) == JFileChooser.APPROVE_OPTION)
-                gui.prepareImage(chooser.getSelectedFile().getAbsolutePath());
-
-            gui.repaint();
-        });
-
-        JButton draw = new JButton(REFRESH_BUTTON_NAME);
-        draw.addActionListener(e -> gui.repaint());
-
-        //Prepare and draw the panel
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-        panel.setBorder(createEtchedBorder(RAISED));
-        panel.add(createRigidArea(new Dimension(5, 0)));
-        panel.add(open);
-        panel.add(createRigidArea(new Dimension(5, 0)));
-        panel.add(draw);
-
-        //Prepare and draw the frame
-        JFrame frame = new JFrame();
-        frame.setTitle(TITLE);
-        frame.setLayout(new BorderLayout());
-        frame.add(gui, CENTER);
-        frame.add(panel, NORTH);
-        frame.add(gui.statusBar, SOUTH);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
-        frame.setVisible(true);
     }
 }
