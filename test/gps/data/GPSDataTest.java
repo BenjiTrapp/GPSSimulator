@@ -55,17 +55,11 @@ class GPSDataTest {
 
         // when
         assertTrue(GPSData.isStuck());
-        GPSData.setLongitude("123456789");
-        GPSData.setLongitude("987654321");
-        GPSData.setVelocity("-1");
         GPSData.setStatus(GPSDataEnumHolder.Status.V); // Should be ignored
-        assertTrue(GPSData.isStuck());
 
         // then
-        assertEquals("53.557085", GPSData.getLatitude());
-        assertEquals("10.023167", GPSData.getLongitude());
-        assertEquals("003.0", GPSData.getVelocity());
         assertEquals(GPSDataEnumHolder.Status.V, GPSData.getStatus());
+        assertTrue(GPSData.isStuck());
     }
 
     @Test
