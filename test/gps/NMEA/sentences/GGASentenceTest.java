@@ -1,15 +1,15 @@
 package gps.NMEA.sentences;
 
+import gps.NMEA.utils.ChecksumUtilities;
 import gps.data.GPSData;
 import gps.data.GPSDataEnumHolder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-class RMCSentenceTest {
+class GGASentenceTest {
+
     @AfterEach
     public void tearDown(){
         GPSData.reinitialize();
@@ -19,37 +19,35 @@ class RMCSentenceTest {
     void shouldUseDefaultSentenceWhenStatusIsV() {
         // given
         GPSData.setStatus(GPSDataEnumHolder.Status.V);
-        NMEASentence ggaSentence = new RMCSentence();
+        NMEASentence ggaSentence = new GGASentence();
 
         // when
         String result = ggaSentence.getSentence();
 
         // then
-        assertTrue(result.contains("GPRMC"));
-        assertTrue(result.contains(",V,,,,,,,,,,N*31"));
+        assertTrue(result.contains("GPGGA"));
+        assertTrue(result.contains(",,,,,,,,,,,,,*7A"));
     }
 
     @Test
     void shouldBuildValidGGASentenceWhenStatusIsA() {
         // given
         assertEquals(GPSDataEnumHolder.Status.A, GPSData.getStatus());
-        NMEASentence rmcSentence = new RMCSentence();
+        NMEASentence ggaSentence = new GGASentence();
 
         // when
-        String result = rmcSentence.getSentence();
-        System.out.println(result);
+        String result = ggaSentence.getSentence();
 
         // then
-        assertTrue(result.contains("GPRMC"));
+        assertTrue(result.contains("GPGGA"));
         assertTrue(result.contains("5333.43"));
         assertTrue(result.contains("1001.39"));
-        assertTrue(result.contains("A,"));
-        assertTrue(result.contains("003.0,"));
-        assertTrue(result.contains("314.0"));
-        assertTrue(result.contains(rmcSentence.getDatetime()));
+        assertTrue(result.contains("8.0,"));
+        assertTrue(result.contains("2.0,"));
+        assertTrue(result.contains("4,"));
         assertTrue(result.contains("S"));
         assertTrue(result.contains("E"));
-        assertTrue(result.contains(",,S"));
+        assertTrue(result.contains(",M,0,M,,"));
         assertTrue(result.contains("*"));
     }
 
@@ -59,11 +57,11 @@ class RMCSentenceTest {
         NMEASentence sentence;
 
         // when
-        sentence = new RMCSentence();
+        sentence = new GGASentence();
 
         // then
         assertNotNull(sentence);
         assertTrue(sentence instanceof  NMEASentence);
-        assertTrue(sentence instanceof  RMCSentence);
+        assertTrue(sentence instanceof  GGASentence);
     }
 }
