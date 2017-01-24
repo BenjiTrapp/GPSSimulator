@@ -8,9 +8,7 @@ public class OffByOne implements BytePerturbationFunctions {
     }
 
     @Override
-    public double asDouble() {
-        return this.perturbedByte;
-    }
+    public double asDouble() {return this.perturbedByte;}
 
     @Override
     public String asString() {

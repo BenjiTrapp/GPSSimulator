@@ -1,7 +1,5 @@
 package faultInjection.perturbation_functions.byte_manipulation;
 
-import java.util.Random;
-
 public interface BytePerturbationFunctions {
     double asDouble();
     String asString();

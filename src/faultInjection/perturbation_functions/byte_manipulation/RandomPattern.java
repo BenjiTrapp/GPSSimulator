@@ -6,9 +6,7 @@ public class RandomPattern implements BytePerturbationFunctions {
     private double perturbedByte;
 
     public RandomPattern(double var) {
-        Random r = new Random();
-        int tmpVar = (int) var;
-        perturbedByte = r.nextInt(tmpVar >> 1);
+        perturbedByte =  new Random().nextInt((int) var >> 1);
     }
 
     @Override

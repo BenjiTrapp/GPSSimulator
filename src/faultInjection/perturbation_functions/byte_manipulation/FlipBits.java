@@ -1,7 +1,6 @@
 package faultInjection.perturbation_functions.byte_manipulation;
 
-public class FlipBits implements BytePerturbationFunctions{
-
+public class FlipBits implements BytePerturbationFunctions {
     private double perturbedByte;
 
     public FlipBits(String var, int bits) {
@@ -14,17 +13,17 @@ public class FlipBits implements BytePerturbationFunctions{
     }
 
     @Override
-    public double asDouble(){
+    public double asDouble() {
         return this.perturbedByte;
     }
 
     @Override
-    public String asString(){
+    public String asString() {
         return Double.toString(perturbedByte);
     }
 
     @Override
-    public long asLong(){
+    public long asLong() {
         return (long) perturbedByte;
     }
 }
