@@ -1,6 +1,6 @@
 package faultInjection.perturbation_functions.byte_manipulation;
 
-public class FlipBits implements BytePerturbationFunctions {
+public class FlipBits implements BytePerturbationFunction {
     private double perturbedByte;
 
     public FlipBits(String var, int bits) {

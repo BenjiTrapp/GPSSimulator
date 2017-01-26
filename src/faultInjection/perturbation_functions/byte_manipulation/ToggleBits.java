@@ -1,6 +1,6 @@
 package faultInjection.perturbation_functions.byte_manipulation;
 
-public class ToggleBits implements BytePerturbationFunctions {
+public class ToggleBits implements BytePerturbationFunction {
     private double perturbedByte;
 
     public ToggleBits(Double var) {perturbedByte = ~Double.doubleToRawLongBits(var);}

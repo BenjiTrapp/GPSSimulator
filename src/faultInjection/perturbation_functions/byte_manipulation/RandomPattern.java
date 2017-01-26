@@ -2,11 +2,15 @@ package faultInjection.perturbation_functions.byte_manipulation;
 
 import java.util.Random;
 
-public class RandomPattern implements BytePerturbationFunctions {
+public class RandomPattern implements BytePerturbationFunction {
     private double perturbedByte;
 
-    public RandomPattern(double var) {
-        perturbedByte =  new Random().nextInt((int) var >> 1);
+    public RandomPattern(Double var) {
+        perturbedByte =  new Random().nextInt((int) var.doubleValue() >> 1);
+    }
+
+    public RandomPattern(String var) {
+        perturbedByte =  new Random().nextInt((int) Double.parseDouble(var) >> 1);
     }
 
     @Override

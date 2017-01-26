@@ -1,6 +1,6 @@
 package faultInjection.perturbation_functions.byte_manipulation;
 
-public interface BytePerturbationFunctions {
+public interface BytePerturbationFunction {
     double asDouble();
     String asString();
     long asLong();
