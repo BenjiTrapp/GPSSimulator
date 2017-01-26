@@ -19,6 +19,14 @@ hardware with mutation testing and fault-injection.
 
 ### Architecture of the GPS Simulator
 ![architecture](https://github.com/BenjiTrapp/GPSSimulator/blob/master/doc/Architektur.PNG)
+* __GPS-Generator__: Creates with TimerTaks and a Timer randomized NMEA sentences.
+* __GPS-Parser__: Syntactic analyse of the generated NMEA sentences.
+* __Logger__: Simple Logging Facade (for Log4J)
+* __Telemetry Dummy__: Simulates a programm that works with the the parsed and processed NMEA sentences as an object.
+* __Communication Module__: There are currently three implementations available
+    * A StringWriter and StringReader variant to simulate the communication between "real hardware" components
+    * The ComJammer module can be used to perturb the simulated communication and inject the byte manipulation functions
+    * A module for real serial communication like RS-232 to test the robustness of real hardware modules with perturbed NMEA sentences.
 
 ### Fault-Injection Environment
 
@@ -28,7 +36,7 @@ a local or distributed on remote machines.
 * __Workload generator__: Creates the execution commands, that shall be processed by the SUT.
     * __Workload library__: Contains diverse szenarios for the go live of the SUT
 * __Monitor__: Observers the executon of the commands and and channels the collection of the data, if needed.
-    *__Data collectors__: Instance to collect the data  typically a logger or database.
+    *__Data collectors__: Instance to collect the data -> typically a logger or database.
 * __Data analyzer__:  Processes and analyses the data.
 * __Fault injector__: Module to inject faults into the SUT and executes the commands of the workload generator. 
 * __Fault Library__: Containts the types of faults that shall be injected into the SUT.
