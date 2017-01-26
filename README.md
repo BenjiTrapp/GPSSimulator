@@ -34,7 +34,7 @@ hardware with mutation testing and fault-injection.
 * __Controller__: Steers the Fault-Injection Experiment. The Controller itself is a tiny piece of code, that runs on 
 a local or distributed on remote machines. 
 * __Workload generator__: Creates the execution commands, that shall be processed by the SUT.
-    * __Workload library__: Contains diverse szenarios for the go live of the SUT
+* __Workload library__: Contains diverse szenarios for the go live of the SUT
 * __Monitor__: Observers the executon of the commands and and channels the collection of the data, if needed.
     *__Data collectors__: Instance to collect the data -> typically a logger or database.
 * __Data analyzer__:  Processes and analyses the data.
