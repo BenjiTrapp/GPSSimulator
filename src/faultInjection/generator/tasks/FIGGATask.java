@@ -3,7 +3,7 @@ package faultInjection.generator.tasks;
 import java.util.TimerTask;
 
 import communication.communication_jammer.ComJammer;
-import faultInjection.perturbation_functions.perturbation_strategies.PerturbationStrategy;
+import faultInjection.fault_library.perturbation_strategies.PerturbationStrategy;
 import gps.NMEA.sentences.GGASentence;
 
 /**

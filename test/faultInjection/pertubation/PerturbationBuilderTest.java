@@ -1,8 +1,8 @@
 package faultInjection.pertubation;
 
-import faultInjection.perturbation_functions.PerturbationBuilder;
-import faultInjection.perturbation_functions.perturbation_strategies.RandomASCIIStrategy;
-import faultInjection.perturbation_functions.perturbation_strategies.StuckAtErrorStrategy;
+import faultInjection.fault_library.PerturbationBuilder;
+import faultInjection.fault_library.perturbation_strategies.RandomASCIIStrategy;
+import faultInjection.fault_library.perturbation_strategies.StuckAtErrorStrategy;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 

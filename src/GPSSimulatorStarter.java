@@ -1,6 +1,6 @@
-import faultInjection.perturbation_functions.PerturbationBuilder;
-import faultInjection.perturbation_functions.perturbation_strategies.SpoofedPositionStrategy;
-import faultInjection.perturbation_functions.perturbation_strategies.StuckAtErrorStrategy;
+import faultInjection.fault_library.PerturbationBuilder;
+import faultInjection.fault_library.perturbation_strategies.SpoofedPositionStrategy;
+import faultInjection.fault_library.perturbation_strategies.StuckAtErrorStrategy;
 import gps.NMEA.parser.hardening_functions.StuckAtErrorDetectionStrategy;
 import gps.NMEA.parser.hardening_functions.HardeningStrategy;
 import gps.NMEA.parser.hardening_functions.SpoofingDetectionStrategy;

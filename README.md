@@ -6,7 +6,7 @@ This GPS Simulator can be used for several use cases:
 
 ![gps](https://butlerautogroup.files.wordpress.com/2014/01/gps.jpg)
 
-### Virtual Prototype / vHIL
+### Virtual Prototype / virtual Hardware IN the Loop (vHIL)
 This virtual prototype is assumed to be a software model, that emulates real hardware. This fact
 shall make it easier to move the test process a little bit more into the front of the already established hard- 
 and software development processes.
@@ -17,6 +17,21 @@ and embedded software. The intention behind this is to accelerate software- and 
 and test for electromechanical systems and is behavior under extreme conditions or malicious defects in the soft- or 
 hardware with mutation testing and fault-injection. 
 
+### Architecture of the GPS Simulator
+![architecture](https://github.com/BenjiTrapp/GPSSimulator/blob/master/doc/Architektur.PNG)
+
+### Fault-Injection Environment
+
+![fi-env](https://github.com/BenjiTrapp/GPSSimulator/blob/master/doc/FI-System.PNG)
+* __Controller__: Steers the Fault-Injection Experiment. The Controller itself is a tiny piece of code, that runs on 
+a local or distributed on remote machines. 
+* __Workload generator__: Creates the execution commands, that shall be processed by the SUT.
+    * __Workload library__: Contains diverse szenarios for the go live of the SUT
+* __Monitor__: Observers the executon of the commands and and channels the collection of the data, if needed.
+    *__Data collectors__: Instance to collect the data  typically a logger or database.
+* __Data analyzer__:  Processes and analyses the data.
+* __Fault injector__: Module to inject faults into the SUT and executes the commands of the workload generator. 
+* __Fault Library__: Containts the types of faults that shall be injected into the SUT.
 
 # Q & A
 

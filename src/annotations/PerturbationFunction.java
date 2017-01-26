@@ -1,6 +1,6 @@
 package annotations;
 
-import faultInjection.perturbation_functions.modes.PerturbationModes;
+import faultInjection.fault_library.modes.PerturbationModes;
 import org.junit.jupiter.api.Tag;
 import org.junit.platform.commons.annotation.Testable;
 import org.junit.platform.commons.meta.API;
