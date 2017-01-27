@@ -28,6 +28,16 @@ hardware with mutation testing and fault-injection.
     * The ComJammer module can be used to perturb the simulated communication and inject the byte manipulation functions
     * A module for real serial communication like RS-232 to test the robustness of real hardware modules with perturbed NMEA sentences.
 
+### Grammar of a NMEA sentence
+ __\<$GP><- - ->,\<X>,...,\<Xn>*\<Checksum>\<CR>\<LF>__
+* __\<$GP>__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Talker ID ($GP = GPS, $GL = GLONAS)
+* __<- - ->__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of the Sentence f.e. RMC, GGA, DTM, …
+* __\<x>,…,\<Xn>__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Predefined amount of data in the context of the NMEA sentence
+* __\*\<Checksum>__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result of the checksum calculation
+* __\<CR>\<LF>__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CR = Carriage Return and LF = Linefeed
+
+
+
 ### Fault-Injection Environment
 
 ![fi-env](https://github.com/BenjiTrapp/GPSSimulator/blob/master/doc/FI-System.PNG)
