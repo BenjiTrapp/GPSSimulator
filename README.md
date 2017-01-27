@@ -22,7 +22,7 @@ hardware with mutation testing and fault-injection.
 * __GPS-Generator__: Creates with TimerTaks and a Timer randomized NMEA sentences.
 * __GPS-Parser__: Syntactic analyse of the generated NMEA sentences.
 * __Logger__: Simple Logging Facade (for Log4J)
-* __Telemetry Dummy__: Simulates a programm that works with the the parsed and processed NMEA sentences as an object.
+* __Telemetry Dummy__: Simulates some "code" or "hardware component" that works with the the parsed and processed NMEA sentences as a serialized  object.
 * __Communication Module__: There are currently three implementations available
     * A StringWriter and StringReader variant to simulate the communication between "real hardware" components
     * The ComJammer module can be used to perturb the simulated communication and inject the byte manipulation functions
@@ -32,14 +32,14 @@ hardware with mutation testing and fault-injection.
 
 ![fi-env](https://github.com/BenjiTrapp/GPSSimulator/blob/master/doc/FI-System.PNG)
 * __Controller__: Steers the Fault-Injection Experiment. The Controller itself is a tiny piece of code, that runs on 
-a local or distributed on remote machines. 
-* __Workload generator__: Creates the execution commands, that shall be processed by the SUT.
-* __Workload library__: Contains diverse szenarios for the go live of the SUT
-* __Monitor__: Observers the executon of the commands and and channels the collection of the data, if needed.
-    *__Data collectors__: Instance to collect the data -> typically a logger or database.
-* __Data analyzer__:  Processes and analyses the data.
-* __Fault injector__: Module to inject faults into the SUT and executes the commands of the workload generator. 
-* __Fault Library__: Containts the types of faults that shall be injected into the SUT.
+a local or distributed on remote machines. Currently the Controller is encapsulated in the PerturbationBuilder and the GPSSimulatorStarter. Check this class to set up your experiment
+* __Workload generator__: Creates the execution commands, that shall be processed by the SUT. This part is represented by the GPSGenerator.
+* __Workload library__: Contains diverse scenarios for the go live of the SUT and is represented by the available NMEA sentences.
+* __Monitor__: Observers the execution of the commands and and channels the collection of the data, if needed.
+    *__Data collectors__: Instance to collect the data -> typically the used logger(s) and maybe later a neo4j database.
+* __Data analyzer__:  Processes and analyses the data -> must be done manually at the moment. When the neo4j database is appended, this part will be automated
+* __Fault injector__: Module to inject faults into the SUT and executes the commands of the workload generator. This is represented by the ComJammer Module to perturb the communication and functions that manipulates the GPSData directly. 
+* __Fault Library__: Contains the types of faults that shall be injected into the SUT -> Currently there are two types available, PerturbationStrategies and ByteManipulations. To test the exception handling, there can some BMUnit-Tests be used.
 
 # Q & A
 
@@ -64,6 +64,6 @@ Maybe later there will be some support for neo4j and keylines
 
 Is there some more information available?
 -----------------------------------------
-Sure, e was implemented during my bachelor thesis: http://edoc.sub.uni-hamburg.de/haw/volltexte/2014/2572/pdf/BA_Trapp.pdf
+Sure, but only on german. Take a look in the doc folder.
 
 
