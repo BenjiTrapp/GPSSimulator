@@ -30,11 +30,11 @@ hardware with mutation testing and fault-injection.
 
 ### Grammar of a NMEA sentence
  __\<$GP><- - ->,\<X>,...,\<Xn>*\<Checksum>\<CR>\<LF>__
-* __\<$GP>__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Talker ID ($GP = GPS, $GL = GLONAS)
-* __<- - ->__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of the Sentence f.e. RMC, GGA, DTM, …
+* __<$GP>__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Talker ID ($GP = GPS, $GL = GLONAS)
+* __<- - ->__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of the Sentence f.e. RMC, GGA, DTM, …
 * __\<x>,…,\<Xn>__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Predefined amount of data in the context of the NMEA sentence
 * __\*\<Checksum>__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result of the checksum calculation
-* __\<CR>\<LF>__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CR = Carriage Return and LF = Linefeed
+* __\<CR>\<LF>__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CR = Carriage Return and LF = Linefeed
 
 
 
