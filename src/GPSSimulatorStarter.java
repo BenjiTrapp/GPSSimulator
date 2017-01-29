@@ -1,4 +1,5 @@
 import faultInjection.fault_library.PerturbationBuilder;
+import faultInjection.fault_library.perturbation_strategies.RandomASCIIStrategy;
 import faultInjection.fault_library.perturbation_strategies.SpoofedPositionStrategy;
 import faultInjection.fault_library.perturbation_strategies.StuckAtErrorStrategy;
 import gps.NMEA.parser.hardening_functions.StuckAtErrorDetectionStrategy;
@@ -38,9 +39,9 @@ public class GPSSimulatorStarter {
 
         do {
             new PerturbationBuilder().useRandomnessForConfiguration()
-                                  //   .addStrategy(spoofedPositionStrategy)
-                                     .addStrategy(stuckAtErrorStrategy)
-                                   //  .addStrategy(new RandomASCIIStrategy())
+//                                     .addStrategy(spoofedPositionStrategy)
+//                                     .addStrategy(stuckAtErrorStrategy)
+                                     .addStrategy(new RandomASCIIStrategy())
                                      .build();
             try {Thread.sleep(SPEND_TIME_WITHOUT_FAULTS);} catch (InterruptedException ignored) {}
         } while (true);

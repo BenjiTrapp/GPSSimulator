@@ -7,6 +7,7 @@ import java.util.Timer;
 import communication.StringWriter;
 import gps.generator.datagen_tasks.DataGenTask;
 import gps.generator.sentence_tasks.GGATask;
+import gps.generator.sentence_tasks.GSATask;
 import gps.generator.sentence_tasks.RMCTask;
 
 /**
@@ -75,6 +76,11 @@ public class GPSGenerator {
     public void generateGGAData() {
         this.timer.scheduleAtFixedRate(new GGATask(strWriter), ZERO_DELAY, ONE_MHz);
     }
+
+    /**
+     * Generates GPGSA Data with a fix rate of 1Mhz
+     */
+    public void generateGSAData() {this.timer.scheduleAtFixedRate(new GSATask(strWriter), ZERO_DELAY, ONE_MHz);}
 
     /**
      * Initializes the Communication with the passed Socket

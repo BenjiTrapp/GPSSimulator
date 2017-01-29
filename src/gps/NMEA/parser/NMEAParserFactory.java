@@ -2,6 +2,7 @@ package gps.NMEA.parser;
 
 import gps.NMEA.parser.hardening_functions.HardeningStrategy;
 import gps.NMEA.sentences.NMEASentenceTypes;
+import gps.NMEA.sentences.RMCSentence;
 import gps.NMEA.telemetry.TelemetryDummy;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
@@ -10,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import communication.StringReader;
 
 import java.util.Set;
+
+import static gps.NMEA.sentences.NMEASentenceTypes.*;
 
 /**
  * This Class is used to simplify the construction of a parser and
@@ -150,13 +153,15 @@ public class NMEAParserFactory {
             while (this.isRunning) {
                 try {
                     String str = comm.receive();
-                    if (NMEASentenceTypes.containsValidType(str)) {
-                        teleDummy.write2File(str);
+                    if (containsValidType(str)) {
+                        if (str.contains(GPGGA.getSentenceType()) || str.contains(GPGGA.getSentenceType())){
+                            teleDummy.write2File(str);
+                        }
                         logger.info(str);
                     } else {
                         //TODO: To fix the malformed sentence ==> Add a strategy here
-                        System.err.println("NMEA Sentence (" + str + ") malformed! " +
-                                "Implement a strategy to fix or harden this weakness.");
+                            System.err.println("NMEA Sentence (" + str + ") malformed! " +
+                                    "Implement a strategy to fix or harden this weakness.");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

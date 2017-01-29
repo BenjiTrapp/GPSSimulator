@@ -6,6 +6,7 @@ import gps.NMEA.gps_position.GPSPosition;
 import gps.NMEA.gps_position.GPSPositionHistory;
 import gps.NMEA.parser.hardening_functions.HardeningStrategy;
 import gps.NMEA.parser.sentences.GPGGAParser;
+import gps.NMEA.parser.sentences.GPGSAParser;
 import gps.NMEA.parser.sentences.GPRMCParser;
 import gps.NMEA.parser.sentences.NMEASentenceParser;
 import gps.NMEA.sentences.NMEASentenceTypes;
@@ -15,6 +16,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import gps.NMEA.utils.ChecksumUtilities;
+
+import static gps.NMEA.sentences.NMEASentenceTypes.*;
 
 /**
  * This Class is the main class of the NMEA Parser to combine the
@@ -35,16 +38,18 @@ public class NMEAParser {
     public NMEAParser() {
         PropertyConfigurator.configure(LOG4J_PROPERTIES);
         gpsPositions = Collections.synchronizedList(new ArrayList<>());
-        sentenceParsers.put(NMEASentenceTypes.GPGGA, GPGGAParser.getInstance());
-        sentenceParsers.put(NMEASentenceTypes.GPRMC, GPRMCParser.getInstance());
+        sentenceParsers.put(GPGGA, GPGGAParser.getInstance());
+        sentenceParsers.put(GPRMC, GPRMCParser.getInstance());
+        sentenceParsers.put(GPGSA, GPGSAParser.getInstance());
     }
 
     public NMEAParser(Set<HardeningStrategy> hardeningStrategies) {
         this.hardeningStrategies = Collections.synchronizedSet(hardeningStrategies);
         PropertyConfigurator.configure(LOG4J_PROPERTIES);
         gpsPositions = Collections.synchronizedList(new ArrayList<>());
-        sentenceParsers.put(NMEASentenceTypes.GPGGA, GPGGAParser.getInstance());
-        sentenceParsers.put(NMEASentenceTypes.GPRMC, GPRMCParser.getInstance());
+        sentenceParsers.put(GPGGA, GPGGAParser.getInstance());
+        sentenceParsers.put(GPRMC, GPRMCParser.getInstance());
+        sentenceParsers.put(GPGSA, GPGSAParser.getInstance());
     }
 
     /**
@@ -55,7 +60,7 @@ public class NMEAParser {
      * @throws InvalidChecksumException in case of a malformed gps.NMEA-Sentence
      */
     public GPSPosition parse(String nmeaSentence) throws InvalidChecksumException {
-        GPSPosition currentPosition;
+        GPSPosition currentPosition = null;
         NMEASentenceTypes type;
         String[] nmeaWords;
 
@@ -68,8 +73,14 @@ public class NMEAParser {
         nmeaWords = splitSentenceIntoWords(nmeaSentence);
         type = retrieveSentenceType(nmeaWords);
 
-        currentPosition = sentenceParsers.get(type).parse(nmeaWords);
-        gpsPositions.add(currentPosition);
+        if(type.equals(GPGSA)) return historicPosition.getLastPosition();
+
+        if(type.equals(GPGGA) || type.equals(GPRMC)){
+            currentPosition = sentenceParsers.get(type).parse(nmeaWords);
+            if(currentPosition != null){
+                gpsPositions.add(currentPosition);
+            }
+        }
 
         if (gpsPositions.size() >= AMOUNT_HISTORIC_POS) {
             historicPosition = createHistoricGPSPositionSnapshot(currentPosition, type);
@@ -93,7 +104,7 @@ public class NMEAParser {
 
     private NMEASentenceTypes validateNMEASentenceType(NMEASentenceTypes type) {
         //This is the "main" Protection against the implemented faults
-        if (!NMEASentenceTypes.isValidType(type.toString())) {
+        if (!isValidType(type.toString())) {
             logger.error("Type of the NMEA-Sentence is unknown or malformed");
             throw new RuntimeException();
         }
@@ -109,7 +120,7 @@ public class NMEAParser {
     }
 
     private NMEASentenceTypes retrieveSentenceType(String[] nmeaWords) {
-        return validateNMEASentenceType(NMEASentenceTypes.getType(nmeaWords[0]));
+        return validateNMEASentenceType(getType(nmeaWords[0]));
     }
 
     private String[] splitSentenceIntoWords(String nmeaSentence) {

@@ -2,6 +2,8 @@ package gps.NMEA.sentences;
 
 public enum NMEASentenceTypes {
     GPGGA,
+    GPVTG,
+    GPGSA,
     GPRMC;
 
     public String getSentenceType() {

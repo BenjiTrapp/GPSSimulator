@@ -35,6 +35,7 @@ public class GPSGeneratorFactory
 		
 		gen.generateRMCData();
 		gen.generateGGAData();
+        //gen.generateGSAData();
 		
 		return true;
 	}
@@ -58,6 +59,7 @@ public class GPSGeneratorFactory
 		
 		gen.generateRMCData();
 		gen.generateGGAData();
+		//gen.generateGSAData();
 		
 		return true;
 	}
@@ -73,7 +75,6 @@ public class GPSGeneratorFactory
 	 * @param dataTask External task that generates the Basic gps.data.GPSData
 	 * @param period interval in which the data shall be generated
 	 * @param socket The socket that shall be used for communication
-	 * @return returns true on success
 	 */
 	public void build(DataGenTask dataTask, int period, Socket socket)
 	{
@@ -84,6 +85,7 @@ public class GPSGeneratorFactory
             createGPSGenerator(dataTask,period, socket);
             gen.generateRMCData();
             gen.generateGGAData();
+			//gen.generateGSAData();
         }).start();
 	}
 

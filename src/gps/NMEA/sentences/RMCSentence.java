@@ -65,7 +65,7 @@ public class RMCSentence implements NMEASentence {
                     .appendChecksum()
 					.build();
         } else {
-			result = String.valueOf(GPRMC)
+			result = GPRMC.getSentenceType()
                                     + DELIMITER + getTimestamp()
                                     + ",V,,,,,,,,,,N*31";
 		}

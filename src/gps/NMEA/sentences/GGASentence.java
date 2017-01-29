@@ -69,7 +69,7 @@ public class GGASentence implements NMEASentence
 							.appendChecksum()
                             .build();
 		} else{
-			result = GPGGA.name()
+			result = GPGGA.getSentenceType()
                     + DELIMITER
                     + getTimestamp()
                     + ",,,,,,,,,,,,,*7A";

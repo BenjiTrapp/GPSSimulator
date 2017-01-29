@@ -43,7 +43,8 @@ public class NMEAGraphGUI extends JPanel {
     private static final String LOG_BASE_DIR = ".\\log";
     private static final String DELIMITER_COMMA = ",";
     private static final String PNG_FORMAT_NAME = "png";
-    public static final String STATUS = "Status: ";
+    private static final String STATUS = "Status: ";
+
     private JLabel statusBar;
     private BufferedImage image = null;
     private List<Double> latitudeList;
@@ -57,7 +58,7 @@ public class NMEAGraphGUI extends JPanel {
     /**
      * Creates a gps.NMEA GUI-Graph
      */
-    public NMEAGraphGUI() {
+    NMEAGraphGUI() {
         latitudeList = new ArrayList<>();
         longitudeList = new ArrayList<>();
         statusBar = new JLabel(STATUS);
@@ -105,7 +106,7 @@ public class NMEAGraphGUI extends JPanel {
         frame.setVisible(true);
     }
 
-    public JFrame getFrame(){
+    JFrame getFrame(){
         return frame;
     }
 

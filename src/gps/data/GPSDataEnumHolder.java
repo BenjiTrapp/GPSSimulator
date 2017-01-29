@@ -32,7 +32,7 @@ public class GPSDataEnumHolder
 	 */
 	public enum GPSFixTypes
 	{
-		GPS_FIX_UNKNOWN, GPS_FIX_2D, GPS_FIX_3D;
+		GPS_FIX_UNKNOWN, GPS_FIX_2D, GPS_FIX_3D
 	}
 	
 	/**
@@ -54,6 +54,24 @@ public class GPSDataEnumHolder
 	 */
 	public enum Status
 	{
-			A, V;
+			A, V
 	}
+
+	public enum Track {
+		T, //track made good is relative to true north
+		M, // track made good, relative to magnetic north
+		N, //speed measured in knots
+		K  // speed over ground measured in km/h
+	}
+
+	public enum TrackModes{
+		A, // autonomous
+		D, // differential
+		E  // estimated
+	}
+
+	public enum SatelliteMode{
+	    A, // autonomous
+        M  // manual
+    }
 }
