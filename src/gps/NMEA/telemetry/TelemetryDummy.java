@@ -20,10 +20,11 @@ public class TelemetryDummy
 {
 
 	private static final String TELEMETRY_FILE_NAME = "log/Telemetry.log";
+	private static final String NEW_LINE = "\n";
 	private FileWriter fw;
 	private NMEAParser nmeaParser;
 
-	public TelemetryDummy(FileWriter fileWriter, NMEAParser parser)
+	TelemetryDummy(FileWriter fileWriter, NMEAParser parser)
 	{
 		this.fw = fileWriter;
 		this.nmeaParser = parser;
@@ -53,7 +54,7 @@ public class TelemetryDummy
 	{
 		try
 		{
-            fw.write(nmeaParser.parse(str).toString() + "\n");
+            fw.write(nmeaParser.parse(str).toString() + NEW_LINE);
             fw.flush();
 		} catch (InvalidChecksumException e) {
             System.err.println("InvalidChecksumException!");

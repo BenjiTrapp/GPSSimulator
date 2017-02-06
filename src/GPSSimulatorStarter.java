@@ -39,8 +39,8 @@ public class GPSSimulatorStarter {
 
         do {
             new PerturbationBuilder().useRandomnessForConfiguration()
-//                                     .addStrategy(spoofedPositionStrategy)
-//                                     .addStrategy(stuckAtErrorStrategy)
+                                     .addStrategy(spoofedPositionStrategy)
+                                     .addStrategy(stuckAtErrorStrategy)
                                      .addStrategy(new RandomASCIIStrategy())
                                      .build();
             try {Thread.sleep(SPEND_TIME_WITHOUT_FAULTS);} catch (InterruptedException ignored) {}

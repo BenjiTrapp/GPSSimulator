@@ -25,7 +25,7 @@ class GGASentenceTest {
         String result = ggaSentence.getSentence();
 
         // then
-        assertTrue(result.contains("GPGGA"));
+        assertTrue(result.contains("$GPGGA"));
         assertTrue(result.contains(",,,,,,,,,,,,,*7A"));
     }
 

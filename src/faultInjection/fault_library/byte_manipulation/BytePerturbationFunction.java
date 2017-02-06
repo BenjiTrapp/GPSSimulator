@@ -5,11 +5,7 @@ public interface BytePerturbationFunction {
     String asString();
     long asLong();
 
-    default int allBitsLow() {
-        return ((int) 0);
-    }
+    default int allBitsLow() {return 0;}
 
-    default int allBitsHigh() {
-        return ((int) ~0);
-    }
+    default int allBitsHigh() {return  ~0;}
 }

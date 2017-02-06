@@ -10,10 +10,10 @@ import java.util.Objects;
  */
 public class GPSPosition
 {
+	private boolean fixed;
 	private Double time;
 	private Double latitude;
 	private Double longitude;
-	private boolean fixed;
 	private Double quality;
 	private Double direction;
 	private Double altitude;
@@ -167,7 +167,7 @@ public class GPSPosition
 	 * @param that object that shall be used for checking equality to this object
 	 * @return true if the objects are equal else false
 	 */
-	public boolean isEqual(GPSPosition that)
+	boolean isEqual(GPSPosition that)
 	{
 		if(this.equals(that))
 		{

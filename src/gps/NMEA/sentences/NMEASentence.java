@@ -6,7 +6,7 @@ import gps.NMEA.utils.ChecksumUtilities;
 import gps.data.GPSData;
 
 /**
- * This abstract Class contains all necessary methods to
+ * This interface contains all necessary methods to
  * create a gps.NMEA Sentence of a specific type
  *
  * @author Benjamin Trapp

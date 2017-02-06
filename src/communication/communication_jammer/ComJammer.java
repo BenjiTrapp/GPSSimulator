@@ -16,7 +16,7 @@ import java.net.Socket;
  *
  * @author Benjamin Trapp
  */
-public final class  ComJammer {
+public class  ComJammer {
     private static ComJammer instance = null;
     private OutputStream outStream = null;
     private static Socket socket = null;

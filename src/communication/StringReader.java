@@ -11,7 +11,8 @@ import java.net.ServerSocket;
  */
 public class StringReader extends AComModule
 {
-	
+
+	private static final int PORT = 6711;
 	private static StringReader instance;
 	private static ServerSocket socket;
 	
@@ -41,9 +42,8 @@ public class StringReader extends AComModule
 		try
 		{
 			if (instance == null && socket == null)
-				instance = new StringReader(new ServerSocket(6711));
-
-			if (instance == null && socket != null)
+				instance = new StringReader(new ServerSocket(PORT));
+			else if (instance == null)
 				instance = new StringReader(socket);
 
 		}catch (IOException e)

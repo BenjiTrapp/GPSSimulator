@@ -1,16 +1,12 @@
 package gps.NMEA.sentences;
 
-import com.sun.deploy.util.ArrayUtil;
-import com.sun.tools.javac.util.ArrayUtils;
 import gps.data.GPSData;
-import gps.data.GPSDataEnumHolder;
 import gps.data.GPSDataEnumHolder.Status;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static gps.NMEA.sentences.NMEASentenceTypes.GPGGA;
 import static gps.NMEA.sentences.NMEASentenceTypes.GPGSA;
 import static gps.data.GPSData.*;
 import static gps.data.GPSDataEnumHolder.*;
@@ -52,25 +48,23 @@ public class GSASentence implements NMEASentence
 {
     private static final String DELIMITER = ",";
     private static final int MAX_SATELLITES = 12;
-    public static final int ABORT_CNT = 50;
+    private static final int ABORT_CNT = 50;
 
     @Override
 	public synchronized String getSentence()
 	{
-
 	    String result;
 
 		if (getStatus() == Status.A)
 		{
-		    return new NMEASentenceBuilder(GPGSA)
-                            .append(SatelliteMode.A.toString())
-                            .append(getFixTypeAsInteger())
-                            .append(createSatellitePRNs())
-                            .append(getPDOP())
-                            .append(getHDOP())
-                            .append(getVDOP())
-							.appendChecksum()
-                            .build();
+		    return new NMEASentenceBuilder(GPGSA).append(SatelliteMode.A.toString())
+                                                 .append(getFixTypeAsInteger())
+                                                 .append(createSatellitePRNs())
+                                                 .append(getPDOP())
+                                                 .append(getHDOP())
+                                                 .append(getVDOP())
+                                                 .appendChecksum()
+                                                 .build();
 		} else{
 			result = GPGSA.getSentenceType()
                     + ",,,,,,,,,,,,,,,,,*6E";
@@ -90,7 +84,7 @@ public class GSASentence implements NMEASentence
     String createSatellitePRNs(){
 	    int currentSatellites = Integer.parseInt(GPSData.getSatellites());
         Random rnd = new Random();
-        List<Integer> processedSats = new ArrayList<>();
+        List<Integer> processedSatellites = new ArrayList<>();
         String[] s = new String[MAX_SATELLITES];
         String result = "";
         int i = 0;
@@ -100,10 +94,10 @@ public class GSASentence implements NMEASentence
         do{
             int tmpValue = rnd.nextInt(MAX_SATELLITES);
 
-            if(tmpValue <= currentSatellites && !processedSats.contains(tmpValue)){
+            if(tmpValue <= currentSatellites && !processedSatellites.contains(tmpValue)){
                 String tmpString = (tmpValue < 10)? "0" + tmpValue + DELIMITER: Integer.toString(tmpValue) + DELIMITER;
                 s[tmpValue] = tmpString;
-                processedSats.add(tmpValue);
+                processedSatellites.add(tmpValue);
                 i++;
             }
         } while (i != currentSatellites && i < ABORT_CNT);
