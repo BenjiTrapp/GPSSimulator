@@ -9,28 +9,32 @@ import faultInjection.fault_library.modes.ByteManipulationModes;
 import java.util.ArrayList;
 import java.util.List;
 
-class ByteManipulationBuilder {
-    private List<ByteManipulationHolder> byteManipulationrList = new ArrayList<>();
+public class ByteManipulationCascade {
+    private List<ByteManipulationHolder> byteManipulationList = new ArrayList<>();
     private List<BitShiftManipulationHolder> bitShiftList = new ArrayList<>();
 
-    ByteManipulationBuilder addBitShiftManipulation(BitShiftByteManipulationModes mode, String var, Integer shift) {
+    public ByteManipulationCascade addBitShiftManipulation(BitShiftByteManipulationModes mode, String var, Integer shift) {
         bitShiftList.add(new BitShiftManipulationHolder(mode, var, shift));
         return this;
     }
 
-    ByteManipulationBuilder addByteManipulation(ByteManipulationModes mode, String var) {
-        byteManipulationrList.add(new ByteManipulationHolder(mode, var));
+    public ByteManipulationCascade addByteManipulation(ByteManipulationModes mode, String var) {
+        byteManipulationList.add(new ByteManipulationHolder(mode, var));
         return this;
     }
 
-    void sendBitShiftManipulations(ComJammer jammerInstance){
+    public void sendBitShiftManipulations(ComJammer jammerInstance){
         assert !bitShiftList.isEmpty();
+        assert jammerInstance != null;
+
         bitShiftList.forEach( holder -> jammerInstance.send(holder.getBytePerturbationFunction().asString()));
     }
 
-    void sendByteManipulations(ComJammer jammerInstance){
-        assert !byteManipulationrList.isEmpty();
-        byteManipulationrList.forEach( holder -> jammerInstance.send(holder.getBytePerturbationFunction().asString()));
+    public void sendByteManipulations(ComJammer jammerInstance){
+        assert !byteManipulationList.isEmpty();
+        assert jammerInstance != null;
+
+        byteManipulationList.forEach(holder -> jammerInstance.send(holder.getBytePerturbationFunction().asString()));
     }
 
     /*

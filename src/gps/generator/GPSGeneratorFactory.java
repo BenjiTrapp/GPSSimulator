@@ -35,8 +35,9 @@ public class GPSGeneratorFactory
 		
 		gen.generateRMCData();
 		gen.generateGGAData();
-//        gen.generateGSAData();
-		
+//      gen.generateGSAData();
+//		gen.generateVTGData();
+
 		return true;
 	}
 	
@@ -59,8 +60,9 @@ public class GPSGeneratorFactory
 		
 		gen.generateRMCData();
 		gen.generateGGAData();
-		gen.generateGSAData();
-		
+//		gen.generateGSAData();
+//		gen.generateVTGData();
+
 		return true;
 	}
 
@@ -85,7 +87,9 @@ public class GPSGeneratorFactory
             createGPSGenerator(dataTask,period, socket);
             gen.generateRMCData();
             gen.generateGGAData();
-			gen.generateGSAData();
+//			gen.generateGSAData();
+// 		gen.generateVTGData();
+
         }).start();
 	}
 

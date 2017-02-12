@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
-class ByteManipulationBuilderTest {
+class ByteManipulationCascadeTest {
     @Mock
     private ComJammer jammer = mock(ComJammer.class);
 
@@ -23,7 +23,7 @@ class ByteManipulationBuilderTest {
     @Test
     void shouldBuildCorrectByteManipulationFuncs() {
         // given
-        ByteManipulationBuilder bmb = new ByteManipulationBuilder();
+        ByteManipulationCascade bmb = new ByteManipulationCascade();
         bmb.addByteManipulation(ByteManipulationModes.OFF_BY_ONE, "4711");
         bmb.addByteManipulation(ByteManipulationModes.RANDOM_BITS, "1337");
 
@@ -37,7 +37,7 @@ class ByteManipulationBuilderTest {
     @Test
     void shouldBuildCorrectBitShiftManipulationFuncs() {
         // given
-        ByteManipulationBuilder bmb = new ByteManipulationBuilder();
+        ByteManipulationCascade bmb = new ByteManipulationCascade();
         bmb.addBitShiftManipulation(BitShiftByteManipulationModes.FLIP_BITS, "1337", 21);
         bmb.addBitShiftManipulation(BitShiftByteManipulationModes.FLIP_BITS, "4711", 42);
 
@@ -51,7 +51,7 @@ class ByteManipulationBuilderTest {
     @Test
     void shouldNeverRunSendStepWhenNothingIsInsertedToTheByteManipulationList() {
         // given
-        ByteManipulationBuilder bmb = new ByteManipulationBuilder();
+        ByteManipulationCascade bmb = new ByteManipulationCascade();
         bmb.addBitShiftManipulation(BitShiftByteManipulationModes.FLIP_BITS, "1337", 21);
 
         // when
@@ -64,7 +64,7 @@ class ByteManipulationBuilderTest {
     @Test
     void shouldNeverRunSendStepWhenNothingIsInsertedToTheBitShiftManipulationList() {
         // given
-        ByteManipulationBuilder bmb = new ByteManipulationBuilder();
+        ByteManipulationCascade bmb = new ByteManipulationCascade();
         bmb.addByteManipulation(ByteManipulationModes.RANDOM_BITS, "1337");
 
         // when
@@ -77,7 +77,7 @@ class ByteManipulationBuilderTest {
     @Test
     void shouldBuildCorrectBitShiftAndByteManipulationFuncs() {
         // given
-        ByteManipulationBuilder bmb = new ByteManipulationBuilder();
+        ByteManipulationCascade bmb = new ByteManipulationCascade();
         bmb.addBitShiftManipulation(BitShiftByteManipulationModes.FLIP_BITS, "1337", 21);
         bmb.addBitShiftManipulation(BitShiftByteManipulationModes.FLIP_BITS, "4711", 42);
         bmb.addByteManipulation(ByteManipulationModes.OFF_BY_ONE, "4711");
@@ -94,7 +94,7 @@ class ByteManipulationBuilderTest {
     @Test
     void shouldFaildDueToInvalidArgumentsForBitShifts(){
         // given
-        ByteManipulationBuilder bmb = new ByteManipulationBuilder();
+        ByteManipulationCascade bmb = new ByteManipulationCascade();
 
         // when called with null arguments -> then an exception should be thrown
         assertThrows(AssertionError.class, () -> bmb.addBitShiftManipulation(null, "1337", 21));
@@ -104,7 +104,7 @@ class ByteManipulationBuilderTest {
     @Test
     void shouldFaildDueToInvalidArgumentsForByteManipulations(){
         // given
-        ByteManipulationBuilder bmb = new ByteManipulationBuilder();
+        ByteManipulationCascade bmb = new ByteManipulationCascade();
 
         // when called with null arguments -> then an exception should be thrown
         assertThrows(AssertionError.class, () -> bmb.addByteManipulation(null, "4711"));

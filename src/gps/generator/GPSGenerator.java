@@ -9,6 +9,7 @@ import gps.generator.datagen_tasks.DataGenTask;
 import gps.generator.sentence_tasks.GGATask;
 import gps.generator.sentence_tasks.GSATask;
 import gps.generator.sentence_tasks.RMCTask;
+import gps.generator.sentence_tasks.VTGTask;
 
 /**
  * This Class is used to combine the internal Components of the GPS-Generator
@@ -81,6 +82,11 @@ public class GPSGenerator {
      * Generates GPGSA Data with a fix rate of 1Mhz
      */
     public void generateGSAData() {this.timer.scheduleAtFixedRate(new GSATask(strWriter), ZERO_DELAY, ONE_MHz);}
+
+    /**
+     * Generates GPGSA Data with a fix rate of 1Mhz
+     */
+    public void generateVTGData() {this.timer.scheduleAtFixedRate(new VTGTask(strWriter), ZERO_DELAY, ONE_MHz);}
 
     /**
      * Initializes the Communication with the passed Socket

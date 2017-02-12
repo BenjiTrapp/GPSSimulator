@@ -1,21 +1,20 @@
 package gps.NMEA.parser.sentences;
 
 import gps.NMEA.gps_position.GPSPosition;
-import gps.NMEA.gps_position.GPSPositionBuilder;
 import gps.NMEA.sentences.NMEASentenceTypes;
 
 /**
- * This Class is used to parse GSA-Sentences for further
+ * This Class is used to parse VTG-Sentences for further
  * usage in the telemetrie simulation
  *
  * @author Benjamin Trapp
  */
 @annotations.NMEASentenceParser(NMEASentenceTypes.GPGGA)
-public class GPGSAParser implements NMEASentenceParser {
-    private static GPGSAParser instance = null;
+public class GPVTGParser implements NMEASentenceParser {
+    private static GPVTGParser instance = null;
 
-    public static GPGSAParser getInstance() {
-        return (instance != null) ? instance : new GPGSAParser();
+    public static GPVTGParser getInstance() {
+        return (instance != null) ? instance : new GPVTGParser();
     }
 
     @Override

@@ -5,10 +5,7 @@ import java.util.*;
 import gps.NMEA.gps_position.GPSPosition;
 import gps.NMEA.gps_position.GPSPositionHistory;
 import gps.NMEA.parser.hardening_functions.HardeningStrategy;
-import gps.NMEA.parser.sentences.GPGGAParser;
-import gps.NMEA.parser.sentences.GPGSAParser;
-import gps.NMEA.parser.sentences.GPRMCParser;
-import gps.NMEA.parser.sentences.NMEASentenceParser;
+import gps.NMEA.parser.sentences.*;
 import gps.NMEA.sentences.NMEASentenceTypes;
 import gps.NMEA.utils.InvalidChecksumException;
 import org.apache.log4j.PropertyConfigurator;
@@ -37,19 +34,26 @@ public class NMEAParser {
 
     public NMEAParser() {
         PropertyConfigurator.configure(LOG4J_PROPERTIES);
+
         gpsPositions = Collections.synchronizedList(new ArrayList<>());
         sentenceParsers.put(GPGGA, GPGGAParser.getInstance());
         sentenceParsers.put(GPRMC, GPRMCParser.getInstance());
         sentenceParsers.put(GPGSA, GPGSAParser.getInstance());
+        sentenceParsers.put(GPVTG, GPVTGParser.getInstance());
     }
 
     public NMEAParser(Set<HardeningStrategy> hardeningStrategies) {
+        assert hardeningStrategies != null;
+        assert hardeningStrategies.size() > 0;
+
         this.hardeningStrategies = Collections.synchronizedSet(hardeningStrategies);
+
         PropertyConfigurator.configure(LOG4J_PROPERTIES);
         gpsPositions = Collections.synchronizedList(new ArrayList<>());
         sentenceParsers.put(GPGGA, GPGGAParser.getInstance());
         sentenceParsers.put(GPRMC, GPRMCParser.getInstance());
         sentenceParsers.put(GPGSA, GPGSAParser.getInstance());
+        sentenceParsers.put(GPVTG, GPVTGParser.getInstance());
     }
 
     /**
