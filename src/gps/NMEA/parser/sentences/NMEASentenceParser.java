@@ -16,5 +16,5 @@ public interface NMEASentenceParser {
 	 * @return GPSPosition that contains the complete parsed
 	 * informations
 	 */
-	GPSPosition parse(String[] tokens);
+	GPSPosition parse(String... tokens);
 }

@@ -159,14 +159,12 @@ public class NMEAParserFactory {
                         }
                         logger.info(str);
                     } else {
-                        //TODO: To fix the malformed sentence ==> Add a strategy here
                             System.err.println("NMEA Sentence (" + str + ") malformed! " +
                                     "Implement a strategy to fix or harden this weakness.");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    System.err.println("Something went wrong, catched Exception cause: "
-                            + e.getCause());
+                    System.err.println("Something went wrong, catched Exception cause: " + e.getCause());
                     this.isRunning = false;
                     comm.closeAllCom();
                 }

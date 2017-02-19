@@ -81,7 +81,7 @@ public class GSASentence implements NMEASentence
         }
     }
 
-    String createSatellitePRNs(){
+    synchronized String createSatellitePRNs(){
 	    int currentSatellites = Integer.parseInt(GPSData.getSatellites());
         Random rnd = new Random();
         List<Integer> processedSatellites = new ArrayList<>();

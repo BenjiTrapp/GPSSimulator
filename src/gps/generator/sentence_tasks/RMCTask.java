@@ -4,6 +4,7 @@ import java.util.TimerTask;
 
 import communication.StringWriter;
 import gps.NMEA.sentences.RMCSentence;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This Class is determined for the use in Combination with a Timer. This class
@@ -34,7 +35,7 @@ public class RMCTask extends TimerTask
 	 * @param strWriter
 	 *            Instance of the StringWriter that shall be used
 	 */
-	public RMCTask(StringWriter strWriter)
+	public RMCTask(@NotNull StringWriter strWriter)
 	{
 		this.strWriter = strWriter;
 	}

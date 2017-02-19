@@ -28,6 +28,7 @@ public class GPSSimulatorStarter {
         NMEAParserFactory = new NMEAParserFactory().build(hardeningStrategies);
     }
 
+
     private static void startGPSParserWithoutHardeningStrategies(){
         NMEAParserFactory = new NMEAParserFactory().build();
     }
@@ -48,7 +49,7 @@ public class GPSSimulatorStarter {
         do {
             new PerturbationBuilder().useRandomnessForConfiguration()
 //                                     .addStrategy(spoofedPositionStrategy)
-//                                     .addStrategy(stuckAtErrorStrategy)
+                                     .addStrategy(stuckAtErrorStrategy)
                                      .addStrategy(new RandomASCIIStrategy())
                                      .build();
             try {Thread.sleep(SPEND_TIME_WITHOUT_FAULTS);} catch (InterruptedException ignored) {}

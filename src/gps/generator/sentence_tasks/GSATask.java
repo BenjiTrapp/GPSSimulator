@@ -3,6 +3,7 @@ package gps.generator.sentence_tasks;
 import communication.StringWriter;
 import gps.NMEA.sentences.GGASentence;
 import gps.NMEA.sentences.GSASentence;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.TimerTask;
 
@@ -36,9 +37,8 @@ public class GSATask extends TimerTask
 	 *  StringWriter that shall be used
 	 *
 	 */
-	public GSATask(StringWriter strWriter)
+	public GSATask(@NotNull StringWriter strWriter)
 	{
-		assert strWriter != null;
 		this.strWriter = strWriter;
 	}
 

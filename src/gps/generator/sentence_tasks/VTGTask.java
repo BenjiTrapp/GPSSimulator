@@ -4,6 +4,7 @@ import communication.StringWriter;
 import gps.NMEA.sentences.GSASentence;
 import gps.NMEA.sentences.NMEASentence;
 import gps.NMEA.sentences.VTGSentence;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.TimerTask;
 
@@ -37,9 +38,8 @@ public class VTGTask extends TimerTask
 	 *  StringWriter that shall be used
 	 *
 	 */
-	public VTGTask(StringWriter strWriter)
+	public VTGTask(@NotNull StringWriter strWriter)
 	{
-		assert strWriter != null;
 		this.strWriter = strWriter;
 	}
 

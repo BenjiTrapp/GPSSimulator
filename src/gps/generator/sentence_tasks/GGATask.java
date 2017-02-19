@@ -4,6 +4,8 @@ import java.util.TimerTask;
 
 import communication.StringWriter;
 import gps.NMEA.sentences.GGASentence;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This Class is determined for the use in Combination with 
@@ -35,9 +37,8 @@ public class GGATask extends TimerTask
 	 *  StringWriter that shall be used
 	 * 
 	 */
-	public GGATask(StringWriter strWriter)
+	public GGATask(@NotNull StringWriter strWriter)
 	{
-		assert strWriter != null;
 		this.strWriter = strWriter;
 	}
 

@@ -3,6 +3,8 @@
  */
 package communication;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.net.Socket;
 
@@ -74,9 +76,7 @@ public class StringWriter extends AComModule {
     }
 
     @Override
-    public synchronized void send(String msg) {
-        assert msg != null;
-
+    public synchronized void send(@NotNull String msg) {
         msg += NEW_LINE;
 
         try {

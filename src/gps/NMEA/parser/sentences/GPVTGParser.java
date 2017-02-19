@@ -9,7 +9,7 @@ import gps.NMEA.sentences.NMEASentenceTypes;
  *
  * @author Benjamin Trapp
  */
-@annotations.NMEASentenceParser(NMEASentenceTypes.GPGGA)
+@annotations.NMEASentenceParser(NMEASentenceTypes.GPVTG)
 public class GPVTGParser implements NMEASentenceParser {
     private static GPVTGParser instance = null;
 
@@ -18,7 +18,7 @@ public class GPVTGParser implements NMEASentenceParser {
     }
 
     @Override
-    public synchronized GPSPosition parse(String[] tokens) {
+    public synchronized GPSPosition parse(String... tokens) {
         assert tokens != null;
 
         // TODO Sinnvolle "tokens" zum parsen identifizieren & serialisieren als obj.

@@ -20,7 +20,7 @@ public class GPGGAParser implements NMEASentenceParser {
     }
 
     @Override
-    public synchronized GPSPosition parse(String[] tokens) {
+    public synchronized GPSPosition parse(String... tokens) {
         assert tokens != null;
         assert tokens.length >= MAX_AMOUNT_OF_NEEDED_TOKENS;
 

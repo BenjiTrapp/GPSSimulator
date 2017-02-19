@@ -1,6 +1,7 @@
 package gps.NMEA.utils;
 
 import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
@@ -42,8 +43,7 @@ public final class ChecksumUtilities {
      * @return true if the checksum is valid, otherwise false
      */
     @Contract("null -> fail")
-    public static synchronized boolean isChecksumValid(String nmeaSentence) {
-        assert nmeaSentence != null;
+    public static synchronized boolean isChecksumValid(@NotNull String nmeaSentence) {
         assert !nmeaSentence.isEmpty();
         assert nmeaSentence.contains(Character.toString(CHECKSUM_ASTERISK_DELIMITER));
         assert nmeaSentence.contains(NMEA_SENTENCE_INITIALIZER);
@@ -78,7 +78,8 @@ public final class ChecksumUtilities {
         }
     }
 
-    private static char getChecksumDelimiterFromSentence(String nmeaSentence) {
+    @Contract("null -> fail")
+    private static char getChecksumDelimiterFromSentence(@NotNull String nmeaSentence) {
         return nmeaSentence.charAt(nmeaSentence.length() - ASTERISK_POSITION_FROM_CHECKSUM);
     }
 
@@ -89,8 +90,7 @@ public final class ChecksumUtilities {
      * @return String String that contains the calculated checksum
      */
     @Contract("null -> fail")
-    public static synchronized String getCRC(String nmeaSentence) {
-        assert nmeaSentence != null;
+    public static synchronized String getCRC(@NotNull String nmeaSentence) {
         assert !nmeaSentence.isEmpty();
         assert nmeaSentence.startsWith(NMEA_SENTENCE_INITIALIZER);
         assert !nmeaSentence.contains(Character.toString(CHECKSUM_ASTERISK_DELIMITER));

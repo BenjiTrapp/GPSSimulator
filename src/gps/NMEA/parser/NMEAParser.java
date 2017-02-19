@@ -9,6 +9,7 @@ import gps.NMEA.parser.sentences.*;
 import gps.NMEA.sentences.NMEASentenceTypes;
 import gps.NMEA.utils.InvalidChecksumException;
 import org.apache.log4j.PropertyConfigurator;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,8 +43,7 @@ public class NMEAParser {
         sentenceParsers.put(GPVTG, GPVTGParser.getInstance());
     }
 
-    public NMEAParser(Set<HardeningStrategy> hardeningStrategies) {
-        assert hardeningStrategies != null;
+    public NMEAParser(@NotNull Set<HardeningStrategy> hardeningStrategies) {
         assert hardeningStrategies.size() > 0;
 
         this.hardeningStrategies = Collections.synchronizedSet(hardeningStrategies);
@@ -63,7 +63,7 @@ public class NMEAParser {
      * @return GPSPosition that contains the parsed info
      * @throws InvalidChecksumException in case of a malformed gps.NMEA-Sentence
      */
-    public GPSPosition parse(String nmeaSentence) throws InvalidChecksumException {
+    public GPSPosition parse(@NotNull String nmeaSentence) throws InvalidChecksumException {
         GPSPosition currentPosition = null;
         NMEASentenceTypes type;
         String[] nmeaWords;
@@ -87,6 +87,7 @@ public class NMEAParser {
         }
 
         if (gpsPositions.size() >= AMOUNT_HISTORIC_POS) {
+            assert currentPosition != null;
             historicPosition = createHistoricGPSPositionSnapshot(currentPosition, type);
         }
 
@@ -106,7 +107,7 @@ public class NMEAParser {
     }
 
 
-    private NMEASentenceTypes validateNMEASentenceType(NMEASentenceTypes type) {
+    private NMEASentenceTypes validateNMEASentenceType(@NotNull NMEASentenceTypes type) {
         //This is the "main" Protection against the implemented faults
         if (!isValidType(type.toString())) {
             logger.error("Type of the NMEA-Sentence is unknown or malformed");
@@ -116,30 +117,30 @@ public class NMEAParser {
         return type;
     }
 
-    private void validateChecksum(String line) throws InvalidChecksumException {
+    private void validateChecksum(@NotNull String line) throws InvalidChecksumException {
         if (!ChecksumUtilities.isChecksumValid(line)) {
             logger.error("NMEA-Sentence malformed (" + line + ")");
             throw new InvalidChecksumException();
         }
     }
 
-    private NMEASentenceTypes retrieveSentenceType(String[] nmeaWords) {
+    private NMEASentenceTypes retrieveSentenceType(@NotNull String... nmeaWords) {
         return validateNMEASentenceType(getType(nmeaWords[0]));
     }
 
-    private String[] splitSentenceIntoWords(String nmeaSentence) {
+    private String[] splitSentenceIntoWords(@NotNull String nmeaSentence) {
         return nmeaSentence.substring(1).split(SPLIT_DELIMITER);
     }
 
-    GPSPositionHistory createHistoricGPSPositionSnapshot(GPSPosition currentPosition, NMEASentenceTypes type) {
+    GPSPositionHistory createHistoricGPSPositionSnapshot(@NotNull GPSPosition currentPosition, @NotNull NMEASentenceTypes type) {
         int size = gpsPositions.size();
 
         GPSPositionHistory tmp = new GPSPositionHistory(type);
 
-        tmp.addPositions(currentPosition
-                , gpsPositions.get(size - 1)
-                , gpsPositions.get(size - 2)
-                , gpsPositions.get(size - 3));
+        tmp.addPositions(currentPosition,
+                         gpsPositions.get(size - 1),
+                         gpsPositions.get(size - 2),
+                         gpsPositions.get(size - 3));
         return tmp;
     }
 }

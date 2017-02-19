@@ -27,6 +27,7 @@ class VTGSentenceTest {
 
         // when
         String result = vtg.getSentence();
+        System.out.println(result);
 
         // then
         assertTrue(result.contains("$GPVTG,"));
