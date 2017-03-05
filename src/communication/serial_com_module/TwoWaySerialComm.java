@@ -11,7 +11,7 @@ import java.net.PortUnreachableException;
 
 public class TwoWaySerialComm {
 
-    private static final int COMPOT_PORT = 2000;
+    private static final int COMPORT_PORT = 2000;
     private static final int BAUD_RATE = 57600;
 
     private void connect(String portName) throws Exception {
@@ -19,7 +19,7 @@ public class TwoWaySerialComm {
         if (portIdentifier.isCurrentlyOwned())
             throw new PortInUseException();
 
-        CommPort commPort = portIdentifier.open(this.getClass().getName(), COMPOT_PORT);
+        CommPort commPort = portIdentifier.open(this.getClass().getName(), COMPORT_PORT);
 
         if (commPort instanceof SerialPort) {
             SerialPort serialPort = (SerialPort) commPort;

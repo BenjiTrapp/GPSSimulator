@@ -87,6 +87,8 @@ class GSASentenceTest {
 
         // when
         String result = gsaSentence.createSatellitePRNs();
+        System.out.println(result);
+
 
         // then
         assertTrue(result.contains(","));

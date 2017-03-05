@@ -28,7 +28,6 @@ public class GPSSimulatorStarter {
         NMEAParserFactory = new NMEAParserFactory().build(hardeningStrategies);
     }
 
-
     private static void startGPSParserWithoutHardeningStrategies(){
         NMEAParserFactory = new NMEAParserFactory().build();
     }

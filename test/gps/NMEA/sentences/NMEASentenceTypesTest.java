@@ -51,4 +51,5 @@ class NMEASentenceTypesTest {
         //then
         assertEquals("$GPGGA", GGA_type);
     }
+
 }
