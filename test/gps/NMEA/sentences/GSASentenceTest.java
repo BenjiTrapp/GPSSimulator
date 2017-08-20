@@ -1,6 +1,5 @@
 package gps.NMEA.sentences;
 
-import com.sun.tools.javac.comp.Check;
 import gps.NMEA.utils.ChecksumUtilities;
 import gps.data.GPSData;
 import gps.data.GPSDataEnumHolder;

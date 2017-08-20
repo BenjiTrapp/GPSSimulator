@@ -82,7 +82,7 @@ public class ChecksumUtilitiesTest {
     @Test
     @Tag("ExceptionalPath")
     public void shouldThrowAssertionErrorExceptionAtGetCRCMethod(){
-        assertThrows(AssertionError.class, () -> getCRC(null));
+        assertThrows(IllegalArgumentException.class, () -> getCRC(null));
         assertThrows(AssertionError.class, () -> getCRC(""));
         assertThrows(AssertionError.class, () -> getCRC( "GPGGA,1911504,5336.93,N,1005.12,E,8.0,01,1.2,15.4,M,0,M,,*4E"));
         assertThrows(AssertionError.class, () -> getCRC( "GPGGA,1911504,5336.93,N,1005.12,E,8.0,01,1.2,15.4,M,0,M,,4E"));
@@ -91,7 +91,7 @@ public class ChecksumUtilitiesTest {
     @Test
     @Tag("ExceptionalPath")
     public void shouldThrowAssertionErrorExceptionAtIsChecksumValidMethod(){
-        assertThrows(AssertionError.class, () -> isChecksumValid(null));
+        assertThrows(IllegalArgumentException.class, () -> isChecksumValid(null));
         assertThrows(AssertionError.class, () -> isChecksumValid(""));
         assertThrows(AssertionError.class, () -> isChecksumValid( "$GPGGA**4E"));
         assertThrows(AssertionError.class, () -> isChecksumValid( "GPGGA,,123,321*4E"));

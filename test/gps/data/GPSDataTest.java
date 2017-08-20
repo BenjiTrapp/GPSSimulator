@@ -2,6 +2,7 @@ package gps.data;
 
 import org.junit.Ignore;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,18 +14,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GPSDataTest {
 
-    @BeforeEach
-    public void setUp(){
+    @BeforeAll
+    void setUp(){
         reinitialize();
     }
 
     @AfterEach
-    public void tearDown(){
+    void tearDown(){
         reinitialize();
     }
 
     @Test
-    public void shouldReinitCorrectly() {
+    void shouldReinitializeCorrectly() {
         // given - when
         GPSData.reinitialize();
 
@@ -47,7 +48,7 @@ class GPSDataTest {
     }
 
     @Test
-    @Ignore("Test")
+    //@Ignore("Test")
     public void shouldIgnoreSetMethodsWhenIsStucked(){
         // given
         GPSData.reinitialize();
