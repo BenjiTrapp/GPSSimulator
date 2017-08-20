@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/BenjiTrapp/GPSSimulator.svg?branch=master)](https://travis-ci.org/BenjiTrapp/GPSSimulator)
+
 # (vHIL) GPS Simulator and Environment for Fault-Injection experiments
 This GPS Simulator can be used for several use cases:
 * Mock actual Hardware-GPS-Modules as a virtual prototype to create and test even more complex hardware modules like a FCU (Flight Control Unit) for drones.
