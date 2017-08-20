@@ -24,20 +24,20 @@ class NMEAGraphGUITest {
     private FrameFixture window;
 
     @BeforeEach
-    protected void onSetUp() {
+    void onSetUp() {
         // given
         NMEAGraphGUI frame = GuiActionRunner.execute(NMEAGraphGUI::new);
         window = new FrameFixture(frame.getFrame());
     }
 
     @AfterEach
-    public void tearDownTest() {
+    void tearDownTest() {
         window.cleanUp();
     }
 
     @Test
     @End2EndTest
-    public void shouldHaveCorrectTitle() {
+    void shouldHaveCorrectTitle() {
         // when
         window.show();
 
@@ -50,7 +50,7 @@ class NMEAGraphGUITest {
 
     @Test
     @End2EndTest
-    public void shouldRunFileChooserAfterClickOnOpen() {
+    void shouldRunFileChooserAfterClickOnOpen() {
         // when
         window.show();
 
@@ -66,7 +66,7 @@ class NMEAGraphGUITest {
 
     @Test
     @End2EndTest
-    public void shouldRunFileChooserAfterAtCorrectDirectory() {
+    void shouldRunFileChooserAfterAtCorrectDirectory() {
         // when
         window.show();
         GenericTypeMatcher<JFileChooser> matcher = new GenericTypeMatcher<JFileChooser>(JFileChooser.class) {
@@ -88,7 +88,7 @@ class NMEAGraphGUITest {
 
     @Test
     @End2EndTest
-    public void shouldRepaintAndMaximize() {
+    void shouldRepaintAndMaximize() {
         // when
         window.show();
 

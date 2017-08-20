@@ -329,23 +329,23 @@ public final class GPSData
 	/**
 	 * Function to reinitialize the GPS data  
 	 */
-	public static void reinitialize()
+	public synchronized static void reinitialize()
 	{
-		setStatus(Status.A);
-		setLatitude("53.557085");
-		setLongitude("10.023167");
-		setNS(SOUTH);
-		setEW(EAST);
-		setVelocity("003.0");
-		setAltitude("15");
-		setCourse(314);
-		setSatellites("4");
-		setQuality(8);
-		setHDOP("2.0");
-		setVDOP("2.4");
-		setPDOP("2.8");
-		setMode(SIMULATION);
-		setFixType(GPS_FIX_3D);
+		GPSData.setStatus(Status.A);
+		GPSData.setLatitude("53.557085");
+		GPSData.setLongitude("10.023167");
+		GPSData.setNS(SOUTH);
+		GPSData.setEW(EAST);
+		GPSData.setVelocity("003.0");
+		GPSData.setAltitude("15");
+		GPSData.setCourse(314);
+		GPSData.setSatellites("4");
+		GPSData.setQuality(8);
+		GPSData.setHDOP("2.0");
+		GPSData.setVDOP("2.4");
+		GPSData.setPDOP("2.8");
+		GPSData.setMode(SIMULATION);
+		GPSData.setFixType(GPS_FIX_3D);
 	}
 
     public static void stuckAtState(boolean state)

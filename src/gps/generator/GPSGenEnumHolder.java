@@ -22,7 +22,7 @@ public class GPSGenEnumHolder {
      * @author Benjamin Trapp
      */
     public enum Modes {
-        RANDOM, ASCENDING, DESCENDING
+        RANDOM, ASCENDING, DESCENDING, MOCK
     }
 
     /**

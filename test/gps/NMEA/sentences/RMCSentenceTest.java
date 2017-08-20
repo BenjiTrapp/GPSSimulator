@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class RMCSentenceTest {
     @AfterEach
-    public void tearDown(){
+    void tearDown(){
         GPSData.reinitialize();
     }
 
