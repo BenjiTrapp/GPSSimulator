@@ -1,6 +1,5 @@
 package gps.NMEA.utils;
 
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -42,7 +41,6 @@ public final class ChecksumUtilities {
      * @param nmeaSentence The gps.NMEA Sentence that shall be checked
      * @return true if the checksum is valid, otherwise false
      */
-    @Contract("null -> fail")
     public static synchronized boolean isChecksumValid(@NotNull String nmeaSentence) {
         assert !nmeaSentence.isEmpty();
         assert nmeaSentence.contains(Character.toString(CHECKSUM_ASTERISK_DELIMITER));
@@ -78,7 +76,6 @@ public final class ChecksumUtilities {
         }
     }
 
-    @Contract("null -> fail")
     private static char getChecksumDelimiterFromSentence(@NotNull String nmeaSentence) {
         return nmeaSentence.charAt(nmeaSentence.length() - ASTERISK_POSITION_FROM_CHECKSUM);
     }
@@ -89,8 +86,7 @@ public final class ChecksumUtilities {
      * @param nmeaSentence String containing the full gps.NMEA message without checksum
      * @return String String that contains the calculated checksum
      */
-    @Contract("null -> fail")
-    public static synchronized String getCRC(@NotNull String nmeaSentence) {
+    public static synchronized String getCRC(String nmeaSentence) {
         assert !nmeaSentence.isEmpty();
         assert nmeaSentence.startsWith(NMEA_SENTENCE_INITIALIZER);
         assert !nmeaSentence.contains(Character.toString(CHECKSUM_ASTERISK_DELIMITER));

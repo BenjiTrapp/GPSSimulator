@@ -1,11 +1,9 @@
 package communication;
 
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.ServerSocket;
@@ -89,7 +87,6 @@ public abstract class AComModule
      * @throws InvalidApplicationException If the passed argument is null
      * @throws IOException In case of an error during writing the output stream
      */
-    @Contract("null -> fail")
     public abstract void send(@NotNull String msg) throws InvalidApplicationException;
     
     /**

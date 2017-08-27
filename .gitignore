@@ -1,7 +1,12 @@
+.gradle/
 target/
 .idea/
-*.iml
 log/
+build/
+out/
+*.iml
+*.ipr
+*.iws
 *.log
 *.log.*
 *.png

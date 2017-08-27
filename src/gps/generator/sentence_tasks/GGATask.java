@@ -4,7 +4,6 @@ import java.util.TimerTask;
 
 import communication.StringWriter;
 import gps.NMEA.sentences.GGASentence;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
