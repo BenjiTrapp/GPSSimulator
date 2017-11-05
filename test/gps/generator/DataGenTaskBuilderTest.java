@@ -5,6 +5,7 @@ import gps.generator.datagen_tasks.DataGenTaskObjectHolderBuilder;
 import org.junit.jupiter.api.Test;
 
 import static gps.generator.GPSGenEnumHolder.*;
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DataGenTaskBuilderTest {

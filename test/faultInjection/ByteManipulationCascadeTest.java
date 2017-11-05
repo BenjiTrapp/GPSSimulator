@@ -16,7 +16,7 @@ class ByteManipulationCascadeTest {
     private ComJammer jammer = mock(ComJammer.class);
 
     @BeforeEach
-    public void setUp(){
+    void setUp(){
         doNothing().when(jammer).send(anyString());
     }
 
