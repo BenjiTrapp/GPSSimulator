@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/BenjiTrapp/GPSSimulator.svg?branch=master)](https://travis-ci.org/BenjiTrapp/GPSSimulator)
+[![Dependency Status](https://dependencyci.com/github/BenjiTrapp/GPSSimulator/badge)](https://dependencyci.com/github/BenjiTrapp/GPSSimulator)
 
 # (vHIL) GPS Simulator and Environment for Fault-Injection experiments
 This GPS Simulator can be used for several use cases:
