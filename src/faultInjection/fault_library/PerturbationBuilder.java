@@ -1,12 +1,15 @@
 package faultInjection.fault_library;
 
+import com.google.common.collect.ImmutableMap;
 import faultInjection.fault_library.down_counter.CallbackCountDownBuilder;
 import faultInjection.fault_library.perturbation_strategies.AbstractPerturbationStrategy;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+
+import java.util.*;
+
+import static faultInjection.fault_library.PerturbationBuilder.PerturbationModes.*;
 
 public class PerturbationBuilder {
+    public enum PerturbationModes {COUNT,PERIOD,DELAY}
     private List<AbstractPerturbationStrategy> strategies = new ArrayList<>();
     private Random random = new Random();
     private boolean useRandomness;
@@ -14,30 +17,32 @@ public class PerturbationBuilder {
     private int period = 1000;
     private int delay = 0;
 
-    public PerturbationBuilder addStrategy(AbstractPerturbationStrategy strategy){
-        this.strategies.add(strategy);
-        return this;
-    }
-
-    public PerturbationBuilder presetCountInSeconds(int count){
+    public PerturbationBuilder withPresetCountInSeconds(int count){
         assert  count >= 0;
 
         this.count = count;
         return this;
     }
 
-    public PerturbationBuilder setTimerPeriod(int period){
-        assert  count >= 0;
+    public PerturbationBuilder withTimerPeriod(int period){
+        assert  period >= 0;
 
         this.period = period;
         return this;
     }
 
-    public PerturbationBuilder setTimerDelay(int delay){
-        assert  count >= 0;
+    public PerturbationBuilder withTimerDelay(int delay){
+        assert  delay >= 0;
 
         this.delay = delay;
         return  this;
+    }
+
+    public PerturbationBuilder addStrategy(AbstractPerturbationStrategy strategy){
+        assert strategy != null;
+
+        this.strategies.add(strategy);
+        return this;
     }
 
     public PerturbationBuilder useRandomnessForConfiguration(){
@@ -46,7 +51,7 @@ public class PerturbationBuilder {
     }
 
     public void build(){
-        if(useRandomness){
+        if(useRandomness) {
             this.count += random.nextInt(4);
             this.period += random.nextInt(1000);
             this.delay += random.nextInt(3000);
@@ -57,5 +62,12 @@ public class PerturbationBuilder {
                                                                      .setTimerDelay(delay)
                                                                      .setTimerPeriod(period)
                                                                      .startCountDown());
+    }
+
+    public ImmutableMap<PerturbationModes, Integer> getConfiguration() {
+        return ImmutableMap.<PerturbationModes,Integer>builder().put(COUNT, count)
+                                                                .put(PERIOD, period)
+                                                                .put(DELAY, delay)
+                                                                .build();
     }
 }

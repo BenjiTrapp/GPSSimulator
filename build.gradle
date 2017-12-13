@@ -87,7 +87,17 @@ allprojects {
         )
 
 
-        /* Logging */
+        compile(
+                'org.slf4j:slf4j-api:1.7.25',
+                'org.slf4j:slf4j-log4j12:1.7.25',
+                'log4j:log4j:1.2.17'
+        )
+        testCompile(
+                'junit:junit:4.12',
+                'org.codehaus.groovy:groovy-all:2.4.11',
+        )
+
+                /* Logging */
         compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.22'
         compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.22'
 
