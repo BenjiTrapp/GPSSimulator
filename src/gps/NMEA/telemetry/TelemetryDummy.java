@@ -3,7 +3,7 @@
  */
 package gps.NMEA.telemetry;
 
-import gps.NMEA.utils.InvalidChecksumException;
+import gps.NMEA.exceptions.InvalidChecksumException;
 import gps.NMEA.parser.NMEAParser;
 
 import java.io.FileWriter;

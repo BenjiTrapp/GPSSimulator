@@ -1,7 +1,7 @@
 /**
  * 
  */
-package gps.NMEA.utils;
+package gps.NMEA.exceptions;
 
 /**
  *	This Exception occurs only in case of an passed invalid checksum

@@ -2,12 +2,12 @@ package gps.NMEA.parser;
 
 import java.util.*;
 
+import gps.NMEA.exceptions.InvalidChecksumException;
 import gps.NMEA.gps_position.GPSPosition;
 import gps.NMEA.gps_position.GPSPositionHistory;
 import gps.NMEA.parser.hardening_functions.HardeningStrategy;
 import gps.NMEA.parser.sentences.*;
 import gps.NMEA.sentences.NMEASentenceTypes;
-import gps.NMEA.utils.InvalidChecksumException;
 import org.apache.log4j.PropertyConfigurator;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;

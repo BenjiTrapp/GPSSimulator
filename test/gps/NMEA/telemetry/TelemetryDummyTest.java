@@ -2,12 +2,11 @@ package gps.NMEA.telemetry;
 
 import gps.NMEA.gps_position.GPSPosition;
 import gps.NMEA.parser.NMEAParser;
-import gps.NMEA.utils.InvalidChecksumException;
+import gps.NMEA.exceptions.InvalidChecksumException;
 import org.junit.Rule;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
