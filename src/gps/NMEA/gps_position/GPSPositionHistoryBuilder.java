@@ -10,21 +10,25 @@ public class GPSPositionHistoryBuilder {
     private NMEASentenceTypes type;
 
     public GPSPositionHistoryBuilder setCurrentPosition(GPSPosition position){
+        assert position != null;
         this.currentPosition = position;
         return this;
     }
 
     public GPSPositionHistoryBuilder setLastPosition(GPSPosition position){
+        assert position != null;
         this.lastPosition = position;
         return this;
     }
 
     public GPSPositionHistoryBuilder setSecondLastPosition(GPSPosition position){
+        assert position != null;
         this.secondLastPosition = position;
         return this;
     }
 
     public GPSPositionHistoryBuilder setThirdLastPosition(GPSPosition position){
+        assert position != null;
         this.thirdLastPosition = position;
         return this;
     }
