@@ -4,30 +4,31 @@ import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Subject
 
-class GPGGAParserSpec extends Specification {
+class GPRMCParserSpec extends Specification {
 
-    @Shared private String[] tokens = ["GPGGA", "215336", "5333.46", "N", "1001.53", "E",
-                                       "8.0", "02", "2.0", "149.8", "M", "O", "M", "*4D"]
+    @Shared private String[] tokens = ["GPRMC", "222637", "A", "5333.82", "N", "1001.96",
+                                       "E", "010.1", "84.0", "150117", "", "S*42"]
+
 
     def "Should parse tokens array and return correct GPSPosition information object"() {
         given:
-        @Subject def parser = new GPGGAParser()
+        @Subject def parser = new GPRMCParser()
 
         when:
         def result = parser.parse(tokens)
 
         then:
         tokens[1] as Double == result.getTime()
-        tokens[2] as Double == result.getLatitude()
-        tokens[6] as Double == result.getQuality()
-        tokens[9] as Double == result.getAltitude()
+        tokens[3] as Double == result.getLatitude()
+        tokens[7] as Double == result.getQuality()
+        tokens[8] as Double == result.getAltitude()
         result.getVelocity() == null
         result.getDirection() == null
     }
 
     def "Should throw AssertionErrorException when try to parse the wrong amount of tokens"() {
         given:
-        @Subject def parser = new GPGGAParser()
+        @Subject def parser = new GPRMCParser()
         def reducedTokens = reducedTokenArray
 
         when:
