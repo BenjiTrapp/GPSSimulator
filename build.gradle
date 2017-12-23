@@ -6,8 +6,6 @@ apply plugin: 'idea'
 group = 'de.benjitrapp.gpssimulator'
 version = '1.0.0-SNAPSHOT'
 
-description = """"""
-
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -16,17 +14,6 @@ repositories {
     mavenCentral()
     maven { url "http://repo.maven.apache.org/maven2" }
 }
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.1'
-    }
-}
-
-apply plugin: 'org.junit.platform.gradle.plugin'
 
 idea {
     project {
@@ -40,97 +27,59 @@ idea {
     }
 }
 
-allprojects {
 
-    apply plugin: 'java'
-    apply plugin: 'idea'
-    apply plugin: 'org.junit.platform.gradle.plugin'
-
-    idea {
-        module {
-            inheritOutputDirs = false
-            outputDir = file('../out/production/' + module.name)
-            testOutputDir = file('../out/test/' + module.name)
+sourceSets {
+    main {
+        java {
+            srcDir 'src/'
+        }
+        resources {
+            srcDir 'src/resources'
         }
     }
-
-    apply plugin: 'java'
-    sourceSets {
-        main {
-            java {
-                srcDir 'src/'
-            }
-            resources {
-                srcDir 'src/resources'
-            }
+    test {
+        java {
+            srcDir 'test/'
         }
-        test {
-            java {
-                srcDir 'test/'
-            }
-            resources {
-                srcDir 'test/resources'
-            }
+        resources {
+            srcDir 'test/resources'
         }
     }
+}
 
-    dependencies {
-        compile(
-                'org.slf4j:slf4j-api:1.7.25',
-                'org.slf4j:slf4j-log4j12:1.7.25',
-                'log4j:log4j:1.2.17'
-        )
-        testCompile(
-                'junit:junit:4.12',
-                'org.codehaus.groovy:groovy-all:2.4.11',
-        )
+dependencies {
+    compile(
+            'org.slf4j:slf4j-api:1.7.25',
+            'org.slf4j:slf4j-log4j12:1.7.25',
+            'log4j:log4j:1.2.17'
+    )
+    testCompile(
+            'junit:junit:4.12',
+            'org.codehaus.groovy:groovy-all:2.4.11',
+    )
 
-        /* Logging */
-        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.22'
-        compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.22'
+    compile group: 'com.google.guava', name: 'guava', version: '20.0'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+    compile group: 'commons-io', name: 'commons-io', version: '2.4'
 
+    compile group: 'org.rxtx', name: 'rxtx', version: '2.1.7'
 
-        compile group: 'com.google.guava', name: 'guava', version: '20.0'
-        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
-        compile group: 'commons-io', name: 'commons-io', version: '2.4'
+    /* Fault Injection & Mutation Testing*/
+    compile group: 'org.pitest', name: 'pitest', version: '1.1.11'
+    compile group: 'org.jboss.byteman', name: 'byteman-bmunit', version: '4.0.0-BETA1'
+    compile group: 'org.jboss.byteman', name: 'byteman', version: '4.0.0-BETA1'
+    compile 'com.intellij:annotations:+@jar'
 
-        compile group: 'org.rxtx', name: 'rxtx', version: '2.1.7'
-        testCompile group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.0.0-M6'
+    testCompile group: 'org.assertj', name: 'assertj-swing-junit', version: '3.5.0'
 
-        /* Fault Injection & Mutation Testing*/
-        compile group: 'org.pitest', name: 'pitest', version: '1.1.11'
-        compile group: 'org.jboss.byteman', name: 'byteman-bmunit', version: '4.0.0-BETA1'
-        compile group: 'org.jboss.byteman', name: 'byteman', version: '4.0.0-BETA1'
-        compile 'com.intellij:annotations:+@jar'
-
-        /* GUI Testing*/
-        testCompile group: 'org.assertj', name: 'assertj-swing-junit', version: '3.5.0'
-        testCompile group: 'org.assertj', name: 'assertj-guava', version: '3.1.0'
-        testCompile group: 'org.assertj', name: 'assertj-neo4j', version: '1.0.0'
-
-        // mandatory dependencies for using Spock
-        compile "org.codehaus.groovy:groovy-all:2.4.10"
-        testCompile "org.spockframework:spock-core:1.1-groovy-2.4"
-
-        // optional dependencies for using Spock
-        testCompile "org.hamcrest:hamcrest-core:1.3"
-        testRuntime "net.bytebuddy:byte-buddy:1.6.5"
-        testRuntime "org.objenesis:objenesis:2.5.1"
-        testCompile('com.athaydes:spock-reports:1.3.1') {
-            transitive = false // this avoids affecting the version of Groovy/Spock
-        }
-
-        // mocking stuff
-        testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
-        testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '1.6.5'
-        testCompile group: 'org.powermock', name: 'powermock-api-mockito', version: '1.6.5'
+    // mandatory dependencies for using Spock
+    compile "org.codehaus.groovy:groovy-all:2.4.10"
+    testCompile "org.spockframework:spock-core:1.1-groovy-2.4"
+    testRuntime "net.bytebuddy:byte-buddy:1.6.5"
+    testRuntime "org.objenesis:objenesis:2.5.1"
+    testCompile('com.athaydes:spock-reports:1.3.1') {
+        transitive = false // this avoids affecting the version of Groovy/Spock
     }
 
-    sourceSets {
-        test {
-            resources {
-                srcDir "test"
-            }
-        }
-    }
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
 }
