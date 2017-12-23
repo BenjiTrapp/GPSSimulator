@@ -7,7 +7,6 @@ import spock.lang.Specification
 import static org.hamcrest.Matchers.*
 import static spock.util.matcher.HamcrestSupport.*
 
-
 class VTGSentenceSpec extends Specification {
     def cleanup() { GPSData.reinitialize() }
 

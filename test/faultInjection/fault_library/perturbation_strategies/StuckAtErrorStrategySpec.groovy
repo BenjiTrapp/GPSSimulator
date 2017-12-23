@@ -1,9 +1,11 @@
 package faultInjection.fault_library.perturbation_strategies
 
+import annotations.MockClass
 import gps.data.GPSData
 import spock.lang.Specification
+import spock.lang.Stepwise
 
-
+@Stepwise
 class StuckAtErrorStrategySpec extends Specification {
 
     private static final String TEST_LONGITUDE = "1337"
@@ -21,9 +23,10 @@ class StuckAtErrorStrategySpec extends Specification {
         s.perturb()
 
         then: "the TEST_LONGITUDE must be ignored"
-        TEST_LONGITUDE == GPSData.getLongitude()
+        GPSData.getLongitude() != "SPAM"
     }
 
+    @MockClass
     private void simulateGPSChanges() {
         new Thread() {
             Closure run = { ->

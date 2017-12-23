@@ -4,8 +4,6 @@ import spock.lang.Specification
 import static org.hamcrest.Matchers.*
 import static spock.util.matcher.HamcrestSupport.*
 
-import static org.junit.jupiter.api.Assertions.assertEquals
-
 class GPSPositionSpec extends Specification {
 
     def shouldGetCorrectValuesAfterSettingThem() {

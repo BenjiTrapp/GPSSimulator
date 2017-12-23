@@ -19,7 +19,7 @@ class FlipBitsSpec extends Specification {
     def "shouldFlipBitsAndReturnAsStringWhenDigitIsPassedAsString"() {
         given:
         final String STRING2PERTURB = "42"
-        BytePerturbationFunction flipBits = new FlipBits(STRING2PERTURB, 2)
+        def flipBits = new FlipBits(STRING2PERTURB, 2)
 
         when:
         String result = flipBits.asString()
@@ -33,7 +33,7 @@ class FlipBitsSpec extends Specification {
     def shouldFlipBitsAndReturnAsStringWhenDigitIsPassedAsDouble() {
         given:
         final Double DOUBLE2PERTURB = 42.0
-        BytePerturbationFunction flipBits = new FlipBits(DOUBLE2PERTURB, 2)
+        def flipBits = new FlipBits(DOUBLE2PERTURB, 2)
 
         when:
         String result = flipBits.asString()
@@ -47,7 +47,7 @@ class FlipBitsSpec extends Specification {
     def shouldFlipBitsAndReturnAsDoubleWhenDigitIsPassedAsDouble() {
         given:
         final Double DOUBLE2PERTURB = 42.0
-        BytePerturbationFunction flipBits = new FlipBits(DOUBLE2PERTURB, 2)
+        def flipBits = new FlipBits(DOUBLE2PERTURB, 2)
 
         when:
         Double result = flipBits.asDouble()
@@ -61,7 +61,7 @@ class FlipBitsSpec extends Specification {
     def shouldFlipBitsAndReturnAsLongWhenDigitIsPassedAsDouble() {
         given:
         final Double DOUBLE2PERTURB = 42.0
-        BytePerturbationFunction flipBits = new FlipBits(DOUBLE2PERTURB, 2)
+        def flipBits = new FlipBits(DOUBLE2PERTURB, 2)
 
         when:
         long result = flipBits.asLong()

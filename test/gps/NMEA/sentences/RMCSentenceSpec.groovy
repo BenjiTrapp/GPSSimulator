@@ -56,7 +56,7 @@ class RMCSentenceSpec extends Specification{
         def sentence = new RMCSentence()
 
         then:
-        sentence != null
+        that sentence, is(not(null))
         sentence instanceof  NMEASentence
         sentence instanceof  RMCSentence
     }

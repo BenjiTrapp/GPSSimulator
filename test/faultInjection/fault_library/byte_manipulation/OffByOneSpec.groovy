@@ -6,7 +6,7 @@ class OffByOneSpec extends Specification {
 
     def "Should throw NumberFormatException when string is invalid"() {
         given:
-        final String bullShit = "This Sir == is absolutely Bullshit!"
+        final def bullShit = "This Sir == is absolutely Bullshit!"
 
         when:
         new OffByOne(bullShit)
@@ -18,11 +18,11 @@ class OffByOneSpec extends Specification {
 
     def "Should remove one due to odd digit"() {
         given:
-        final String STRING2PERTURB = "1"
+        final def STRING2PERTURB = "1"
         BytePerturbationFunction OffByOne = new OffByOne(STRING2PERTURB)
 
         when:
-        String result = OffByOne.asString()
+        def result = OffByOne.asString()
 
         then:
         STRING2PERTURB != result
@@ -32,11 +32,11 @@ class OffByOneSpec extends Specification {
 
     def "shouldAddOneDueToEvenDigit"() {
         given:
-        final String STRING2PERTURB = "2"
+        final def STRING2PERTURB = "2"
         BytePerturbationFunction OffByOne = new OffByOne(STRING2PERTURB)
 
         when:
-        String result = OffByOne.asString()
+        def result = OffByOne.asString()
 
         then:
         STRING2PERTURB != result
@@ -46,11 +46,11 @@ class OffByOneSpec extends Specification {
 
     def shouldOffByOneAndReturnAsStringWhenDigitIsPassedAsString() {
         given:
-        final String STRING2PERTURB = "42"
+        final def STRING2PERTURB = "42"
         BytePerturbationFunction OffByOne = new OffByOne(STRING2PERTURB)
 
         when:
-        String result = OffByOne.asString()
+        def result = OffByOne.asString()
 
         then:
         STRING2PERTURB != result
@@ -61,10 +61,10 @@ class OffByOneSpec extends Specification {
     def shouldOffByOneAndReturnAsStringWhenDigitIsPassedAsDouble() {
         given:
         final Double DOUBLE2PERTURB = 42.0
-        BytePerturbationFunction OffByOne = new OffByOne(DOUBLE2PERTURB)
+        def OffByOne = new OffByOne(DOUBLE2PERTURB)
 
         when:
-        String result = OffByOne.asString()
+        def result = OffByOne.asString()
 
         then:
         DOUBLE2PERTURB != result
@@ -74,11 +74,11 @@ class OffByOneSpec extends Specification {
 
     def shouldOffByOneAndReturnAsDoubleWhenDigitIsPassedAsDouble() {
         given:
-        final Double DOUBLE2PERTURB = 42.0
-        BytePerturbationFunction OffByOne = new OffByOne(DOUBLE2PERTURB)
+        final def DOUBLE2PERTURB = 42.0
+        def OffByOne = new OffByOne(DOUBLE2PERTURB as Double)
 
         when:
-        Double result = OffByOne.asDouble()
+        def result = OffByOne.asDouble()
 
         then:
         DOUBLE2PERTURB != result
@@ -88,11 +88,11 @@ class OffByOneSpec extends Specification {
 
     def shouldOffByOneAndReturnAsLongWhenDigitIsPassedAsDouble() {
         given:
-        final Double DOUBLE2PERTURB = 42.0
-        BytePerturbationFunction OffByOne = new OffByOne(DOUBLE2PERTURB)
+        final def DOUBLE2PERTURB = 42.0
+        def OffByOne = new OffByOne(DOUBLE2PERTURB as Double)
 
         when:
-        long result = OffByOne.asLong()
+        def result = OffByOne.asLong()
 
         then:
         DOUBLE2PERTURB != result

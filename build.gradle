@@ -75,18 +75,6 @@ allprojects {
     }
 
     dependencies {
-        /* JUnit 5  */
-        testCompile(
-                'org.junit.jupiter:junit-jupiter-api:5.0.1'
-        )
-        testRuntime(
-                'org.junit.jupiter:junit-jupiter-engine:5.0.1',
-                'org.junit.vintage:junit-vintage-engine:4.12.1',
-                'org.junit.platform:junit-platform-launcher:1.0.1',
-                'org.junit.platform:junit-platform-runner:1.0.1'
-        )
-
-
         compile(
                 'org.slf4j:slf4j-api:1.7.25',
                 'org.slf4j:slf4j-log4j12:1.7.25',
@@ -115,6 +103,7 @@ allprojects {
         compile group: 'org.jboss.byteman', name: 'byteman', version: '4.0.0-BETA1'
         compile 'com.intellij:annotations:+@jar'
 
+        /* GUI Testing*/
         testCompile group: 'org.assertj', name: 'assertj-swing-junit', version: '3.5.0'
         testCompile group: 'org.assertj', name: 'assertj-guava', version: '3.1.0'
         testCompile group: 'org.assertj', name: 'assertj-neo4j', version: '1.0.0'

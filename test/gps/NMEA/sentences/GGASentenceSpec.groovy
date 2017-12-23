@@ -56,7 +56,7 @@ class GGASentenceSpec extends Specification {
         sentence = new GGASentence()
 
         then:
-        sentence != null
+        that sentence, is(not(null))
         sentence instanceof  NMEASentence
         sentence instanceof  GGASentence
     }

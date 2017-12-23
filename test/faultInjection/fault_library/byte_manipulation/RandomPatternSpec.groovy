@@ -7,7 +7,7 @@ class RandomPatternSpec extends Specification {
 
     def shouldThrowNumberFormatExceptionWhenStringIsInvalid() {
         given:
-        final String bullShit = "This Sir != is absolutely Bullshit!"
+        final def bullShit = "This Sir != is absolutely Bullshit!"
 
         when:
         new RandomPattern(bullShit)
@@ -19,11 +19,11 @@ class RandomPatternSpec extends Specification {
 
     def shouldRandomPatternAndReturnAsStringWhenDigitIsPassedAsString() {
         given:
-        final String STRING2PERTURB = "4711"
-        BytePerturbationFunction randomPattern = new RandomPattern(STRING2PERTURB)
+        final def STRING2PERTURB = "4711"
+        def randomPattern = new RandomPattern(STRING2PERTURB)
 
         when:
-        String result = randomPattern.asString()
+        def result = randomPattern.asString()
 
         then:
         STRING2PERTURB != result
@@ -32,11 +32,11 @@ class RandomPatternSpec extends Specification {
 
     def shouldRandomPatternAndReturnAsStringWhenDigitIsPassedAsDouble() {
         given:
-        final Double DOUBLE2PERTURB = 4711.0
-        BytePerturbationFunction randomPattern = new RandomPattern(DOUBLE2PERTURB)
+        final def DOUBLE2PERTURB = 4711.0
+        def randomPattern = new RandomPattern(DOUBLE2PERTURB as Double)
 
         when:
-        String result = randomPattern.asString()
+        def result = randomPattern.asString()
 
         then:
         DOUBLE2PERTURB != result
@@ -45,11 +45,11 @@ class RandomPatternSpec extends Specification {
 
     def shouldRandomPatternAndReturnAsDoubleWhenDigitIsPassedAsDouble() {
         given:
-        final Double DOUBLE2PERTURB = 4711.0
-        BytePerturbationFunction randomPattern = new RandomPattern(DOUBLE2PERTURB)
+        final def DOUBLE2PERTURB = 4711.0
+        def randomPattern = new RandomPattern(DOUBLE2PERTURB as Double)
 
         when:
-        Double result = randomPattern.asDouble()
+        def result = randomPattern.asDouble()
 
         then:
         DOUBLE2PERTURB != result
@@ -58,8 +58,8 @@ class RandomPatternSpec extends Specification {
 
     def shouldRandomPatternAndReturnAsLongWhenDigitIsPassedAsDouble() {
         given:
-        final Double DOUBLE2PERTURB = 4711.0
-        BytePerturbationFunction randomPattern = new RandomPattern(DOUBLE2PERTURB)
+        final def DOUBLE2PERTURB = 4711.0
+        def randomPattern = new RandomPattern(DOUBLE2PERTURB as Double)
 
         when:
         long result = randomPattern.asLong()

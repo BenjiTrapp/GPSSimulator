@@ -6,7 +6,7 @@ class ToggleBitsSpec extends Specification {
 
     def shouldThrowNumberFormatExceptionWhenStringIsInvalid() {
         given:
-        final String bullShit = "This Sir, is absolutely Bullshit!"
+        final def bullShit = "This Sir, is absolutely Bullshit!"
 
         when:
         new ToggleBits(bullShit)
@@ -18,11 +18,11 @@ class ToggleBitsSpec extends Specification {
 
     def shouldToggleBitsAndReturnAsStringWhenDigitIsPassedAsString() {
         given:
-        final String STRING2PERTURB = "42"
-        BytePerturbationFunction toggleBits = new ToggleBits(STRING2PERTURB)
+        final def STRING2PERTURB = "42"
+        def toggleBits = new ToggleBits(STRING2PERTURB)
 
         when:
-        String result = toggleBits.asString()
+        def result = toggleBits.asString()
 
         then:
         STRING2PERTURB != result
@@ -32,11 +32,11 @@ class ToggleBitsSpec extends Specification {
 
     def shouldToggleBitsAndReturnAsStringWhenDigitIsPassedAsDouble() {
         given:
-        final Double DOUBLE2PERTURB = 42.0
-        BytePerturbationFunction toggleBits = new ToggleBits(DOUBLE2PERTURB)
+        final def DOUBLE2PERTURB = 42.0
+        def toggleBits = new ToggleBits(DOUBLE2PERTURB as Double)
 
         when:
-        String result = toggleBits.asString()
+        def result = toggleBits.asString()
 
         then:
         DOUBLE2PERTURB != result
@@ -46,22 +46,22 @@ class ToggleBitsSpec extends Specification {
 
     def shouldToggleBitsAndReturnAsDoubleWhenDigitIsPassedAsDouble() {
         given:
-        final Double DOUBLE2PERTURB = 42.0
-        BytePerturbationFunction toggleBits = new ToggleBits(DOUBLE2PERTURB)
+        final def DOUBLE2PERTURB = 42.0
+        def toggleBits = new ToggleBits(DOUBLE2PERTURB as Double)
 
         when:
-        Double result = toggleBits.asDouble()
+        def result = toggleBits.asDouble()
 
         then:
         DOUBLE2PERTURB != result
-        new Double("-4.6311077918204232E18") == result
+        "-4.6311077918204232E18" as Double == result
     }
 
 
     def shouldToggleBitsAndReturnAsLongWhenDigitIsPassedAsDouble() {
         given:
-        final Double DOUBLE2PERTURB = 42.0
-        BytePerturbationFunction toggleBits = new ToggleBits(DOUBLE2PERTURB)
+        final def DOUBLE2PERTURB = 42.0
+        def toggleBits = new ToggleBits(DOUBLE2PERTURB as Double)
 
         when:
         long result = toggleBits.asLong()
