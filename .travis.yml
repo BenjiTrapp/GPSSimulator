@@ -7,7 +7,7 @@ before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
 script:
-  - ./gradlew assemble
+  - ./gradlew build
 addons:
   code_climate:
     repo_token: 60efbcc7bc5ac4ead3fc4bdb6bf34e6c006fa4c7201ca59f7833426fd251b6b4

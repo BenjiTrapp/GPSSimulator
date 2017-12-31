@@ -1,7 +1,6 @@
 package gps.generator.datagen_tasks;
 
 import java.text.DecimalFormat;
-import java.util.Map;
 import java.util.Random;
 import java.util.TimerTask;
 
@@ -24,6 +23,9 @@ import static gps.generator.GPSGenEnumHolder.Patterns.*;
  * @author Benjamin Trapp
  */
 public class DataGenTask extends TimerTask {
+    private static final String LATITUDE_LONGITUDE_PATTERN = "0000.0000";
+    private static final String VELOCITY_PATTERN = "000.0";
+    private static final String ALTITUDE_PATTERN = "###0.0";
     private Random rnd = new Random();
     private DecimalFormat format = new DecimalFormat();
     private DataGenTaskObjectHolder dataGenTaskObjectHolder;
@@ -188,26 +190,21 @@ public class DataGenTask extends TimerTask {
 
         if (pattern == LATITUDE) {
             tmp = (rnd.nextInt(25) * 0.0001);
-            format.applyPattern("0000.0000");
+            format.applyPattern(LATITUDE_LONGITUDE_PATTERN);
         }
         if (pattern == LONGITUDE) {
             tmp = (rnd.nextInt(25) * 0.0001);
-            format.applyPattern("00000.0000");
+            format.applyPattern(LATITUDE_LONGITUDE_PATTERN);
         }
 
         if (pattern == VELOCITY) {
             tmp = (rnd.nextInt(10) * 0.01);
-            format.applyPattern("000.0");
+            format.applyPattern(VELOCITY_PATTERN);
         }
 
         if (pattern == ALTITUDE) {
             tmp = rnd.nextInt(25) * 0.01;
-            format.applyPattern("0000.0");
-        }
-
-        if (pattern == ALTITUDE) {
-            tmp = rnd.nextInt(25) * 0.01;
-            format.applyPattern("###0.0");
+            format.applyPattern(ALTITUDE_PATTERN);
         }
 
         if (pattern == DOP) {
