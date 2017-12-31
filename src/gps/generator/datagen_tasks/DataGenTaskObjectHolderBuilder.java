@@ -3,6 +3,7 @@ package gps.generator.datagen_tasks;
 import java.util.*;
 
 import static gps.generator.GPSGenEnumHolder.*;
+import static gps.generator.GPSGenEnumHolder.Patterns.*;
 
 public class DataGenTaskObjectHolderBuilder {
     private Map<Patterns, Modes> dataGenTaskValues;
@@ -10,12 +11,11 @@ public class DataGenTaskObjectHolderBuilder {
     private DataGenTaskObjectHolder dataGenTaskObjectHolder;
 
     public DataGenTaskObjectHolderBuilder(){
-        this.dataGenTaskValues = Collections.synchronizedMap(new HashMap<>());
-        this.dataGenTaskValues.put(Patterns.LATITUDE, null);
-        this.dataGenTaskValues.put(Patterns.LONGITUDE, null);
-        this.dataGenTaskValues.put(Patterns.ALTITUDE, null);
-        this.dataGenTaskValues.put(Patterns.VELOCITY, null);
-        this.dataGenTaskValues.put(Patterns.DOP, null);
+        this.dataGenTaskValues = Collections.synchronizedMap(new HashMap<Patterns, Modes>(){{put(LATITUDE, null);
+                                                                                             put(LONGITUDE, null);
+                                                                                             put(ALTITUDE, null);
+                                                                                             put(VELOCITY, null);
+                                                                                             put(DOP, null); }});
         this.dataGenTaskObjectHolder = new  DataGenTaskObjectHolder(dataGenTaskValues, angleUnit);
     }
 

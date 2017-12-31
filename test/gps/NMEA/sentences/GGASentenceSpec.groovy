@@ -11,7 +11,6 @@ class GGASentenceSpec extends Specification {
 
     def cleanup(){ GPSData.reinitialize() }
 
-
     def "Should use default sentence when status is V"() {
         given:
         GPSData.setStatus(V)
@@ -24,7 +23,6 @@ class GGASentenceSpec extends Specification {
         that result, containsString("\$GPGGA")
         that result, containsString(",,,,,,,,,,,,,*7A")
     }
-
 
     def shouldBuildValidGGASentenceWhenStatusIsA() {
         given:
@@ -46,7 +44,6 @@ class GGASentenceSpec extends Specification {
         that result, containsString(",M,0,M,,")
         that result, containsString("*")
     }
-
 
     def shouldCreateValidGGASentence() {
         given:

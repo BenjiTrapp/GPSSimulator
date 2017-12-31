@@ -27,7 +27,6 @@ idea {
     }
 }
 
-
 sourceSets {
     main {
         java {

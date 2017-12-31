@@ -14,15 +14,13 @@ public class DataGenTaskObjectHolder {
         this.angleUnit = angleUnit;
     }
 
-    Map<GPSGenEnumHolder.Patterns, GPSGenEnumHolder.Modes> getDataGenTaskValues() {
-        return dataGenTaskValues;
-    }
-
     public synchronized GPSGenEnumHolder.Modes getMode(GPSGenEnumHolder.Patterns pattern){
+        assert pattern != null;
         return this.dataGenTaskValues.get(pattern);
     }
 
     synchronized void setDataGenTaskValues(GPSGenEnumHolder.Patterns pattern, GPSGenEnumHolder.Modes mode){
+        assert pattern != null && mode != null;
         this.dataGenTaskValues.replace(pattern, mode);
     }
 
