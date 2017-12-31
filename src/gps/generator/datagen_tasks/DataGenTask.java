@@ -26,6 +26,10 @@ public class DataGenTask extends TimerTask {
     private static final String LATITUDE_LONGITUDE_PATTERN = "0000.0000";
     private static final String VELOCITY_PATTERN = "000.0";
     private static final String ALTITUDE_PATTERN = "###0.0";
+    private static final int BOUND_25 = 25;
+    private static final int BOUND_10 = 10;
+    private static final int BOUND_90 = 90;
+    private static final int BOUND_100 = 100;
     private Random rnd = new Random();
     private DecimalFormat format = new DecimalFormat();
     private DataGenTaskObjectHolder dataGenTaskObjectHolder;
@@ -140,7 +144,7 @@ public class DataGenTask extends TimerTask {
      * cardinal direction
      */
     private void generateRandomCardinalDirections() {
-        int tmp = rnd.nextInt(100);
+        int tmp = rnd.nextInt(BOUND_100);
 
         if (tmp >= 0 && tmp < 25) GPSData.setNS(CardinalDirections.NORTH);
         if (tmp >= 25 && tmp < 50) GPSData.setEW(CardinalDirections.EAST);
@@ -156,22 +160,22 @@ public class DataGenTask extends TimerTask {
     private void generateRandomCourse(AngleUnits angleUnit) {
         if (angleUnit == AngleUnits.RADIAL) {
             if (GPSData.getNS() == CardinalDirections.NORTH && GPSData.getEW() == CardinalDirections.EAST)
-                GPSData.setCourse(rnd.nextInt(90));
+                GPSData.setCourse(rnd.nextInt(BOUND_90));
             if (GPSData.getNS() == CardinalDirections.SOUTH && GPSData.getEW() == CardinalDirections.EAST)
-                GPSData.setCourse(rnd.nextInt(90) + 90);
+                GPSData.setCourse(rnd.nextInt(BOUND_90) + 90);
             if (GPSData.getNS() == CardinalDirections.SOUTH && GPSData.getEW() == CardinalDirections.WEST)
-                GPSData.setCourse(rnd.nextInt(90) + 180);
+                GPSData.setCourse(rnd.nextInt(BOUND_90) + 180);
             if (GPSData.getNS() == CardinalDirections.NORTH && GPSData.getEW() == CardinalDirections.WEST)
-                GPSData.setCourse(rnd.nextInt(90) + 270);
+                GPSData.setCourse(rnd.nextInt(BOUND_90) + 270);
         } else {
             if (GPSData.getNS() == CardinalDirections.NORTH && GPSData.getEW() == CardinalDirections.EAST)
-                GPSData.setCourse(rnd.nextInt(100));
+                GPSData.setCourse(rnd.nextInt(BOUND_100));
             if (GPSData.getNS() == CardinalDirections.SOUTH && GPSData.getEW() == CardinalDirections.EAST)
-                GPSData.setCourse(rnd.nextInt(100) + 100);
+                GPSData.setCourse(rnd.nextInt(BOUND_100) + 100);
             if (GPSData.getNS() == CardinalDirections.SOUTH && GPSData.getEW() == CardinalDirections.WEST)
-                GPSData.setCourse(rnd.nextInt(100) + 200);
+                GPSData.setCourse(rnd.nextInt(BOUND_100) + 200);
             if (GPSData.getNS() == CardinalDirections.NORTH && GPSData.getEW() == CardinalDirections.WEST)
-                GPSData.setCourse(rnd.nextInt(100) + 300);
+                GPSData.setCourse(rnd.nextInt(BOUND_100) + 300);
         }
     }
 
@@ -189,21 +193,21 @@ public class DataGenTask extends TimerTask {
         double tmp = -1.0;
 
         if (pattern == LATITUDE) {
-            tmp = (rnd.nextInt(25) * 0.0001);
+            tmp = (rnd.nextInt(BOUND_25) * 0.0001);
             format.applyPattern(LATITUDE_LONGITUDE_PATTERN);
         }
         if (pattern == LONGITUDE) {
-            tmp = (rnd.nextInt(25) * 0.0001);
+            tmp = (rnd.nextInt(BOUND_25) * 0.0001);
             format.applyPattern(LATITUDE_LONGITUDE_PATTERN);
         }
 
         if (pattern == VELOCITY) {
-            tmp = (rnd.nextInt(10) * 0.01);
+            tmp = (rnd.nextInt(BOUND_10) * 0.01);
             format.applyPattern(VELOCITY_PATTERN);
         }
 
         if (pattern == ALTITUDE) {
-            tmp = rnd.nextInt(25) * 0.01;
+            tmp = rnd.nextInt(BOUND_25) * 0.01;
             format.applyPattern(ALTITUDE_PATTERN);
         }
 
