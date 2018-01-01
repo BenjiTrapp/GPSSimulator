@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.TimerTask;
 
 import gps.data.GPSData;
+import gps.generator.GPSGenEnumHolder;
 import gps.generator.GPSGenEnumHolder.AngleUnits;
 import gps.generator.GPSGenEnumHolder.Modes;
 import gps.generator.GPSGenEnumHolder.Patterns;
@@ -26,10 +27,12 @@ public class DataGenTask extends TimerTask {
     private static final String LATITUDE_LONGITUDE_PATTERN = "0000.0000";
     private static final String VELOCITY_PATTERN = "000.0";
     private static final String ALTITUDE_PATTERN = "###0.0";
-    private static final int BOUND_25 = 25;
     private static final int BOUND_10 = 10;
+    private static final int BOUND_15 = 15;
+    private static final int BOUND_25 = 25;
     private static final int BOUND_90 = 90;
     private static final int BOUND_100 = 100;
+    private static final int BOUND_12 = 12;
     private Random rnd = new Random();
     private DecimalFormat format = new DecimalFormat();
     private DataGenTaskObjectHolder dataGenTaskObjectHolder;
@@ -119,7 +122,7 @@ public class DataGenTask extends TimerTask {
      * Generates a random amount of "currently" available satellites (0 to 12)
      */
     private void generateRandomSatellites() {
-        int tmp = rnd.nextInt(12);
+        int tmp = rnd.nextInt(BOUND_12);
         StringBuilder s = new StringBuilder();
 
         if (tmp < 10)
@@ -190,53 +193,52 @@ public class DataGenTask extends TimerTask {
      */
     private String randomDoubleDigit(String digit, Modes mode, Patterns pattern) {
         double var = Double.parseDouble(digit);
-        double tmp = -1.0;
-
-        if (pattern == LATITUDE) {
-            tmp = (rnd.nextInt(BOUND_25) * 0.0001);
-            format.applyPattern(LATITUDE_LONGITUDE_PATTERN);
-        }
-        if (pattern == LONGITUDE) {
-            tmp = (rnd.nextInt(BOUND_25) * 0.0001);
-            format.applyPattern(LATITUDE_LONGITUDE_PATTERN);
-        }
-
-        if (pattern == VELOCITY) {
-            tmp = (rnd.nextInt(BOUND_10) * 0.01);
-            format.applyPattern(VELOCITY_PATTERN);
-        }
-
-        if (pattern == ALTITUDE) {
-            tmp = rnd.nextInt(BOUND_25) * 0.01;
-            format.applyPattern(ALTITUDE_PATTERN);
-        }
-
-        if (pattern == DOP) {
-            tmp = rnd.nextInt(15) * 0.01;
-            format.applyPattern("0.0");
-        }
+        double tmpVarWithPattern = dispatchPattern(pattern);
 
         switch (mode) {
-            case ASCENDING:     var += tmp;
+            case ASCENDING:     var += tmpVarWithPattern;
                                 break;
 
-            case DESCENDING:    var -= tmp;
+            case DESCENDING:    var -= tmpVarWithPattern;
                                 break;
 
             case RANDOM:        if (((int) (Math.random() * 10)) % 2 == 0)
-                                    var += tmp;
+                                    var += tmpVarWithPattern;
                                 else
-                                    var -= tmp;
+                                    var -= tmpVarWithPattern;
                                 break;
 
-            default:            System.err.println("INVALID MODE");
+            case MOCK:          System.err.println("WARNING: Running in mock mode");
                                 break;
+            default:            throw new IllegalArgumentException("INVALID MODE");
         }
 
-        //Avoid negative numbers
+        return format.format(avoidNegativeValues(var)).replace(",", ".");
+    }
+
+    public double avoidNegativeValues(double var) {
         if (var <= 0.5)
             var = 0.5 + (rnd.nextInt(9) * 0.1);
+        return var;
+    }
 
-        return format.format(var).replace(",", ".");
+    public double dispatchPattern(Patterns pattern) {
+        switch (pattern){
+            case LATITUDE:      format.applyPattern(LATITUDE_LONGITUDE_PATTERN);
+                                return rnd.nextInt(BOUND_25) * 0.0001;
+
+            case LONGITUDE:     format.applyPattern(LATITUDE_LONGITUDE_PATTERN);
+                                return rnd.nextInt(BOUND_25) * 0.0001;
+
+            case VELOCITY:      format.applyPattern(VELOCITY_PATTERN);
+                                return rnd.nextInt(BOUND_10) * 0.01;
+
+            case ALTITUDE:      format.applyPattern(ALTITUDE_PATTERN);
+                                return rnd.nextInt(BOUND_25) * 0.01;
+
+            case DOP:           format.applyPattern("0.0");
+                                return rnd.nextInt(BOUND_15) * 0.01;
+            default:            throw new IllegalArgumentException("The passed pattern was invalid");
+        }
     }
 }

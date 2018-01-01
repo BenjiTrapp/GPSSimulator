@@ -1,12 +1,14 @@
 package gps.generator.datagen_tasks
 
+import spock.lang.Unroll
+
+import static gps.generator.GPSGenEnumHolder.Patterns.*
 import spock.lang.Specification
 
 class DataGenTaskSpec extends Specification{
     private def mockHolder = Mock(DataGenTaskObjectHolder.class)
 
-
-    def shouldReturnAProperInstance(){
+    def "Should return a proper instance"(){
         when:
         def instance = DataGenTask.getInstance(mockHolder)
 
@@ -17,22 +19,44 @@ class DataGenTaskSpec extends Specification{
         0 * _
     }
 
-  /*  def bla2(){
+    @Unroll
+    def "Should dispatch the pattern as assumed"(){
         given:
-        DataGenTask instance = DataGenTask.getInstance(mockHolder)
-        when(mockHolder.getMode(any())).thenReturn(GPSGenEnumHolder.Modes.MOCK)
-        when(mockHolder.getMode(GPSGenEnumHolder.Patterns.LATITUDE)).thenReturn(GPSGenEnumHolder.Modes.MOCK)
-        when(mockHolder.getMode(GPSGenEnumHolder.Patterns.LONGITUDE)).thenReturn(GPSGenEnumHolder.Modes.MOCK)
-        when(mockHolder.getMode(GPSGenEnumHolder.Patterns.ALTITUDE)).thenReturn(GPSGenEnumHolder.Modes.MOCK)
-        when(mockHolder.getMode(GPSGenEnumHolder.Patterns.VELOCITY)).thenReturn(GPSGenEnumHolder.Modes.MOCK)
-        when(mockHolder.getAngleUnit()).thenReturn(GPSGenEnumHolder.AngleUnits.GON)
+        def task = DataGenTask.getInstance(mockHolder)
 
         when:
-        instance.run();
+        def result = task.dispatchPattern(pattern)
 
         then:
-        verify(mockHolder, atLeastOnce()).getMode(any());
-        verify(mockHolder, atLeastOnce()).getAngleUnit();
+        result >= 0
+        result < 1
+
+        where:
+        pattern     || _
+        LATITUDE    || _
+        LONGITUDE   || _
+        VELOCITY    || _
+        ALTITUDE    || _
+        DOP         || _
     }
-*/
+
+    def "Should avoid negative numbers as Result"(){
+        given:
+        def task = DataGenTask.getInstance(mockHolder)
+
+        when:
+        def result = task.avoidNegativeValues(digit as double)
+
+        then:
+        result >= 0
+
+        where:
+        digit || _
+        1     || _
+        0.5   || _
+        0     || _
+        -1    || _
+        -42   || _
+    }
+
 }

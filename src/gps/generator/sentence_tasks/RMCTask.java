@@ -22,11 +22,7 @@ public class RMCTask extends TimerTask
 	 * CAUTION: Don't use this Constructor! This Class needs an instance of a
 	 * StringWriter to obtain its full functionality
 	 */
-	public RMCTask()
-	{
-		throw new UnsupportedOperationException(
-				"This class needs an instance of a StringWriter");
-	}
+	public RMCTask() { throw new UnsupportedOperationException("This class needs an instance of a StringWriter"); }
 
 	/**
 	 * Generates a new TimerTask that sends the generated GPGGA Sentence to the

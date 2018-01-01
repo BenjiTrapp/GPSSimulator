@@ -37,7 +37,6 @@ public final class GPSData
 	private static String pdop = "2.8";
 	private static String hdop = "2.0";
 	private static String vdop = "2.4";
-	private static String track = "0.7";
 	private static Modes mode = SIMULATION;
 	
 	/**

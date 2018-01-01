@@ -28,8 +28,8 @@ public class TwoWaySerialComm {
             InputStream in = serialPort.getInputStream();
             OutputStream out = serialPort.getOutputStream();
 
-            (new Thread(new SerialReader(in))).start();
-            (new Thread(new SerialWriter(out))).start();
+            new Thread(new SerialReader(in)).start();
+            new Thread(new SerialWriter(out)).start();
 
         } else {
             throw new PortUnreachableException("ERROR - Only serial ports are handled by this class");
