@@ -14,11 +14,11 @@ class GPSPositionHistoryBuilderSpec extends Specification {
         secondLastPost.setLatitude(1234.0 as Double)
 
         when:
-        GPSPositionHistory result = new GPSPositionHistoryBuilder().setType(GPGGA)
-                                                                   .setCurrentPosition(new GPSPosition())
-                                                                   .setLastPosition(new GPSPosition())
-                                                                   .setSecondLastPosition(secondLastPost)
-                                                                   .setThirdLastPosition(new GPSPosition())
+        GPSPositionHistory result = new GPSPositionHistoryBuilder().withType(GPGGA)
+                                                                   .withCurrentPosition(new GPSPosition())
+                                                                   .withLastPosition(new GPSPosition())
+                                                                   .withSecondLastPosition(secondLastPost)
+                                                                   .withThirdLastPosition(new GPSPosition())
                                                                    .build()
 
         then:
@@ -33,11 +33,11 @@ class GPSPositionHistoryBuilderSpec extends Specification {
         def positionBuilder = new GPSPositionHistoryBuilder()
 
         when:
-        positionBuilder.setType(type as NMEASentenceTypes)
-                .setCurrentPosition(currentPosition)
-                .setLastPosition(lastPostion)
-                .setSecondLastPosition(secondLastPostion)
-                .setThirdLastPosition(thirdLasstPosition)
+        positionBuilder.withType(type as NMEASentenceTypes)
+                .withCurrentPosition(currentPosition)
+                .withLastPosition(lastPostion)
+                .withSecondLastPosition(secondLastPostion)
+                .withThirdLastPosition(thirdLasstPosition)
                 .build()
         then:
         thrown(expectation)

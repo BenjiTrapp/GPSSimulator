@@ -9,31 +9,31 @@ public class GPSPositionHistoryBuilder {
     private GPSPosition thirdLastPosition;
     private NMEASentenceTypes type;
 
-    public GPSPositionHistoryBuilder setCurrentPosition(GPSPosition position){
+    public GPSPositionHistoryBuilder withCurrentPosition(GPSPosition position){
         assert position != null;
         this.currentPosition = position;
         return this;
     }
 
-    public GPSPositionHistoryBuilder setLastPosition(GPSPosition position){
+    public GPSPositionHistoryBuilder withLastPosition(GPSPosition position){
         assert position != null;
         this.lastPosition = position;
         return this;
     }
 
-    public GPSPositionHistoryBuilder setSecondLastPosition(GPSPosition position){
+    public GPSPositionHistoryBuilder withSecondLastPosition(GPSPosition position){
         assert position != null;
         this.secondLastPosition = position;
         return this;
     }
 
-    public GPSPositionHistoryBuilder setThirdLastPosition(GPSPosition position){
+    public GPSPositionHistoryBuilder withThirdLastPosition(GPSPosition position){
         assert position != null;
         this.thirdLastPosition = position;
         return this;
     }
 
-    public GPSPositionHistoryBuilder setType(NMEASentenceTypes type){
+    public GPSPositionHistoryBuilder withType(NMEASentenceTypes type){
         this.type = type;
         return this;
     }
@@ -45,11 +45,9 @@ public class GPSPositionHistoryBuilder {
         assert thirdLastPosition != null;
         assert type != null;
 
-        GPSPositionHistory tmp = new GPSPositionHistory(type);
-        tmp.addCurrentPosition(currentPosition);
-        tmp.addSecondLastPosition(secondLastPosition);
-        tmp.addThirdLastPosition(thirdLastPosition);
-
-        return tmp;
+        return new GPSPositionHistory(type){{ addCurrentPosition(currentPosition);
+                                              addSecondLastPosition(secondLastPosition);
+                                              addThirdLastPosition(thirdLastPosition);
+        }};
     }
 }

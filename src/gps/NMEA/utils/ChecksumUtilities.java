@@ -7,6 +7,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+import java.util.stream.IntStream;
 
 public final class ChecksumUtilities {
     private static final int ASTERISK_POSITION_FROM_CHECKSUM = 3;
@@ -91,13 +92,13 @@ public final class ChecksumUtilities {
         assert nmeaSentence.startsWith(NMEA_SENTENCE_INITIALIZER);
         assert !nmeaSentence.contains(Character.toString(CHECKSUM_ASTERISK_DELIMITER));
 
-        int checksum = 0;
-        String checksumResult;
+        int checksum;
 
-        for (int i = IGNORE_FIRST_TOKEN; i < nmeaSentence.length(); i++)
-            checksum ^= nmeaSentence.charAt(i);
+        checksum = IntStream.range(IGNORE_FIRST_TOKEN, nmeaSentence.length())
+                            .map(nmeaSentence::charAt)
+                            .reduce(0, (a, b) -> a ^ b);
 
-        checksumResult = Integer.toHexString(checksum).toUpperCase();
+        String checksumResult = Integer.toHexString(checksum).toUpperCase();
 
         if (checksumResult.length() < CHECKSUM_HEX_LENGTH)
             checksumResult = "0" + checksumResult;

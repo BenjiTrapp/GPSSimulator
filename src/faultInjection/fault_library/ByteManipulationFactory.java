@@ -3,6 +3,7 @@ package faultInjection.fault_library;
 import faultInjection.fault_library.byte_manipulation.*;
 import faultInjection.fault_library.modes.BitShiftByteManipulationModes;
 import faultInjection.fault_library.modes.ByteManipulationModes;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -24,6 +25,11 @@ public class ByteManipulationFactory {
         assert var != null;
         assert !Objects.equals(var, "");
 
+        return dispatchMode(mode, var);
+    }
+
+    @NotNull
+    private BytePerturbationFunction dispatchMode(ByteManipulationModes mode, String var) {
         switch (mode){
             case RANDOM_BITS: return new RandomPattern(var);
             case OFF_BY_ONE:  return  new OffByOne(var);
@@ -37,11 +43,6 @@ public class ByteManipulationFactory {
         assert mode != null;
         assert var != null;
 
-        switch (mode) {
-            case RANDOM_BITS:  return new RandomPattern(var);
-            case OFF_BY_ONE:   return new OffByOne(var);
-            case TOGGLE_BITS:  return new ToggleBits(var);
-            default:           throw new IllegalArgumentException("Mode couldn't be validated");
-        }
+        return dispatchMode(mode, var.toString());
     }
 }

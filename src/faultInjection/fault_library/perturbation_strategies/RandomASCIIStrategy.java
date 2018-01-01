@@ -10,7 +10,7 @@ import java.util.Random;
 @PerturbationFunction(PerturbationModes.RANDOM_ASCII)
 public final class RandomASCIIStrategy extends AbstractPerturbationStrategy {
 
-    public static final int MAX_ASCII_TOKENS = 255;
+    private static final int MAX_ASCII_TOKENS = 255;
 
     public RandomASCIIStrategy() {super(PerturbationModes.RANDOM_ASCII);}
 

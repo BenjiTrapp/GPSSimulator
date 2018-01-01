@@ -159,7 +159,7 @@ public class GPSPosition
 	public String toString()
 	{
 		return String.format("Latitude: %.2f | Longitude: %.2f | Time: %.0f | Quality: %.4f | Direction: %.4f | Altitude: %.4f | velocity: %.4f",
-						latitude, longitude, time, quality, direction, altitude, velocity);
+                             latitude, longitude, time, quality, direction, altitude, velocity);
 	}
 	
 	/**
@@ -167,32 +167,20 @@ public class GPSPosition
 	 * @param that object that shall be used for checking equality to this object
 	 * @return true if the objects are equal else false
 	 */
-	boolean isEqual(GPSPosition that)
-	{
-		if(this.equals(that))
-		{
-			if(Objects.equals(this.altitude, that.altitude)
-					&& Objects.equals(this.latitude, that.latitude)
-					&& Objects.equals(this.longitude, that.longitude)
-					&& Objects.equals(this.direction, that.direction)
-					&& Objects.equals(this.quality, that.quality)
-					&& Objects.equals(this.time, that.time)
-					&& Objects.equals(this.velocity, that.velocity)
-					&& this.fixed == that.fixed)
-				return true;
-		}
-		return false;		
+	boolean isEqual(GPSPosition that) {
+		return this.equals(that) && Objects.equals(this.altitude, that.altitude)
+								 && Objects.equals(this.latitude, that.latitude)
+								 && Objects.equals(this.longitude, that.longitude)
+								 && Objects.equals(this.direction, that.direction)
+					             && Objects.equals(this.quality, that.quality)
+						 		 && Objects.equals(this.time, that.time)
+						         && Objects.equals(this.velocity, that.velocity)
+								 && this.fixed == that.fixed;
 	}
 
-	public boolean isBasicPositionEqual(GPSPosition that)
-	{
-		if(this.equals(that))
-		{
-			if(Objects.equals(this.altitude, that.altitude)
-					&& Objects.equals(this.latitude, that.latitude)
-					&& Objects.equals(this.longitude, that.longitude))
-				return true;
-		}
-		return false;
-	}
+	public boolean isBasicPositionEqual(GPSPosition that) {
+        return this.equals(that) && Objects.equals(this.altitude, that.altitude)
+                                 && Objects.equals(this.latitude, that.latitude)
+                                 && Objects.equals(this.longitude, that.longitude);
+    }
 }
