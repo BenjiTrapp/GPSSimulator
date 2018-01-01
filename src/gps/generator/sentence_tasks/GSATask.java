@@ -1,7 +1,6 @@
 package gps.generator.sentence_tasks;
 
 import communication.StringWriter;
-import gps.NMEA.sentences.GGASentence;
 import gps.NMEA.sentences.GSASentence;
 import org.jetbrains.annotations.NotNull;
 

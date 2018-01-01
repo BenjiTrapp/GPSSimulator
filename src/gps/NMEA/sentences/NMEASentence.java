@@ -2,7 +2,6 @@ package gps.NMEA.sentences;
 
 import java.text.SimpleDateFormat;
 
-import gps.NMEA.utils.ChecksumUtilities;
 import gps.data.GPSData;
 
 /**

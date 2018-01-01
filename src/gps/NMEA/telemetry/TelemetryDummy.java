@@ -1,6 +1,3 @@
-/**
- * 
- */
 package gps.NMEA.telemetry;
 
 import gps.NMEA.exceptions.InvalidChecksumException;

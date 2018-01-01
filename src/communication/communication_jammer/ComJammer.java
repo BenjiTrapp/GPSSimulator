@@ -1,6 +1,3 @@
-/**
- *
- */
 package communication.communication_jammer;
 
 import java.io.IOException;

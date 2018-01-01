@@ -1,7 +1,6 @@
 package gps.NMEA.sentences;
 
 import gps.data.GPSData;
-import gps.data.GPSDataEnumHolder.Status;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +85,7 @@ public class GSASentence implements NMEASentence
         Random rnd = new Random();
         List<Integer> processedSatellites = new ArrayList<>();
         String[] s = new String[MAX_SATELLITES];
-        String result = "";
+        StringBuilder result = new StringBuilder();
         int i = 0;
 
         for(int x = 0; x < MAX_SATELLITES; x++){s[x] = DELIMITER;}
@@ -102,8 +101,9 @@ public class GSASentence implements NMEASentence
             }
         } while (i != currentSatellites && i < ABORT_CNT);
 
-        for(int x = 0; x < MAX_SATELLITES; x++){result += s[x];}
+        for(int x = 0; x < MAX_SATELLITES; x++){
+            result.append(s[x]);}
 
-        return result;
+        return result.toString();
     }
 }

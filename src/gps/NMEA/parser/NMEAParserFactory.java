@@ -1,8 +1,6 @@
 package gps.NMEA.parser;
 
 import gps.NMEA.parser.hardening_functions.HardeningStrategy;
-import gps.NMEA.sentences.NMEASentenceTypes;
-import gps.NMEA.sentences.RMCSentence;
 import gps.NMEA.telemetry.TelemetryDummy;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;

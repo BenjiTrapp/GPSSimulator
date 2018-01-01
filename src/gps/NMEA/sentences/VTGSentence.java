@@ -2,7 +2,6 @@ package gps.NMEA.sentences;
 
 import static gps.NMEA.sentences.NMEASentenceTypes.GPVTG;
 import static gps.data.GPSData.*;
-import static gps.data.GPSData.getCourse;
 import static gps.data.GPSDataEnumHolder.*;
 
 /**

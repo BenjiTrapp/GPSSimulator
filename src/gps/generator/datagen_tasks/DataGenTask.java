@@ -5,7 +5,6 @@ import java.util.Random;
 import java.util.TimerTask;
 
 import gps.data.GPSData;
-import gps.generator.GPSGenEnumHolder;
 import gps.generator.GPSGenEnumHolder.AngleUnits;
 import gps.generator.GPSGenEnumHolder.Modes;
 import gps.generator.GPSGenEnumHolder.Patterns;

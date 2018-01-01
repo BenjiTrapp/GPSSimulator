@@ -17,8 +17,6 @@ import gps.generator.datagen_tasks.DataGenTask;
  */
 public class PerturbedGPSGenerator {
     private Timer timer;
-    private Random rnd;
-    private ComJammer jammerInstance = null;
     private GGASentence ggaSentence = new GGASentence();
     private RMCSentence rmcSentence = new RMCSentence();
     private final static int MIN_RMC_GEN_TIME = 500;
@@ -30,9 +28,9 @@ public class PerturbedGPSGenerator {
      * @param period Period for in which the DataGenTask shall modify the Data
      */
     public PerturbedGPSGenerator(DataGenTask task, int period, ComJammer jammerInstance) {
-        rnd = new Random();
+        Random rnd = new Random();
         timer = new Timer();
-        this.jammerInstance = jammerInstance;
+        ComJammer jammerInstance1 = jammerInstance;
         timer.scheduleAtFixedRate(task, 0, period);
     }
 

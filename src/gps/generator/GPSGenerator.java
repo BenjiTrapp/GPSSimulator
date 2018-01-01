@@ -19,7 +19,7 @@ import gps.generator.sentence_tasks.VTGTask;
  */
 public class GPSGenerator {
     private Timer timer = new Timer();
-    private StringWriter strWriter = null;
+    private StringWriter strWriter;
     private Random rnd = new Random();
     private static final int ZERO_DELAY = 0;
     private final static int ONE_MHz = 1000;

@@ -1,7 +1,6 @@
 package gps.NMEA.parser.sentences;
 
 import gps.NMEA.gps_position.GPSPosition;
-import gps.NMEA.gps_position.GPSPositionBuilder;
 import gps.NMEA.sentences.NMEASentenceTypes;
 
 /**

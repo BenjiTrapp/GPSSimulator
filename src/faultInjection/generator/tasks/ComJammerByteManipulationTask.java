@@ -4,7 +4,6 @@ import java.util.TimerTask;
 
 import communication.communication_jammer.ComJammer;
 import faultInjection.ByteManipulationCascade;
-import gps.NMEA.sentences.GGASentence;
 
 /**
  * This Class is determined for the use in Combination with 
