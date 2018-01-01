@@ -45,9 +45,9 @@ public class CallbackCountDownBuilder {
 
             @Override
             public void run() {
-                if (count > 0) {count--;}
-
-                if (count <= 0) {
+                if (count > 0) {
+                    count--;
+                } else {
                     event.notifyToPerturb();
                     timer.cancel();
                 }

@@ -1,6 +1,3 @@
-/**
- *
- */
 package communication;
 
 import org.jetbrains.annotations.NotNull;
@@ -66,13 +63,10 @@ public class StringWriter extends AComModule {
      * @param socket Socket that the StringReader shall use
      * @return true if the initialization was done else false
      */
-    public static boolean initInstance(Socket socket) {
+    public static void initInstance(Socket socket) {
         if (StringWriter.socket != null) {
             StringWriter.socket = socket;
-            return true;
         }
-
-        return false;
     }
 
     @Override

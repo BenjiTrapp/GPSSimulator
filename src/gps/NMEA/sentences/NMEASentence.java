@@ -13,6 +13,11 @@ import gps.data.GPSData;
  */
 @FunctionalInterface
 public interface NMEASentence {
+
+    String TIME_PATTERN = "HHmmss";
+    String DATE_PATTERN = "ddMMYY";
+    int SIXTY_SECONDS = 60;
+
     /**
      * Gets the gps.NMEA Sentence of it`s specific back
      *
@@ -26,9 +31,7 @@ public interface NMEASentence {
      * @return time stamp as String
      */
     default String getTimestamp() {
-        SimpleDateFormat timeStamp = new SimpleDateFormat("HHmmss");
-
-        return timeStamp.format(new java.sql.Timestamp(System.currentTimeMillis()));
+        return  new SimpleDateFormat(TIME_PATTERN).format(new java.sql.Timestamp(System.currentTimeMillis()));
     }
 
     /**
@@ -37,9 +40,7 @@ public interface NMEASentence {
      * @return time stamp as String
      */
     default String getDatetime() {
-        SimpleDateFormat dateStamp = new SimpleDateFormat("ddMMYY");
-
-        return dateStamp.format(new java.sql.Timestamp(System.currentTimeMillis()));
+        return  new SimpleDateFormat(DATE_PATTERN).format(new java.sql.Timestamp(System.currentTimeMillis()));
     }
 
     /**
@@ -50,9 +51,9 @@ public interface NMEASentence {
      */
     default double getNMEALatitude() {
         double degree = (int) Double.parseDouble(GPSData.getLatitude());
-        double minute = (int) (Double.parseDouble(GPSData.getLatitude()) * 60 - degree * 60);
-        double second = (Double.parseDouble(GPSData.getLatitude())) * 60
-                        - (int) (Double.parseDouble((GPSData.getLatitude())) * 60);
+        double minute = (int) (Double.parseDouble(GPSData.getLatitude()) * SIXTY_SECONDS - degree * SIXTY_SECONDS);
+        double second = (Double.parseDouble(GPSData.getLatitude())) * SIXTY_SECONDS
+                         - (int) (Double.parseDouble((GPSData.getLatitude())) * SIXTY_SECONDS);
 
         return (double) Math.round((degree * 100 + minute + second) * 100) / 100;
     }
@@ -65,9 +66,9 @@ public interface NMEASentence {
      */
     default double getNMEALongitude() {
         double degree = (int) Double.parseDouble(GPSData.getLongitude());
-        double minute = (int) (Double.parseDouble(GPSData.getLongitude()) * 60 - degree * 60);
-        double second = Double.parseDouble(GPSData.getLongitude()) * 60
-                - (int) (Double.parseDouble(GPSData.getLongitude()) * 60);
+        double minute = (int) (Double.parseDouble(GPSData.getLongitude()) * SIXTY_SECONDS - degree * SIXTY_SECONDS);
+        double second = Double.parseDouble(GPSData.getLongitude()) * SIXTY_SECONDS
+                        - (int) (Double.parseDouble(GPSData.getLongitude()) * SIXTY_SECONDS);
 
         return (double) Math.round((degree * 100 + minute + second) * 100) / 100;
     }

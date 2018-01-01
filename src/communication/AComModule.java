@@ -20,14 +20,7 @@ import javax.management.InvalidApplicationException;
  */
 public abstract class AComModule
 {
-    /**
-     * Input Stream
-     */
 	BufferedReader inStream = null;
-    
-    /**
-     * Output Stream
-     */
 	OutputStream outStream = null;
     
     /**
@@ -38,7 +31,7 @@ public abstract class AComModule
 	{
 		try 
 		{
-			outStream = socket.getOutputStream();
+			this.outStream = socket.getOutputStream();
 		} catch (IOException e) 
 		  {
 			System.err.println("ERROR @ getOutputStream due to an IOException");
@@ -55,7 +48,7 @@ public abstract class AComModule
 		try 
 		{
 			Socket s = socket.accept();
-			inStream = new BufferedReader(new InputStreamReader(s.getInputStream()));
+			this.inStream = new BufferedReader(new InputStreamReader(s.getInputStream()));
 		} catch (IOException e) 
 		  {
 			System.err.println("ERROR @ in- /output Stream, IOException");
@@ -74,7 +67,6 @@ public abstract class AComModule
 		{
 			this.inStream.close();
 			this.outStream.close();
-			outStream.close();
 		} catch (Exception e)
 		{
 			System.exit(0);
