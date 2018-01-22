@@ -66,8 +66,8 @@ public class PerturbationBuilder {
 
     public ImmutableMap<PerturbationModes, Integer> getConfiguration() {
         return ImmutableMap.<PerturbationModes,Integer>builder().put(COUNT, count)
-                                                                .put(PERIOD, period)
-                                                                .put(DELAY, delay)
-                                                                .build();
+                                        .put(PERIOD, period)
+                                        .put(DELAY, delay)
+                                        .build();
     }
 }

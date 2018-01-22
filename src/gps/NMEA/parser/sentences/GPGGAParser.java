@@ -24,12 +24,11 @@ public class GPGGAParser implements NMEASentenceParser {
         assert tokens != null;
         assert tokens.length >= MAX_AMOUNT_OF_NEEDED_TOKENS;
 
-        return new GPSPositionBuilder()
-                .addTime(Double.valueOf(tokens[1]))
-                .addLatitude(Double.valueOf(tokens[2]))
-                .addLongitude(Double.valueOf(tokens[4]))
-                .addQuality(Double.valueOf(tokens[6]))
-                .addAltitude(Double.valueOf(tokens[9]))
-                .build();
+        return new GPSPositionBuilder().addTime(Double.valueOf(tokens[1]))
+                                       .addLatitude(Double.valueOf(tokens[2]))
+                                       .addLongitude(Double.valueOf(tokens[4]))
+                                       .addQuality(Double.valueOf(tokens[6]))
+                                       .addAltitude(Double.valueOf(tokens[9]))
+                                       .build();
     }
 }
