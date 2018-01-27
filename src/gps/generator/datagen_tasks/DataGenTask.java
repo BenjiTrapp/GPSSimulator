@@ -11,6 +11,7 @@ import gps.generator.GPSGenEnumHolder.Patterns;
 
 import static gps.data.GPSDataEnumHolder.*;
 import static gps.data.GPSDataEnumHolder.GPSFixTypes.*;
+import static gps.generator.GPSGenEnumHolder.AngleUnits.*;
 import static gps.generator.GPSGenEnumHolder.Patterns.*;
 
 /**
@@ -160,27 +161,30 @@ public class DataGenTask extends TimerTask {
      * @param angleUnit The Angle units can be changed to radial or gon
      */
     private void generateRandomCourse(AngleUnits angleUnit) {
-        if (angleUnit == AngleUnits.RADIAL) {
-            if (GPSData.getNS() == CardinalDirections.NORTH && GPSData.getEW() == CardinalDirections.EAST)
-                GPSData.setCourse(rnd.nextInt(BOUND_90));
-            if (GPSData.getNS() == CardinalDirections.SOUTH && GPSData.getEW() == CardinalDirections.EAST)
-                GPSData.setCourse(rnd.nextInt(BOUND_90) + 90);
-            if (GPSData.getNS() == CardinalDirections.SOUTH && GPSData.getEW() == CardinalDirections.WEST)
-                GPSData.setCourse(rnd.nextInt(BOUND_90) + 180);
-            if (GPSData.getNS() == CardinalDirections.NORTH && GPSData.getEW() == CardinalDirections.WEST)
-                GPSData.setCourse(rnd.nextInt(BOUND_90) + 270);
-        } else {
-            if (GPSData.getNS() == CardinalDirections.NORTH && GPSData.getEW() == CardinalDirections.EAST)
-                GPSData.setCourse(rnd.nextInt(BOUND_100));
-            if (GPSData.getNS() == CardinalDirections.SOUTH && GPSData.getEW() == CardinalDirections.EAST)
-                GPSData.setCourse(rnd.nextInt(BOUND_100) + 100);
-            if (GPSData.getNS() == CardinalDirections.SOUTH && GPSData.getEW() == CardinalDirections.WEST)
-                GPSData.setCourse(rnd.nextInt(BOUND_100) + 200);
-            if (GPSData.getNS() == CardinalDirections.NORTH && GPSData.getEW() == CardinalDirections.WEST)
-                GPSData.setCourse(rnd.nextInt(BOUND_100) + 300);
+        GPSData.setCourse(rnd.nextInt(dispatchBaseBoundBasedOnAngle(angleUnit)) + dispatchDirectionAndCreateOffset(angleUnit));
+    }
+
+    private int dispatchBaseBoundBasedOnAngle(AngleUnits angleUnit){
+        switch(angleUnit) {
+            case RADIAL:    return BOUND_90;
+            case GON:       return BOUND_100;
+            default:
+                throw new IllegalArgumentException("Unknown AngleUnit");
         }
     }
 
+    private int dispatchDirectionAndCreateOffset(AngleUnits angleUnit) {
+        if (GPSData.getNS() == CardinalDirections.NORTH && GPSData.getEW() == CardinalDirections.EAST)
+            return 0;
+        if (GPSData.getNS() == CardinalDirections.SOUTH && GPSData.getEW() == CardinalDirections.EAST)
+            return (angleUnit == RADIAL)? 90:100;
+        if (GPSData.getNS() == CardinalDirections.SOUTH && GPSData.getEW() == CardinalDirections.WEST)
+            return (angleUnit == RADIAL)? 180:200;
+        if (GPSData.getNS() == CardinalDirections.NORTH && GPSData.getEW() == CardinalDirections.WEST)
+            return (angleUnit == RADIAL)? 270:300;
+
+        throw new IllegalStateException("This state is not supposed to appear. Either NS oder EW is not set as assumed");
+    }
     /**
      * Generates a new random double digit depending on a passed String. The mode can be used to generate different types of
      * Random Digits. The pattern is used to set the format pattern for specific data types
