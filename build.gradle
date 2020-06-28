@@ -8,8 +8,8 @@ plugins {
 group = 'de.benjitrapp.gpssimulator'
 version = '1.0.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
 
 repositories {
     jcenter()
@@ -19,7 +19,7 @@ repositories {
 
 // https://gradle.org/docs/current/dsl/org.gradle.plugins.ide.idea.model.IdeaModule.html
 idea {
-    project { languageLevel = '1.8' }
+    project { languageLevel = '1.11' }
     module {
         inheritOutputDirs = false
         outputDir = file('/out/production/' + module.name)
@@ -46,6 +46,7 @@ sourceSets {
     }
 }
 
+
 dependencies {
     compile(
             'org.slf4j:slf4j-api:1.7.25',
@@ -58,7 +59,6 @@ dependencies {
             'org.pitest:pitest:1.1.11',
             'org.jboss.byteman:byteman-bmunit:4.0.0-BETA1',
             'org.jboss.byteman:byteman:4.0.0-BETA1',
-            'com.intellij:annotations:+@jar',
             'org.codehaus.groovy:groovy-all:2.4.10'
     )
 

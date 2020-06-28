@@ -1,7 +1,5 @@
 package communication;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -79,7 +77,7 @@ public abstract class AComModule
      * @throws InvalidApplicationException If the passed argument is null
      * @throws IOException In case of an error during writing the output stream
      */
-    public abstract void send(@NotNull String msg) throws InvalidApplicationException;
+    public abstract void send(String msg) throws InvalidApplicationException;
     
     /**
      * Receives a message 

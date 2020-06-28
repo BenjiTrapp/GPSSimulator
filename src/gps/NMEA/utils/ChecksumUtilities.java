@@ -1,7 +1,5 @@
 package gps.NMEA.utils;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -42,7 +40,7 @@ public final class ChecksumUtilities {
      * @param nmeaSentence The gps.NMEA Sentence that shall be checked
      * @return true if the checksum is valid, otherwise false
      */
-    public static synchronized boolean isChecksumValid(@NotNull String nmeaSentence) {
+    public static synchronized boolean isChecksumValid(String nmeaSentence) {
         assert !nmeaSentence.isEmpty();
         assert nmeaSentence.contains(Character.toString(CHECKSUM_ASTERISK_DELIMITER));
         assert nmeaSentence.contains(NMEA_SENTENCE_INITIALIZER);
@@ -77,7 +75,7 @@ public final class ChecksumUtilities {
         }
     }
 
-    private static char getChecksumDelimiterFromSentence(@NotNull String nmeaSentence) {
+    private static char getChecksumDelimiterFromSentence(String nmeaSentence) {
         return nmeaSentence.charAt(nmeaSentence.length() - ASTERISK_POSITION_FROM_CHECKSUM);
     }
 

@@ -3,7 +3,6 @@ package gps.generator.sentence_tasks;
 import communication.StringWriter;
 import gps.NMEA.sentences.NMEASentence;
 import gps.NMEA.sentences.VTGSentence;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.TimerTask;
 
@@ -37,7 +36,7 @@ public class VTGTask extends TimerTask
 	 *  StringWriter that shall be used
 	 *
 	 */
-	public VTGTask(@NotNull StringWriter strWriter)
+	public VTGTask(StringWriter strWriter)
 	{
 		this.strWriter = strWriter;
 	}

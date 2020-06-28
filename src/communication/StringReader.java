@@ -1,7 +1,5 @@
 package communication;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 /**
@@ -78,7 +76,7 @@ public class StringReader extends AComModule
 	 * 			Only "receive" is supported...
 	 */
 	@Override
-	public void send(@NotNull String msg)
+	public void send(String msg)
 	{
 		throw new UnsupportedOperationException();
 	}

@@ -3,7 +3,6 @@ package faultInjection.fault_library;
 import faultInjection.fault_library.byte_manipulation.*;
 import faultInjection.fault_library.modes.BitShiftByteManipulationModes;
 import faultInjection.fault_library.modes.ByteManipulationModes;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -28,7 +27,6 @@ public class ByteManipulationFactory {
         return dispatchMode(mode, var);
     }
 
-    @NotNull
     private BytePerturbationFunction dispatchMode(ByteManipulationModes mode, String var) {
         switch (mode){
             case RANDOM_BITS: return new RandomPattern(var);

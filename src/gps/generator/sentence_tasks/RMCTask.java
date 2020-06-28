@@ -1,10 +1,9 @@
 package gps.generator.sentence_tasks;
 
-import java.util.TimerTask;
-
 import communication.StringWriter;
 import gps.NMEA.sentences.RMCSentence;
-import org.jetbrains.annotations.NotNull;
+
+import java.util.TimerTask;
 
 /**
  * This Class is determined for the use in Combination with a Timer. This class
@@ -31,7 +30,7 @@ public class RMCTask extends TimerTask
 	 * @param strWriter
 	 *            Instance of the StringWriter that shall be used
 	 */
-	public RMCTask(@NotNull StringWriter strWriter)
+	public RMCTask(StringWriter strWriter)
 	{
 		this.strWriter = strWriter;
 	}
