@@ -12,17 +12,13 @@ targetCompatibility = 1.11
 repositories {
     jcenter()
     mavenCentral()
-    maven { url "http://repo.maven.apache.org/maven2" }
+    //maven { url "http://repo.maven.apache.org/maven2" }
 }
 
 idea {
-<<<<<<< HEAD
-    project { languageLevel = '1.11' }
-=======
     project {
         languageLevel = '1.8'
     }
->>>>>>> parent of 54eb58e... cleaned build.gradle
     module {
         // https://gradle.org/docs/current/dsl/org.gradle.plugins.ide.idea.model.IdeaModule.html
         inheritOutputDirs = false
@@ -55,7 +51,6 @@ dependencies {
     compile(
             'org.slf4j:slf4j-api:1.7.25',
             'org.slf4j:slf4j-log4j12:1.7.25',
-<<<<<<< HEAD
             'log4j:log4j:1.2.17',
             'com.google.guava:guava:20.0',
             'org.apache.commons:commons-lang3:3.4',
@@ -65,9 +60,6 @@ dependencies {
             'org.jboss.byteman:byteman-bmunit:4.0.0-BETA1',
             'org.jboss.byteman:byteman:4.0.0-BETA1',
             'org.codehaus.groovy:groovy-all:2.4.10'
-=======
-            'log4j:log4j:1.2.17'
->>>>>>> parent of 54eb58e... cleaned build.gradle
     )
     testCompile(
             'junit:junit:4.12',
